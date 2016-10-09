@@ -1,0 +1,70 @@
+.div80 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.inputDiv {
+    width: 100%;
+    margin: 10px 0;
+    padding-right: 5px;
+    border: 1px solid grey;
+}
+
+.input {
+    width: 100%;
+    /*height: 30px;*/
+}
+
+/*Register*/
+
+.registerRow{
+    width: 100%;
+    text-align: center;
+    height: 25px;
+}
+
+.registerButtonLeft {
+    width: 50%;
+    float: left;
+}
+
+.registerButtonRight {
+    width: 50%;
+    float: right;
+}
+
+/*End of register*/
+
+/*Home*/
+
+.homeRow{
+    width: 100%;
+    text-align: center;
+}
+
+.homeLeft{
+    float: left;
+    width: 50%;
+    padding: 20px 0;
+}
+
+.homeRight{
+    float: right;
+    width: 50%;
+    padding: 20px 0;
+}
+/*End of Home*/

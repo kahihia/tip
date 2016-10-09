@@ -1,0 +1,74 @@
+<ion-view view-title="Register">
+    <ion-content>
+
+        <div class="div80 rtl">
+
+            <div class="header">טופס הרשמה</div>
+
+            <button class="button button-block button-positive">Facebook</button>
+
+            <div class="inputDiv">
+                <input type="text" class="input" placeholder="שם פרטי" ng-model="register.firstname">
+            </div>
+
+            <div class="inputDiv">
+                <input type="text" class="input" placeholder="שם משפחה" ng-model="register.lastname">
+            </div>
+
+            <div class="inputDiv">
+                <input type="email" class="input" placeholder="כתובת אימייל" ng-model="register.email">
+            </div>
+
+            <div class="inputDiv">
+                <input type="password" class="input" placeholder="בחר סיסמא שתזכור" ng-model="register.password">
+            </div>
+
+            <div class="inputDiv">
+                <select class="input" ng-model="register.gender">
+                    <option value="" selected>בחר מין</option>
+                    <option value="male">זכר</option>
+                    <option value="female">נקבה</option>
+                </select>
+            </div>
+
+            <div class="inputDiv">
+                <input type="date" class="input" placeholder="תאריך לידה" ng-model="register.birthday">
+            </div>
+
+            <div class="inputDiv">
+                <input type="text" g-places-autocomplete options="autocompleteOptions" class="input" placeholder="יישוב" ng-model="register.city">
+            </div>
+
+            <div class="registerRow">
+
+                <div class="registerButtonLeft">
+                    <input type="radio" ng-model="register.soldier" value="yes">
+                    חייל
+                </div>
+
+                <div class="registerButtonRight">
+                    <input type="radio" ng-model="register.soldier" value="no">
+                    אזרח
+                </div>
+
+            </div>
+
+            <div class="inputDiv" ng-show="register.soldier == 'yes'">
+                <input type="date" class="input" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">
+            </div>
+
+            <div class="inputDiv" ng-show="register.soldier == 'yes'">
+                <input type="date" class="input" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">
+            </div>
+
+            <div class="inputDiv">
+                <input type="text" class="input" placeholder="הזן קוד במידה וקיבלת מחבר" ng-model="register.code">
+            </div>
+
+            <button class="button button-block button-positive" ng-click="makeRegistration()">כניסה</button>
+
+        </div>
+
+
+    </ion-content>
+</ion-view>
