@@ -341,7 +341,7 @@ angular.module('starter.controllers', [])
             function(data){
 
                 $scope.question = data.data[0];
-                $scope.question.question_image = "http://tapper.co.il/tipli/php/" + $scope.question.question_image;
+                $scope.question.question_image = $rootScope.phpHost + $scope.question.question_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -554,102 +554,17 @@ angular.module('starter.controllers', [])
 
             } else {
 
-                // alert('Valid');
-                //
-                // // 2. collect everything in one variable
-                //
-                // var send_data = {
-                //
-                //         "user" : $localStorage.userid,
-                //         "firstname" : $scope.personalInformation.firstname,
-                //         "lastname" : $scope.personalInformation.lastname,
-                //         "email" : $scope.personalInformation.email,
-                //         "birthday" : $scope.personalInformation.birthday,
-                //         "password" : ''
-                //
-                // };
-                //
-                // if ($scope.personalInformation.new_password != ""){
-                //
-                //     send_data.password = $scope.personalInformation.new_password;
-                //
-                // } else {
-                //
-                //     send_data.password = $localStorage.password;
-                //
-                // }
-                //
-                // // 3. send update info
-                //
-                // $http.post($rootScope.host + 'updateProfile', send_data, {
-                //
-                //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-                //
-                // }).then(
-                //
-                //     function(data){
-                //
-                //        if (data.data[0].status == '1'){
-                //
-                //            $localStorage.firstname = send_data.firstname;
-                //            $localStorage.lastname = send_data.lastname;
-                //            $localStorage.email = send_data.email;
-                //            $localStorage.birthday = send_data.birthday;
-                //            $localStorage.password = send_data.password;
-                //
-                //            if ($scope.personalInformation.new_password != ""){
-                //
-                //                $localStorage.password = send_data.password;
-                //
-                //            }
-                //
-                //            $ionicPopup.alert({
-                //                title: "The information is successfully updated!",
-                //                buttons: [{
-                //                    text: 'OK',
-                //                    type: 'button-positive'
-                //                }]
-                //            })
-                //
-                //        } else {
-                //
-                //            $ionicPopup.alert({
-                //                title: "The data was not updated!",
-                //                buttons: [{
-                //                    text: 'OK',
-                //                    type: 'button-positive'
-                //                }]
-                //            })
-                //
-                //
-                //        }
-                //
-                //     },
-                //
-                //     function(error){
-                //
-                //         $ionicPopup.alert({
-                //             title: "No network connection!",
-                //             buttons: [{
-                //                 text: 'OK',
-                //                 type: 'button-positive'
-                //             }]
-                //         })
-                //
-                //     }
-                // );
+                // 2. upload userpic
 
-                alert($scope.userpic);
+                // alert($scope.userpic);
 
                 var options = new FileUploadOptions();
 
                 options.mimeType = "image/jpeg";
                 options.fileKey = "file";
 
-                // options.fileName = $scope.userpic.substr(($scope.userpic.lastIndexOf("/")+1), $scope.userpic.indexOf("?"));
-                options.fileName = "uploaded_file.jpg";
-                // options.fileName = $scope.userpic.substr($scope.userpic.lastIndexOf('/') + 1);
-                alert(options.fileName);
+                options.fileName = $scope.userpic.substr(($scope.userpic.lastIndexOf("/")+1), $scope.userpic.indexOf("?"));
+                // alert(options.fileName);
 
                 var params = {};
                 options.params = params;
@@ -660,11 +575,101 @@ angular.module('starter.controllers', [])
 
                     alert(JSON.stringify(data.response));
 
+                    // 3. on success - collect everything in one variable
+
+                    var send_data = {
+
+                            "user" : $localStorage.userid,
+                            "firstname" : $scope.personalInformation.firstname,
+                            "lastname" : $scope.personalInformation.lastname,
+                            "email" : $scope.personalInformation.email,
+                            "birthday" : $scope.personalInformation.birthday,
+                            "image" : data.response,
+                            "password" : ''
+
+                    };
+
+                    if ($scope.personalInformation.new_password != ""){
+
+                        send_data.password = $scope.personalInformation.new_password;
+
+                    } else {
+
+                        send_data.password = $localStorage.password;
+
+                    }
+
+                    alert(send_data);
+
+                    // 3. send update info
+
+                    $http.post($rootScope.host + 'updateProfile', send_data, {
+
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                    }).then(
+
+                        function(data){
+
+                           if (data.data[0].status == '1'){
+
+                               $localStorage.firstname = send_data.firstname;
+                               $localStorage.lastname = send_data.lastname;
+                               $localStorage.email = send_data.email;
+                               $localStorage.birthday = send_data.birthday;
+                               // $localStorage.image = $rootScope.phpHost + send_data.image;
+                               $localStorage.password = send_data.password;
+
+                               // alert($localStorage.image);
+
+                               if ($scope.personalInformation.new_password != ""){
+
+                                   $localStorage.password = send_data.password;
+
+                               }
+
+                               $ionicPopup.alert({
+                                   title: "The information is successfully updated!",
+                                   buttons: [{
+                                       text: 'OK',
+                                       type: 'button-positive'
+                                   }]
+                               })
+
+                           } else {
+
+                               $ionicPopup.alert({
+                                   title: "The data was not updated!",
+                                   buttons: [{
+                                       text: 'OK',
+                                       type: 'button-positive'
+                                   }]
+                               })
+
+
+                           }
+
+                        },
+
+                        function(error){
+
+                            $ionicPopup.alert({
+                                title: "No network connection!",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            })
+
+                        }
+                    );
+
                 }, function(err){
 
                     alert(JSON.stringify(err));
 
                 }, options);
+
 
             }
 

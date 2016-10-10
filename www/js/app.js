@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic', 'starter.controllers',
     'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
 
-    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup) {
+    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -39,6 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers',
         // global variables
 
         $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
+        $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
         $rootScope.isAnswerCorrect = false;
         $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
         $rootScope.userData = {
@@ -54,7 +55,6 @@ angular.module('starter', ['ionic', 'starter.controllers',
         $rootScope.currentState = "";
 
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-
 
 
         $ionicPlatform.ready(function () {

@@ -7,6 +7,10 @@
     direction: rtl;
 }
 
+.ltr {
+    direction: ltr;
+}
+
 .textCenter {
     text-align: center;
 }
