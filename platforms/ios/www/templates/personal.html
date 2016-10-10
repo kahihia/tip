@@ -1,0 +1,75 @@
+<ion-view view-title="Personal">
+    <ion-content>
+
+        <div class="header">אזור אישי</div>
+
+        <div class="button-bar">
+            <a class="button" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
+            <a class="button" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
+            <a class="button" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
+        </div>
+
+        <div ng-switch="selection" class="textCenter">
+
+            <div ng-switch-when="profile">
+
+                <div class="div80">
+
+                    <div class="inputDiv">
+                        <input type="text" class="input" ng-model="personalInformation.firstname">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="text" class="input" ng-model="personalInformation.lastname">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="email" class="input" ng-model="personalInformation.email">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="date" class="input" ng-model="personalInformation.birthday">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="password" class="input" placeholder="סיסמא ישנה" ng-model="personalInformation.old_password">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="password" class="input" placeholder="סיסמא חדשה" ng-model="personalInformation.new_password">
+                    </div>
+
+                    <div class="personalUserpicDiv">
+
+                        <div class="personalUserpic">
+                            <button class="button button-positive button-small" ng-click="getPhoto()">Gallery</button>
+                        </div>
+
+                        <div class="personalUserpic" ng-show="userpic != ''">
+                            <img ng-src={{userpic}} width="70">
+                        </div>
+
+                        <div class="personalUserpicRight">
+                            הוסף תמונה מהגלריה שלך
+                        </div>
+
+                    </div>
+
+                    <button class="button button-positive button-block" ng-click="saveChanges()">שמור שינוים</button>
+
+                </div>
+
+            </div>
+
+            <div ng-switch-when="personal">
+                Personal
+            </div>
+
+            <div ng-switch-when="message">
+                Message
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
