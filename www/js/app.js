@@ -22,6 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers',
             }
         });
 
+
         // what time is it now?
 
         $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
@@ -42,6 +43,9 @@ angular.module('starter', ['ionic', 'starter.controllers',
         $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
         $rootScope.isAnswerCorrect = false;
         $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+        $rootScope.correctAnswers = 0;
+        $rootScope.incorrectAnswers = 0;
+        $rootScope.allPoints = 0;
         $rootScope.userData = {
             "firstname" : $localStorage.firstname,
             "lastname" : $localStorage.lastname,
@@ -51,8 +55,11 @@ angular.module('starter', ['ionic', 'starter.controllers',
             "soldier" : $localStorage.soldier,
             "userid" : $localStorage.userid
         };
+        $rootScope.image = $localStorage.image;
         $rootScope.categories = [];
-        $rootScope.currentState = "";
+        $rootScope.currState = $state;
+        $rootScope.navTitle = '<img src="img/logo.png" style="height: 30px; margin-top: 5px;">';
+        $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
 
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
@@ -77,23 +84,27 @@ angular.module('starter', ['ionic', 'starter.controllers',
             //
             //             $timeout(function () {
             //
-            //                 if ($rootScope.currentState != 'app.register' ||
-            //                     $rootScope.currentState != 'app.teaser' ||
-            //                     $rootScope.currentState != 'app.question' ||
-            //                     $rootScope.currentState != 'app.answer' ||
-            //                     $rootScope.currentState != 'app.discount') {
+            //                 $rootScope.$watch('currState.current.name', function() {
             //
-            //                     $ionicPopup.alert({
-            //                         title: data.data[0].title,
-            //                         buttons: [{
-            //                             text: 'OK',
-            //                             type: 'button-positive'
-            //                         }]
-            //                     });
+            //                     if ($rootScope.currState.current.name != 'app.register' &&
+            //                         $rootScope.currState.current.name != 'app.teaser' &&
+            //                         $rootScope.currState.current.name != 'app.question' &&
+            //                         $rootScope.currState.current.name != 'app.answer' &&
+            //                         $rootScope.currState.current.name != 'app.discount') {
             //
-            //                 }
+            //                         $ionicPopup.alert({
+            //                             title: data.data[0].title,
+            //                             buttons: [{
+            //                                 text: 'OK',
+            //                                 type: 'button-positive'
+            //                             }]
+            //                         });
             //
-            //             }, 2000)
+            //                     }
+            //
+            //                 });
+            //
+            //             }, 60000)
             //
             //         },
             //
@@ -136,6 +147,27 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 });
 
         });
+
+
+        // which route should I use?
+
+        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+        //
+        //     if (toState.name == 'app.home' && !$localStorage.userid){
+        //
+        //         console.log(toState.name);
+        //
+        //         $state.go('app.register');
+        //
+        //     } else if (toState.name == 'app.home' && $localStorage.userid == "") {
+        //
+        //         console.log(toState.name);
+        //
+        //         $state.go('app.login');
+        //
+        //     }
+        //
+        // });
 
 
     })
@@ -246,6 +278,16 @@ angular.module('starter', ['ionic', 'starter.controllers',
                     'menuContent': {
                         templateUrl: 'templates/information.html',
                         controller: 'InformationCtrl'
+                    }
+                }
+            })
+
+            .state('app.article', {
+                url: '/article/:articleId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/article.html',
+                        controller: 'ArticleCtrl'
                     }
                 }
             })

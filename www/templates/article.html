@@ -1,0 +1,44 @@
+<ion-view view-title="Article">
+    <ion-content>
+
+        <div class="textRight">
+
+            <div class="articleHeaderRow">
+
+                <div class="articleHeaderRight">{{categoryName}}</div>
+
+                <div class="articleHeaderLeft">
+                    <button class="button button-small button-positive" ui-sref="app.information">Back</button>
+                </div>
+
+            </div>
+
+            <div ng-repeat="item in content">
+
+                <hr>
+
+                <div>{{item.title}}</div>
+
+                <div>{{item.desc}}</div>
+
+                <div><img ng-src={{item.image}} style="width: 100%;"></div>
+
+                <div class="articleButtons">
+                    <a href="mailto:{{item.email}}" ng-show="item.email != ''" class="button button-small button-positive">
+                        Email
+                    </a>
+                    <a href="tel:{{item.phone}}" ng-show="item.phone != ''" class="button button-small button-positive">
+                        Phone
+                    </a>
+                    <button class="button button-small button-positive" ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)">Youtube</button>
+                    <button ng-show="item.landingpage != ''" class="button button-small button-positive" ng-click="goToPage(item.landingpage)">Page</button>
+                </div>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

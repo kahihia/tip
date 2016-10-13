@@ -9,7 +9,7 @@
 
                 <div class="homeRight">
                     <button class="button button-balanced" ng-click="checkState()">שאלה+צ'ופר</button>
-                    <div ng-show="isQuestionAnswered == false">טרם מומש</div>
+                    <div ng-show="isQuestionAnswered == false || !isQuestionAnswered">טרם מומש</div>
                     <div ng-show="isQuestionAnswered == true">מומש</div>
                 </div>
 
@@ -24,7 +24,7 @@
 
                 <div class="homeRight">
                     <button class="button button-energized" ui-sref="app.personal">אזור אישי</button>
-                    <div>צברת ??? נק</div>
+                    <div>צברת {{allPoints}} נק</div>
                 </div>
 
                 <div class="homeLeft">

@@ -15,6 +15,10 @@
     text-align: center;
 }
 
+.textRight {
+    text-align: right;
+}
+
 .header {
     width: 100%;
     text-align: center;
@@ -95,4 +99,76 @@
 
 }
 
+.personalTableRow {
+    width: 100%;
+    overflow: hidden;
+}
+
+.personalTableLeft {
+    width: 20%;
+    float: left;
+    text-align: left;
+}
+
+.personalTableRight {
+    width: 80%;
+    float: right;
+    text-align: right;
+}
+
+.personalTextarea {
+    width: 100%;
+    text-align: right;
+}
 /*End of personal*/
+
+/*Article*/
+
+.articleHeaderRow {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 10px;
+}
+
+.articleHeaderRight {
+    width: 80%;
+    float: right;
+    text-align: right;
+}
+
+.articleHeaderLeft {
+    width: 20%;
+    float: left;
+    text-align: left;
+}
+
+.articleButtons {
+    width: 100%;
+}
+/*End of article*/
+
+/*Video popup*/
+.popupVideo .popup
+{
+    background-color: transparent;
+    padding-top: 30px;
+    width: 350px;
+    height: 400px;
+}
+
+.popupVideo .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.videoCloseButton {
+    left:0;
+    top:-5px;
+    position:absolute;
+}
+
+.videoDiv{
+    padding-top: 10px
+}
+/*End of video popup*/

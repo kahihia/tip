@@ -77,6 +77,9 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },
     "dependent_plugins": {

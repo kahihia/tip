@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-    .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('AppCtrl', function ($scope, $localStorage, $ionicModal, $timeout, $state) {
 
         // With the new view caching in Ionic, Controllers are only called
         // when they are recreated or on app start, instead of every page change.
@@ -9,16 +9,18 @@ angular.module('starter.controllers', [])
         //$scope.$on('$ionicView.enter', function(e) {
         //});
 
+        $scope.logout = function() {
+
+            $localStorage.email = "";
+            $localStorage.password = "";
+            $localStorage.userid = "";
+            $state.go('app.login');
+
+        }
 
     })
 
     .controller('RegisterCtrl', function ($scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
-
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
 
         $scope.autocompleteOptions = {
             componentRestrictions: { country: 'il' },
@@ -123,7 +125,9 @@ angular.module('starter.controllers', [])
 
                         if (data.data.response.status == "0"){
 
-                            $localStorage.userId = data.data.response.userid;
+                            $localStorage.userid = data.data.response.userid;
+                            $localStorage.email = $scope.register.email;
+                            $rootScope.userData.email =  $localStorage.email;
                             $state.go('app.home');
 
                         } else {
@@ -168,15 +172,9 @@ angular.module('starter.controllers', [])
 
     .controller('LoginCtrl', function ($scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
 
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
-
         $scope.login = {
 
-            'email' : '',
+            'email' : $localStorage.email,
             'password' : ''
 
         };
@@ -231,8 +229,10 @@ angular.module('starter.controllers', [])
                             $localStorage.userid = data.data.response.userid;
                             $localStorage.soldier = data.data.response.soldier;
                             $localStorage.gender = data.data.response.gender;
+                            $localStorage.image = data.data.response.image;
 
                             $rootScope.userData = data.data.response;
+                            $rootScope.image = $localStorage.image;
 
                             $state.go('app.home');
 
@@ -289,13 +289,9 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('HomeCtrl', function ($scope, $rootScope, $localStorage, $state) {
+    .controller('HomeCtrl', function ($scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
 
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
+        // for discount and question link
 
         $scope.checkState = function(){
 
@@ -311,15 +307,60 @@ angular.module('starter.controllers', [])
 
         };
 
+
+        // get all user points
+
+        var send_user = {
+
+            "user" : $localStorage.userid
+
+        };
+
+        $http.post($rootScope.host + 'GetAnswers', send_user, {
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+        }).then(
+
+            function(data){
+
+                console.log(data);
+
+                for (var i = 0; i < data.data.length; i++){
+
+                    if (data.data[i].correct == "0"){
+
+                        $rootScope.incorrectAnswers += 1;
+
+                    } else if (data.data[i].correct == "1"){
+
+                        $rootScope.correctAnswers += 1;
+
+                    }
+
+                    $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
+
+                }
+
+            },
+
+            function(err){
+
+                $ionicPopup.alert({
+                    title: "No network connection!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            });
+
+
+
     })
 
     .controller('QuestionCtrl', function ($scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
-
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
 
         var send_data = {
 
@@ -340,8 +381,11 @@ angular.module('starter.controllers', [])
 
             function(data){
 
+                console.log(data);
+
                 $scope.question = data.data[0];
                 $scope.question.question_image = $rootScope.phpHost + $scope.question.question_image;
+                $scope.question.explain_image = $rootScope.phpHost + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -390,10 +434,7 @@ angular.module('starter.controllers', [])
 
         $scope.checkAnswer = function(){
 
-            $localStorage.isQuestionAnswered = true;
-            $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
-
-            $state.go('app.answer');
+            // check answer
 
             if ($scope.userAnswer.selected == $scope.question.correct_answer) {
 
@@ -407,15 +448,98 @@ angular.module('starter.controllers', [])
 
             console.log($rootScope.isAnswerCorrect);
 
+            // update the table answered_question
+
+            var send_question = {
+
+                "user" : $localStorage.userid,
+                "quantity" : "",
+                "correct" : ""
+
+            };
+
+            if ($rootScope.isAnswerCorrect == true){
+
+                send_question.quantity = "10";
+                send_question.correct = "1"
+
+            } else if ($rootScope.isAnswerCorrect == false){
+
+                send_question.quantity = "2";
+                send_question.correct = "0"
+
+            }
+
+            $http.post($rootScope.host + 'answerQuestion', send_question, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data);
+
+                    // update local variables
+
+                    $localStorage.isQuestionAnswered = true;
+                    $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+
+                    $state.go('app.answer');
+
+                },
+
+                function(error){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                })
+
         };
 
     })
 
-    .controller('DiscountCtrl', function ($scope, $rootScope, $state) {
+    .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
 
-        $scope.$on('$ionicView.enter', function() {
+        var send_data = {
 
-            $rootScope.currentState = $state.current.name;
+            'date' : $rootScope.today
+
+        };
+
+        $http.post($rootScope.host + 'GetDealByDate', send_data, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        console.log(data.data);
+
+                    },
+
+                    function(err){
+
+                        console.log(err);
+
+                    });
+
+        $scope.$on('$ionicView.enter', function () {
+
+            $ionicPopup.alert({
+                title: "מצב הנקודות שלי: " + $rootScope.allPoints,
+                buttons: [{
+                    text: 'OK',
+                    type: 'button-positive'
+                }]
+            });
 
         });
 
@@ -424,15 +548,11 @@ angular.module('starter.controllers', [])
 
     .controller('PersonalCtrl', function ($http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
-
         // select tab
 
         $scope.selection = 'personal';
+
+        // PROFILE
 
         // fill in personal info
 
@@ -450,6 +570,7 @@ angular.module('starter.controllers', [])
         // working with picture
 
         $scope.userpic = '';
+        $scope.userpicURL = '';
 
         $scope.getPhoto = function () {
 
@@ -473,6 +594,32 @@ angular.module('starter.controllers', [])
                 function(data){
 
                     $scope.userpic = data;
+
+                    alert($scope.userpic);
+
+                    var options = new FileUploadOptions();
+
+                    options.mimeType = "jpeg";
+                    options.fileKey = "file";
+                    options.chunkedMode = false;
+
+                    // options.fileName = $scope.userpic.substr(($scope.userpic.lastIndexOf("/")+1), $scope.userpic.indexOf("?"));
+                    // alert(options.fileName);
+
+                    var ft = new FileTransfer();
+
+                    ft.upload($scope.userpic, encodeURI($rootScope.host + "uploadImage"), function(data){
+
+                        alert(JSON.stringify(data.response));
+                        $scope.userpicURL = $rootScope.phpHost + data.response;
+                        $localStorage.image = $scope.userpicURL;
+                        $rootScope.image = $localStorage.image;
+
+                    }, function(err){
+
+                        alert(JSON.stringify(err));
+
+                    }, options);
 
                 },
 
@@ -554,27 +701,6 @@ angular.module('starter.controllers', [])
 
             } else {
 
-                // 2. upload userpic
-
-                // alert($scope.userpic);
-
-                var options = new FileUploadOptions();
-
-                options.mimeType = "image/jpeg";
-                options.fileKey = "file";
-
-                options.fileName = $scope.userpic.substr(($scope.userpic.lastIndexOf("/")+1), $scope.userpic.indexOf("?"));
-                // alert(options.fileName);
-
-                var params = {};
-                options.params = params;
-
-                var ft = new FileTransfer();
-
-                ft.upload($scope.userpic, encodeURI($rootScope.host + "uploadImage"), function(data){
-
-                    alert(JSON.stringify(data.response));
-
                     // 3. on success - collect everything in one variable
 
                     var send_data = {
@@ -584,7 +710,7 @@ angular.module('starter.controllers', [])
                             "lastname" : $scope.personalInformation.lastname,
                             "email" : $scope.personalInformation.email,
                             "birthday" : $scope.personalInformation.birthday,
-                            "image" : data.response,
+                            "image" : $localStorage.image,
                             "password" : ''
 
                     };
@@ -599,7 +725,7 @@ angular.module('starter.controllers', [])
 
                     }
 
-                    alert(send_data);
+                    alert(JSON.stringify(send_data));
 
                     // 3. send update info
 
@@ -613,20 +739,42 @@ angular.module('starter.controllers', [])
 
                            if (data.data[0].status == '1'){
 
+                               // 4. if success, update localStorage and rootScope
+
                                $localStorage.firstname = send_data.firstname;
                                $localStorage.lastname = send_data.lastname;
                                $localStorage.email = send_data.email;
                                $localStorage.birthday = send_data.birthday;
-                               // $localStorage.image = $rootScope.phpHost + send_data.image;
                                $localStorage.password = send_data.password;
-
-                               // alert($localStorage.image);
 
                                if ($scope.personalInformation.new_password != ""){
 
                                    $localStorage.password = send_data.password;
 
                                }
+
+                               $rootScope.userData = {
+                                   "firstname" : $localStorage.firstname,
+                                   "lastname" : $localStorage.lastname,
+                                   "password" : $localStorage.password,
+                                   "email" : $localStorage.email,
+                                   "gender" : $localStorage.gender,
+                                   "soldier" : $localStorage.soldier,
+                                   "userid" : $localStorage.userid
+                               };
+
+                               $scope.personalInformation = {
+
+                                   "firstname" : $localStorage.firstname,
+                                   "lastname" : $localStorage.lastname,
+                                   "email" : $localStorage.email,
+                                   "birthday" : new Date($localStorage.birthday),
+                                   "old_password" : "",
+                                   "new_password" : ""
+
+                               };
+
+                               // 5. inform the user that everything is ok
 
                                $ionicPopup.alert({
                                    title: "The information is successfully updated!",
@@ -646,7 +794,6 @@ angular.module('starter.controllers', [])
                                    }]
                                })
 
-
                            }
 
                         },
@@ -664,12 +811,90 @@ angular.module('starter.controllers', [])
                         }
                     );
 
-                }, function(err){
+            }
 
-                    alert(JSON.stringify(err));
+        };
 
-                }, options);
+        // MESSAGE TO A SPECIALIST
 
+        $scope.message = {
+
+            "subject" : ""
+
+        };
+
+        $scope.sendMessage = function(){
+
+            if ($scope.message.subject == ""){
+
+                $ionicPopup.alert({
+                    title: "Please write your message!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                })
+
+            } else {
+
+                var send_message = {
+
+                    "user" : $localStorage.userid,
+                    "message" : $scope.message.subject
+
+                };
+
+                console.log(send_message);
+
+                $http.post($rootScope.host + 'MessageSpecialist', send_message, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        if (data.data[0].status == "1"){
+
+                            $ionicPopup.alert({
+                                title: "פנייתך תועבר למומחה, תשובה בימים הקרובים",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            });
+
+                            $scope.message = {
+
+                                "subject" : ""
+
+                            };
+
+                        } else {
+
+                            $ionicPopup.alert({
+                                title: "No network connection!",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            });
+
+                        }
+
+                    },
+
+                    function(err){
+
+                        $ionicPopup.alert({
+                            title: "No network connection!",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    });
 
             }
 
@@ -679,47 +904,109 @@ angular.module('starter.controllers', [])
 
         .controller('CatalogCtrl', function ($scope, $rootScope, $http, $ionicPopup, $state) {
 
-        $scope.$on('$ionicView.enter', function() {
+        $http.post($rootScope.host + 'GetDeals', '', {
 
-            $rootScope.currentState = $state.current.name;
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-        });
+        }).then(
 
-        // $http.post($rootScope.host + 'GetDeals', '', {
-        //
-        //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-        //
-        // }).then(
-        //
-        //     function(data){
-        //
-        //         console.log(data);
-        //
-        //     },
-        //
-        //     function(err){
-        //
-        //         $ionicPopup.alert({
-        //             title: "No network connection!",
-        //             buttons: [{
-        //                 text: 'OK',
-        //                 type: 'button-positive'
-        //             }]
-        //         });
-        //
-        //     });
+            function(data){
+
+                console.log(data);
+
+            },
+
+            function(err){
+
+                $ionicPopup.alert({
+                    title: "No network connection!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            });
 
     })
 
-    .controller('InformationCtrl', function ($scope, $rootScope, $state) {
+    .controller('InformationCtrl', function ($scope) {
 
-        $scope.$on('$ionicView.enter', function() {
-
-            $rootScope.currentState = $state.current.name;
-
-        });
 
     })
 
+    .controller('ArticleCtrl', function ($scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+
+        $scope.categoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
+        $scope.content = {};
+
+        // get article for the page
+
+        var send_data = {
+
+            "catid" : $stateParams.articleId,
+            "issoldier" : $localStorage.soldier
+
+        };
+
+        $http.post($rootScope.host + 'GetInfoArticles', send_data, {
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+        }).then(
+
+            function(data){
+
+                $scope.content = data.data;
+
+                for (var i = 0; i < $scope.content.length; i++){
+
+                    $scope.content[i].image = $rootScope.phpHost + $scope.content[i].image;
+
+                }
+
+                console.log($scope.content);
+
+            },
+
+            function(err){
+
+                $ionicPopup.alert({
+                    title: "No network connection!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            });
+
+        // show video if needed
+
+        $scope.showVideo = function (x){
+
+            $scope.video = x;
+
+            var videoPopup = $ionicPopup.show({
+                templateUrl: 'templates/popup_video.html',
+                scope: $scope,
+                cssClass: 'popupVideo'
+            });
+
+            $scope.hideVideo = function () {
+
+                videoPopup.close();
+
+            };
+
+        };
+
+        $scope.goToPage = function(x){
+
+            cordova.InAppBrowser.open(x, '_system', 'location=yes');
+
+        };
+
+    })
 
 ;

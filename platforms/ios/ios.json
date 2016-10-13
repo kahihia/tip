@@ -51,6 +51,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -110,6 +114,9 @@
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },
@@ -384,6 +391,15 @@
             "clobbers": [
                 "window.FileTransfer"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -396,6 +412,7 @@
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-file": "4.3.0",
-        "cordova-plugin-file-transfer": "1.6.0"
+        "cordova-plugin-file-transfer": "1.6.0",
+        "cordova-plugin-inappbrowser": "1.5.0"
     }
 }
