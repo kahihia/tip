@@ -85,11 +85,13 @@ Copy Text
 .registerButtonLeft {
     width: 50%;
     float: left;
+	font-size:20px;
 }
 
 .registerButtonRight {
     width: 50%;
     float: right;
+	font-size:20px;
 }
 
 /*End of register*/
@@ -242,7 +244,7 @@ Copy Text
 	width: 100%;
     text-align: center;
     margin: 0px 0;
-	padding:10px;
+	padding:5px;
 	font-size:18px;
 }
 
@@ -522,6 +524,58 @@ Copy Text
 	text-align:right;
 	margin-top:5px;
 }
+
+
+/* LogIn page* */
+
+.loginFooter
+{
+	width:100%;
+	overflow:hidden;
+	margin-top:30px;
+}
+
+.loginFooterLeft
+{
+	width:30%;
+	float:left;
+}
+
+.loginFooterRight
+{
+	width:30%;
+	float:right;
+}
+
+
+/* Register Page*/
+.registerFacebook
+{
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

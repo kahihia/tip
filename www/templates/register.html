@@ -1,30 +1,37 @@
-<ion-view view-title="Register">
-    <ion-content>
-
-        <div class="div80 rtl">
-
-            <div class="header">טופס הרשמה</div>
-
-            <button class="button button-block button-positive">Facebook</button>
-
-            <div class="inputDiv">
-                <input type="text" class="input" placeholder="שם פרטי" ng-model="register.firstname">
+<ion-view view-title="Register"  hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+                
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header PointsHeaderTitle">הרשמה</div>
+        <div class="div90 rtl mt20">
+            <div class="registerFacebook">
+            	<img src="img/reg_facebook.png" style="width:100%" />
             </div>
 
             <div class="inputDiv">
-                <input type="text" class="input" placeholder="שם משפחה" ng-model="register.lastname">
+                <input type="text" class="input textCenter ltr" placeholder="שם פרטי" ng-model="register.firstname">
             </div>
 
             <div class="inputDiv">
-                <input type="email" class="input" placeholder="כתובת אימייל" ng-model="register.email">
+                <input type="text" class="input textCenter ltr" placeholder="שם משפחה" ng-model="register.lastname">
             </div>
 
             <div class="inputDiv">
-                <input type="password" class="input" placeholder="בחר סיסמא שתזכור" ng-model="register.password">
+                <input type="email" class="input textCenter ltr" placeholder="כתובת אימייל" ng-model="register.email">
             </div>
 
             <div class="inputDiv">
-                <select class="input" ng-model="register.gender">
+                <input type="password" class="input textCenter ltr" placeholder="בחר סיסמא שתזכור" ng-model="register.password">
+            </div>
+
+            <div class="inputDiv">
+                <select class="input textCenter ltr" ng-model="register.gender">
                     <option value="" selected>בחר מין</option>
                     <option value="0">זכר</option>
                     <option value="1">נקבה</option>
@@ -32,11 +39,11 @@
             </div>
 
             <div class="inputDiv">
-                <input type="date" class="input" placeholder="תאריך לידה" ng-model="register.birthday">
+                <input type="date" class="input textCenter ltr" placeholder="תאריך לידה" ng-model="register.birthday">
             </div>
 
             <div class="inputDiv">
-                <input type="text" g-places-autocomplete options="autocompleteOptions" class="input" placeholder="יישוב" ng-model="register.maps">
+                <input type="text" g-places-autocomplete options="autocompleteOptions" class="input textCenter ltr" placeholder="יישוב" ng-model="register.maps">
             </div>
 
             <div class="registerRow">
@@ -54,18 +61,22 @@
             </div>
 
             <div class="inputDiv" ng-show="register.soldier == '1'">
-                <input type="date" class="input" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">
+                <input type="date" class="input textCenter ltr" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">
             </div>
 
             <div class="inputDiv" ng-show="register.soldier == '1'">
-                <input type="date" class="input" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">
+                <input type="date" class="input textCenter ltr" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">
             </div>
 
             <div class="inputDiv">
-                <input type="text" class="input" placeholder="הזן קוד במידה וקיבלת מחבר" ng-model="register.code">
+                <input type="text" class="input textCenter ltr" placeholder="הזן קוד במידה וקיבלת מחבר" ng-model="register.code">
             </div>
-
-            <button class="button button-block button-positive" ng-click="makeRegistration()">כניסה</button>
+			
+            <div class="div90" style="margin-top:20px;" ng-click="makeRegistration()">
+           		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
+           </div>
+           
+           
 
         </div>
 
