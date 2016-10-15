@@ -1,43 +1,83 @@
 <ion-view view-title="Question">
     <ion-content>
+		<div>
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+                <div class="HomeMenuIcon" ui-sref="app.home">
+                	<img src="img/homeicon.png" style="width:100%" />
+                </div>
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        <div class="QuestinHeader">שאלה יומית מתאריך {{today}}</div>
+        
 
-        <div class="div80 rtl">
+          
 
-            <div class="header">שאלה יומית מתאריך {{today}}</div>
-
-            <div class="textCenter">{{question.question}}</div>
-
+        <div class="QuestionTitle">{{question.question}}</div>
+		<div class="div80 rtl" style="background-color:white;">
             <div ng-show="question.question_image != ''">
                 <img ng-src={{question.question_image}} style="width: 100%;">
             </div>
-
-            <div ng-show="question.question_youtube != ''">
+            
+            <div  ng-show="question.question_youtube != ''">
                 <youtube-video video-url="question.question_youtube" player-width="'100%'"></youtube-video>
             </div>
-
-            <div>
-                <input type="radio" ng-model="userAnswer.selected" value="1">
-                {{question.answer1}}
+		</div>
+        
+        <div class="Question">
+            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
+            <div class="QuestionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" />
+                </div>
             </div>
-
-            <div>
-                <input type="radio" ng-model="userAnswer.selected" value="2">
-                {{question.answer2}}
+            <div class="QuestionLeft">
+            	{{question.answer1}}
             </div>
-
-            <div>
-                <input type="radio" ng-model="userAnswer.selected" value="3">
-                {{question.answer3}}
-            </div>
-
-            <div>
-                <input type="radio" ng-model="userAnswer.selected" value="4">
-                {{question.answer4}}
-            </div>
-
-            <button class="button button-positive button-block" ng-click="checkAnswer()">המשך</button>
-
         </div>
+        <div class="Question">
+            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
+            <div class="QuestionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="QuestionLeft">
+            	{{question.answer2}}
+            </div>
+        </div>
+        <div class="Question">
+            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
+            <div class="QuestionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="QuestionLeft">
+            	{{question.answer3}}
+            </div>
+        </div>
+        <div class="Question">
+            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
+            <div class="QuestionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="QuestionLeft">
+            	{{question.answer4}}
+            </div>
+        </div>
+        
+		<div class="div80" style="margin-top:20px; background-color:white" ng-click="checkAnswer()">
+           		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
+        </div>
+        
+
+         
+
+        
 
     </ion-content>
 </ion-view>

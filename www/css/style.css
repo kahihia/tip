@@ -16,6 +16,15 @@
 	overflow:hidden;
 }
 
+.mt10
+{
+	margin-top:10px;
+}
+
+.mt20
+{
+	margin-top:20px;
+}
 .rtl {
     direction: rtl;
 }
@@ -481,11 +490,12 @@ Copy Text
 {
 	width:100%;
 	background-color:#f4d239;
-	padding:10px;
+	padding:20px;
 	text-align:center;
-	font-size:18px;
+	font-size:24px;
 	font-weight:300;
 	direction:rtl;
+	line-height:1.1;
 }
 
 .Question
@@ -502,7 +512,7 @@ Copy Text
 
 .QuestionRight div
 {
-	width:60%;
+	width:40%;
 }
 
 .QuestionLeft
@@ -510,7 +520,7 @@ Copy Text
 	float:right;
 	width:70%;
 	text-align:right;
-	margin-top:3px;
+	margin-top:5px;
 }
 
 

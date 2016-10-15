@@ -1,40 +1,52 @@
-<ion-view view-title="Article">
-    <ion-content>
-
+<ion-view view-title="Article" hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+                <div class="HomeMenuIcon" ui-sref="app.home">
+                	<img src="img/homeicon.png" style="width:100%" />
+                </div>
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header PointsHeaderTitle">מידע שימושי</div>
+        <div class="articlTitle">
+        	  <div ui-sref="app.information" class="articlTitleLeft" align="left">
+              		<div>
+              			<img src="img/info_back_button.png" style="width:100%" />
+                    </div>
+        	  </div>
+              <div class="articlTitleRight" >
+              		<p>{{categoryName}}</p>
+        	  </div>
+        </div>
+        <div class="yellowRow"></div>
+        
         <div class="textRight">
+            <div ng-repeat="item in content"> 
+				<div><img ng-src={{item.image}} style="width: 100%;"></div>
+                <div class="articlDiscription">{{item.desc}}</div>
 
-            <div class="articleHeaderRow">
-
-                <div class="articleHeaderRight">{{categoryName}}</div>
-
-                <div class="articleHeaderLeft">
-                    <button class="button button-small button-positive" ui-sref="app.information">Back</button>
-                </div>
-
-            </div>
-
-            <div ng-repeat="item in content">
-
-                <hr>
-
-                <div>{{item.title}}</div>
-
-                <div>{{item.desc}}</div>
-
-                <div><img ng-src={{item.image}} style="width: 100%;"></div>
-
+            
                 <div class="articleButtons">
-                    <a href="mailto:{{item.email}}" ng-show="item.email != ''" class="button button-small button-positive">
-                        Email
+                    <a href="mailto:{{item.email}}" ng-show="item.email != ''" >
+                        <img src="img/info_i3.png" style="width:33px;" />
                     </a>
-                    <a href="tel:{{item.phone}}" ng-show="item.phone != ''" class="button button-small button-positive">
-                        Phone
+                    <a href="tel:{{item.phone}}" ng-show="item.phone != ''">
+                        <img src="img/info_i2.png" style="width:33px;" />
                     </a>
-                    <button class="button button-small button-positive" ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)">Youtube</button>
-                    <button ng-show="item.landingpage != ''" class="button button-small button-positive" ng-click="goToPage(item.landingpage)">Page</button>
+                    <a ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)" >
+                        <img src="img/info_i4.png" style="width:33px;" />
+                    </a>
+                    <a ng-show="item.landingpage != ''" ng-click="goToPage(item.landingpage)">
+                        <img src="img/info_i1.png" style="width:33px;" />
+                    </a>
+                   <!-- <button class="button button-small button-positive" ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)">Youtube</button>
+                    <button ng-show="item.landingpage != ''" class="button button-small button-positive" ng-click="goToPage(item.landingpage)">Page</button> -->
                 </div>
-
-                <hr>
+				<div class="yellowRow"></div>
+             
 
             </div>
 

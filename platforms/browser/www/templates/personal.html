@@ -11,15 +11,15 @@
             <!--</button>-->
         <!--</ion-nav-buttons>-->
     <!--</ion-nav-bar>-->
-    <ion-content>
-		<div>
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
         		<div class="sideMenuIcon">
                 	<img src="img/sidemenu.png" style="width:100%" />
                 </div>
             	<img src="img/header.png" style="width:100%" />
         </div>
         
-        <div class="header">אזור אישי</div>
+        <div class="header PointsHeaderTitle">אזור אישי</div>
 
         <div class="button-bar">  
             <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
@@ -31,7 +31,7 @@
 
             <div ng-switch-when="profile">
 
-                <div class="div80">
+                <div class="div90">
 
                     <div class="inputDiv">
                         <input type="text" class="input ltr" ng-model="personalInformation.firstname">
@@ -60,7 +60,7 @@
                     <div class="personalUserpicDiv">
 
                         <div class="personalUserpic">
-                            <button class="button button-positive button-small" ng-click="getPhoto()">Gallery</button>
+                            <img src="img/take_picture.png" style="width:100%" ng-click="getPhoto()"/>
                         </div>
 
                         <div class="personalUserpic" ng-show="userpic != ''">
@@ -76,8 +76,19 @@
                         </div>
 
                     </div>
+					
+                    <div class="personalUserpicDiv" style="margin-top:10px; margin-bottom:20px;" ng-click="saveChanges()">
 
-                    <button class="button button-positive button-block" ng-click="saveChanges()">שמור שינוים</button>
+                        <div class="personalUserpic">
+                            <img src="img/browse_icon.png" style="width:100%" />
+                        </div>
+						<div class="personalUserSaveChange">
+                            שמור שינויים
+                        </div>
+                       
+                    </div>
+                    
+                   
 
                     <!--<div>{{image}}</div>-->
 
@@ -86,45 +97,50 @@
             </div>
 
             <div ng-switch-when="personal">
-
-                <div class="div80">
-
-                    <div>צברתי מתחילת החודש 0 נקודות</div>
-
-                    <div> תשובה נכונה = 10 נקודות, תשובה לא נכונה = 2 נקודות</div>
-
+					<div class="pointTitle">
+                    	<div class="pointTitleHeader">צברתי מתחילת החודש 0 נקודות</div>
+                    	<div> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
+                    </div>
+                    
                     <div class="personalTableRow">
                         <div class="personalTableLeft">{{correctAnswers}}</div>
                         <div class="personalTableRight">תשובות נכונות החודש</div>
                     </div>
-
+                    <div class="yellowRow"></div>
                     <div class="personalTableRow">
                         <div class="personalTableLeft">{{incorrectAnswers}}</div>
                         <div class="personalTableRight">תשובות לא נכונות החודש</div>
                     </div>
-
+                    <div class="yellowRow"></div>
                     <div class="personalTableRow">
                         <div class="personalTableLeft">{{allPoints}}</div>
                         <div class="personalTableRight">נקודות שצברתי מעת ההרשמה</div>
                     </div>
-                </div>
+                    <div class="yellowRow"></div>
+               
 
-                <div>עונים על מינימום 15 שאלות נכון ונכנסים להגרלה החודשית!</div>
+                <div class="pointDescription">עונים על מינימום 15 שאלות נכון ונכנסים להגרלה החודשית!</div>
 
             </div>
 
             <div ng-switch-when="message">
 
-                <div class="div80">
+                <div class="div90">
 
-                    <div>טיפים והמלצות ממומחה בנושא תעבורה</div>
-
-                    <div>
-                        <textarea placeholder="הקלד ושלח - פנייתך תועבר למומחה, תשובה בימים הקרובים"
-                                  ng-model="message.subject" rows="5" class="personalTextarea"required></textarea>
+                    <div class="personalTipTitle">
+                    	<img src="img/personal_tip.png" style="width:100%" />
                     </div>
 
-                    <button class="button button-block button-positive" ng-click="sendMessage()">שלח</button>
+                    <div>
+                        <textarea placeholder="הכנס טקסט"
+                                  ng-model="message.subject" rows="10" class="personalTextarea"required></textarea>
+                    </div>
+					
+                    <div class="personalTipTitle" ng-click="sendMessage()">
+                    	<img src="img/personal_tip_button.png" style="width:100%" />
+                    </div>
+                    
+                   
 
                 </div>
 

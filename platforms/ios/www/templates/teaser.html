@@ -1,13 +1,47 @@
-<ion-view view-title="Teaser">
-    <ion-content>
-
-        <div class="div80">
+<ion-view view-title="Teaser" hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+                <div class="HomeMenuIcon" ui-sref="app.home">
+                	<img src="img/homeicon.png" style="width:100%" />
+                </div>
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        <div class="header PointsHeaderTitle">הצופ'ר היומי</div>
+        <div class="TeaserTitle"> שמלה קייצית דגם יפית</div>
+        <div class="TeaserInfo">
+       	   <div class="TeaserInfoLeft">
+           		<img src="img/teaser_logo.png" style="width:100%;" />
+                <div class="teaserRegularPriceText">מחיר רגיל</div>
+                <div class="teaserRegularPriceBlock">
+                	<img src="img/teaser_x.png" style="width:100%" />
+                </div>
+                <div class="teaserRegularPrice">242 <span> 	&#8362;</span></div>
+                <div class="teaserNewPriceText">מחיר חבר</div>
+                <div class="teaserRegularPrice">122 <span> 	&#x20aa;</span></div>
+           </div>
+           <div class="TeaserInfoRight">
+           		<img src="img/teaser_image.png" style="width:100%;" />
+           </div>
+           <div>
+           		<img src="img/mainbanner.png" style="width:100%; margin-top:-5px;" />
+           </div>
+           <div class="div80" style="margin-top:20px;" ui-sref="app.question">
+           		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
+           </div>
+        </div>
+       
+       
+       
+        <!--<div class="div80">
 
             <img src="http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg" style="width: 100%;">
 
             <button class="button button-positive button-block" ui-sref="app.question">המשך</button>
 
-        </div>
+        </div> -->
 
     </ion-content>
 </ion-view>

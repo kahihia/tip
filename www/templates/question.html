@@ -1,4 +1,4 @@
-<ion-view view-title="Question">
+<ion-view view-title="Question" hide-nav-bar="true">
     <ion-content>
 		<div>
         		<div class="sideMenuIcon">
@@ -16,7 +16,7 @@
 
         <div class="QuestionTitle">{{question.question}}</div>
 		<div class="div80 rtl" style="background-color:white;">
-            <div ng-show="question.question_image != ''">
+            <div class="mt10" ng-show="question.question_image != ''">
                 <img ng-src={{question.question_image}} style="width: 100%;">
             </div>
             
@@ -25,7 +25,7 @@
             </div>
 		</div>
         
-        <div class="Question">
+        <div class="Question mt10">
             <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
             <div class="QuestionRight" align="center">
             	<div>
