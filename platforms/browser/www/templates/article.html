@@ -31,9 +31,7 @@
                         Phone
                     </a>
                     <button class="button button-small button-positive" ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)">Youtube</button>
-                    <a href="{{item.landingpage}}" ng-show="item.landingpage != ''">
-                        <button class="button button-small button-positive" >Page</button>
-                    </a>
+                    <button ng-show="item.landingpage != ''" class="button button-small button-positive" ng-click="goToPage(item.landingpage)">Page</button>
                 </div>
 
                 <hr>

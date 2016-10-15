@@ -1,39 +1,61 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" hide-nav-bar="true">
     <ion-content>
-
-        <div class="div80">
-
-            <div class="header">תפריט ראשי</div>
-
-            <div class="homeRow">
-
-                <div class="homeRight">
-                    <button class="button button-balanced" ng-click="checkState()">שאלה+צ'ופר</button>
-                    <div ng-show="isQuestionAnswered == false || !isQuestionAnswered">טרם מומש</div>
-                    <div ng-show="isQuestionAnswered == true">מומש</div>
+		<div>
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
                 </div>
-
-                <div class="homeLeft">
-                    <button class="button button-positive" ui-sref="app.catalog">קתלוג</button>
-                    <div>הטבות השבוע</div>
-                </div>
-
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        <div class="header">עמוד הבית</div>
+        
+        <div class="div100" >
+            <div class="div80" align="center">
+                <div class="homeIcons">
+                        <div class="homeRow">
+            
+                            <div class="homeRight" ng-click="checkState()">
+                                <img src="img/menu_icon_2.png" style="width:100%" />
+                                <div ng-show="isQuestionAnswered == false || !isQuestionAnswered" class="homeIconBlackDiscription">
+                                	טרם מומש
+                                </div>
+                                <div ng-show="isQuestionAnswered == true" class="homeIconBlackDiscription">
+                                	מומש
+                                </div>
+                            </div>
+            
+                            <div class="homeLeft" ui-sref="app.catalog">
+                              
+                                <img src="img/menu_icon_1.png" style="width:100%" />
+                                 <div class="homeIconBlackDiscription">
+                                	הטבות השבוע
+                                </div>
+                            </div>
+            
+                        </div>
+            
+                        <div class="homeRow">
+            
+                            <div class="homeRight" ui-sref="app.personal">
+                                <img src="img/menu_icon_3.png" style="width:100%" />
+                                <div class="homeIconBlackDiscription">
+                                	צברת {{allPoints}} נק
+                                </div>
+                            </div>
+            
+                            <div class="homeLeft" ui-sref="app.information">
+                                <img src="img/menu_icon_4.png" style="width:100%" />
+                                 <div class="homeIconBlackDiscription">
+                                	פניה למומחה
+                                </div>
+                            </div>
+            
+                        </div>
+                  </div>
+    
             </div>
-
-            <div class="homeRow">
-
-                <div class="homeRight">
-                    <button class="button button-energized" ui-sref="app.personal">אזור אישי</button>
-                    <div>צברת {{allPoints}} נק</div>
-                </div>
-
-                <div class="homeLeft">
-                    <button class="button button-royal" ui-sref="app.information">מידה שימושי</button>
-                    <div>פניה למומחה</div>
-                </div>
-
+            <div>
+            	<img src="img/mainbanner.png" style="width:100%" />
             </div>
-
         </div>
 
     </ion-content>

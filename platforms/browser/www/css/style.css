@@ -1,6 +1,12 @@
 .div80 {
     width: 80%;
     margin: 0 auto;
+	background-color:#ffd200;
+}
+
+.div100
+{
+	background-color:#ffd200;
 }
 
 .rtl {
@@ -23,6 +29,7 @@
     width: 100%;
     text-align: center;
     margin: 10px 0;
+	font-size:18px;
 }
 
 .inputDiv {
@@ -38,7 +45,7 @@
 }
 
 .activeTab {
-    background-color: greenyellow;
+    background-color: #ffffff !important;
 }
 
 /*Register*/
@@ -62,21 +69,38 @@
 /*End of register*/
 
 /*Home*/
+.homeIcons
+{
+	background-color:#ffd200;
+	padding:10px;
+	padding-bottom:50px;
+	padding-top:20px;
+}
+
 
 .homeRow{
     width: 100%;
     text-align: center;
+	overflow:hidden;
 }
 
 .homeLeft{
     float: left;
-    width: 50%;
+    width: 35%;
     padding: 20px 0;
+}
+
+.homeIconBlackDiscription
+{
+	background-color:black;
+	color:white;
+	padding:5px;
+	border-radius:20px;
 }
 
 .homeRight{
     float: right;
-    width: 50%;
+    width: 35%;
     padding: 20px 0;
 }
 /*End of Home*/
@@ -172,3 +196,21 @@
     padding-top: 10px
 }
 /*End of video popup*/
+
+/* Header Page*/
+.Header
+{
+	width:100%;
+}
+
+.sideMenuIcon
+{
+	width:30px; 
+	left:10px;
+	top:20px;
+	position:absolute;
+}
+
+
+
+

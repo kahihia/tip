@@ -507,6 +507,20 @@ angular.module('starter.controllers', [])
 
     .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
 
+        $scope.$on('$ionicView.enter', function () {
+
+            // $ionicPopup.alert({
+            //     title: "מצב הנקודות שלי: " + $rootScope.allPoints,
+            //     buttons: [{
+            //         text: 'OK',
+            //         type: 'button-positive'
+            //     }]
+            // });
+
+        });
+
+        $scope.todayDeal = {};
+
         var send_data = {
 
             'date' : $rootScope.today
@@ -521,7 +535,10 @@ angular.module('starter.controllers', [])
 
                     function(data){
 
-                        console.log(data.data);
+                        $scope.todayDeal = data.data[0];
+                        $scope.todayDeal.image = $rootScope.phpHost + $scope.todayDeal.image;
+                        $scope.todayDeal.image2 = $rootScope.phpHost + $scope.todayDeal.image2;
+                        console.log($scope.todayDeal);
 
                     },
 
@@ -530,18 +547,6 @@ angular.module('starter.controllers', [])
                         console.log(err);
 
                     });
-
-        $scope.$on('$ionicView.enter', function () {
-
-            $ionicPopup.alert({
-                title: "מצב הנקודות שלי: " + $rootScope.allPoints,
-                buttons: [{
-                    text: 'OK',
-                    type: 'button-positive'
-                }]
-            });
-
-        });
 
     })
 
@@ -999,7 +1004,15 @@ angular.module('starter.controllers', [])
 
             };
 
-        }
+        };
+
+        // go to landing page if needed
+
+        $scope.goToPage = function(x){
+
+            cordova.InAppBrowser.open(x, '_system', 'location=yes');
+
+        };
 
     })
 

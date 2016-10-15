@@ -1,4 +1,4 @@
-<ion-view view-title={{navTitle}}>
+<ion-view view-title="" hide-nav-bar="true">
     <!--<ion-nav-bar class="bar" align-title="center">-->
         <!--<ion-nav-buttons side="left">-->
             <!--<button class="button">-->
@@ -12,13 +12,19 @@
         <!--</ion-nav-buttons>-->
     <!--</ion-nav-bar>-->
     <ion-content>
-
+		<div>
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
         <div class="header">אזור אישי</div>
 
-        <div class="button-bar">
-            <a class="button" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
-            <a class="button" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
-            <a class="button" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
+        <div class="button-bar">  
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">

@@ -1,9 +1,21 @@
 <ion-view view-title="Discount">
     <ion-content>
 
-        <!--<iframe src="https://www.meitar.co/ProductPage.asp?ProductID=221&SubCatID=21" style="width: 100%; height: 100vh;"></iframe>-->
+        <div class="textRight">
 
-        Discount here
+            <div>{{todayDeal.title}}</div>
+
+            <div><img ng-src={{image}} style="width: 60%; margin: 0 auto;"></div>
+
+            <div>מחיר רגיל:</div>
+            <div> {{todayDeal.regular_price}}</div>
+
+            <div>מחיר חבר:</div>
+            <div> {{todayDeal.member_price}}</div>
+
+            <div>פרטי ההטבה</div>
+            <div>{{todayDeal.desc}}</div>
+        </div>
 
     </ion-content>
 </ion-view>

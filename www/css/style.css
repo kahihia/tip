@@ -1,6 +1,19 @@
 .div80 {
     width: 80%;
     margin: 0 auto;
+	background-color:#ffd200;
+}
+
+.div90 {
+    width: 90%;
+    margin: 0 auto;
+	background-color:#ffd200;
+}
+
+.div100
+{
+	background-color:#ffd200;
+	overflow:hidden;
 }
 
 .rtl {
@@ -9,6 +22,17 @@
 
 .ltr {
     direction: ltr;
+	border:none;
+	padding:10px;
+	border-radius:30px;
+	padding-top:10px !important;
+	height:45px !important;
+	
+	-webkit-box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
+-moz-box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
+box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
+Copy Text
+
 }
 
 .textCenter {
@@ -23,13 +47,13 @@
     width: 100%;
     text-align: center;
     margin: 10px 0;
+	font-size:18px;
 }
 
 .inputDiv {
     width: 100%;
     margin: 10px 0;
     padding-right: 5px;
-    border: 1px solid grey;
 }
 
 .input {
@@ -38,7 +62,7 @@
 }
 
 .activeTab {
-    background-color: greenyellow;
+    background-color: #ffffff !important;
 }
 
 /*Register*/
@@ -62,46 +86,83 @@
 /*End of register*/
 
 /*Home*/
+.homeIcons
+{
+	background-color:#ffd200;
+	padding:10px;
+	padding-bottom:50px;
+	padding-top:20px;
+}
+
 
 .homeRow{
     width: 100%;
     text-align: center;
+	overflow:hidden;
 }
 
 .homeLeft{
     float: left;
-    width: 50%;
+    width: 35%;
     padding: 20px 0;
+}
+
+.homeIconBlackDiscription
+{
+	background-color:black;
+	color:white;
+	padding:5px;
+	border-radius:20px;
 }
 
 .homeRight{
     float: right;
-    width: 50%;
+    width: 35%;
     padding: 20px 0;
 }
 /*End of Home*/
 
 /*Personal*/
-.personalUserpicDiv {
+.personalUserpicDiv 
+{
     width: 100%;
+	overflow:hidden;
+	background-color:black;
+	border-radius:50px;
+	padding:5px;
 }
 
 .personalUserpic{
-    width: 33%;
+    width: 23%;
     float: left;
-    padding: 20px 0;
+    padding: 0px 0;
+}
+
+.personalUserSaveChange
+{
+	width: 70%;
+    float: left;
+	text-align:center;
+	color:white;
+	margin-top:30px;
+	font-size:18px;
 }
 
 .personalUserpicRight {
     width: 33%;
     float: right;
-    padding: 20px 0;
-
+    padding: 0px 0;
+	margin-top:12px;
+	color:white;
 }
 
 .personalTableRow {
     width: 100%;
     overflow: hidden;
+	background-color:white;
+	color:black;
+	padding:15px;
+	font-size:20px;
 }
 
 .personalTableLeft {
@@ -119,10 +180,120 @@
 .personalTextarea {
     width: 100%;
     text-align: right;
+	padding:20px;
+	border-radius:20px;
+	margin-top:10px;
 }
+
+.pointTitle
+{
+	background-color:black;
+	padding:15px;
+	color:white;
+}
+
+.pointTitleHeader
+{
+	font-size:19px;
+	font-weight:bold;
+}
+
+.yellowRow
+{
+	width:100%;
+	height:10px;
+	background-color:#f2d037;
+}
+
+.pointDescription
+{
+	width:100%;
+	padding:20px;
+	direction:rtl;
+	font-size:18px;
+	color:white;
+	font-weight:bold;
+	background-color:black;
+}
+
+
+.pointsContent
+{
+	background-color:#ffd200;
+}
+
+.pointsHeader
+{
+	background-color:white;
+}
+
+.PointsHeaderTitle
+{
+	background-color:white;
+	width: 100%;
+    text-align: center;
+    margin: 0px 0;
+	padding:10px;
+	font-size:18px;
+}
+
+.personalTipTitle
+{
+	margin-top:10px;
+}
+
 /*End of personal*/
 
 /*Article*/
+
+.articlTitle
+{
+	width:100%;
+	overflow:hidden;
+	background-color:#c6a502;
+}
+
+.articlTitleLeft
+{
+	width:50%;
+	padding:5px;
+	float:left;
+	border-right:1px solid white;
+}
+
+.articlTitleLeft div
+{
+	width:40%; 
+	margin-left:10px;
+}
+
+.articlTitleRight
+{
+	float:right;
+	width:49%;
+	padding:5px;
+}
+
+.articlTitleRight p
+{
+	width:100%;
+	text-align:center;
+	color:white;
+	font-size:17px;
+	margin-top:11px;
+	font-weight:100;
+}
+
+.articlDiscription
+{
+	padding:10px;
+	background-color:#f8f1c7;
+	margin-top:-10px !important;
+	font-size:14px;
+	font-weight:100;
+	padding-bottom:20px;
+}
+
 
 .articleHeaderRow {
     width: 100%;
@@ -144,7 +315,11 @@
 
 .articleButtons {
     width: 100%;
+	background-color:#d9ce98;
+	padding:5px;
+	padding-bottom:0px;
 }
+
 /*End of article*/
 
 /*Video popup*/
@@ -172,3 +347,135 @@
     padding-top: 10px
 }
 /*End of video popup*/
+
+/* Header Page*/
+.Header
+{
+	width:100%;
+}
+
+.sideMenuIcon
+{
+	width:30px; 
+	left:10px;
+	top:20px;
+	position:absolute;
+}
+
+.HomeMenuIcon
+{
+	width:30px; 
+	right:10px;
+	top:25px;
+	position:absolute;
+}
+
+/* Information Page*/
+
+.informationRight
+{
+	float:right;
+	width:50%;
+}
+
+.informationLeft
+{
+	float:left;
+	width:50%;
+}
+
+.infoLeft
+{
+	width:100%;
+	overflow:hidden;
+	margin-top:-8px;
+}
+
+.infoLeft1
+{
+	width:50%;
+	float:left;
+}
+
+/* Teaser */
+
+.TeaserTitle
+{
+	width:100%;
+	text-align:center;
+	padding:12px;
+	direction:rtl;
+	font-size:25px;
+	font-weight:200;
+}
+
+.TeaserInfo
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.TeaserInfoRight
+{
+	width:70%;
+	float:right;
+}
+
+.TeaserInfoLeft
+{
+	width:30%;
+	float:left;
+}
+
+.teaserRegularPriceText
+{
+	padding:2px;
+	text-align:center;
+	font-size:16px;
+	font-weight:100;
+	margin-top:-5px;
+	background-color:white;
+	direction:rtl;
+}
+
+.teaserNewPriceText
+{
+	padding:2px;
+	text-align:center;
+	font-size:16px;
+	font-weight:100;
+	background-color:black;
+	margin-top:-2px;
+	color:#ffd200;
+}
+
+.teaserRegularPrice
+{
+	padding:8px;
+	text-align:center;
+	font-size:25px;
+	font-weight:300;
+	direction:rtl;
+}
+
+.teaserRegularPriceBlock
+{
+	position:absolute;
+	width:32px;
+	margin-left:14%;
+	margin-top:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
