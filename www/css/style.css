@@ -467,11 +467,51 @@ Copy Text
 }
 
 
+/* Question Page*/
 
+.QuestinHeader
+{
+	font-size:12px;
+	font-weight:200px;
+	text-align:center;
+	padding:4px;
+}
 
+.QuestionTitle
+{
+	width:100%;
+	background-color:#f4d239;
+	padding:10px;
+	text-align:center;
+	font-size:18px;
+	font-weight:300;
+	direction:rtl;
+}
 
+.Question
+{
+	width:100%;
+	overflow:hidden;
+}
 
+.QuestionRight
+{
+	float:right;
+	width:20%;
+}
 
+.QuestionRight div
+{
+	width:60%;
+}
+
+.QuestionLeft
+{
+	float:right;
+	width:70%;
+	text-align:right;
+	margin-top:3px;
+}
 
 
 
