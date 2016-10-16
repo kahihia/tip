@@ -1,18 +1,24 @@
 <ion-view view-title="Information" hide-nav-bar="true">
     <ion-content>
+
 		<div>
-        		<div class="sideMenuIcon">
-                	<img src="img/sidemenu.png" style="width:100%" />
-                </div>
-                <div class="HomeMenuIcon" ui-sref="app.home">
-                	<img src="img/homeicon.png" style="width:100%" />
-                </div>
-            	<img src="img/header.png" style="width:100%" />
+            <div class="sideMenuIcon">
+                <img src="img/sidemenu.png" style="width:100%" />
+            </div>
+
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+
+            <img src="img/header.png" style="width:100%" />
         </div>
+
         <div class="header">מידע שימושי</div>
         
         <div class="div100" style="background-color:white;">
+
         	<div class="informationLeft">
+
             	<img ui-sref="app.article({articleId:2})" src="img/info/l1.png" style="width:100%"/>
                 <img ui-sref="app.article({articleId:4})" src="img/info/l2.png" style="width:100%; margin-top:-8px;"/>
                 <div class="infoLeft">
@@ -23,22 +29,16 @@
                     	<img src="img/info/l4.png" style="width:100%;"/>
                 	</div>
                 </div>
+
             </div>
+
             <div class="informationRight">
             	<img ui-sref="app.article({articleId:1})" src="img/info/r1.png" style="width:100%"/>
                 <img ui-sref="app.article({articleId:3})" src="img/info/r2.png" style="width:100%; margin-top:-6px;"/>
                 <img ui-sref="app.article({articleId:5})" src="img/info/r3.png" style="width:100%; margin-top:-6px;"/>
             </div>
+
         </div>
-        
-      <!--
-        <div><a ui-sref="app.article({articleId:1})">{{infoCategories[0]}}</a></div>
-        <div><a ui-sref="app.article({articleId:2})">{{infoCategories[1]}}</a></div>
-        <div><a ui-sref="app.article({articleId:3})">{{infoCategories[2]}}</a></div>
-        <div><a ui-sref="app.article({articleId:4})">{{infoCategories[3]}}</a></div>
-        <div><a ui-sref="app.article({articleId:5})">{{infoCategories[4]}}</a></div>
-        <div><a ui-sref="app.article({articleId:6})">{{infoCategories[5]}}</a></div>
-        <div><a ui-sref="app.article({articleId:7})">{{infoCategories[6]}}</a></div>-->
 
     </ion-content>
     

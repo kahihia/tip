@@ -1,57 +1,74 @@
-<ion-view view-title="Home" hide-nav-bar="true">
+<ion-view hide-nav-bar="true">
     <ion-content>
+
 		<div>
-        		<div class="sideMenuIcon">
-                	<img src="img/sidemenu.png" style="width:100%" />
-                </div>
-            	<img src="img/header.png" style="width:100%" />
+            <div class="sideMenuIcon">
+                <img src="img/sidemenu.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
         </div>
+
         <div class="header">עמוד הבית</div>
-        
-        <div class="div100" >
+
+        <div class="div100">
+
             <div class="div80" align="center">
+
                 <div class="homeIcons">
+
                         <div class="homeRow">
-            
+
                             <div class="homeRight" ng-click="checkState()">
+
                                 <img src="img/menu_icon_2.png" style="width:100%" />
+
                                 <div ng-show="isQuestionAnswered == false || !isQuestionAnswered" class="homeIconBlackDiscription">
                                 	טרם מומש
                                 </div>
                                 <div ng-show="isQuestionAnswered == true" class="homeIconBlackDiscription">
                                 	מומש
                                 </div>
+
                             </div>
-            
+
                             <div class="homeLeft" ui-sref="app.catalog">
-                              
+
                                 <img src="img/menu_icon_1.png" style="width:100%" />
+
                                  <div class="homeIconBlackDiscription">
                                 	הטבות השבוע
                                 </div>
+
                             </div>
-            
+
                         </div>
-            
+
                         <div class="homeRow">
-            
+
                             <div class="homeRight" ui-sref="app.personal">
+
                                 <img src="img/menu_icon_3.png" style="width:100%" />
+
                                 <div class="homeIconBlackDiscription">
                                 	צברת {{allPoints}} נק
                                 </div>
+
                             </div>
-            
+
                             <div class="homeLeft" ui-sref="app.information">
+
                                 <img src="img/menu_icon_4.png" style="width:100%" />
+
                                  <div class="homeIconBlackDiscription">
                                 	פניה למומחה
                                 </div>
+
                             </div>
-            
+
                         </div>
+
                   </div>
-    
+
             </div>
             <div>
             	<img src="img/mainbanner.png" style="width:100%" />

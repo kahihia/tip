@@ -1,9 +1,16 @@
-<ion-view view-title="Login">
-    <ion-content>
+<ion-view view-title="Login"  hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+        		<div class="sideMenuIcon">
+                	<img src="img/sidemenu.png" style="width:100%" />
+                </div>
+                
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header pointsHeaderTitle">כניסה</div>
 
-        <div class="div80 rtl">
-
-            <div class="header">כניסה</div>
+        <div class="div90 rtl mt20">
 
             <div class="inputDiv">
                 <input type="email" class="input textCenter ltr" placeholder="דואר אלקטרוני" ng-model="login.email">
@@ -12,12 +19,28 @@
             <div class="inputDiv">
                 <input type="password" class="input textCenter ltr" placeholder="סיסמא" ng-model="login.password">
             </div>
+         </div>
 
-            <button class="button button-positive button-block" ng-click="makeLogin()">כניסה</button>
+         <div class="div80 mt20">
+
+            <img src="img/login_reg1.png" ui-sref="app.register" style="width:100%;" />
+
+            <img src="img/loginforgot1.png" ng-click="openForgotPasswordModal()" style="width:100%;" />
+
+            <div class="loginFooter">
+            	<div class="loginFooterLeft" ui-sref="app.register">
+                	<img src="img/login_reg2.png" style="width:100%;" /> 
+            	</div>
+            	<div class="loginFooterRight" ng-click="makeLogin()">
+                	<img src="img/login_enter.png" style="width:100%;" /> 
+            	</div>
+            </div>
+
+            <!-- <button class="button button-positive button-block" ng-click="makeLogin()">כניסה</button>
 
             <button class="button button-assertive button-block" ng-click="openForgotPasswordModal()">שכחתי סיסמא</button>
 
-            <button class="button button-balanced button-block" ui-sref="app.register">הרשמה</button>
+            <button class="button button-balanced button-block" ui-sref="app.register">הרשמה</button> -->
 
         </div>
 

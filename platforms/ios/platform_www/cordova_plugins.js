@@ -278,6 +278,54 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+        "id": "cordova-plugin-geolocation.Coordinates",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Coordinates"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "id": "cordova-plugin-geolocation.PositionError",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "PositionError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+        "id": "cordova-plugin-geolocation.Position",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Position"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+        "id": "cordova-plugin-geolocation.geolocation",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
+        "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+        "pluginId": "cordova-plugin-fastrde-checkgps",
+        "clobbers": [
+            "CheckGPS"
+        ]
+    },
+    {
+        "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
+        "id": "cl.rmd.cordova.dialoggps.DialogGPS",
+        "pluginId": "cl.rmd.cordova.dialoggps",
+        "clobbers": [
+            "cordova.dialogGPS"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -293,7 +341,10 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.3.0",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-file-transfer": "1.6.0",
-    "cordova-plugin-inappbrowser": "1.5.0"
+    "cordova-plugin-inappbrowser": "1.5.0",
+    "cordova-plugin-geolocation": "2.4.0",
+    "cordova-plugin-fastrde-checkgps": "0.9.9",
+    "cl.rmd.cordova.dialoggps": "0.0.2"
 }
 // BOTTOM OF METADATA
 });

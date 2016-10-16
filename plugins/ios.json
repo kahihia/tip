@@ -80,6 +80,15 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-fastrde-checkgps": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cl.rmd.cordova.dialoggps": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },
     "dependent_plugins": {

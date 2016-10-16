@@ -22,10 +22,22 @@ angular.module('starter.controllers', [])
 
     .controller('RegisterCtrl', function ($scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
 
+        // Enter screen slider options
+
+        // $scope.options = {
+        //     loop: false,
+        //     effect: 'fade',
+        //     speed: 500,
+        // };
+
+        // google autocomplete options
+
         $scope.autocompleteOptions = {
             componentRestrictions: { country: 'il' },
             //types: ['geocode']
         };
+
+        // registration
 
         $scope.register = {
 
@@ -171,6 +183,21 @@ angular.module('starter.controllers', [])
 
 
     .controller('LoginCtrl', function ($scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
+
+        $scope.$on('$ionicView.beforeEnter', function(){
+
+            if (!$localStorage.enterScreenIsSeen){
+
+                $state.go('app.enter');
+                $localStorage.enterScreenIsSeen = true;
+
+            } else if ($localStorage.enterScreenIsSeen == true && typeof $localStorage.userid == 'undefined'){
+
+                $state.go('app.register');
+
+            }
+
+        });
 
         $scope.login = {
 
@@ -384,8 +411,14 @@ angular.module('starter.controllers', [])
                 console.log(data);
 
                 $scope.question = data.data[0];
-                $scope.question.question_image = $rootScope.phpHost + $scope.question.question_image;
-                $scope.question.explain_image = $rootScope.phpHost + $scope.question.explain_image;
+
+                if ($scope.question.question_image != ''){
+                    $scope.question.question_image = $rootScope.phpHost + $scope.question.question_image;
+                }
+
+                if($scope.question.explain_image != ''){
+                    $scope.question.explain_image = $rootScope.phpHost + $scope.question.explain_image;
+                }
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -431,6 +464,16 @@ angular.module('starter.controllers', [])
             'selected' : ''
 
         };
+
+        $scope.selectAnswer = function(x){
+
+            $scope.userAnswer.selected = x;
+
+        };
+
+        // $scope.$watch('userAnswer', function(){
+        //     console.log( $scope.userAnswer);
+        // })
 
         $scope.checkAnswer = function(){
 
@@ -523,30 +566,35 @@ angular.module('starter.controllers', [])
 
         var send_data = {
 
-            'date' : $rootScope.today
+            'date': $rootScope.today
 
         };
 
         $http.post($rootScope.host + 'GetDealByDate', send_data, {
 
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                }).then(
+        }).then(
+            function (data) {
 
-                    function(data){
+                $scope.todayDeal = data.data[0];
+                $scope.todayDeal.image = $rootScope.phpHost + $scope.todayDeal.image;
+                $scope.todayDeal.image2 = $rootScope.phpHost + $scope.todayDeal.image2;
+                console.log($scope.todayDeal);
 
-                        $scope.todayDeal = data.data[0];
-                        $scope.todayDeal.image = $rootScope.phpHost + $scope.todayDeal.image;
-                        $scope.todayDeal.image2 = $rootScope.phpHost + $scope.todayDeal.image2;
-                        console.log($scope.todayDeal);
+            },
 
-                    },
+            function (err) {
 
-                    function(err){
+                $ionicPopup.alert({
+                    title: "No network connection!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
 
-                        console.log(err);
-
-                    });
+            });
 
     })
 
@@ -907,9 +955,21 @@ angular.module('starter.controllers', [])
 
     })
 
-        .controller('CatalogCtrl', function ($scope, $rootScope, $http, $ionicPopup, $state) {
+    .controller('CatalogCtrl', function (isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
-        $http.post($rootScope.host + 'GetDeals', '', {
+        $scope.selection = 'catalog';
+
+        $scope.weekAgo = new Date().setDate(new Date().getDate()-7);
+
+        // get all favorites for the user
+
+        var send_data = {
+
+            "user" : $localStorage.userid
+
+        };
+
+        $http.post($rootScope.host + 'GetUserFav', send_data, {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
@@ -917,7 +977,16 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                console.log(data);
+                $rootScope.favoriteDeals = data.data;
+
+                for(var j = 0; j < $rootScope.favoriteDeals.length; j++){
+
+                    $rootScope.favoriteDeals[j].deal.image = $rootScope.phpHost + $rootScope.favoriteDeals[j].deal.image;
+                    $rootScope.favoriteDeals[j].deal.image2 = $rootScope.phpHost + $rootScope.favoriteDeals[j].deal.image2;
+
+                }
+
+                console.log("Favs", $rootScope.favoriteDeals);
 
             },
 
@@ -933,6 +1002,73 @@ angular.module('starter.controllers', [])
 
             });
 
+        // check if the deal is favorite
+
+        $scope.isFavorite = function (x) {
+
+            return isFavoriteFactory.isFavorite(x);
+
+        };
+
+        // make favorite
+
+        $scope.makeFavorite = function(x){
+
+            return makeFavoriteFactory.makeFavorite(x);
+
+        };
+
+        // delete favorite
+
+        $scope.deleteFavorite = function(x){
+
+            return deleteFavoriteFactory.deleteFavorite(x);
+
+        };
+
+    })
+
+    .controller('ItemCtrl', function (isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
+
+        $scope.deal = {};
+
+        // choosing deal
+
+        for(var i = 0; i < $rootScope.deals.length; i++){
+
+            if ($stateParams.itemId == $rootScope.deals[i].index){
+
+                $scope.deal = $rootScope.deals[i];
+                console.log($scope.deal);
+
+            }
+
+        }
+
+        // check if the deal is favorite
+
+        $scope.isFavorite = function (x) {
+
+            return isFavoriteFactory.isFavorite(x);
+
+        };
+
+        // make favorite
+
+        $scope.makeFavorite = function(x){
+
+            return makeFavoriteFactory.makeFavorite(x);
+
+        };
+
+        // delete favorite
+
+        $scope.deleteFavorite = function(x){
+
+            return deleteFavoriteFactory.deleteFavorite(x);
+
+        };
+
     })
 
     .controller('InformationCtrl', function ($scope) {
@@ -942,7 +1078,7 @@ angular.module('starter.controllers', [])
 
     .controller('ArticleCtrl', function ($scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
 
-        $scope.categoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
+        $scope.infoCategoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
         $scope.content = {};
 
         // get article for the page

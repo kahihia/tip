@@ -4,10 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers',
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
 
-    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state) {
+    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -21,21 +21,6 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 StatusBar.styleDefault();
             }
         });
-
-
-        // what time is it now?
-
-        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
-
-        if ($rootScope.timeNow > "13:00") {
-
-            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        } else {
-
-            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        }
 
         // global variables
 
@@ -58,13 +43,44 @@ angular.module('starter', ['ionic', 'starter.controllers',
         $rootScope.image = $localStorage.image;
         $rootScope.categories = [];
         $rootScope.currState = $state;
-        $rootScope.navTitle = '<img src="img/logo.png" style="height: 30px; margin-top: 5px;">';
         $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
+        $rootScope.deals = [];
+        $rootScope.favoriteDeals = [];
+        $rootScope.lat = "";
+        $rootScope.lng = "";
+
+        // menu links
+
+        $rootScope.categoryNumber = {};
+        $rootScope.categoryName = '';
+
+        $rootScope.setCategory = function(x, y){
+
+            $rootScope.categoryNumber.number = x;
+            $rootScope.categoryName = y;
+
+        };
+
+        // what time is it now?
+
+        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+
+        if ($rootScope.timeNow > "13:00") {
+
+            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        } else {
+
+            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        }
+
 
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
 
         $ionicPlatform.ready(function () {
+
 
             // tip after 1 minute
 
@@ -169,6 +185,115 @@ angular.module('starter', ['ionic', 'starter.controllers',
         //
         // });
 
+        // geolocation
+
+        if(window.cordova) {
+
+            $ionicPlatform.ready(function () {
+
+                CheckGPS.check(function win() {
+
+                    alert('win')
+
+                        // var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                        //
+                        // $cordovaGeolocation
+                        //     .getCurrentPosition(posOptions)
+                        //     .then(function (position) {
+                        //
+                        //         $rootScope.lat = position.coords.latitude;
+                        //         $rootScope.lng = position.coords.longitude;
+                        //         alert($rootScope.lat + ' ' + $rootScope.lng + ' 1')
+                        //         // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                        //
+                        //     }, function (err) {
+                        //
+                        //         // $rootScope.getDealsWithoutLocation();
+                        //
+                        //     });
+
+                    },
+
+                    function fail() {
+
+                        alert('fail')
+
+                        // cordova.dialogGPS("Your GPS is Disabled.",
+                        //     'Please enable location for proper work of the application',
+                        //
+                        //     function (buttonIndex) {
+                        //
+                        //         switch (buttonIndex) {
+                        //             case 0:     // no
+                        //
+                        //                 // $rootScope.getDealsWithoutLocation();
+                        //                 break;
+                        //
+                        //             case 1:     // neutral
+                        //
+                        //                 // $rootScope.getDealsWithoutLocation();
+                        //                 break;
+                        //
+                        //             case 2:     // yes, go to settings
+                        //
+                        //                 document.addEventListener("resume", onResume, false);
+                        //
+                        //             function onResume() {
+                        //
+                        //                 var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                        //
+                        //                 $cordovaGeolocation
+                        //                     .getCurrentPosition(posOptions)
+                        //                     .then(function (position) {
+                        //
+                        //                         $rootScope.lat = position.coords.latitude;
+                        //                         $rootScope.lng = position.coords.longitude;
+                        //                         alert($rootScope.lat + ' ' + $rootScope.lng + ' 2');
+                        //
+                        //                         // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                        //
+                        //                     }, function (err) {
+                        //
+                        //                         // $rootScope.getDealsWithoutLocation();
+                        //
+                        //                     });
+                        //             }
+                        //
+                        //                 break;
+                        //
+                        //             default:
+                        //
+                        //                 // $rootScope.getDealsWithoutLocation();
+                        //                 break;
+                        //         }
+                        //
+                        //     });
+
+                    });
+
+            });
+
+        } else {
+
+            var posOptions = {enableHighAccuracy: false};
+
+            $cordovaGeolocation
+                .getCurrentPosition(posOptions)
+                .then(function (position) {
+
+                    $rootScope.lat = position.coords.latitude;
+                    $rootScope.lng = position.coords.longitude;
+
+                    // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                }, function(err) {
+
+                    // $rootScope.getDealsWithoutLocation();
+                    console.log('err1', err);
+
+                });
+
+        }
 
     })
 
@@ -218,6 +343,26 @@ angular.module('starter', ['ionic', 'starter.controllers',
                     'menuContent': {
                         templateUrl: 'templates/catalog.html',
                         controller: 'CatalogCtrl'
+                    }
+                }
+            })
+            //
+            // .state('app.category', {
+            //     url: '/category/:categoryId',
+            //     views: {
+            //         'menuContent': {
+            //             templateUrl: 'templates/category.html',
+            //             controller: 'CatalogCtrl'
+            //         }
+            //     }
+            // })
+
+            .state('app.item', {
+                url: '/item/:itemId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/item.html',
+                        controller: 'ItemCtrl'
                     }
                 }
             })

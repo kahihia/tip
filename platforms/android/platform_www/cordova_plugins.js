@@ -229,6 +229,32 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+        "id": "cordova-plugin-geolocation.geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "id": "cordova-plugin-geolocation.PositionError",
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
+        "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+        "clobbers": [
+            "CheckGPS"
+        ]
+    },
+    {
+        "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
+        "id": "cl.rmd.cordova.dialoggps.DialogGPS",
+        "clobbers": [
+            "cordova.dialogGPS"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -244,7 +270,10 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-file-transfer": "1.6.0",
-    "cordova-plugin-inappbrowser": "1.5.0"
+    "cordova-plugin-inappbrowser": "1.5.0",
+    "cordova-plugin-geolocation": "2.4.0",
+    "cordova-plugin-fastrde-checkgps": "0.9.9",
+    "cl.rmd.cordova.dialoggps": "0.0.2"
 };
 // BOTTOM OF METADATA
 });

@@ -1,46 +1,44 @@
 .div80 {
     width: 80%;
     margin: 0 auto;
-	background-color:#ffd200;
+    background-color: #ffd200;
 }
 
 .div90 {
     width: 90%;
     margin: 0 auto;
-	background-color:#ffd200;
+    background-color: #ffd200;
 }
 
-.div100
-{
-	background-color:#ffd200;
-	overflow:hidden;
+.div100 {
+    background-color: #ffd200;
+    overflow: hidden;
 }
 
-.mt10
-{
-	margin-top:10px;
+.mt10 {
+    margin-top: 10px;
 }
 
-.mt20
-{
-	margin-top:20px;
+.mt20 {
+    margin-top: 20px;
 }
+
 .rtl {
     direction: rtl;
 }
 
 .ltr {
     direction: ltr;
-	border:none;
-	padding:10px;
-	border-radius:30px;
-	padding-top:10px !important;
-	height:45px !important;
-	
-	-webkit-box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
--moz-box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
-box-shadow: inset 0px 2px 9px 0px rgba(0,0,0,0.74);
-Copy Text
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    padding-top: 10px !important;
+    height: 45px !important;
+
+    -webkit-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    /*Copy Text*/
 
 }
 
@@ -56,7 +54,7 @@ Copy Text
     width: 100%;
     text-align: center;
     margin: 10px 0;
-	font-size:18px;
+    font-size: 18px;
 }
 
 .inputDiv {
@@ -76,7 +74,7 @@ Copy Text
 
 /*Register*/
 
-.registerRow{
+.registerRow {
     width: 100%;
     text-align: center;
     height: 25px;
@@ -85,95 +83,91 @@ Copy Text
 .registerButtonLeft {
     width: 50%;
     float: left;
-	font-size:20px;
+    font-size: 20px;
 }
 
 .registerButtonRight {
     width: 50%;
     float: right;
-	font-size:20px;
+    font-size: 20px;
 }
 
 /*End of register*/
 
 /*Home*/
-.homeIcons
-{
-	background-color:#ffd200;
-	padding:10px;
-	padding-bottom:50px;
-	padding-top:20px;
+.homeIcons {
+    background-color: #ffd200;
+    padding: 10px;
+    padding-bottom: 50px;
+    padding-top: 20px;
 }
 
-
-.homeRow{
+.homeRow {
     width: 100%;
     text-align: center;
-	overflow:hidden;
+    overflow: hidden;
 }
 
-.homeLeft{
+.homeLeft {
     float: left;
     width: 35%;
     padding: 20px 0;
 }
 
-.homeIconBlackDiscription
-{
-	background-color:black;
-	color:white;
-	padding:5px;
-	border-radius:20px;
+.homeIconBlackDiscription {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
 }
 
-.homeRight{
+.homeRight {
     float: right;
     width: 35%;
     padding: 20px 0;
 }
+
 /*End of Home*/
 
 /*Personal*/
-.personalUserpicDiv 
-{
+.personalUserpicDiv {
     width: 100%;
-	overflow:hidden;
-	background-color:black;
-	border-radius:50px;
-	padding:5px;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 50px;
+    padding: 5px;
 }
 
-.personalUserpic{
+.personalUserpic {
     width: 23%;
     float: left;
     padding: 0px 0;
 }
 
-.personalUserSaveChange
-{
-	width: 70%;
+.personalUserSaveChange {
+    width: 70%;
     float: left;
-	text-align:center;
-	color:white;
-	margin-top:30px;
-	font-size:18px;
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 18px;
 }
 
 .personalUserpicRight {
     width: 33%;
     float: right;
     padding: 0px 0;
-	margin-top:12px;
-	color:white;
+    margin-top: 12px;
+    color: white;
 }
 
 .personalTableRow {
     width: 100%;
     overflow: hidden;
-	background-color:white;
-	color:black;
-	padding:15px;
-	font-size:20px;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    font-size: 20px;
 }
 
 .personalTableLeft {
@@ -191,120 +185,104 @@ Copy Text
 .personalTextarea {
     width: 100%;
     text-align: right;
-	padding:20px;
-	border-radius:20px;
-	margin-top:10px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
-.pointTitle
-{
-	background-color:black;
-	padding:15px;
-	color:white;
+.pointTitle {
+    background-color: black;
+    padding: 15px;
+    color: white;
 }
 
-.pointTitleHeader
-{
-	font-size:19px;
-	font-weight:bold;
+.pointTitleHeader {
+    font-size: 19px;
+    font-weight: bold;
 }
 
-.yellowRow
-{
-	width:100%;
-	height:10px;
-	background-color:#f2d037;
+.yellowRow {
+    width: 100%;
+    height: 10px;
+    background-color: #f2d037;
 }
 
-.pointDescription
-{
-	width:100%;
-	padding:20px;
-	direction:rtl;
-	font-size:18px;
-	color:white;
-	font-weight:bold;
-	background-color:black;
+.pointDescription {
+    width: 100%;
+    padding: 20px;
+    direction: rtl;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
 }
 
-
-.pointsContent
-{
-	background-color:#ffd200;
+.pointsContent {
+    background-color: #ffd200;
 }
 
-.pointsHeader
-{
-	background-color:white;
+.pointsHeader {
+    background-color: white;
 }
 
-.PointsHeaderTitle
-{
-	background-color:white;
-	width: 100%;
+.pointsHeaderTitle {
+    background-color: white;
+    width: 100%;
     text-align: center;
     margin: 0px 0;
-	padding:5px;
-	font-size:18px;
+    padding: 5px;
+    font-size: 18px;
 }
 
-.personalTipTitle
-{
-	margin-top:10px;
+.personalTipTitle {
+    margin-top: 10px;
 }
 
 /*End of personal*/
 
 /*Article*/
 
-.articlTitle
-{
-	width:100%;
-	overflow:hidden;
-	background-color:#c6a502;
+.articleTitle {
+    width: 100%;
+    overflow: hidden;
+    background-color: #c6a502;
 }
 
-.articlTitleLeft
-{
-	width:50%;
-	padding:5px;
-	float:left;
-	border-right:1px solid white;
+.articleTitleLeft {
+    width: 50%;
+    padding: 5px;
+    float: left;
+    border-right: 1px solid white;
 }
 
-.articlTitleLeft div
-{
-	width:40%; 
-	margin-left:10px;
+.articleTitleLeft div {
+    width: 40%;
+    margin-left: 10px;
 }
 
-.articlTitleRight
-{
-	float:right;
-	width:49%;
-	padding:5px;
+.articleTitleRight {
+    float: right;
+    width: 49%;
+    padding: 5px;
 }
 
-.articlTitleRight p
-{
-	width:100%;
-	text-align:center;
-	color:white;
-	font-size:17px;
-	margin-top:11px;
-	font-weight:100;
+.articleTitleRight p {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    margin-top: 11px;
+    font-weight: 100;
 }
 
-.articlDiscription
-{
-	padding:10px;
-	background-color:#f8f1c7;
-	margin-top:-10px !important;
-	font-size:14px;
-	font-weight:100;
-	padding-bottom:20px;
+.articleDescription {
+    padding: 10px;
+    background-color: #f8f1c7;
+    margin-top: -10px !important;
+    font-size: 14px;
+    font-weight: 100;
+    padding-bottom: 20px;
 }
-
 
 .articleHeaderRow {
     width: 100%;
@@ -326,16 +304,15 @@ Copy Text
 
 .articleButtons {
     width: 100%;
-	background-color:#d9ce98;
-	padding:5px;
-	padding-bottom:0px;
+    background-color: #d9ce98;
+    padding: 5px;
+    padding-bottom: 0px;
 }
 
 /*End of article*/
 
 /*Video popup*/
-.popupVideo .popup
-{
+.popupVideo .popup {
     background-color: transparent;
     padding-top: 30px;
     width: 350px;
@@ -349,237 +326,188 @@ Copy Text
 }
 
 .videoCloseButton {
-    left:0;
-    top:-5px;
-    position:absolute;
+    left: 0;
+    top: -5px;
+    position: absolute;
 }
 
-.videoDiv{
+.videoDiv {
     padding-top: 10px
 }
+
 /*End of video popup*/
 
 /* Header Page*/
-.Header
-{
-	width:100%;
+.Header {
+    width: 100%;
 }
 
-.sideMenuIcon
-{
-	width:30px; 
-	left:10px;
-	top:20px;
-	position:absolute;
+.sideMenuIcon {
+    width: 30px;
+    left: 10px;
+    top: 20px;
+    position: absolute;
 }
 
-.HomeMenuIcon
-{
-	width:30px; 
-	right:10px;
-	top:25px;
-	position:absolute;
+.homeMenuIcon {
+    width: 30px;
+    right: 10px;
+    top: 25px;
+    position: absolute;
 }
 
 /* Information Page*/
 
-.informationRight
-{
-	float:right;
-	width:50%;
+.informationRight {
+    float: right;
+    width: 50%;
 }
 
-.informationLeft
-{
-	float:left;
-	width:50%;
+.informationLeft {
+    float: left;
+    width: 50%;
 }
 
-.infoLeft
-{
-	width:100%;
-	overflow:hidden;
-	margin-top:-8px;
+.infoLeft {
+    width: 100%;
+    overflow: hidden;
+    margin-top: -8px;
 }
 
-.infoLeft1
-{
-	width:50%;
-	float:left;
+.infoLeft1 {
+    width: 50%;
+    float: left;
 }
 
 /* Teaser */
 
-.TeaserTitle
-{
-	width:100%;
-	text-align:center;
-	padding:12px;
-	direction:rtl;
-	font-size:25px;
-	font-weight:200;
+.teaserTitle {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    direction: rtl;
+    font-size: 25px;
+    font-weight: 200;
 }
 
-.TeaserInfo
-{
-	width:100%;
-	overflow:hidden;
+.teaserInfo {
+    width: 100%;
+    overflow: hidden;
 }
 
-.TeaserInfoRight
-{
-	width:70%;
-	float:right;
+.TeaserInfoRight {
+    width: 70%;
+    float: right;
 }
 
-.TeaserInfoLeft
-{
-	width:30%;
-	float:left;
+.teaserInfoLeft {
+    width: 30%;
+    float: left;
 }
 
-.teaserRegularPriceText
-{
-	padding:2px;
-	text-align:center;
-	font-size:16px;
-	font-weight:100;
-	margin-top:-5px;
-	background-color:white;
-	direction:rtl;
+.teaserRegularPriceText {
+    padding: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: -5px;
+    background-color: white;
+    direction: rtl;
 }
 
-.teaserNewPriceText
-{
-	padding:2px;
-	text-align:center;
-	font-size:16px;
-	font-weight:100;
-	background-color:black;
-	margin-top:-2px;
-	color:#ffd200;
+.teaserNewPriceText {
+    padding: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    background-color: black;
+    margin-top: -2px;
+    color: #ffd200;
 }
 
-.teaserRegularPrice
-{
-	padding:8px;
-	text-align:center;
-	font-size:25px;
-	font-weight:300;
-	direction:rtl;
+.teaserRegularPrice {
+    padding: 8px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    direction: rtl;
 }
 
-.teaserRegularPriceBlock
-{
-	position:absolute;
-	width:32px;
-	margin-left:14%;
-	margin-top:5px;
+.teaserRegularPriceBlock {
+    position: absolute;
+    width: 32px;
+    margin-left: 14%;
+    margin-top: 5px;
 }
-
 
 /* Question Page*/
 
-.QuestinHeader
-{
-	font-size:12px;
-	font-weight:200px;
-	text-align:center;
-	padding:4px;
+.questionHeader {
+    font-size: 12px;
+    font-weight: 200;
+    text-align: center;
+    padding: 4px;
 }
 
-.QuestionTitle
-{
-	width:100%;
-	background-color:#f4d239;
-	padding:20px;
-	text-align:center;
-	font-size:24px;
-	font-weight:300;
-	direction:rtl;
-	line-height:1.1;
+.questionTitle {
+    width: 100%;
+    background-color: #f4d239;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    direction: rtl;
+    line-height: 1.1;
 }
 
-.Question
-{
-	width:100%;
-	overflow:hidden;
+.question {
+    width: 100%;
+    overflow: hidden;
 }
 
-.QuestionRight
-{
-	float:right;
-	width:20%;
+.questionRight {
+    float: right;
+    width: 20%;
 }
 
-.QuestionRight div
-{
-	width:40%;
+.questionRight div {
+    width: 40%;
 }
 
-.QuestionLeft
-{
-	float:right;
-	width:70%;
-	text-align:right;
-	margin-top:5px;
+.questionLeft {
+    float: right;
+    width: 70%;
+    text-align: right;
+    margin-top: 5px;
 }
-
 
 /* LogIn page* */
 
-.loginFooter
-{
-	width:100%;
-	overflow:hidden;
-	margin-top:30px;
+.loginFooter {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
 }
 
-.loginFooterLeft
-{
-	width:30%;
-	float:left;
+.loginFooterLeft {
+    width: 30%;
+    float: left;
 }
 
-.loginFooterRight
-{
-	width:30%;
-	float:right;
+.loginFooterRight {
+    width: 30%;
+    float: right;
 }
-
 
 /* Register Page*/
-.registerFacebook
-{
-	margin-top:10px;
+.registerFacebook {
+    margin-top: 10px;
 }
 
+/*Catalog*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.catalogDeal {
+    width: 50%;
+    float: right;
+    padding: 5px;
+}

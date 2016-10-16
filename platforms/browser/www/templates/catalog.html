@@ -1,5 +1,85 @@
 <ion-view view-title="Catalog">
-  <ion-content>
-    Catalog
-  </ion-content>
+    <ion-content>
+
+        <div class="textCenter" ng-show="categoryName != ''">{{categoryName}}</div>
+
+        <div class="button-bar">
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'favorites'}" ng-click="selection='favorites'">מועדפים</a>
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'catalog'}" ng-click="selection='catalog'">קטלוג</a>
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'new'}" ng-click="selection='new'">מה חדש</a>
+        </div>
+
+        <div ng-switch="selection" class="textCenter">
+
+            <div ng-switch-when="new">
+
+                <!--<div ng-repeat="deal in deals">-->
+
+                    <!--<div class="catalogDeal">-->
+
+                        <!--<div>{{deal.title}}</div>-->
+
+                        <!--<img ng-src="{{deal.image}}" style="width: 100%;">-->
+
+                        <!--<div>מחיר חבר</div>-->
+
+                        <!--<div>{{deal.regular_price}}</div>-->
+
+                        <!--<button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>-->
+                        <!--<button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+
+            </div>
+
+            <div ng-switch-when="catalog">
+
+                <div ng-repeat="deal in deals | filter: {cat_id : categoryNumber.number}">
+
+                    <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
+
+                        <div>{{deal.title}}</div>
+
+                        <img ng-src="{{deal.image}}" style="width: 100%;">
+
+                        <div>מחיר חבר</div>
+
+                        <div>{{deal.regular_price}}</div>
+
+                        <button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">Make Favorite</button>
+                        <button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">Delete Favorite</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div ng-switch-when="favorites">
+
+                <div ng-repeat="fav in favoriteDeals">
+
+                    <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
+
+                        <div>{{fav.deal.title}}</div>
+
+                        <img ng-src="{{fav.deal.image}}" style="width: 100%;">
+
+                        <div>מחיר חבר</div>
+
+                        <div>{{fav.deal.regular_price}}</div>
+
+                        <button class="button button-small button-positive" ng-show="!isFavorite(fav.deal.index)" ng-click="makeFavorite(fav.deal.index); $event.stopPropagation();">Make Favorite</button>
+                        <button class="button button-small button-positive" ng-show="isFavorite(fav.deal.index)" ng-click="deleteFavorite(fav.deal.index); $event.stopPropagation();">Delete Favorite</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>

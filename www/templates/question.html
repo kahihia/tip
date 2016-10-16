@@ -1,71 +1,74 @@
 <ion-view view-title="Question" hide-nav-bar="true">
     <ion-content>
 		<div>
-        		<div class="sideMenuIcon">
-                	<img src="img/sidemenu.png" style="width:100%" />
-                </div>
-                <div class="HomeMenuIcon" ui-sref="app.home">
-                	<img src="img/homeicon.png" style="width:100%" />
-                </div>
-            	<img src="img/header.png" style="width:100%" />
+            <div class="sideMenuIcon">
+                <img src="img/sidemenu.png" style="width:100%" />
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
         </div>
-        <div class="QuestinHeader">שאלה יומית מתאריך {{today}}</div>
-        
 
-          
+        <div class="questionHeader">שאלה יומית מתאריך {{today}}</div>
 
-        <div class="QuestionTitle">{{question.question}}</div>
+        <div class="questionTitle">{{question.question}}</div>
+
 		<div class="div80 rtl" style="background-color:white;">
+
             <div class="mt10" ng-show="question.question_image != ''">
                 <img ng-src={{question.question_image}} style="width: 100%;">
             </div>
             
-            <div  ng-show="question.question_youtube != ''">
+            <div class="mt10" ng-show="question.question_youtube != ''">
                 <youtube-video video-url="question.question_youtube" player-width="'100%'"></youtube-video>
             </div>
 		</div>
         
-        <div class="Question mt10">
-            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
-            <div class="QuestionRight" align="center">
+        <div class="question mt10">
+             <input type="radio" ng-model="userAnswer.selected" value="1">
+            <div class="questionRight" align="center">
             	<div>
-            		<img src="img/question_button.png" style="width:100%" />
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('1')"/>
                 </div>
             </div>
-            <div class="QuestionLeft">
+            <div class="questionLeft">
             	{{question.answer1}}
             </div>
         </div>
-        <div class="Question">
-            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
-            <div class="QuestionRight" align="center">
+
+        <div class="question">
+             <input type="radio" ng-model="userAnswer.selected" value="2">
+            <div class="questionRight" align="center">
             	<div>
-            		<img src="img/question_button.png" style="width:100%" />
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('2')"/>
                 </div>
             </div>
-            <div class="QuestionLeft">
+            <div class="questionLeft">
             	{{question.answer2}}
             </div>
         </div>
-        <div class="Question">
-            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
-            <div class="QuestionRight" align="center">
+
+        <div class="question">
+             <input type="radio" ng-model="userAnswer.selected" value="3">
+            <div class="questionRight" align="center">
             	<div>
-            		<img src="img/question_button.png" style="width:100%" />
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('3')"/>
                 </div>
             </div>
-            <div class="QuestionLeft">
+            <div class="questionLeft">
             	{{question.answer3}}
             </div>
         </div>
-        <div class="Question">
-            <!-- <input type="radio" ng-model="userAnswer.selected" value="1"> -->
-            <div class="QuestionRight" align="center">
+
+        <div class="question">
+             <input type="radio" ng-model="userAnswer.selected" value="4">
+            <div class="questionRight" align="center">
             	<div>
-            		<img src="img/question_button.png" style="width:100%" />
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('4')"/>
                 </div>
             </div>
-            <div class="QuestionLeft">
+            <div class="questionLeft">
             	{{question.answer4}}
             </div>
         </div>
@@ -73,11 +76,6 @@
 		<div class="div80" style="margin-top:20px; background-color:white" ng-click="checkAnswer()">
            		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
         </div>
-        
-
-         
-
-        
 
     </ion-content>
 </ion-view>

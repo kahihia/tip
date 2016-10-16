@@ -4,10 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers',
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
 
-    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state) {
+    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -21,21 +21,6 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 StatusBar.styleDefault();
             }
         });
-
-
-        // what time is it now?
-
-        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
-
-        if ($rootScope.timeNow > "13:00") {
-
-            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        } else {
-
-            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        }
 
         // global variables
 
@@ -58,13 +43,59 @@ angular.module('starter', ['ionic', 'starter.controllers',
         $rootScope.image = $localStorage.image;
         $rootScope.categories = [];
         $rootScope.currState = $state;
-        $rootScope.navTitle = '<img src="img/logo.png" style="height: 30px; margin-top: 5px;">';
         $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
+        $rootScope.deals = [];
+        $rootScope.favoriteDeals = [];
+        $rootScope.lat = "";
+        $rootScope.lng = "";
+
+        // menu links
+
+        $rootScope.categoryNumber = {};
+        $rootScope.categoryName = '';
+
+        $rootScope.setCategory = function(x, y){
+
+            $rootScope.categoryNumber.number = x;
+            $rootScope.categoryName = y;
+
+        };
+
+
+        // what time is it now?
+
+        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+
+        if ($rootScope.timeNow > "13:00") {
+
+            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        } else {
+
+            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        }
 
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
 
         $ionicPlatform.ready(function () {
+
+
+            // if not logged in - no access to inner pages
+
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+
+                if ((toState.name != 'app.login' || toState.name != 'app.enter' || toState.name != 'app.register') && $localStorage.userid === "") {
+
+                    event.preventDefault();
+
+                    $state.go('app.login');
+
+                }
+
+            });
+
 
             // tip after 1 minute
 
@@ -114,6 +145,8 @@ angular.module('starter', ['ionic', 'starter.controllers',
             //
             //         });
 
+
+
             // get catalog categories
 
             $http.post($rootScope.host + 'GetDealCategories', '', {
@@ -146,29 +179,198 @@ angular.module('starter', ['ionic', 'starter.controllers',
 
                 });
 
+
+            // geolocation
+
+            if(window.cordova) {
+
+                $ionicPlatform.ready(function () {
+
+                    CheckGPS.check(function win() {
+
+                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+
+                                $rootScope.lat = position.coords.latitude;
+                                $rootScope.lng = position.coords.longitude;
+                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                            }, function (err) {
+
+                                $rootScope.getDealsWithoutLocation();
+
+                            });
+
+                        },
+
+                        function fail() {
+
+                            cordova.dialogGPS("Your GPS is Disabled.",
+                                'Please enable location for proper work of the application',
+
+                                function (buttonIndex) {
+
+                                    switch (buttonIndex) {
+                                        case 0:     // no
+
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
+
+                                        case 1:     // neutral
+
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
+
+                                        case 2:     // yes, go to settings
+
+                                            document.addEventListener("resume", onResume, false);
+
+                                        function onResume() {
+
+                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                            $cordovaGeolocation
+                                                .getCurrentPosition(posOptions)
+                                                .then(function (position) {
+
+                                                    $rootScope.lat = position.coords.latitude;
+                                                    $rootScope.lng = position.coords.longitude;
+                                                    alert($rootScope.lat + ' ' + $rootScope.lng + ' 2');
+
+                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                                }, function (err) {
+
+                                                    $rootScope.getDealsWithoutLocation();
+
+                                                });
+                                        }
+
+                                            break;
+
+                                        default:
+
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
+                                    }
+
+                                });
+
+                        });
+
+                });
+
+            } else {
+
+                var posOptions = {enableHighAccuracy: false};
+
+                $cordovaGeolocation
+                    .getCurrentPosition(posOptions)
+                    .then(function (position) {
+
+                        $rootScope.lat = position.coords.latitude;
+                        $rootScope.lng = position.coords.longitude;
+
+                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                    }, function(err) {
+
+                        $rootScope.getDealsWithoutLocation();
+                        console.log('err1', err);
+
+                    });
+
+            }
+
         });
 
+        // get all deals without location
 
-        // which route should I use?
+        $rootScope.getDealsWithoutLocation = function(){
 
-        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-        //
-        //     if (toState.name == 'app.home' && !$localStorage.userid){
-        //
-        //         console.log(toState.name);
-        //
-        //         $state.go('app.register');
-        //
-        //     } else if (toState.name == 'app.home' && $localStorage.userid == "") {
-        //
-        //         console.log(toState.name);
-        //
-        //         $state.go('app.login');
-        //
-        //     }
-        //
-        // });
+            $http.post($rootScope.host + 'GetDeals', '', {
 
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $rootScope.deals = data.data;
+
+                    for(var i = 0; i < $rootScope.deals.length; i++){
+
+                        $rootScope.deals[i].image = $rootScope.phpHost + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = $rootScope.phpHost + $rootScope.deals[i].image2;
+
+                    }
+
+                    console.log("Deals", $rootScope.deals);
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+        };
+
+        // get all deals with location
+
+        $rootScope.getDealsWithLocation = function(){
+
+            var send_coord = {
+
+                'lat' : $rootScope.lat,
+                'lng' : $rootScope.lng
+
+            };
+
+            $http.post($rootScope.host + 'GetDealsWithLocation', send_coord, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $rootScope.deals = data.data;
+
+                    for(var i = 0; i < $rootScope.deals.length; i++){
+
+                        $rootScope.deals[i].image = $rootScope.phpHost + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = $rootScope.phpHost + $rootScope.deals[i].image2;
+
+                    }
+
+                    console.log("Deals", $rootScope.deals);
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+        };
 
     })
 
@@ -180,6 +382,16 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 abstract: true,
                 templateUrl: 'templates/menu.html',
                 controller: 'AppCtrl'
+            })
+
+            .state('app.enter', {
+                url: '/enter',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/enter.html',
+                        controller: 'RegisterCtrl'
+                    }
+                }
             })
 
             .state('app.register', {
@@ -222,12 +434,22 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 }
             })
 
+            .state('app.item', {
+                url: '/item/:itemId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/item.html',
+                        controller: 'ItemCtrl'
+                    }
+                }
+            })
+
             .state('app.question', {
                 url: '/question',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/question.html',
-                        controller: 'QuestionCtrl'
+                        controller: 'DailyCtrl'
                     }
                 }
             })
@@ -237,7 +459,7 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/answer.html',
-                        controller: 'QuestionCtrl'
+                        controller: 'DailyCtrl'
                     }
                 }
             })
@@ -247,20 +469,20 @@ angular.module('starter', ['ionic', 'starter.controllers',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/teaser.html',
-                        controller: 'DiscountCtrl'
+                        controller: 'DailyCtrl'
                     }
                 }
             })
 
-            .state('app.discount', {
-                url: '/discount',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/discount.html',
-                        controller: 'DiscountCtrl'
-                    }
-                }
-            })
+            // .state('app.discount', {
+            //     url: '/discount',
+            //     views: {
+            //         'menuContent': {
+            //             templateUrl: 'templates/discount.html',
+            //             controller: 'DiscountCtrl'
+            //         }
+            //     }
+            // })
 
             .state('app.personal', {
                 url: '/personal',

@@ -300,6 +300,22 @@ module.exports = [
         "merges": [
             ""
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
+        "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+        "pluginId": "cordova-plugin-fastrde-checkgps",
+        "clobbers": [
+            "CheckGPS"
+        ]
+    },
+    {
+        "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
+        "id": "cl.rmd.cordova.dialoggps.DialogGPS",
+        "pluginId": "cl.rmd.cordova.dialoggps",
+        "clobbers": [
+            "cordova.dialogGPS"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -315,7 +331,10 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.3.0",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-file-transfer": "1.6.0",
-    "cordova-plugin-inappbrowser": "1.5.0"
+    "cordova-plugin-inappbrowser": "1.5.0",
+    "cordova-plugin-geolocation": "2.4.0",
+    "cordova-plugin-fastrde-checkgps": "0.9.9",
+    "cl.rmd.cordova.dialoggps": "0.0.2"
 }
 // BOTTOM OF METADATA
 });

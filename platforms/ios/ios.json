@@ -55,6 +55,14 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CheckGPS\"><param name=\"ios-package\" value=\"CheckGPS\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -76,7 +84,7 @@
                     "NSLocationWhenInUseUsageDescription": [
                         {
                             "xml": "<string />",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -117,6 +125,15 @@
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-fastrde-checkgps": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cl.rmd.cordova.dialoggps": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },
@@ -400,6 +417,54 @@
                 "cordova.InAppBrowser.open",
                 "window.open"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+            "id": "cordova-plugin-geolocation.Coordinates",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Coordinates"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "id": "cordova-plugin-geolocation.PositionError",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "PositionError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+            "id": "cordova-plugin-geolocation.Position",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Position"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+            "id": "cordova-plugin-geolocation.geolocation",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "navigator.geolocation"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
+            "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+            "pluginId": "cordova-plugin-fastrde-checkgps",
+            "clobbers": [
+                "CheckGPS"
+            ]
+        },
+        {
+            "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
+            "id": "cl.rmd.cordova.dialoggps.DialogGPS",
+            "pluginId": "cl.rmd.cordova.dialoggps",
+            "clobbers": [
+                "cordova.dialogGPS"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -413,6 +478,9 @@
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-file": "4.3.0",
         "cordova-plugin-file-transfer": "1.6.0",
-        "cordova-plugin-inappbrowser": "1.5.0"
+        "cordova-plugin-inappbrowser": "1.5.0",
+        "cordova-plugin-geolocation": "2.4.0",
+        "cordova-plugin-fastrde-checkgps": "0.9.9",
+        "cl.rmd.cordova.dialoggps": "0.0.2"
     }
 }
