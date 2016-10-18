@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
 
             $localStorage.email = "";
             $localStorage.password = "";
-            // $localStorage.userid = "";
+            $localStorage.userid = "";
             $state.go('app.login');
 
         }
@@ -224,27 +224,11 @@ angular.module('starter.controllers', [])
 
     .controller('LoginCtrl', function ($scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
 
-        $scope.$on('$ionicView.beforeEnter', function(){
-
-            // if (!$localStorage.enterScreenIsSeen){
-            //
-            //     $state.go('app.enter');
-            //     $localStorage.enterScreenIsSeen = true;
-            //
-            // }
-
-            // if ($localStorage.password != ""){
-            //
-            //     $state.go('app.home');
-            //
-            // }
-
-        });
-
         $scope.login = {
 
             'email' : $localStorage.email,
-            'password' : ''
+            'password' : '',
+            'push_id' : $rootScope.pushId
 
         };
 
@@ -308,7 +292,8 @@ angular.module('starter.controllers', [])
                             $scope.login = {
 
                                 'email' : $localStorage.email,
-                                'password' : ''
+                                'password' : '',
+                                'push_id' : $rootScope.pushId
 
                             };
 

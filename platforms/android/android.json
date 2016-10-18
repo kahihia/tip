@@ -9,6 +9,10 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"DialogGPS\"><param name=\"android-package\" value=\"cl.rmd.cordova.dialoggps.DialogGPS\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         },
@@ -17,19 +21,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"CheckGPS\"><param name=\"android-package\" value=\"de.fastr.phonegap.plugins.CheckGPS\" /></feature>",
                             "count": 1
                         },
                         {
@@ -49,15 +45,19 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"CheckGPS\"><param name=\"android-package\" value=\"de.fastr.phonegap.plugins.CheckGPS\" /></feature>",
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"DialogGPS\"><param name=\"android-package\" value=\"cl.rmd.cordova.dialoggps.DialogGPS\" /></feature>",
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
@@ -69,24 +69,6 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 3
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
-                            "count": 1
-                        }
-                    ],
                     "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
@@ -106,6 +88,24 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"com.ionicframework.tipli739187.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 3
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
                             "count": 1
                         }
                     ],
@@ -142,6 +142,9 @@
         }
     },
     "installed_plugins": {
+        "cl.rmd.cordova.dialoggps": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
@@ -154,16 +157,10 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cordova-plugin-splashscreen": {
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "ionic-plugin-keyboard": {
+        "cordova-plugin-fastrde-checkgps": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cordova-plugin-file": {
@@ -175,16 +172,19 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cordova-plugin-geolocation": {
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cordova-plugin-fastrde-checkgps": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cl.rmd.cordova.dialoggps": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "onesignal-cordova-plugin": {
@@ -193,6 +193,13 @@
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
+            "id": "cl.rmd.cordova.dialoggps.DialogGPS",
+            "clobbers": [
+                "cordova.dialogGPS"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
             "id": "cordova-plugin-camera.Camera",
@@ -229,26 +236,23 @@
             ]
         },
         {
-            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+            "id": "cordova-plugin-geolocation.geolocation",
             "clobbers": [
-                "navigator.splashscreen"
+                "navigator.geolocation"
             ]
         },
         {
-            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-            "id": "cordova-plugin-statusbar.statusbar",
-            "clobbers": [
-                "window.StatusBar"
-            ]
-        },
-        {
-            "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
-            "id": "ionic-plugin-keyboard.keyboard",
-            "clobbers": [
-                "cordova.plugins.Keyboard"
-            ],
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "id": "cordova-plugin-geolocation.PositionError",
             "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
+            "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+            "clobbers": [
+                "CheckGPS"
+            ]
         },
         {
             "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
@@ -424,29 +428,17 @@
             ]
         },
         {
-            "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-            "id": "cordova-plugin-geolocation.geolocation",
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "id": "cordova-plugin-splashscreen.SplashScreen",
             "clobbers": [
-                "navigator.geolocation"
+                "navigator.splashscreen"
             ]
         },
         {
-            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-            "id": "cordova-plugin-geolocation.PositionError",
-            "runs": true
-        },
-        {
-            "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
-            "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar",
             "clobbers": [
-                "CheckGPS"
-            ]
-        },
-        {
-            "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
-            "id": "cl.rmd.cordova.dialoggps.DialogGPS",
-            "clobbers": [
-                "cordova.dialogGPS"
+                "window.StatusBar"
             ]
         },
         {
@@ -457,6 +449,14 @@
             ]
         },
         {
+            "file": "plugins/ionic-plugin-keyboard/www/android/keyboard.js",
+            "id": "ionic-plugin-keyboard.keyboard",
+            "clobbers": [
+                "cordova.plugins.Keyboard"
+            ],
+            "runs": true
+        },
+        {
             "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
             "id": "onesignal-cordova-plugin.OneSignal",
             "clobbers": [
@@ -465,21 +465,21 @@
         }
     ],
     "plugin_metadata": {
+        "cl.rmd.cordova.dialoggps": "0.0.2",
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-console": "1.0.4",
         "cordova-plugin-device": "1.1.3",
-        "cordova-plugin-splashscreen": "4.0.0",
-        "cordova-plugin-statusbar": "2.2.0",
-        "cordova-plugin-whitelist": "1.3.0",
-        "ionic-plugin-keyboard": "2.2.1",
+        "cordova-plugin-geolocation": "2.4.0",
+        "cordova-plugin-fastrde-checkgps": "0.9.9",
         "cordova-plugin-file": "4.3.0",
         "cordova-plugin-file-transfer": "1.6.0",
         "cordova-plugin-inappbrowser": "1.5.0",
-        "cordova-plugin-geolocation": "2.4.0",
-        "cordova-plugin-fastrde-checkgps": "0.9.9",
-        "cl.rmd.cordova.dialoggps": "0.0.2",
+        "cordova-plugin-splashscreen": "4.0.0",
+        "cordova-plugin-statusbar": "2.2.0",
+        "cordova-plugin-whitelist": "1.3.0",
         "cordova.plugins.diagnostic": "3.2.2",
+        "ionic-plugin-keyboard": "2.2.1",
         "onesignal-cordova-plugin": "2.0.6"
     }
 }

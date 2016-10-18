@@ -9,8 +9,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
     .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
+
+            // Default code
+
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
@@ -20,6 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
         });
 
         // global variables
@@ -84,36 +87,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         }
 
-        // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-
         $ionicPlatform.ready(function () {
 
             // Notifications
 
-            var notificationOpenedCallback = function (jsonData) {
+            // if(window.cordova){
 
-                if (jsonData.additionalData.type == "newNotification") {
-
-
-                }
-
-                // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-            };
-
-            window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                {googleProjectNumber: "627358870772"},
-                notificationOpenedCallback);
-
-            window.plugins.OneSignal.getIds(function (ids) {
-
-                $rootScope.pushId = ids.userId;
-                alert($rootScope.pushId);
-
-            });
+            // var notificationOpenedCallback = function (jsonData) {
+            //
+            //     // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+            //
+            //     alert('here');
+            //
+            //     // if (jsonData.additionalData.type == "newNotification") {
+            //     //
+            //     //
+            //     // }
+            //
+            //     // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            // };
+            //
+            // // window.plugins.OneSignal
+            // //     .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
+            // //     .handleNotificationOpened(notificationOpenedCallback)
+            // //     .endInit();
+            //
+            // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+            //     {googleProjectNumber: "627358870772"},
+            //     notificationOpenedCallback);
+            //
+            // window.plugins.OneSignal.getIds(function (ids) {
+            //
+            //     $rootScope.pushId = ids.userId;
+            //     alert(ids.userId);
+            //
+            // });
 
             // Show an alert box if a notification comes in when the user is in your app.
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
-
+            // window.plugins.OneSignal.enableInAppAlertNotification(true);
+            // }
 
 
             // tip after 1 minute
