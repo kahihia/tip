@@ -11,10 +11,50 @@ angular.module('starter.controllers', [])
 
         $scope.logout = function() {
 
+            alert('logout');
+
             $localStorage.email = "";
             $localStorage.password = "";
-            $localStorage.userid = "";
+            // $localStorage.userid = "";
             $state.go('app.login');
+
+        }
+
+    })
+
+    .controller('RouterCtrl', function($scope, $localStorage, $state, $ionicHistory){
+
+        if (typeof $localStorage.enterScreenIsSeen != "undefined"){
+
+            if ($localStorage.password && $localStorage.password != "") {
+
+                $ionicHistory.nextViewOptions({
+                    disableAnimate: true,
+                    expire: 300
+                });
+
+                $state.go('app.home');
+
+            } else {
+
+                $ionicHistory.nextViewOptions({
+                    disableAnimate: true,
+                    expire: 300
+                });
+
+                $state.go('app.login');
+
+            }
+
+        } else {
+
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                expire: 300
+            });
+
+            $state.go('app.enter');
+            $localStorage.enterScreenIsSeen = true;
 
         }
 
@@ -186,16 +226,16 @@ angular.module('starter.controllers', [])
 
         $scope.$on('$ionicView.beforeEnter', function(){
 
-            if (!$localStorage.enterScreenIsSeen){
-
-                $state.go('app.enter');
-                $localStorage.enterScreenIsSeen = true;
-
-            }
-
-            // else if ($localStorage.enterScreenIsSeen == true && typeof $localStorage.userid == 'undefined'){
+            // if (!$localStorage.enterScreenIsSeen){
             //
-            //     $state.go('app.register');
+            //     $state.go('app.enter');
+            //     $localStorage.enterScreenIsSeen = true;
+            //
+            // }
+
+            // if ($localStorage.password != ""){
+            //
+            //     $state.go('app.home');
             //
             // }
 
@@ -265,6 +305,13 @@ angular.module('starter.controllers', [])
 
                             $state.go('app.home');
 
+                            $scope.login = {
+
+                                'email' : $localStorage.email,
+                                'password' : ''
+
+                            };
+
                         }
 
                     },
@@ -314,7 +361,55 @@ angular.module('starter.controllers', [])
 
         };
 
-        //  MAKE FORGOT PASSWORD TO THE END
+        $scope.sendForgotPassword = function(){
+
+            $http.post($rootScope.host + 'ForgotPassword', $scope.forgot, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data.data);
+
+                    if (data.data[0].status == "1"){
+
+                        $ionicPopup.alert({
+                            title: "The password was sent to your email!",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        })
+
+                    } else {
+
+                        $ionicPopup.alert({
+                            title: "The email is incorrect! Please try again",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        })
+
+                    }
+
+                },
+
+                function(error){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    })
+
+                });
+
+        };
 
     })
 
@@ -389,19 +484,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('DailyCtrl', function ($scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
-
-        $scope.$on('$ionicView.enter', function () {
-
-            // $ionicPopup.alert({
-            //     title: "מצב הנקודות שלי: " + $rootScope.allPoints,
-            //     buttons: [{
-            //         text: 'OK',
-            //         type: 'button-positive'
-            //     }]
-            // });
-
-        });
+    .controller('QuestionCtrl', function ($scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
 
         var send_data = {
 
@@ -560,6 +643,29 @@ angular.module('starter.controllers', [])
 
         };
 
+
+    })
+
+    .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
+
+        $scope.$on('$ionicView.enter', function () {
+
+            // $ionicPopup.alert({
+            //     title: "מצב הנקודות שלי: " + $rootScope.allPoints,
+            //     buttons: [{
+            //         text: 'OK',
+            //         type: 'button-positive'
+            //     }]
+            // });
+
+        });
+
+        var send_data = {
+
+            'date' : $rootScope.today
+
+        };
+
         // get deal for today
 
         $scope.todayDeal = {};
@@ -591,11 +697,6 @@ angular.module('starter.controllers', [])
             });
 
     })
-
-    // .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
-    //
-    //
-    // })
 
     .controller('PersonalCtrl', function ($http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
@@ -646,7 +747,7 @@ angular.module('starter.controllers', [])
 
                     $scope.userpic = data;
 
-                    alert($scope.userpic);
+                    // alert($scope.userpic);
 
                     var options = new FileUploadOptions();
 
@@ -659,16 +760,22 @@ angular.module('starter.controllers', [])
 
                     var ft = new FileTransfer();
 
-                    ft.upload($scope.userpic, encodeURI($rootScope.host + "uploadImage"), function(data){
+                    ft.upload($scope.userpic, encodeURI($rootScope.host + "UploadNewImage"), function(data){
 
-                        alert(JSON.stringify(data.response));
+                        // alert(JSON.stringify(data.response));
                         $scope.userpicURL = $rootScope.phpHost + data.response;
                         $localStorage.image = $scope.userpicURL;
                         $rootScope.image = $localStorage.image;
 
                     }, function(err){
 
-                        alert(JSON.stringify(err));
+                        $ionicPopup.alert({
+                            title: "The photo was not loaded!",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
 
                     }, options);
 
@@ -787,6 +894,8 @@ angular.module('starter.controllers', [])
                     }).then(
 
                         function(data){
+
+                            console.log(data);
 
                            if (data.data[0].status == '1'){
 
@@ -953,7 +1062,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CatalogCtrl', function (isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+    .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.selection = 'catalog';
 
@@ -1023,6 +1132,88 @@ angular.module('starter.controllers', [])
             return deleteFavoriteFactory.deleteFavorite(x);
 
         };
+
+        // is GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
+
+        $scope.turnOnGPS = function(){
+
+            // move user to settings
+
+            cordova.plugins.diagnostic.switchToLocationSettings();
+
+            // listen to his return
+
+            document.addEventListener("resume", onResume, false);
+
+            function onResume() {
+
+                CheckGPS.check(function win() {     // if he turned on GPS
+
+                    $ionicLoading.show({
+
+                        template: 'טעון...'
+
+                    }).then(function(){
+
+                        var posOptions = {enableHighAccuracy: false};
+
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+
+                                $rootScope.lat = position.coords.latitude;
+                                $rootScope.lng = position.coords.longitude;
+
+                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                $ionicLoading.hide();
+
+                                document.removeEventListener("resume", onResume);
+
+                            }, function(err) {
+
+                                $ionicPopup.alert({
+                                    title: "Can't get GPS data! The signal is too weak",
+                                    buttons: [{
+                                        text: 'OK',
+                                        type: 'button-positive'
+                                    }]
+                                });
+
+                                $rootScope.getDealsWithoutLocation();
+                                console.log('err1', err);
+
+                                $ionicLoading.hide();
+
+                                document.removeEventListener("resume", onResume);
+
+                            });
+
+                    })
+
+                }, function fail(){     // if he didn't turn on GPS
+
+                    setTimeout(function() {
+
+                        $ionicPopup.alert({
+                            title: "You haven't turn on GPS! Please try again",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    }, 0);
+
+                    document.removeEventListener("resume", onResume);
+
+                });
+
+            }
+
+        };
+
+
 
     })
 

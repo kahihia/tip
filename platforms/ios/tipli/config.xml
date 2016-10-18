@@ -39,6 +39,12 @@
     <feature name="CheckGPS">
         <param name="ios-package" value="CheckGPS" />
     </feature>
+    <feature name="Diagnostic">
+        <param name="ios-package" value="Diagnostic" />
+    </feature>
+    <feature name="OneSignalPush">
+        <param name="ios-package" value="OneSignalPush" />
+    </feature>
     <name>tipli</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -51,8 +57,6 @@
     <allow-intent href="mailto:*" />
     <access origin="*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="BackupWebStorage" value="none" />
-    <preference name="DisallowOverscroll" value="true" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
@@ -66,8 +70,10 @@
     <preference name="CameraUsesGeolocation" value="false" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
     <preference name="SplashScreenDelay" value="2000" />
     <preference name="FadeSplashScreenDuration" value="2000" />
     <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
 </widget>

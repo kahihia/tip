@@ -177,10 +177,28 @@
       <true/>
     </dict>
     <key>NSCameraUsageDescription</key>
-    <string/>
+    <string>This app requires camera access to function properly.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string/>
+    <string>This app requires photo library access to function properly.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
+    <string>This app requires access to your location when the screen is on and the app is displayed.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app requires constant access to your location in order to track your position, even when the screen is off.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>This app requires calendar access to function properly.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>This app requires bluetooth access to function properly.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app requires microphone access to function properly.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>This app requires motion detection access to function properly.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>This app requires contacts access to function properly.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>This app requires reminders access to function properly.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>remote-notification</string>
+    </array>
   </dict>
 </plist>

@@ -63,6 +63,14 @@
                         {
                             "xml": "<feature name=\"CheckGPS\"><param name=\"ios-package\" value=\"CheckGPS\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Diagnostic\"><param name=\"ios-package\" value=\"Diagnostic\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -73,11 +81,19 @@
                         {
                             "xml": "<string> </string>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<string>This app requires camera access to function properly.</string>",
+                            "count": 1
                         }
                     ],
                     "NSPhotoLibraryUsageDescription": [
                         {
                             "xml": "<string> </string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string>This app requires photo library access to function properly.</string>",
                             "count": 1
                         }
                     ],
@@ -85,6 +101,58 @@
                         {
                             "xml": "<string />",
                             "count": 2
+                        },
+                        {
+                            "xml": "<string>This app requires access to your location when the screen is on and the app is displayed.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSLocationAlwaysUsageDescription": [
+                        {
+                            "xml": "<string>This app requires constant access to your location in order to track your position, even when the screen is off.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSCalendarsUsageDescription": [
+                        {
+                            "xml": "<string>This app requires calendar access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSBluetoothPeripheralUsageDescription": [
+                        {
+                            "xml": "<string>This app requires bluetooth access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSMicrophoneUsageDescription": [
+                        {
+                            "xml": "<string>This app requires microphone access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSMotionUsageDescription": [
+                        {
+                            "xml": "<string>This app requires motion detection access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSContactsUsageDescription": [
+                        {
+                            "xml": "<string>This app requires contacts access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSRemindersUsageDescription": [
+                        {
+                            "xml": "<string>This app requires reminders access to function properly.</string>",
+                            "count": 1
+                        }
+                    ],
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
                         }
                     ]
                 }
@@ -134,6 +202,12 @@
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cl.rmd.cordova.dialoggps": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },
@@ -465,6 +539,22 @@
             "clobbers": [
                 "cordova.dialogGPS"
             ]
+        },
+        {
+            "file": "plugins/cordova.plugins.diagnostic/www/ios/diagnostic.js",
+            "id": "cordova.plugins.diagnostic.Diagnostic",
+            "pluginId": "cordova.plugins.diagnostic",
+            "clobbers": [
+                "cordova.plugins.diagnostic"
+            ]
+        },
+        {
+            "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+            "id": "onesignal-cordova-plugin.OneSignal",
+            "pluginId": "onesignal-cordova-plugin",
+            "clobbers": [
+                "OneSignal"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -481,6 +571,8 @@
         "cordova-plugin-inappbrowser": "1.5.0",
         "cordova-plugin-geolocation": "2.4.0",
         "cordova-plugin-fastrde-checkgps": "0.9.9",
-        "cl.rmd.cordova.dialoggps": "0.0.2"
+        "cl.rmd.cordova.dialoggps": "0.0.2",
+        "cordova.plugins.diagnostic": "3.2.2",
+        "onesignal-cordova-plugin": "2.0.6"
     }
 }

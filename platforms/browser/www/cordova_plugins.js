@@ -316,6 +316,14 @@ module.exports = [
         "clobbers": [
             "cordova.dialogGPS"
         ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -334,7 +342,9 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "1.5.0",
     "cordova-plugin-geolocation": "2.4.0",
     "cordova-plugin-fastrde-checkgps": "0.9.9",
-    "cl.rmd.cordova.dialoggps": "0.0.2"
+    "cl.rmd.cordova.dialoggps": "0.0.2",
+    "cordova.plugins.diagnostic": "3.2.2",
+    "onesignal-cordova-plugin": "2.0.6"
 }
 // BOTTOM OF METADATA
 });

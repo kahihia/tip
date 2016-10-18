@@ -2,73 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6081341-3a34-4f6a-a27c-d54f79d3c8f1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/factory.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/enter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/router.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/category.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/category.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/android.json" afterPath="$PROJECT_DIR$/platforms/android/android.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/cordova_plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/Camera.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/Camera.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraConstants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-device/www/device.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-device/www/device.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file-transfer/www/FileTransfer.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file-transfer/www/FileTransfer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file-transfer/www/FileTransferError.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file-transfer/www/FileTransferError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/DirectoryEntry.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/DirectoryEntry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/DirectoryReader.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/DirectoryReader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Entry.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/File.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/File.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileEntry.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileEntry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileError.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileError.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileReader.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileReader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileSystem.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileUploadOptions.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileUploadOptions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileUploadResult.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileUploadResult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileWriter.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileWriter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Flags.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Flags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/LocalFileSystem.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/LocalFileSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Metadata.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/Metadata.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/ProgressEvent.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/ProgressEvent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/android/FileSystem.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/android/FileSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/browser/isChrome.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/browser/isChrome.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystemPaths.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystemPaths.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystems-roots.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystems-roots.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystems.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/fileSystems.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/requestFileSystem.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/requestFileSystem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/resolveLocalFileSystemURI.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-file/www/resolveLocalFileSystemURI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-inappbrowser/www/inappbrowser.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-inappbrowser/www/inappbrowser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-splashscreen/www/splashscreen.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-splashscreen/www/splashscreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-statusbar/www/statusbar.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/cordova-plugin-statusbar/www/statusbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/ionic-plugin-keyboard/www/android/keyboard.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/plugins/ionic-plugin-keyboard/www/android/keyboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/article.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/article.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/catalog.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/catalog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/enter.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/enter.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/home.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/information.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/information.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/modal_forgot_password.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/modal_forgot_password.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/personal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/personal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/question.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/question.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/register.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/teaser.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/teaser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/build.gradle" afterPath="$PROJECT_DIR$/platforms/android/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/android/platform_www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/project.properties" afterPath="$PROJECT_DIR$/platforms/android/project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" afterPath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/browser.json" afterPath="$PROJECT_DIR$/platforms/browser/browser.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/config.xml" afterPath="$PROJECT_DIR$/platforms/browser/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/browser/platform_www/cordova_plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/config.xml" afterPath="$PROJECT_DIR$/platforms/browser/www/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/browser/www/cordova_plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/browser/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/index.html" afterPath="$PROJECT_DIR$/platforms/browser/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/browser/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/browser/www/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/article.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/article.html" />
@@ -77,6 +44,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/information.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/information.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/modal_forgot_password.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/modal_forgot_password.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/personal.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/personal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/question.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/question.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/browser/www/templates/register.html" afterPath="$PROJECT_DIR$/platforms/browser/www/templates/register.html" />
@@ -88,8 +56,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/tipli/config.xml" afterPath="$PROJECT_DIR$/platforms/ios/tipli/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/tipli/tipli-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/tipli/tipli-Info.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/ios/www/cordova_plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/css/style.css" afterPath="$PROJECT_DIR$/platforms/ios/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/index.html" afterPath="$PROJECT_DIR$/platforms/ios/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/article.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/article.html" />
@@ -98,6 +64,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/information.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/information.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/modal_forgot_password.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/modal_forgot_password.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/personal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/personal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/question.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/question.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/register.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/register.html" />
@@ -106,18 +73,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/browser.json" afterPath="$PROJECT_DIR$/plugins/browser.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/ios.json" afterPath="$PROJECT_DIR$/plugins/ios.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/answer.html" afterPath="$PROJECT_DIR$/www/templates/answer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/article.html" afterPath="$PROJECT_DIR$/www/templates/article.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/catalog.html" afterPath="$PROJECT_DIR$/www/templates/catalog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/discount.html" afterPath="$PROJECT_DIR$/www/templates/discount.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/enter.html" afterPath="$PROJECT_DIR$/www/templates/enter.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/home.html" afterPath="$PROJECT_DIR$/www/templates/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/information.html" afterPath="$PROJECT_DIR$/www/templates/information.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/login.html" afterPath="$PROJECT_DIR$/www/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/menu.html" afterPath="$PROJECT_DIR$/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/modal_forgot_password.html" afterPath="$PROJECT_DIR$/www/templates/modal_forgot_password.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/personal.html" afterPath="$PROJECT_DIR$/www/templates/personal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question.html" afterPath="$PROJECT_DIR$/www/templates/question.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/register.html" afterPath="$PROJECT_DIR$/www/templates/register.html" />
@@ -141,53 +108,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="555" column="26" selection-start-line="555" selection-start-column="26" selection-end-line="555" selection-end-column="26" />
+            <state relative-caret-position="255">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
+      <file leaf-file-name="router.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/router.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/item.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="answer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/answer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -196,13 +141,9 @@
       <file leaf-file-name="catalog.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/catalog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="66" column="87" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="87" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#2;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -210,8 +151,8 @@
       <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
+            <state relative-caret-position="735">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -220,8 +161,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="511" column="17" selection-start-line="511" selection-start-column="17" selection-end-line="511" selection-end-column="17" />
+            <state relative-caret-position="401">
+              <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -232,8 +173,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -243,32 +184,33 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/templates/modal_forgot_password.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/templates/new.php" />
         <option value="$PROJECT_DIR$/www/templates/header.html" />
-        <option value="$PROJECT_DIR$/www/templates/personal.html" />
         <option value="$PROJECT_DIR$/www/templates/popup_video.html" />
         <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/www/templates/register.html" />
-        <option value="$PROJECT_DIR$/www/templates/login.html" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/templates/category.html" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/js/factory.js" />
+        <option value="$PROJECT_DIR$/www/templates/item.html" />
+        <option value="$PROJECT_DIR$/www/templates/discount.html" />
+        <option value="$PROJECT_DIR$/www/templates/answer.html" />
+        <option value="$PROJECT_DIR$/www/templates/enter.html" />
         <option value="$PROJECT_DIR$/www/templates/home.html" />
         <option value="$PROJECT_DIR$/www/templates/information.html" />
         <option value="$PROJECT_DIR$/www/templates/article.html" />
         <option value="$PROJECT_DIR$/www/templates/teaser.html" />
+        <option value="$PROJECT_DIR$/www/templates/login.html" />
         <option value="$PROJECT_DIR$/www/templates/question.html" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/templates/category.html" />
-        <option value="$PROJECT_DIR$/www/templates/menu.html" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/js/factory.js" />
-        <option value="$PROJECT_DIR$/www/templates/item.html" />
-        <option value="$PROJECT_DIR$/www/templates/enter.html" />
+        <option value="$PROJECT_DIR$/www/templates/register.html" />
+        <option value="$PROJECT_DIR$/www/templates/personal.html" />
+        <option value="$PROJECT_DIR$/www/templates/modal_forgot_password.html" />
         <option value="$PROJECT_DIR$/www/templates/catalog.html" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/templates/router.html" />
+        <option value="$PROJECT_DIR$/www/templates/menu.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
-        <option value="$PROJECT_DIR$/www/templates/answer.html" />
-        <option value="$PROJECT_DIR$/www/templates/discount.html" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
       </list>
     </option>
   </component>
@@ -285,8 +227,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="44" />
-    <option name="y" value="23" />
+    <option name="x" value="46" />
+    <option name="y" value="26" />
     <option name="width" value="1396" />
     <option name="height" value="877" />
   </component>
@@ -421,6 +363,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tipli" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tipli" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -506,15 +462,15 @@
       <workItem from="1475994082247" duration="45230000" />
       <workItem from="1476296226026" duration="18559000" />
       <workItem from="1476457102835" duration="224000" />
-      <workItem from="1476516345207" duration="28048000" />
+      <workItem from="1476516345207" duration="41562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99056000" />
+    <option name="totallyTimeSpent" value="112570000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="44" y="23" width="1396" height="877" extended-state="6" />
+    <frame x="46" y="26" width="1396" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -575,7 +531,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -599,7 +557,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -670,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/modal_forgot_password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -694,120 +647,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="78" column="17" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#12;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#12;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/teaser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#3;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/question.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="72" selection-start-line="64" selection-start-column="72" selection-end-line="64" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#5;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#7;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="511" column="17" selection-start-line="511" selection-start-column="17" selection-end-line="511" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/information.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#a#2;n#div#2;n#div#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#a#3;n#div#2;n#div#0;n#div#4;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/popup_video.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="96" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
           <folding />
         </state>
       </provider>
@@ -820,34 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/enter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#ion-slides#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
@@ -856,16 +671,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/catalog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="66" column="87" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#2;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/www/img/question_button.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/answer.html">
@@ -876,20 +684,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="94" selection-start-line="6" selection-start-column="94" selection-end-line="6" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/discount.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/enter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <marker date="1476636451000" expanded="false" signature="207:234" ph="..." />
+            <element signature="n#style#0;n#ion-slides#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/information.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/question.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="94" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="98" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/teaser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="94" selection-start-line="5" selection-start-column="94" selection-end-line="5" selection-end-column="94" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/modal_forgot_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="0" column="49" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/router.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#3;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/catalog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="555" column="26" selection-start-line="555" selection-start-column="26" selection-end-line="555" selection-end-column="26" />
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
           <folding />
         </state>
       </provider>

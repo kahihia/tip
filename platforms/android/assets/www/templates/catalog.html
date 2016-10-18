@@ -6,31 +6,36 @@
         <div class="button-bar">
             <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'favorites'}" ng-click="selection='favorites'">מועדפים</a>
             <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'catalog'}" ng-click="selection='catalog'">קטלוג</a>
-            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'new'}" ng-click="selection='new'">מה חדש</a>
+            <a class="button" style="background-color:#fdf666" ng-class="{activeTab : selection == 'location'}" ng-click="selection='location'">מה באזור</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
 
-            <div ng-switch-when="new">
+            <div ng-switch-when="location">
 
-                <!--<div ng-repeat="deal in deals">-->
+                <div ng-show="isLocationEnabled == false">
+                    <button class="button button-positive" ng-click="turnOnGPS()">Turn on GPS to see the closest deals</button>
+                </div>
 
-                    <!--<div class="catalogDeal">-->
+                <div ng-show="isLocationEnabled == true" ng-repeat="deal in deals | filter: {cat_id : categoryNumber.number}">
 
-                        <!--<div>{{deal.title}}</div>-->
+                    <div class="catalogDeal" ng-show="deal.dist <= 10">
 
-                        <!--<img ng-src="{{deal.image}}" style="width: 100%;">-->
+                        <div>{{deal.title}}</div>
+                        <div>{{deal.dist}}</div>
 
-                        <!--<div>מחיר חבר</div>-->
+                        <img ng-src="{{deal.image}}" style="width: 100%;">
 
-                        <!--<div>{{deal.regular_price}}</div>-->
+                        <div>מחיר חבר</div>
 
-                        <!--<button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>-->
-                        <!--<button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>-->
+                        <div>{{deal.regular_price}}</div>
 
-                    <!--</div>-->
+                        <button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>
+                        <button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>
 
-                <!--</div>-->
+                    </div>
+
+                </div>
 
             </div>
 
@@ -67,6 +72,7 @@
                     <div class="catalogDeal" ui-sref="app.item({itemId:fav.deal.index})">
 
                         <div>{{fav.deal.title}}</div>
+                        <div>{{fav.deal.dist}}</div>
 
                         <img ng-src="{{fav.deal.image}}" style="width: 100%;">
 

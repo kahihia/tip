@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
 
-    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation) {
+    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -48,6 +48,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
         $rootScope.favoriteDeals = [];
         $rootScope.lat = "";
         $rootScope.lng = "";
+        $rootScope.isLocationEnabled = false;
 
         // menu links
 
@@ -61,39 +62,58 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         };
 
+        // toggle menu
+
+        $rootScope.toggleLeftSideMenu = function() {
+
+            $ionicSideMenuDelegate.toggleLeft();
+
+        };
+
+        // what time is it now?
+
+        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+
+        if ($rootScope.timeNow > "13:00") {
+
+            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        } else {
+
+            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        }
 
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
-
         $ionicPlatform.ready(function () {
 
-            // what time is it now?
+            // Notifications
 
-            $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+            var notificationOpenedCallback = function (jsonData) {
 
-            if ($rootScope.timeNow > "13:00") {
+                if (jsonData.additionalData.type == "newNotification") {
 
-                $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-            } else {
-
-                $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-            }
-
-            // if not logged in - no access to inner pages
-
-            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-
-                if ((toState.name != 'app.login' || toState.name != 'app.enter' || toState.name != 'app.register') && $localStorage.userid === "") {
-
-                    event.preventDefault();
-
-                    $state.go('app.login');
 
                 }
 
+                // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            };
+
+            window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                {googleProjectNumber: "627358870772"},
+                notificationOpenedCallback);
+
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+                alert($rootScope.pushId);
+
             });
+
+            // Show an alert box if a notification comes in when the user is in your app.
+            window.plugins.OneSignal.enableInAppAlertNotification(true);
+
 
 
             // tip after 1 minute
@@ -145,7 +165,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             //         });
 
 
-
             // get catalog categories
 
             $http.post($rootScope.host + 'GetDealCategories', '', {
@@ -156,7 +175,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 function(data){
 
-                    console.log(data);
+                    console.log("Categories", data);
 
                     for (var i = 0; i < data.data.length; i++){
 
@@ -227,26 +246,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                                             document.addEventListener("resume", onResume, false);
 
-                                        function onResume() {
+                                            function onResume() {
 
-                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                                            $cordovaGeolocation
-                                                .getCurrentPosition(posOptions)
-                                                .then(function (position) {
+                                                $cordovaGeolocation
+                                                    .getCurrentPosition(posOptions)
+                                                    .then(function (position) {
 
-                                                    $rootScope.lat = position.coords.latitude;
-                                                    $rootScope.lng = position.coords.longitude;
-                                                    alert($rootScope.lat + ' ' + $rootScope.lng + ' 2');
+                                                        $rootScope.lat = position.coords.latitude;
+                                                        $rootScope.lng = position.coords.longitude;
 
-                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                                                }, function (err) {
+                                                    }, function (err) {
 
-                                                    $rootScope.getDealsWithoutLocation();
+                                                        $rootScope.getDealsWithoutLocation();
 
-                                                });
-                                        }
+                                                    });
+                                            }
 
                                             break;
 
@@ -307,6 +325,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     }
 
+                    $rootScope.isLocationEnabled = false;
+
                     console.log("Deals", $rootScope.deals);
 
                 },
@@ -353,6 +373,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     }
 
+                    $rootScope.isLocationEnabled = true;
+
                     console.log("Deals", $rootScope.deals);
 
                 },
@@ -383,6 +405,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 controller: 'AppCtrl'
             })
 
+            .state('app.router', {
+                url: '/router',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/router.html',
+                        controller: 'RouterCtrl'
+                    }
+                }
+
+            })
+
             .state('app.enter', {
                 url: '/enter',
                 views: {
@@ -409,6 +442,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     'menuContent': {
                         templateUrl: 'templates/login.html',
                         controller: 'LoginCtrl'
+
                     }
                 }
             })
@@ -514,5 +548,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             })
         ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/login');
+        $urlRouterProvider.otherwise('/app/router');
     });

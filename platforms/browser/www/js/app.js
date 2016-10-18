@@ -7,7 +7,7 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
 
-    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation) {
+    .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -48,6 +48,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
         $rootScope.favoriteDeals = [];
         $rootScope.lat = "";
         $rootScope.lng = "";
+        $rootScope.isLocationEnabled = false;
 
         // menu links
 
@@ -58,6 +59,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             $rootScope.categoryNumber.number = x;
             $rootScope.categoryName = y;
+
+        };
+
+        // toggle menu
+
+        $rootScope.toggleLeftSideMenu = function() {
+
+            $ionicSideMenuDelegate.toggleLeft();
 
         };
 
@@ -75,12 +84,88 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         }
 
-
         // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
 
         $ionicPlatform.ready(function () {
 
+            // Notifications
+
+            var notificationOpenedCallback = function (jsonData) {
+
+                if (jsonData.additionalData.type == "newNotification") {
+
+                    // alert(JSON.stringify(jsonData));
+                    $rootScope.newNotification = jsonData;
+
+                    if (jsonData.additionalData.title == 'ATF Invest') {
+
+                        $rootScope.$broadcast('newNotificationToAll');
+                        $state.go('app.myaccount');
+
+                    } else {
+
+                        // alert('123');
+                        $rootScope.$broadcast('newNotification');
+                        $state.go('app.investment');
+
+                    }
+
+                }
+
+                // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            };
+
+            window.plugins.OneSignal.init("55000a23-cf3b-468b-bcdc-4ea79fd7eb67",
+                {googleProjectNumber: "595323574268"},
+                notificationOpenedCallback);
+
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+
+            });
+
+            // Show an alert box if a notification comes in when the user is in your app.
+            window.plugins.OneSignal.enableInAppAlertNotification(true);// Notifications
+
+            var notificationOpenedCallback = function (jsonData) {
+
+                if (jsonData.additionalData.type == "newNotification") {
+
+                    // alert(JSON.stringify(jsonData));
+                    $rootScope.newNotification = jsonData;
+
+                    if (jsonData.additionalData.title == 'ATF Invest') {
+
+                        $rootScope.$broadcast('newNotificationToAll');
+                        $state.go('app.myaccount');
+
+                    } else {
+
+                        // alert('123');
+                        $rootScope.$broadcast('newNotification');
+                        $state.go('app.investment');
+
+                    }
+
+                }
+
+                // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            };
+
+            window.plugins.OneSignal.init("55000a23-cf3b-468b-bcdc-4ea79fd7eb67",
+                {googleProjectNumber: "595323574268"},
+                notificationOpenedCallback);
+
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+
+            });
+
+            // Show an alert box if a notification comes in when the user is in your app.
+            window.plugins.OneSignal.enableInAppAlertNotification(true);
 
             // tip after 1 minute
 
@@ -130,6 +215,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             //
             //         });
 
+
             // get catalog categories
 
             $http.post($rootScope.host + 'GetDealCategories', '', {
@@ -140,7 +226,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 function(data){
 
-                    console.log(data);
+                    console.log("Categories", data);
 
                     for (var i = 0; i < data.data.length; i++){
 
@@ -162,138 +248,201 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 });
 
-        });
 
+            // geolocation
 
-        // which route should I use?
+            if(window.cordova) {
 
-        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-        //
-        //     if (toState.name == 'app.home' && !$localStorage.userid){
-        //
-        //         console.log(toState.name);
-        //
-        //         $state.go('app.register');
-        //
-        //     } else if (toState.name == 'app.home' && $localStorage.userid == "") {
-        //
-        //         console.log(toState.name);
-        //
-        //         $state.go('app.login');
-        //
-        //     }
-        //
-        // });
+                $ionicPlatform.ready(function () {
 
-        // geolocation
+                    CheckGPS.check(function win() {
 
-        if(window.cordova) {
+                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-            $ionicPlatform.ready(function () {
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
 
-                CheckGPS.check(function win() {
+                                $rootScope.lat = position.coords.latitude;
+                                $rootScope.lng = position.coords.longitude;
+                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                    alert('win')
+                            }, function (err) {
 
-                        // var posOptions = {timeout: 3000, enableHighAccuracy: true};
-                        //
-                        // $cordovaGeolocation
-                        //     .getCurrentPosition(posOptions)
-                        //     .then(function (position) {
-                        //
-                        //         $rootScope.lat = position.coords.latitude;
-                        //         $rootScope.lng = position.coords.longitude;
-                        //         alert($rootScope.lat + ' ' + $rootScope.lng + ' 1')
-                        //         // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-                        //
-                        //     }, function (err) {
-                        //
-                        //         // $rootScope.getDealsWithoutLocation();
-                        //
-                        //     });
+                                $rootScope.getDealsWithoutLocation();
 
-                    },
+                            });
 
-                    function fail() {
+                        },
 
-                        alert('fail')
+                        function fail() {
 
-                        // cordova.dialogGPS("Your GPS is Disabled.",
-                        //     'Please enable location for proper work of the application',
-                        //
-                        //     function (buttonIndex) {
-                        //
-                        //         switch (buttonIndex) {
-                        //             case 0:     // no
-                        //
-                        //                 // $rootScope.getDealsWithoutLocation();
-                        //                 break;
-                        //
-                        //             case 1:     // neutral
-                        //
-                        //                 // $rootScope.getDealsWithoutLocation();
-                        //                 break;
-                        //
-                        //             case 2:     // yes, go to settings
-                        //
-                        //                 document.addEventListener("resume", onResume, false);
-                        //
-                        //             function onResume() {
-                        //
-                        //                 var posOptions = {timeout: 3000, enableHighAccuracy: true};
-                        //
-                        //                 $cordovaGeolocation
-                        //                     .getCurrentPosition(posOptions)
-                        //                     .then(function (position) {
-                        //
-                        //                         $rootScope.lat = position.coords.latitude;
-                        //                         $rootScope.lng = position.coords.longitude;
-                        //                         alert($rootScope.lat + ' ' + $rootScope.lng + ' 2');
-                        //
-                        //                         // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-                        //
-                        //                     }, function (err) {
-                        //
-                        //                         // $rootScope.getDealsWithoutLocation();
-                        //
-                        //                     });
-                        //             }
-                        //
-                        //                 break;
-                        //
-                        //             default:
-                        //
-                        //                 // $rootScope.getDealsWithoutLocation();
-                        //                 break;
-                        //         }
-                        //
-                        //     });
+                            cordova.dialogGPS("Your GPS is Disabled.",
+                                'Please enable location for proper work of the application',
 
-                    });
+                                function (buttonIndex) {
 
-            });
+                                    switch (buttonIndex) {
+                                        case 0:     // no
 
-        } else {
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
 
-            var posOptions = {enableHighAccuracy: false};
+                                        case 1:     // neutral
 
-            $cordovaGeolocation
-                .getCurrentPosition(posOptions)
-                .then(function (position) {
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
 
-                    $rootScope.lat = position.coords.latitude;
-                    $rootScope.lng = position.coords.longitude;
+                                        case 2:     // yes, go to settings
 
-                    // $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                                            document.addEventListener("resume", onResume, false);
 
-                }, function(err) {
+                                            function onResume() {
 
-                    // $rootScope.getDealsWithoutLocation();
-                    console.log('err1', err);
+                                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                                $cordovaGeolocation
+                                                    .getCurrentPosition(posOptions)
+                                                    .then(function (position) {
+
+                                                        $rootScope.lat = position.coords.latitude;
+                                                        $rootScope.lng = position.coords.longitude;
+
+                                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                                    }, function (err) {
+
+                                                        $rootScope.getDealsWithoutLocation();
+
+                                                    });
+                                            }
+
+                                            break;
+
+                                        default:
+
+                                            $rootScope.getDealsWithoutLocation();
+                                            break;
+                                    }
+
+                                });
+
+                        });
 
                 });
 
-        }
+            } else {
+
+                var posOptions = {enableHighAccuracy: false};
+
+                $cordovaGeolocation
+                    .getCurrentPosition(posOptions)
+                    .then(function (position) {
+
+                        $rootScope.lat = position.coords.latitude;
+                        $rootScope.lng = position.coords.longitude;
+
+                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                    }, function(err) {
+
+                        $rootScope.getDealsWithoutLocation();
+                        console.log('err1', err);
+
+                    });
+
+            }
+
+        });
+
+        // get all deals without location
+
+        $rootScope.getDealsWithoutLocation = function(){
+
+            $http.post($rootScope.host + 'GetDeals', '', {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $rootScope.deals = data.data;
+
+                    for(var i = 0; i < $rootScope.deals.length; i++){
+
+                        $rootScope.deals[i].image = $rootScope.phpHost + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = $rootScope.phpHost + $rootScope.deals[i].image2;
+
+                    }
+
+                    $rootScope.isLocationEnabled = false;
+
+                    console.log("Deals", $rootScope.deals);
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+        };
+
+        // get all deals with location
+
+        $rootScope.getDealsWithLocation = function(){
+
+            var send_coord = {
+
+                'lat' : $rootScope.lat,
+                'lng' : $rootScope.lng
+
+            };
+
+            $http.post($rootScope.host + 'GetDealsWithLocation', send_coord, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $rootScope.deals = data.data;
+
+                    for(var i = 0; i < $rootScope.deals.length; i++){
+
+                        $rootScope.deals[i].image = $rootScope.phpHost + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = $rootScope.phpHost + $rootScope.deals[i].image2;
+
+                    }
+
+                    $rootScope.isLocationEnabled = true;
+
+                    console.log("Deals", $rootScope.deals);
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+        };
 
     })
 
@@ -305,6 +454,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 abstract: true,
                 templateUrl: 'templates/menu.html',
                 controller: 'AppCtrl'
+            })
+
+            .state('app.router', {
+                url: '/router',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/router.html',
+                        controller: 'RouterCtrl'
+                    }
+                }
+
+            })
+
+            .state('app.enter', {
+                url: '/enter',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/enter.html',
+                        controller: 'RegisterCtrl'
+                    }
+                }
             })
 
             .state('app.register', {
@@ -323,6 +493,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     'menuContent': {
                         templateUrl: 'templates/login.html',
                         controller: 'LoginCtrl'
+
                     }
                 }
             })
@@ -346,16 +517,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     }
                 }
             })
-            //
-            // .state('app.category', {
-            //     url: '/category/:categoryId',
-            //     views: {
-            //         'menuContent': {
-            //             templateUrl: 'templates/category.html',
-            //             controller: 'CatalogCtrl'
-            //         }
-            //     }
-            // })
 
             .state('app.item', {
                 url: '/item/:itemId',
@@ -438,5 +599,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             })
         ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/login');
+        $urlRouterProvider.otherwise('/app/router');
     });
