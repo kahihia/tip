@@ -188,7 +188,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(data){
 
                     console.log("Categories", data);
-
+					$rootScope.categoryName = data.data[0].title;
                     for (var i = 0; i < data.data.length; i++){
 
                         $rootScope.categories.push(data.data[i]);
