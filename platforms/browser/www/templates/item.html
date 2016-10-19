@@ -1,9 +1,56 @@
-<ion-view view-title="Item">
+<ion-view view-title="Item" hide-nav-bar="true">
     <ion-content class="rtl">
+		<div class="pointsHeader">
+            <div class="sideMenuIcon">
+                <img src="img/sidemenu.png" style="width:100%" />
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+		 <div class="teaserTitle"> {{deal.title}}</div>
+       
+        
+       <div class="teaserInfo">
 
-        <div>{{deal.title}}</div>
+       	   <div class="teaserInfoLeft">
 
-        <img ng-src="{{deal.image}}" style="width: 100%;">
+           		<img src="img/teaser_logo.png" style="width:100%;" />
+
+                <div class="teaserRegularPriceText">מחיר רגיל</div>
+                <div class="teaserRegularPriceBlock">
+                	<img src="img/teaser_x.png" style="width:100%" />
+                </div>
+                <div class="teaserRegularPrice">{{deal.regular_price}} <span> 	&#8362;</span></div>
+
+                <div class="teaserNewPriceText">מחיר חבר</div>
+                <div class="teaserRegularPrice">{{deal.member_price}} <span> 	&#x20aa;</span></div>
+
+           </div>
+
+           <div class="TeaserInfoRight">
+           		<img ng-src="{{deal.image}}" style="width:100%;" />
+           </div>
+
+           <div>
+           		<img src="img/mainbanner.png" style="width:100%; margin-top:-5px;" />
+           </div>
+
+           <div class="greyRow">פרטי ההטבה</div>
+           <div class="mh80">{{deal.desc}}</div>
+           <div class="greyRow">תנאים כלליים</div>
+           <div class="mh80">{{deal.terms}}</div>
+		   <div class="greyRow">סרטון</div>
+           <div >
+             <youtube-video video-url="deal.youtube" player-width="'100%'" style="height:200px !important" ></youtube-video>
+           </div>
+            
+        </div>
+        
+        
+
+      <!--  <img ng-src="{{deal.image}}" style="width: 100%;">
 
         <button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>
         <button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>
@@ -16,19 +63,11 @@
 
         <div>{{deal.member_price}}</div>
 
-        <div>פרטי הטבה</div>
+        <div>פרטי הטבה</div> -->
 
-        <div>{{deal.desc}}</div>
+        
 
-        <div>תניים כללים</div>
-
-        <div>{{deal.terms}}</div>
-
-        <div>סרטון</div>
-
-        <div>
-            <youtube-video video-url="deal.youtube" player-width="'100%'"></youtube-video>
-        </div>
+       
 
         <!--<button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>-->
         <!--<button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>-->

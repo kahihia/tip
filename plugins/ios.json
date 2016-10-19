@@ -78,9 +78,6 @@
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
         "cordova-plugin-fastrde-checkgps": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
@@ -94,6 +91,9 @@
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         }
     },

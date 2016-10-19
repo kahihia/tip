@@ -10,86 +10,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
-            // Default code
-
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
-
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
-
-        });
-
-        // global variables
-
-        $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
-        $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
-        $rootScope.isAnswerCorrect = false;
-        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
-        $rootScope.correctAnswers = 0;
-        $rootScope.incorrectAnswers = 0;
-        $rootScope.allPoints = 0;
-        $rootScope.userData = {
-            "firstname" : $localStorage.firstname,
-            "lastname" : $localStorage.lastname,
-            "password" : $localStorage.password,
-            "email" : $localStorage.email,
-            "gender" : $localStorage.gender,
-            "soldier" : $localStorage.soldier,
-            "userid" : $localStorage.userid
-        };
-        $rootScope.image = $localStorage.image;
-        $rootScope.categories = [];
-        $rootScope.currState = $state;
-        $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
-        $rootScope.deals = [];
-        $rootScope.favoriteDeals = [];
-        $rootScope.lat = "";
-        $rootScope.lng = "";
-        $rootScope.isLocationEnabled = false;
-
-        // menu links
-
-        $rootScope.categoryNumber = {};
-        $rootScope.categoryName = '';
-
-        $rootScope.setCategory = function(x, y){
-
-            $rootScope.categoryNumber.number = x;
-            $rootScope.categoryName = y;
-
-        };
-
-        // toggle menu
-
-        $rootScope.toggleLeftSideMenu = function() {
-
-            $ionicSideMenuDelegate.toggleLeft();
-
-        };
-
-        // what time is it now?
-
-        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
-
-        if ($rootScope.timeNow > "13:00") {
-
-            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        } else {
-
-            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-
-        }
-
-        $ionicPlatform.ready(function () {
-
             // Notifications
+
+            // if(window.cordova){
 
             var notificationOpenedCallback = function (jsonData) {
 
@@ -105,26 +28,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
             };
 
-            window.plugins.OneSignal
-                .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
-                .handleNotificationOpened(notificationOpenedCallback)
-                .endInit();
+            window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                {googleProjectNumber: "627358870772"},
+                notificationOpenedCallback);
 
-            // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-            //     {googleProjectNumber: "627358870772"},
-            //     notificationOpenedCallback);
-            //
-            // window.plugins.OneSignal.getIds(function (ids) {
-            //
-            //     $rootScope.pushId = ids.userId;
-            //     alert(ids.userId);
-            //
-            // });
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+                alert(ids.userId);
+
+            });
 
             // Show an alert box if a notification comes in when the user is in your app.
             window.plugins.OneSignal.enableInAppAlertNotification(true);
 
+            // }
 
+
+
+            // Default code
+
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                cordova.plugins.Keyboard.disableScroll(true);
+
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
 
             // tip after 1 minute
 
@@ -186,7 +119,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(data){
 
                     console.log("Categories", data);
-
+                    $rootScope.categoryName = data.data[0].title;
                     for (var i = 0; i < data.data.length; i++){
 
                         $rootScope.categories.push(data.data[i]);
@@ -216,21 +149,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     CheckGPS.check(function win() {
 
-                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                        $cordovaGeolocation
-                            .getCurrentPosition(posOptions)
-                            .then(function (position) {
+                            $cordovaGeolocation
+                                .getCurrentPosition(posOptions)
+                                .then(function (position) {
 
-                                $rootScope.lat = position.coords.latitude;
-                                $rootScope.lng = position.coords.longitude;
-                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                                    $rootScope.lat = position.coords.latitude;
+                                    $rootScope.lng = position.coords.longitude;
+                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                            }, function (err) {
+                                }, function (err) {
 
-                                $rootScope.getDealsWithoutLocation();
+                                    $rootScope.getDealsWithoutLocation();
 
-                            });
+                                });
 
                         },
 
@@ -256,25 +189,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                                             document.addEventListener("resume", onResume, false);
 
-                                            function onResume() {
+                                        function onResume() {
 
-                                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                                                $cordovaGeolocation
-                                                    .getCurrentPosition(posOptions)
-                                                    .then(function (position) {
+                                            $cordovaGeolocation
+                                                .getCurrentPosition(posOptions)
+                                                .then(function (position) {
 
-                                                        $rootScope.lat = position.coords.latitude;
-                                                        $rootScope.lng = position.coords.longitude;
+                                                    $rootScope.lat = position.coords.latitude;
+                                                    $rootScope.lng = position.coords.longitude;
 
-                                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                                                    }, function (err) {
+                                                }, function (err) {
 
-                                                        $rootScope.getDealsWithoutLocation();
+                                                    $rootScope.getDealsWithoutLocation();
 
-                                                    });
-                                            }
+                                                });
+                                        }
 
                                             break;
 
@@ -311,8 +244,75 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     });
 
             }
-
         });
+
+        // global variables
+
+        $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
+        $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
+        $rootScope.isAnswerCorrect = false;
+        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+        $rootScope.correctAnswers = 0;
+        $rootScope.incorrectAnswers = 0;
+        $rootScope.allPoints = 0;
+        $rootScope.userData = {
+            "firstname" : $localStorage.firstname,
+            "lastname" : $localStorage.lastname,
+            "password" : $localStorage.password,
+            "email" : $localStorage.email,
+            "gender" : $localStorage.gender,
+            "soldier" : $localStorage.soldier,
+            "userid" : $localStorage.userid
+        };
+        $rootScope.image = $localStorage.image;
+        $rootScope.categories = [];
+        $rootScope.currState = $state;
+        $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
+        $rootScope.deals = [];
+        $rootScope.favoriteDeals = [];
+        $rootScope.lat = "";
+        $rootScope.lng = "";
+        $rootScope.isLocationEnabled = false;
+
+        // menu links
+
+        $rootScope.categoryNumber = {};
+        $rootScope.categoryName = '';
+
+        $rootScope.setCategory = function(x, y){
+
+            $rootScope.categoryNumber.number = x;
+            $rootScope.categoryName = y;
+
+        };
+
+        // toggle menu
+
+        $rootScope.toggleLeftSideMenu = function() {
+
+            $ionicSideMenuDelegate.toggleLeft();
+
+        };
+
+        $rootScope.toggleRightSideMenu = function() {
+
+            $ionicSideMenuDelegate.toggleRight();
+
+        };
+
+        // what time is it now?
+
+        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+
+        if ($rootScope.timeNow > "13:00") {
+
+            $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        } else {
+
+            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
+
+        }
 
         // get all deals without location
 

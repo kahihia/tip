@@ -55,7 +55,6 @@
 		06C5A97DB738444DBC897B71 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C99204130FD4C9286E96813 /* CDVLocalFilesystem.m */; };
 		7927D55E088C4B91B94966A4 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCB31418997444B98B22275 /* CDVAssetLibraryFilesystem.m */; };
 		B87097DB793A488F92F9BB75 /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 20ACB18484EE486EA6D0E21B /* CDVFileTransfer.m */; };
-		733FE1282832451C86832BE1 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8349C681E0264F01BB97B17A /* CDVInAppBrowser.m */; };
 		A5EFD2CBF7054E19A6B2A893 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E370DBF7E5473084CA1347 /* CDVLocation.m */; };
 		B9582B9F284D43E7B0D9D076 /* CDVCheckGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FE2C34A4D54D1388BC4240 /* CDVCheckGPS.m */; };
 		0F4E6EDD95A2466E91B0CB7C /* Diagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = AECCBFDB77F94802AAD292D6 /* Diagnostic.m */; };
@@ -81,6 +80,7 @@
 		331B4EBCCBB74D9D9E5E976E /* OneSignalHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E7D4934B8F4686BF82043A /* OneSignalHelper.m */; };
 		EB812C3E661341D3B5F34B63 /* OneSignalWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D526C26AF4879BEE03346 /* OneSignalWebView.m */; };
 		A80833D41E8F4BA4845CBB88 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F85528E1C4CE7B420F42E /* OneSignalPush.m */; };
+		3111BF14F53F4238B4EB23CD /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,8 +176,6 @@
 		96AD650BF5F34620A8CE0EDF /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; name = "CDVAssetLibraryFilesystem.h"; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		20ACB18484EE486EA6D0E21B /* CDVFileTransfer.m */ = {isa = PBXFileReference; name = "CDVFileTransfer.m"; path = "cordova-plugin-file-transfer/CDVFileTransfer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		165E42D275DF45928A409912 /* CDVFileTransfer.h */ = {isa = PBXFileReference; name = "CDVFileTransfer.h"; path = "cordova-plugin-file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		8349C681E0264F01BB97B17A /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		FBE7553138204F80AF2F4297 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		21E370DBF7E5473084CA1347 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		137A4B0F2D064466BE3961A1 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		B4FE2C34A4D54D1388BC4240 /* CDVCheckGPS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCheckGPS.m"; path = "cordova-plugin-fastrde-checkgps/CDVCheckGPS.m"; sourceTree = "<group>"; fileEncoding = 4; };
@@ -220,6 +218,8 @@
 		626A21C82F3D4AC79E7AE132 /* OneSignalTracker.h */ = {isa = PBXFileReference; name = "OneSignalTracker.h"; path = "onesignal-cordova-plugin/OneSignalTracker.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		A99996513BFE4CC2995E11E3 /* OneSignalWebView.h */ = {isa = PBXFileReference; name = "OneSignalWebView.h"; path = "onesignal-cordova-plugin/OneSignalWebView.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		6B2045DA95CB447385746B41 /* OneSignal-Prefix.pch */ = {isa = PBXFileReference; name = "OneSignal-Prefix.pch"; path = "onesignal-cordova-plugin/OneSignal-Prefix.pch"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5FA31C9E17CF4A1ABBA604A3 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,8 +365,6 @@
 				96AD650BF5F34620A8CE0EDF /* CDVAssetLibraryFilesystem.h */,
 				20ACB18484EE486EA6D0E21B /* CDVFileTransfer.m */,
 				165E42D275DF45928A409912 /* CDVFileTransfer.h */,
-				8349C681E0264F01BB97B17A /* CDVInAppBrowser.m */,
-				FBE7553138204F80AF2F4297 /* CDVInAppBrowser.h */,
 				21E370DBF7E5473084CA1347 /* CDVLocation.m */,
 				137A4B0F2D064466BE3961A1 /* CDVLocation.h */,
 				B4FE2C34A4D54D1388BC4240 /* CDVCheckGPS.m */,
@@ -402,6 +400,8 @@
 				626A21C82F3D4AC79E7AE132 /* OneSignalTracker.h */,
 				A99996513BFE4CC2995E11E3 /* OneSignalWebView.h */,
 				6B2045DA95CB447385746B41 /* OneSignal-Prefix.pch */,
+				4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */,
+				5FA31C9E17CF4A1ABBA604A3 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "tipli/Plugins";
@@ -599,7 +599,6 @@
 				06C5A97DB738444DBC897B71 /* CDVLocalFilesystem.m in Sources */,
 				7927D55E088C4B91B94966A4 /* CDVAssetLibraryFilesystem.m in Sources */,
 				B87097DB793A488F92F9BB75 /* CDVFileTransfer.m in Sources */,
-				733FE1282832451C86832BE1 /* CDVInAppBrowser.m in Sources */,
 				A5EFD2CBF7054E19A6B2A893 /* CDVLocation.m in Sources */,
 				B9582B9F284D43E7B0D9D076 /* CDVCheckGPS.m in Sources */,
 				0F4E6EDD95A2466E91B0CB7C /* Diagnostic.m in Sources */,
@@ -618,6 +617,7 @@
 				331B4EBCCBB74D9D9E5E976E /* OneSignalHelper.m in Sources */,
 				EB812C3E661341D3B5F34B63 /* OneSignalWebView.m in Sources */,
 				A80833D41E8F4BA4845CBB88 /* OneSignalPush.m in Sources */,
+				3111BF14F53F4238B4EB23CD /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

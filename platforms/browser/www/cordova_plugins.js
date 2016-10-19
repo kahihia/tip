@@ -285,23 +285,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
-        "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "merges": [
-            ""
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-fastrde-checkgps/www/CheckGPS.js",
         "id": "cordova-plugin-fastrde-checkgps.CheckGPS",
         "pluginId": "cordova-plugin-fastrde-checkgps",
@@ -324,6 +307,23 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
+        "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "merges": [
+            ""
+        ]
     }
 ];
 module.exports.metadata = 
@@ -339,12 +339,12 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.3.0",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-file-transfer": "1.6.0",
-    "cordova-plugin-inappbrowser": "1.5.0",
     "cordova-plugin-geolocation": "2.4.0",
     "cordova-plugin-fastrde-checkgps": "0.9.9",
     "cl.rmd.cordova.dialoggps": "0.0.2",
     "cordova.plugins.diagnostic": "3.2.2",
-    "onesignal-cordova-plugin": "2.0.6"
+    "onesignal-cordova-plugin": "2.0.6",
+    "cordova-plugin-inappbrowser": "1.5.0"
 }
 // BOTTOM OF METADATA
 });
