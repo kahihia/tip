@@ -1,20 +1,47 @@
-<ion-view view-title="Discount">
-    <ion-content>
+<ion-view view-title="Item" hide-nav-bar="true">
+    <ion-content class="rtl">
+        <div class="pointsHeader">
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+        <div class="teaserTitle"> {{todayDeal.title}}</div>
 
-        <div class="textRight">
+        <div class="teaserInfo">
 
-            <div>{{todayDeal.title}}</div>
+            <div class="teaserInfoLeft">
 
-            <div><img ng-src={{image}} style="width: 60%; margin: 0 auto;"></div>
+                <img src="img/teaser_logo.png" style="width:100%;" />
 
-            <div>מחיר רגיל:</div>
-            <div> {{todayDeal.regular_price}}</div>
+                <div class="teaserRegularPriceText">מחיר רגיל</div>
+                <div class="teaserRegularPriceBlock">
+                    <img src="img/teaser_x.png" style="width:100%" />
+                </div>
+                <div class="teaserRegularPrice">{{todayDeal.regular_price}} <span> 	&#8362;</span></div>
 
-            <div>מחיר חבר:</div>
-            <div> {{todayDeal.member_price}}</div>
+                <div class="teaserNewPriceText">מחיר חבר</div>
+                <div class="teaserRegularPrice">{{todayDeal.member_price}} <span> 	&#x20aa;</span></div>
 
-            <div>פרטי ההטבה</div>
-            <div>{{todayDeal.desc}}</div>
+            </div>
+
+            <div class="TeaserInfoRight">
+                <img ng-src="{{todayDeal.image}}" style="width:100%;" />
+            </div>
+
+            <div>
+                <img src="img/mainbanner.png" style="width:100%; margin-top:-5px;" />
+            </div>
+
+            <div class="greyRow">פרטי ההטבה</div>
+            <div class="mh80">{{todayDeal.desc}}</div>
+            <div class="greyRow">תנאים כלליים</div>
+            <div class="mh80">{{todayDeal.terms}}</div>
+            <div class="greyRow">סרטון</div>
+            <div >
+                <youtube-video video-url="todayDeal.youtube" player-width="'100%'" style="height:200px !important" ></youtube-video>
+            </div>
+
         </div>
 
     </ion-content>

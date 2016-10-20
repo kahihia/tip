@@ -12,21 +12,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             // Notifications
 
+            // TODO: comment this when push works
+            $rootScope.pushId = '';
+
             // if(window.cordova){
 
-            var notificationOpenedCallback = function (jsonData) {
-
-                // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-
-                alert('here');
-
-                // if (jsonData.additionalData.type == "newNotification") {
-                //
-                //
-                // }
-
-                // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-            };
+            // var notificationOpenedCallback = function (jsonData) {
+            //
+            //     // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+            //
+            //     alert('here');
+            //
+            //     // if (jsonData.additionalData.type == "newNotification") {
+            //     //
+            //     //
+            //     // }
+            //
+            //     // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            // };
 
             // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
             //     {googleProjectNumber: "627358870772"},
@@ -61,52 +64,55 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             // tip after 1 minute
 
-            // var send_data = {
-            //
-            //     'date' : $rootScope.today
-            //
-            // };
-            //
-            // $http.post($rootScope.host + 'GetTipByDate', send_data, {
-            //
-            //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-            //
-            //     }).then(
-            //
-            //         function(data){
-            //
-            //             $timeout(function () {
-            //
-            //                 $rootScope.$watch('currState.current.name', function() {
-            //
-            //                     if ($rootScope.currState.current.name != 'app.register' &&
-            //                         $rootScope.currState.current.name != 'app.teaser' &&
-            //                         $rootScope.currState.current.name != 'app.question' &&
-            //                         $rootScope.currState.current.name != 'app.answer' &&
-            //                         $rootScope.currState.current.name != 'app.discount') {
-            //
-            //                         $ionicPopup.alert({
-            //                             title: data.data[0].title,
-            //                             buttons: [{
-            //                                 text: 'OK',
-            //                                 type: 'button-positive'
-            //                             }]
-            //                         });
-            //
-            //                     }
-            //
-            //                 });
-            //
-            //             }, 60000)
-            //
-            //         },
-            //
-            //         function(err){
-            //
-            //             console.log(err);
-            //
-            //         });
+            var send_data = {
 
+                'date' : $rootScope.today
+
+            };
+
+            $http.post($rootScope.host + 'GetTipByDate', send_data, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        $localStorage.isTipShown = false;
+
+                        $timeout(function () {
+
+                            $rootScope.$watch('currState.current.name', function() {
+
+                                if ($rootScope.currState.current.name != 'app.register' &&
+                                    $rootScope.currState.current.name != 'app.teaser' &&
+                                    $rootScope.currState.current.name != 'app.question' &&
+                                    $rootScope.currState.current.name != 'app.answer' &&
+                                    $rootScope.currState.current.name != 'app.discount' &&
+                                    $localStorage.isTipShown == false) {
+
+                                    $ionicPopup.alert({
+                                        title: data.data[0].title,
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                    $localStorage.isTipShown = true;
+                                }
+
+                             })
+
+                        }, 60000)
+
+                    },
+
+                    function(err){
+
+                        console.log(err);
+
+                    });
 
             // get catalog categories
 
@@ -140,7 +146,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 });
 
-
             // geolocation
 
             if(window.cordova) {
@@ -169,55 +174,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                         function fail() {
 
-                            cordova.dialogGPS("Your GPS is Disabled.",
-                                'Please enable location for proper work of the application',
-
-                                function (buttonIndex) {
-
-                                    switch (buttonIndex) {
-                                        case 0:     // no
-
-                                            $rootScope.getDealsWithoutLocation();
-                                            break;
-
-                                        case 1:     // neutral
-
-                                            $rootScope.getDealsWithoutLocation();
-                                            break;
-
-                                        case 2:     // yes, go to settings
-
-                                            document.addEventListener("resume", onResume, false);
-
-                                        function onResume() {
-
-                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                                            $cordovaGeolocation
-                                                .getCurrentPosition(posOptions)
-                                                .then(function (position) {
-
-                                                    $rootScope.lat = position.coords.latitude;
-                                                    $rootScope.lng = position.coords.longitude;
-
-                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                                }, function (err) {
-
-                                                    $rootScope.getDealsWithoutLocation();
-
-                                                });
-                                        }
-
-                                            break;
-
-                                        default:
-
-                                            $rootScope.getDealsWithoutLocation();
-                                            break;
-                                    }
-
-                                });
+                            $rootScope.getDealsWithoutLocation();
 
                         });
 
@@ -244,14 +201,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     });
 
             }
+
         });
 
         // global variables
 
         $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
         $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
-        $rootScope.isAnswerCorrect = false;
         $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+        $rootScope.isTipShown = $localStorage.isTipShown;
         $rootScope.correctAnswers = 0;
         $rootScope.incorrectAnswers = 0;
         $rootScope.allPoints = 0;
@@ -262,7 +220,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             "email" : $localStorage.email,
             "gender" : $localStorage.gender,
             "soldier" : $localStorage.soldier,
-            "userid" : $localStorage.userid
+            "userid" : $localStorage.userid,
+            "conscription_date" : $localStorage.conscription_date,
+            "release_date" : $localStorage.release_date
         };
         $rootScope.image = $localStorage.image;
         $rootScope.categories = [];
@@ -276,27 +236,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         // menu links
 
-        $rootScope.categoryNumber = {};
+        $rootScope.categoryNumber = 0;
         $rootScope.categoryName = '';
 
         $rootScope.setCategory = function(x, y){
 
-            $rootScope.categoryNumber.number = x;
+            $rootScope.categoryNumber = x;
             $rootScope.categoryName = y;
 
         };
 
         // toggle menu
 
-        $rootScope.toggleLeftSideMenu = function() {
-
-            $ionicSideMenuDelegate.toggleLeft();
-
-        };
-
         $rootScope.toggleRightSideMenu = function() {
 
             $ionicSideMenuDelegate.toggleRight();
+
+        };
+
+        // logout
+
+        $rootScope.logout = function() {
+
+            alert('logout');
+
+            $localStorage.email = "";
+            $localStorage.password = "";
+            $localStorage.userid = "";
+            $state.go('app.login');
 
         };
 
@@ -402,6 +369,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 });
 
         };
+
+        // show popup with quantity of points collected by user
+
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+
+            if (fromState.name == 'app.home' && toState.name == 'app.teaser'){
+
+                $ionicPopup.alert({
+                    title: "מצב הנקודות שלי: " + $rootScope.allPoints,
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            }
+
+        });
 
     })
 

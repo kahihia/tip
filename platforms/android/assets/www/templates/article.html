@@ -4,7 +4,8 @@
 		<div class="pointsHeader">
 
             <div class="sideMenuIcon">
-                <img src="img/sidemenu.png" style="width:100%" ng-click="toggleLeftSideMenu()"/>
+                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                Out
             </div>
 
             <div class="homeMenuIcon" ui-sref="app.home">
@@ -24,7 +25,7 @@
             </div>
 
             <div class="articleTitleRight">
-                <p>{{categoryName}}</p>
+                <p>{{infoCategoryName}}</p>
             </div>
 
         </div>

@@ -8,7 +8,7 @@ angular.module('starter.factories', [])
 
                 for (var k = 0; k < $rootScope.favoriteDeals.length; k++){
 
-                    if (x == $rootScope.favoriteDeals[k].deal_id){
+                    if (x == $rootScope.favoriteDeals[k].index){
 
                         return true;
 
@@ -42,10 +42,13 @@ angular.module('starter.factories', [])
 
                     function(data){
 
-                        var newFavoriteDeal = data.data[0];
+                        var newFav = data.data[0];
 
-                        newFavoriteDeal.deal.image = $rootScope.phpHost + newFavoriteDeal.deal.image;
-                        newFavoriteDeal.deal.image2 = $rootScope.phpHost + newFavoriteDeal.deal.image2;
+                        newFav.deal.favorite_id = data.data[0].index;
+                        newFav.deal.image = $rootScope.phpHost + newFav.deal.image;
+                        newFav.deal.image2 = $rootScope.phpHost + newFav.deal.image2;
+
+                        var newFavoriteDeal = newFav.deal;
 
                         $rootScope.favoriteDeals.push(newFavoriteDeal);
 
@@ -91,9 +94,9 @@ angular.module('starter.factories', [])
 
                 for (var m = 0; m < $rootScope.favoriteDeals.length; m++){
 
-                    if ($rootScope.favoriteDeals[m].deal.index == x){
+                    if ($rootScope.favoriteDeals[m].index == x){
 
-                        del_fav.id = $rootScope.favoriteDeals[m].index;
+                        del_fav.id = $rootScope.favoriteDeals[m].favorite_id;
 
                     }
 
@@ -111,7 +114,7 @@ angular.module('starter.factories', [])
 
                             for (var n = 0; n < $rootScope.favoriteDeals.length; n++){
 
-                                if ($rootScope.favoriteDeals[n].index == del_fav.id){
+                                if ($rootScope.favoriteDeals[n].favorite_id == del_fav.id){
 
                                     $rootScope.favoriteDeals.splice(n, 1);
 

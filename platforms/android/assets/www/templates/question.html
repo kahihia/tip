@@ -1,12 +1,6 @@
 <ion-view view-title="Question" hide-nav-bar="true">
     <ion-content>
-		<div>
-            <div class="sideMenuIcon">
-                <img src="img/sidemenu.png" style="width:100%" ng-click="toggleLeftSideMenu()"/>
-            </div>
-            <div class="homeMenuIcon" ui-sref="app.home">
-                <img src="img/homeicon.png" style="width:100%" />
-            </div>
+		<div style="background-color:#fe99ae">
             <img src="img/header.png" style="width:100%" />
         </div>
 
@@ -21,12 +15,14 @@
             </div>
             
             <div class="mt10" ng-show="question.question_youtube != ''">
-                <youtube-video video-url="question.question_youtube" player-width="'100%'"></youtube-video>
+                <youtube-video video-url="question.question_youtube" player-width="'100%'" style="height:260px !important;"></youtube-video>
             </div>
 		</div>
         
         <div class="question mt10">
-             <input type="radio" ng-model="userAnswer.selected" value="1">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="1">
+            </div>
             <div class="questionRight" align="center">
             	<div>
             		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('1')"/>
@@ -38,7 +34,9 @@
         </div>
 
         <div class="question">
-             <input type="radio" ng-model="userAnswer.selected" value="2">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="2">
+            </div>
             <div class="questionRight" align="center">
             	<div>
             		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('2')"/>
@@ -50,7 +48,9 @@
         </div>
 
         <div class="question">
-             <input type="radio" ng-model="userAnswer.selected" value="3">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="3">
+            </div>
             <div class="questionRight" align="center">
             	<div>
             		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('3')"/>
@@ -62,7 +62,9 @@
         </div>
 
         <div class="question">
-             <input type="radio" ng-model="userAnswer.selected" value="4">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="4">
+            </div>
             <div class="questionRight" align="center">
             	<div>
             		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('4')"/>
@@ -73,7 +75,7 @@
             </div>
         </div>
         
-		<div class="div80" style="margin-top:20px; background-color:white" ng-click="checkAnswer()">
+		<div class="div80" style="margin-top:20px; background-color:white" ng-click="sendAnswer()">
            		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
         </div>
 

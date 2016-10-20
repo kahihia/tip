@@ -81,6 +81,11 @@
 		EB812C3E661341D3B5F34B63 /* OneSignalWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D526C26AF4879BEE03346 /* OneSignalWebView.m */; };
 		A80833D41E8F4BA4845CBB88 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2F85528E1C4CE7B420F42E /* OneSignalPush.m */; };
 		3111BF14F53F4238B4EB23CD /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */; };
+		139A30B7EF79494B91CD3EE2 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B26D13C40D441609ACFA304 /* FacebookConnectPlugin.m */; };
+		7BDC1A49B91F4BF2ACFD73C1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25812E97633B439F94840AEA /* Bolts.framework */; };
+		5A231CA55F9A4483995A67AC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34FAB39CA1849FDA1C4BF16 /* FBSDKCoreKit.framework */; };
+		62C17C7634C845B38BD7AD3D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB27121E1E36454198DE56AC /* FBSDKLoginKit.framework */; };
+		AC476B22ED704E4F96081CD0 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6ECEB2EF024723BF3A6286 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +225,12 @@
 		6B2045DA95CB447385746B41 /* OneSignal-Prefix.pch */ = {isa = PBXFileReference; name = "OneSignal-Prefix.pch"; path = "onesignal-cordova-plugin/OneSignal-Prefix.pch"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		5FA31C9E17CF4A1ABBA604A3 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		4B26D13C40D441609ACFA304 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.m"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		BC1965FB498A41938471D2D8 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; name = "FacebookConnectPlugin.h"; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		25812E97633B439F94840AEA /* Bolts.framework */ = {isa = PBXFileReference; name = "Bolts.framework"; path = "tipli/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		C34FAB39CA1849FDA1C4BF16 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "tipli/Plugins/cordova-plugin-facebook4/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		EB27121E1E36454198DE56AC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "tipli/Plugins/cordova-plugin-facebook4/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0A6ECEB2EF024723BF3A6286 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "tipli/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +252,10 @@
 				182F54EBB83C4F7C8302567B /* Contacts.framework in Frameworks */,
 				2334B5FEFC174301B01A1A3E /* UserNotifications.framework in Frameworks */,
 				71D501EDBA6C45D983BA2D3D /* SystemConfiguration.framework in Frameworks */,
+				7BDC1A49B91F4BF2ACFD73C1 /* Bolts.framework in Frameworks */,
+				5A231CA55F9A4483995A67AC /* FBSDKCoreKit.framework in Frameworks */,
+				62C17C7634C845B38BD7AD3D /* FBSDKLoginKit.framework in Frameworks */,
+				AC476B22ED704E4F96081CD0 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +338,10 @@
 				2A1DF40413EE43A691568899 /* Contacts.framework */,
 				C8D4A92799CE49AB963833EC /* UserNotifications.framework */,
 				0472050B22E24A4FBB0C4908 /* SystemConfiguration.framework */,
+				25812E97633B439F94840AEA /* Bolts.framework */,
+				C34FAB39CA1849FDA1C4BF16 /* FBSDKCoreKit.framework */,
+				EB27121E1E36454198DE56AC /* FBSDKLoginKit.framework */,
+				0A6ECEB2EF024723BF3A6286 /* FBSDKShareKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -402,6 +421,8 @@
 				6B2045DA95CB447385746B41 /* OneSignal-Prefix.pch */,
 				4D711330F4E046E2AFF70E05 /* CDVInAppBrowser.m */,
 				5FA31C9E17CF4A1ABBA604A3 /* CDVInAppBrowser.h */,
+				4B26D13C40D441609ACFA304 /* FacebookConnectPlugin.m */,
+				BC1965FB498A41938471D2D8 /* FacebookConnectPlugin.h */,
 			);
 			name = Plugins;
 			path = "tipli/Plugins";
@@ -618,6 +639,7 @@
 				EB812C3E661341D3B5F34B63 /* OneSignalWebView.m in Sources */,
 				A80833D41E8F4BA4845CBB88 /* OneSignalPush.m in Sources */,
 				3111BF14F53F4238B4EB23CD /* CDVInAppBrowser.m in Sources */,
+				139A30B7EF79494B91CD3EE2 /* FacebookConnectPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +682,13 @@
 				);
 				PRODUCT_NAME = "tipli";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+				);
 			};
 			name = Debug;
 		};
@@ -689,6 +718,13 @@
 				);
 				PRODUCT_NAME = "tipli";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+				);
 			};
 			name = Release;
 		};
@@ -734,6 +770,13 @@
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "tipli";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+				);
 			};
 			name = Debug;
 		};
@@ -778,6 +821,13 @@
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "tipli";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+					"\"tipli/Plugins/cordova-plugin-facebook4\"",
+				);
 			};
 			name = Release;
 		};

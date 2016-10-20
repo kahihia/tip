@@ -2,7 +2,8 @@
     <ion-content class="rtl">
 		<div class="pointsHeader">
             <div class="sideMenuIcon">
-                <img src="img/sidemenu.png" style="width:100%" />
+                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                Out
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
                 <img src="img/homeicon.png" style="width:100%" />
@@ -47,31 +48,6 @@
            </div>
             
         </div>
-        
-        
-
-      <!--  <img ng-src="{{deal.image}}" style="width: 100%;">
-
-        <button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>
-        <button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>
-
-        <div>מחיר חבר</div>
-
-        <div>{{deal.regular_price}}</div>
-
-        <div>מחיר רגיל</div>
-
-        <div>{{deal.member_price}}</div>
-
-        <div>פרטי הטבה</div> -->
-
-        
-
-       
-
-        <!--<button class="button button-small button-positive" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index)">Make Favorite</button>-->
-        <!--<button class="button button-small button-positive" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index)">Delete Favorite</button>-->
-
 
     </ion-content>
 </ion-view>

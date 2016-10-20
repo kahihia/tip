@@ -9,17 +9,6 @@ angular.module('starter.controllers', [])
         //$scope.$on('$ionicView.enter', function(e) {
         //});
 
-        $scope.logout = function() {
-
-            alert('logout');
-
-            $localStorage.email = "";
-            $localStorage.password = "";
-            $localStorage.userid = "";
-            $state.go('app.login');
-
-        }
-
     })
 
     .controller('RouterCtrl', function($scope, $localStorage, $state, $ionicHistory){
@@ -60,15 +49,108 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('RegisterCtrl', function ($scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
+    .controller('RegisterCtrl', function ($ionicSideMenuDelegate, $q, $ionicLoading, $scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
 
-        // Enter screen slider options
+        $ionicSideMenuDelegate.canDragContent(false);
 
-        // $scope.options = {
-        //     loop: false,
-        //     effect: 'fade',
-        //     speed: 500,
-        // };
+        // Facebook login - works, don't touch it!
+
+        // This is the success callback from the login method
+        var fbLoginSuccess = function(response) {
+            if (!response.authResponse){
+                fbLoginError("Cannot find the authResponse");
+                return;
+            }
+
+            var authResponse = response.authResponse;
+
+            getFacebookProfileInfo(authResponse)
+                .then(function(profileInfo) {
+
+                    $scope.FacebookLoginFunction(profileInfo.id,profileInfo.first_name,profileInfo.last_name,profileInfo.email,profileInfo.gender);
+
+                    $ionicLoading.hide();
+                    //$state.go('app.home');
+                }, function(fail){
+                    // Fail get profile info
+                    console.log('profile info fail', fail);
+                });
+        };
+
+        // This is the fail callback from the login method
+        var fbLoginError = function(error){
+            console.log('fbLoginError', error);
+            $ionicLoading.hide();
+        };
+
+        // This method is to get the user profile info from the facebook api
+        var getFacebookProfileInfo = function (authResponse) {
+            var info = $q.defer();
+
+            facebookConnectPlugin.api('/me?fields=email,name,gender,first_name,last_name,locale&access_token=' + authResponse.accessToken, null,
+                function (response) {
+                    console.log(response);
+                    info.resolve(response);
+                },
+                function (response) {
+                    console.log(response);
+                    info.reject(response);
+                }
+            );
+            return info.promise;
+        };
+
+        //This method is executed when the user press the "Login with facebook" button
+        $scope.FaceBookLoginBtn = function() {
+
+            facebookConnectPlugin.getLoginStatus(function(success){
+                if(success.status === 'connected'){
+                    // The user is logged in and has authenticated your app, and response.authResponse supplies
+                    // the user's ID, a valid access token, a signed request, and the time the access token
+                    // and signed request each expire
+                    console.log('getLoginStatus', success.status);
+
+                    getFacebookProfileInfo(success.authResponse)
+                        .then(function(profileInfo) {
+
+                            $scope.FacebookLoginFunction(profileInfo.id,profileInfo.first_name,profileInfo.last_name,profileInfo.email,profileInfo.gender);
+
+                            //$state.go('app.home');
+                        }, function(fail){
+                            // Fail get profile info
+                            console.log('profile info fail', fail);
+                        });
+
+                } else {
+                    // If (success.status === 'not_authorized') the user is logged in to Facebook,
+                    // but has not authenticated your app
+                    // Else the person is not logged into Facebook,
+                    // so we're not sure if they are logged into this app or not.
+
+                    //console.log('getLoginStatus', success.status);
+
+                    $ionicLoading.show({
+                        template: 'loading...<ion-spinner icon="spiral"></ion-spinner>'
+                    });
+
+
+                    // Ask the permissions you need. You can learn more about
+                    // FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
+                    facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
+                }
+            });
+        };
+
+        $scope.FacebookLoginFunction = function(id,firstname,lastname,email,gender)
+        {
+            $scope.fullname = firstname+' '+lastname;
+            $scope.gender = (gender == "male" ? "0" : "1");
+
+            $scope.register.firstname = firstname;
+            $scope.register.lastname = lastname;
+            $scope.register.email = email;
+            $scope.register.gender = $scope.gender;
+        };
 
         // google autocomplete options
 
@@ -91,7 +173,8 @@ angular.module('starter.controllers', [])
             'soldier' : "",
             'conscription_date' : "",
             'release_date' : "",
-            'code' : ""
+            'code' : "",
+            'push_id' : ''
 
         };
 
@@ -161,7 +244,8 @@ angular.module('starter.controllers', [])
                     'soldier' : $scope.register.soldier,
                     'conscription_date' : $scope.register.conscription_date,
                     'release_date' : $scope.register.release_date,
-                    'code' : $scope.register.code
+                    'code' : $scope.register.code,
+                    'push_id' : $rootScope.pushId
 
                 };
 
@@ -222,7 +306,9 @@ angular.module('starter.controllers', [])
     })
 
 
-    .controller('LoginCtrl', function ($scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
+    .controller('LoginCtrl', function ($ionicSideMenuDelegate, $scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
+
+        $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.login = {
 
@@ -283,6 +369,13 @@ angular.module('starter.controllers', [])
                             $localStorage.soldier = data.data.response.soldier;
                             $localStorage.gender = data.data.response.gender;
                             $localStorage.image = data.data.response.image;
+
+                            if(data.data.response.soldier == '1'){
+
+                                $localStorage.conscription_date = data.data.response.conscription_date;
+                                $localStorage.release_date = data.data.response.release_date;
+
+                            }
 
                             $rootScope.userData = data.data.response;
                             $rootScope.image = $localStorage.image;
@@ -398,7 +491,9 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('HomeCtrl', function ($scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
+    .controller('HomeCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
+
+        $ionicSideMenuDelegate.canDragContent(false);
 
         // for discount and question link
 
@@ -469,7 +564,9 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('QuestionCtrl', function ($scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
+    .controller('QuestionCtrl', function ($ionicSideMenuDelegate, $scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
+
+        $ionicSideMenuDelegate.canDragContent(false);
 
         var send_data = {
 
@@ -490,7 +587,7 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                console.log(data);
+                // console.log(data);
 
                 $scope.question = data.data[0];
 
@@ -553,27 +650,51 @@ angular.module('starter.controllers', [])
 
         };
 
-        // $scope.$watch('userAnswer', function(){
-        //     console.log( $scope.userAnswer);
-        // })
+        // which sound should be?
 
-        $scope.checkAnswer = function(){
+        $scope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
 
-            // check answer
+            if (fromState.name == "app.question" && toState.name == 'app.answer'){
 
-            if ($scope.userAnswer.selected == $scope.question.correct_answer) {
+                var gotAnswer = $scope.checkAnswer();
 
-                $rootScope.isAnswerCorrect = true;
+                if (gotAnswer == true){
 
-            } else {
+                    var audio = new Audio('sounds/yes-sound.mp3');
+                    audio.play();
 
-                $rootScope.isAnswerCorrect = false;
+                } else {
+
+                    var audio = new Audio('sounds/no-sound.mp3');
+                    audio.play();
+
+                }
 
             }
 
-            console.log($rootScope.isAnswerCorrect);
+        });
 
-            // update the table answered_question
+        // check what is got from user
+
+        $scope.checkAnswer = function(){
+
+            if ($scope.userAnswer.selected == $scope.question.correct_answer) {
+
+                return true;
+
+            } else {
+
+                return false;
+
+            }
+
+        };
+
+        // update the table answered_question
+
+        $scope.sendAnswer = function(){
+
+            var checkedAnswer = $scope.checkAnswer();
 
             var send_question = {
 
@@ -583,12 +704,12 @@ angular.module('starter.controllers', [])
 
             };
 
-            if ($rootScope.isAnswerCorrect == true){
+            if (checkedAnswer == true){
 
                 send_question.quantity = "10";
                 send_question.correct = "1"
 
-            } else if ($rootScope.isAnswerCorrect == false){
+            } else if (checkedAnswer == false){
 
                 send_question.quantity = "2";
                 send_question.correct = "0"
@@ -633,18 +754,6 @@ angular.module('starter.controllers', [])
 
     .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
 
-        $scope.$on('$ionicView.enter', function () {
-
-            // $ionicPopup.alert({
-            //     title: "מצב הנקודות שלי: " + $rootScope.allPoints,
-            //     buttons: [{
-            //         text: 'OK',
-            //         type: 'button-positive'
-            //     }]
-            // });
-
-        });
-
         var send_data = {
 
             'date' : $rootScope.today
@@ -683,7 +792,9 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('PersonalCtrl', function ($http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+    .controller('PersonalCtrl', function ($ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+
+        $ionicSideMenuDelegate.canDragContent(false);
 
         // select tab
 
@@ -699,6 +810,8 @@ angular.module('starter.controllers', [])
             "lastname" : $localStorage.lastname,
             "email" : $localStorage.email,
             "birthday" : new Date($localStorage.birthday),
+            "conscription_date" : new Date($localStorage.conscription_date),
+            "release_date" : new Date($localStorage.release_date),
             "old_password" : "",
             "new_password" : ""
 
@@ -792,7 +905,18 @@ angular.module('starter.controllers', [])
             var emailRegex = /\S+@\S+\.\S+/;
 
             if ($scope.personalInformation.firstname == "" || $scope.personalInformation.lastname == "" ||
-                $scope.personalInformation.email == "" || $scope.personalInformation.birthday == ""){
+                $scope.personalInformation.email == "" || $scope.personalInformation.birthday == "" || $scope.personalInformation.birthday == null){
+
+                $ionicPopup.alert({
+                    title: "נא למלא את כל השדות",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            } else if ($localStorage.soldier == '1' && ($scope.personalInformation.conscription_date == "" || $scope.personalInformation.release_date == "" ||
+                $scope.personalInformation.conscription_date == null || $scope.personalInformation.release_date == null)) {
 
                 $ionicPopup.alert({
                     title: "נא למלא את כל השדות",
@@ -854,6 +978,8 @@ angular.module('starter.controllers', [])
                             "email" : $scope.personalInformation.email,
                             "birthday" : $scope.personalInformation.birthday,
                             "image" : $localStorage.image,
+                            "conscription_date" : "",
+                            "release_date" : "",
                             "password" : ''
 
                     };
@@ -865,6 +991,13 @@ angular.module('starter.controllers', [])
                     } else {
 
                         send_data.password = $localStorage.password;
+
+                    }
+
+                    if($localStorage.soldier == "1"){
+
+                        send_data.conscription_date = $scope.personalInformation.conscription_date;
+                        send_data.release_date = $scope.personalInformation.release_date;
 
                     }
 
@@ -891,6 +1024,8 @@ angular.module('starter.controllers', [])
                                $localStorage.email = send_data.email;
                                $localStorage.birthday = send_data.birthday;
                                $localStorage.password = send_data.password;
+                               $localStorage.conscription_date = send_data.conscription_date;
+                               $localStorage.release_date = send_data.release_date;
 
                                if ($scope.personalInformation.new_password != ""){
 
@@ -905,7 +1040,9 @@ angular.module('starter.controllers', [])
                                    "email" : $localStorage.email,
                                    "gender" : $localStorage.gender,
                                    "soldier" : $localStorage.soldier,
-                                   "userid" : $localStorage.userid
+                                   "userid" : $localStorage.userid,
+                                   "conscription_date" : $localStorage.conscription_date,
+                                   "release_date" : $localStorage.release_date
                                };
 
                                $scope.personalInformation = {
@@ -914,6 +1051,8 @@ angular.module('starter.controllers', [])
                                    "lastname" : $localStorage.lastname,
                                    "email" : $localStorage.email,
                                    "birthday" : new Date($localStorage.birthday),
+                                   "conscription_date" : new Date($localStorage.conscription_date),
+                                   "release_date" : new Date($localStorage.release_date),
                                    "old_password" : "",
                                    "new_password" : ""
 
@@ -962,6 +1101,50 @@ angular.module('starter.controllers', [])
 
         // MESSAGE TO A SPECIALIST
 
+        // get all questions/answers
+
+        $scope.messages = [];
+
+        var get_messages = {
+
+            "user" : $localStorage.userid
+
+        };
+
+        $http.post($rootScope.host + 'GetSpecialistMsg', get_messages, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $scope.messages = data.data;
+
+                    for(var i = 0; i < $scope.messages.length; i++){
+
+                        $scope.messages[i].date = Date.parse($scope.messages[i].date);
+
+                    }
+
+                    console.log("Messages", $scope.messages);
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    })
+
+                });
+
+        // send message
+
         $scope.message = {
 
             "subject" : ""
@@ -1009,6 +1192,16 @@ angular.module('starter.controllers', [])
                                 }]
                             });
 
+                            var new_message = {
+                                "date" : new Date(),
+                                "index" : "",
+                                "message" : $scope.message.subject,
+                                "type" : "question",
+                                "userid" : $localStorage.userid
+                            };
+
+                            $scope.messages.push(new_message);
+
                             $scope.message = {
 
                                 "subject" : ""
@@ -1051,6 +1244,12 @@ angular.module('starter.controllers', [])
 
         $scope.selection = 'catalog';
 
+        $scope.chooseTab = function(x){
+
+            $scope.selection = x;
+
+        };
+
         $scope.weekAgo = new Date().setDate(new Date().getDate()-7);
 
         // get all favorites for the user
@@ -1073,8 +1272,8 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $rootScope.favoriteDeals.length; j++){
 
-                    $rootScope.favoriteDeals[j].deal.image = $rootScope.phpHost + $rootScope.favoriteDeals[j].deal.image;
-                    $rootScope.favoriteDeals[j].deal.image2 = $rootScope.phpHost + $rootScope.favoriteDeals[j].deal.image2;
+                    $rootScope.favoriteDeals[j].image = $rootScope.phpHost + $rootScope.favoriteDeals[j].image;
+                    $rootScope.favoriteDeals[j].image2 = $rootScope.phpHost + $rootScope.favoriteDeals[j].image2;
 
                 }
 
@@ -1119,6 +1318,92 @@ angular.module('starter.controllers', [])
         };
 
         // is GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
+
+        $scope.$watch('selection', function(){
+
+            if ($scope.selection == 'location'){
+
+                if ($rootScope.isLocationEnabled == false) {
+
+                    cordova.dialogGPS("Your GPS is Disabled.",
+                        'Please enable location for proper work of the application',
+
+                        function (buttonIndex) {
+
+                            switch (buttonIndex) {
+                                case 0:     // no
+
+                                    $ionicPopup.alert({
+                                        title: "You didn't turn on GPS!",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                    break;
+
+                                case 1:     // neutral
+
+                                    $ionicPopup.alert({
+                                        title: "You didn't turn on GPS!",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                    break;
+
+                                case 2:     // yes, go to settings
+
+                                    document.addEventListener("resume", onResume, false);
+
+                                function onResume() {
+
+                                    var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                    $cordovaGeolocation
+                                        .getCurrentPosition(posOptions)
+                                        .then(function (position) {
+
+                                            $rootScope.lat = position.coords.latitude;
+                                            $rootScope.lng = position.coords.longitude;
+
+                                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                        }, function (err) {
+
+                                            $ionicPopup.alert({
+                                                title: "The GPS signal is too weak!",
+                                                buttons: [{
+                                                    text: 'OK',
+                                                    type: 'button-positive'
+                                                }]
+                                            });
+
+                                            $rootScope.getDealsWithoutLocation();
+
+                                        });
+                                }
+
+                                    break;
+
+                                default:
+
+                                    $rootScope.getDealsWithoutLocation();
+                                    break;
+                            }
+
+                        });
+
+                }
+
+            }
+
+        });
+
+        // clicking on button Turn on GPS
 
         $scope.turnOnGPS = function(){
 
@@ -1198,8 +1483,6 @@ angular.module('starter.controllers', [])
 
         };
 
-
-
     })
 
     .controller('ItemCtrl', function (isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
@@ -1245,12 +1528,15 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('InformationCtrl', function ($scope) {
+    .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate) {
 
+        $ionicSideMenuDelegate.canDragContent(false);
 
     })
 
-    .controller('ArticleCtrl', function ($scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+    .controller('ArticleCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+
+        $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.infoCategoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
         $scope.content = {};

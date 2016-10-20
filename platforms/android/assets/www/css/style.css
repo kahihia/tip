@@ -189,14 +189,6 @@
     text-align: right;
 }
 
-.personalTextarea {
-    width: 100%;
-    text-align: right;
-    padding: 20px;
-    border-radius: 20px;
-    margin-top: 10px;
-}
-
 .pointTitle {
     background-color: black;
     padding: 15px;
@@ -245,6 +237,43 @@
     margin-top: 10px;
 }
 
+.personalQuestion {
+    float: right;
+    width: 70%;
+    clear: left;
+    text-align: right;
+}
+
+.personalAnswer {
+    float: left;
+    width: 70%;
+    clear: right;
+    text-align: left;
+}
+
+.personalTextarea {
+    width: 100%;
+    height: 100px;
+}
+
+.personalMessageDiv {
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.personalMessageDivLeft {
+    width: 30%;
+    float: left;
+}
+
+.personalMessageDivRight {
+    width: 70%;
+    float: left;
+    direction: rtl;
+}
 /*End of personal*/
 
 /*Article*/
@@ -393,8 +422,8 @@
     text-align: center;
     padding: 12px;
     direction: rtl;
-    font-size: 25px;
-    font-weight: 200;
+    font-size: 22px;
+    font-weight:bold;
 }
 
 .teaserInfo {
@@ -454,6 +483,7 @@
     font-weight: 200;
     text-align: center;
     padding: 4px;
+	background-color:#fe99ae;
 }
 
 .questionTitle {
@@ -461,10 +491,25 @@
     background-color: #f4d239;
     padding: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     direction: rtl;
     line-height: 1.1;
+	border-radius:50px;
+	margin-top:10px;
+}
+
+.RadioBtDiv
+{
+	top:12px; 
+	position:relative;
+}
+.RadioBt
+{
+	position:absolute;
+	right:8.5%;
+	margin-top:40px;
+	padding-top:10px;
 }
 
 .question {

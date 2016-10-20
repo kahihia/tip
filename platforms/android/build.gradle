@@ -248,6 +248,7 @@ dependencies {
     compile "com.google.android.gms:play-services-gcm:+"
     compile "com.google.android.gms:play-services-analytics:+"
     compile "com.google.android.gms:play-services-location:+"
+    compile "com.facebook.android:facebook-android-sdk:4.14.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

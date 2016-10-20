@@ -393,8 +393,8 @@
     text-align: center;
     padding: 12px;
     direction: rtl;
-    font-size: 25px;
-    font-weight: 200;
+    font-size: 22px;
+    font-weight:bold;
 }
 
 .teaserInfo {
@@ -454,6 +454,7 @@
     font-weight: 200;
     text-align: center;
     padding: 4px;
+	background-color:#fe99ae;
 }
 
 .questionTitle {
@@ -461,10 +462,25 @@
     background-color: #f4d239;
     padding: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     direction: rtl;
     line-height: 1.1;
+	border-radius:50px;
+	margin-top:10px;
+}
+
+.RadioBtDiv
+{
+	top:12px; 
+	position:relative;
+}
+.RadioBt
+{
+	position:absolute;
+	right:8.5%;
+	margin-top:40px;
+	padding-top:10px;
 }
 
 .question {

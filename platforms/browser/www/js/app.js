@@ -28,19 +28,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
             };
 
-            window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                {googleProjectNumber: "627358870772"},
-                notificationOpenedCallback);
-
-            window.plugins.OneSignal.getIds(function (ids) {
-
-                $rootScope.pushId = ids.userId;
-                alert(ids.userId);
-
-            });
-
-            // Show an alert box if a notification comes in when the user is in your app.
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
+            // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+            //     {googleProjectNumber: "627358870772"},
+            //     notificationOpenedCallback);
+            //
+            // window.plugins.OneSignal.getIds(function (ids) {
+            //
+            //     $rootScope.pushId = ids.userId;
+            //     alert(ids.userId);
+            //
+            // });
+            //
+            // // Show an alert box if a notification comes in when the user is in your app.
+            // window.plugins.OneSignal.enableInAppAlertNotification(true);
 
             // }
 
@@ -276,23 +276,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         // menu links
 
-        $rootScope.categoryNumber = {};
+        $rootScope.categoryNumber = 0;
         $rootScope.categoryName = '';
 
         $rootScope.setCategory = function(x, y){
 
-            $rootScope.categoryNumber.number = x;
+            $rootScope.categoryNumber = x;
             $rootScope.categoryName = y;
 
         };
 
         // toggle menu
 
-        $rootScope.toggleLeftSideMenu = function() {
-
-            $ionicSideMenuDelegate.toggleLeft();
-
-        };
+        // $rootScope.toggleLeftSideMenu = function() {
+        //
+        //     $ionicSideMenuDelegate.toggleLeft();
+        //
+        // };
 
         $rootScope.toggleRightSideMenu = function() {
 
