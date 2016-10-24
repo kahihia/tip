@@ -3,8 +3,12 @@
 
 		<div class="pointsHeader">
 
-            <div class="sideMenuIcon">
+            <div class="sideMenuIcon" ng-show="image && image != ''">
                 <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                Out
+            </div>
+            <div class="sideMenuIcon" ng-show="!image">
+                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
                 Out
             </div>
 

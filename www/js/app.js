@@ -12,8 +12,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             // Notifications
 
-            // TODO: comment this when push works
-            $rootScope.pushId = '';
+            // TODO: remove this when push works
+            $rootScope.pushId = 'noPushId';
 
             // if(window.cordova){
 
@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             //
             //     // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
             // };
-
+            //
             // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
             //     {googleProjectNumber: "627358870772"},
             //     notificationOpenedCallback);
@@ -258,12 +258,58 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         $rootScope.logout = function() {
 
-            alert('logout');
+            var send_user = {
 
-            $localStorage.email = "";
-            $localStorage.password = "";
-            $localStorage.userid = "";
-            $state.go('app.login');
+                'user' : $localStorage.userid
+
+            };
+
+            $http.post($rootScope.host + 'LogOutUser', send_user, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data);
+
+                    if(data.data[0].status == '1'){
+
+                        alert('logout');
+
+                        $localStorage.email = "";
+                        $localStorage.password = "";
+                        $localStorage.userid = "";
+                        $state.go('app.login');
+
+                    } else {
+
+                        $ionicPopup.alert({
+                            title: "No network connection!",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    }
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "No network connection!",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+
 
         };
 
@@ -387,6 +433,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             }
 
         });
+
+        // banners
+
+        $rootScope.banners = ["img/mainbanner.png", "http://placehold.it/600x150", "http://lorempixel.com/600/150/", "http://p-hold.com/600/150"];
+
+        var shuffle = function (array) {
+
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            while (0 !== currentIndex) {
+
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+
+            }
+
+            return array;
+        };
+
+        $rootScope.banners = shuffle($rootScope.banners);
+        console.log("Banners", $rootScope.banners);
 
     })
 
@@ -517,6 +588,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/personal.html',
+                        controller: 'PersonalCtrl'
+                    }
+                }
+            })
+
+            .state('app.question_to_specialist', {
+                url: '/question_to_specialist',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/question_to_specialist.html',
                         controller: 'PersonalCtrl'
                     }
                 }

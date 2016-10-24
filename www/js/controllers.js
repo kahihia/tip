@@ -495,6 +495,14 @@ angular.module('starter.controllers', [])
 
         $ionicSideMenuDelegate.canDragContent(false);
 
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
+
         // for discount and question link
 
         $scope.checkState = function(){
@@ -753,6 +761,14 @@ angular.module('starter.controllers', [])
     })
 
     .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
+
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
         var send_data = {
 
@@ -1531,6 +1547,14 @@ angular.module('starter.controllers', [])
     .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate) {
 
         $ionicSideMenuDelegate.canDragContent(false);
+
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
     })
 

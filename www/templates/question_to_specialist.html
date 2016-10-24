@@ -1,0 +1,53 @@
+<ion-view view-title="" hide-nav-bar="true">
+    <ion-content class="pointsContent">
+        <div class="pointsHeader">
+            <div class="sideMenuIcon" ng-show="image && image != ''">
+                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                Out
+            </div>
+            <div class="sideMenuIcon" ng-show="!image">
+                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
+                Out
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+
+        <div class="header pointsHeaderTitle">פניה למומחה</div>
+
+        <div class="div90">
+
+            <div class="personalTipTitle">
+                <img src="img/personal_tip.png" style="width:100%" />
+            </div>
+
+            <ion-scroll direction="y" style="width: 100%; height: 250px; background-color: white; border-radius: 15px; padding: 10px;">
+                <div ng-repeat="element in messages | orderBy:'date'">
+
+                    <div class="personalQuestion" ng-show="element.type == 'question'">אני</div>
+                    <!--<div class="personalQuestion" ng-show="element.type == 'question'">{{element.date | date: "MMM dd yyyy"}}</div>-->
+                    <div class="personalQuestion" ng-show="element.type == 'question'">{{element.message}}</div>
+
+                    <div class="personalAnswer" ng-show="element.type == 'answer'">מומחה</div>
+                    <!--<div class="personalAnswer" ng-show="element.type == 'answer'">{{element.date | date: "MMM dd yyyy"}}</div>-->
+                    <div class="personalAnswer" ng-show="element.type == 'answer'">{{element.message}}</div>
+
+                </div>
+            </ion-scroll>
+
+            <div class="personalMessageDiv">
+                <div class="personalMessageDivLeft">
+                    <button class="button button-small button-positive" ng-click="sendMessage()">Send</button>
+                </div>
+                <div class="personalMessageDivRight">
+                    <textarea placeholder="הקלד ושלח - פנייתך תעבור למומחה, תשובה ב ימים הקרובים"
+                              ng-model="message.subject" class="personalTextarea"required></textarea>
+                </div>
+            </div>
+
+         </div>
+
+    </ion-content>
+</ion-view>

@@ -1,9 +1,13 @@
 <ion-view view-title="Information" hide-nav-bar="true">
-    <ion-content>
+    <ion-content class="has-footer" style="bottom: 100px;">
 
 		<div>
-            <div class="sideMenuIcon">
+            <div class="sideMenuIcon" ng-show="image && image != ''">
                 <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                Out
+            </div>
+            <div class="sideMenuIcon" ng-show="!image">
+                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
                 Out
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
@@ -25,7 +29,7 @@
                 	<div ui-sref="app.article({articleId:7})" class="infoLeft1">
                     	<img src="img/info/l3.png" style="width:100%;"/>
                 	</div>
-                    <div ui-sref="app.article({articleId:6})" class="infoLeft1">
+                    <div ui-sref="app.question_to_specialist" class="infoLeft1">
                     	<img src="img/info/l4.png" style="width:100%;"/>
                 	</div>
                 </div>
@@ -43,7 +47,15 @@
     </ion-content>
     
     <ion-footer-bar style="height:100px; padding:0px; margin:0px;">
-    	<img src="img/mainbanner.png" style="width:100%;"/>
+        <div style="width: 100%; height: 100%;">
+            <ion-slides options="options" slider="data.slider">
+                <ion-slide-page ng-repeat="banner in banners">
+                    <div>
+                        <img ng-src="{{banner}}">
+                    </div>
+                </ion-slide-page>
+            </ion-slides>
+        </div>
 	</ion-footer-bar>
 
 </ion-view>
