@@ -10,14 +10,25 @@
                 <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
                 Out
             </div>
-            <div class="homeMenuIcon">
-                <img src="img/sidemenu.png" style="width:100%" ng-click="toggleRightSideMenu()"/>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
             </div>
             <img src="img/header.png" style="width:100%" />
         </div>
-
-        <div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">Choose category</div>
-        <div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
+		
+        
+        <div class="catalogTitleName">
+        	<div class="catalogMenuIcon" align="center" ng-click="toggleRightSideMenu()">
+            	<div>
+            		<img src="img/white_menu_icon.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="catalogTitle">
+            	<div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">Choose category</div>
+        		<div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
+            </div>
+        </div>
+        
 
 
 

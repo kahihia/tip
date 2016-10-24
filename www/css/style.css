@@ -379,10 +379,12 @@
 }
 
 .sideMenuIcon {
-    width: 30px;
+    width: 40px;
     left: 10px;
     top: 20px;
     position: absolute;
+	font-size:10px;
+	text-align:center
 }
 
 .homeMenuIcon {
@@ -624,6 +626,35 @@
 	
 }
 
+
+.catalogTitleName
+{
+	width:100%;
+	overflow:hidden;
+	background-color:black;
+}
+
+.catalogMenuIcon
+{
+	float:right;
+	width:15%;
+}
+
+.catalogMenuIcon div
+{
+	width:60%;
+	margin-top:5px;
+}
+
+
+
+.catalogTitle
+{
+	width:85%;
+	float:left;
+	text-align:center;
+	padding-left:10%;
+}
 /* item page */
 
 
@@ -640,6 +671,62 @@
 	font-weight:bold;
 	font-size:18px;
 }
+
+
+
+/* Enter Page */
+
+.EnterLeftArrow
+{
+	width:15px;
+	position:absolute;
+	left:10px;
+	top:180px;
+	z-index:100;
+}
+
+.EnterRightArrow
+{
+	width:15px;
+	position:absolute;
+	right:10px;
+	top:180px;
+	z-index:100;
+}
+
+/* forgot password */
+
+.forgotIcon
+{
+	width:25%;
+	margin-top:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

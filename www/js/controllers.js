@@ -23,7 +23,6 @@ angular.module('starter.controllers', [])
                 });
 
                 $state.go('app.home');
-
             } else {
 
                 $ionicHistory.nextViewOptions({
