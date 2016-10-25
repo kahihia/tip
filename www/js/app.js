@@ -10,45 +10,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     .run(function ($ionicPlatform, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
-            // Notifications
-
-            // TODO: remove this when push works
-            $rootScope.pushId = 'noPushId';
-
-            // if(window.cordova){
-
-            // var notificationOpenedCallback = function (jsonData) {
-            //
-            //     // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-            //
-            //     alert('here');
-            //
-            //     // if (jsonData.additionalData.type == "newNotification") {
-            //     //
-            //     //
-            //     // }
-            //
-            //     // console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-            // };
-            //
-            // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-            //     {googleProjectNumber: "627358870772"},
-            //     notificationOpenedCallback);
-            //
-            // window.plugins.OneSignal.getIds(function (ids) {
-            //
-            //     $rootScope.pushId = ids.userId;
-            //     alert(ids.userId);
-            //
-            // });
-            //
-            // // Show an alert box if a notification comes in when the user is in your app.
-            // window.plugins.OneSignal.enableInAppAlertNotification(true);
-
-            // }
-
-
-
             // Default code
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -78,6 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     function(data){
 
+                        console.log(data);
                         $localStorage.isTipShown = false;
 
                         $timeout(function () {
@@ -91,13 +53,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                                     $rootScope.currState.current.name != 'app.discount' &&
                                     $localStorage.isTipShown == false) {
 
-                                    $ionicPopup.alert({
-                                        title: data.data[0].title,
-                                        buttons: [{
-                                            text: 'OK',
-                                            type: 'button-positive'
-                                        }]
+                                    $rootScope.dailyTipText = data.data[0].title;
+
+                                    var dailyTipPopup = $ionicPopup.show({
+                                        templateUrl: 'templates/popup_daily_tip.html',
+                                        scope: $rootScope,
+                                        cssClass: 'dailyTipPopup'
                                     });
+
+                                    $rootScope.hideDailyTip = function () {
+
+                                        dailyTipPopup.close();
+
+                                    };
 
                                     $localStorage.isTipShown = true;
                                 }
@@ -204,23 +172,58 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         });
 
+
+        // Notifications
+
+        document.addEventListener('deviceready', function () {
+
+            var notificationOpenedCallback = function (jsonData) {
+
+                // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+
+                alert('here');
+
+                // if (jsonData.additionalData.type == "newNotification") {
+                //
+                //
+                // }
+
+            };
+
+            window.plugins.OneSignal
+                .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
+                .handleNotificationOpened(notificationOpenedCallback)
+                .endInit();
+
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+                // alert($rootScope.pushId);
+
+            });
+            // Show an alert box if a notification comes in when the user is in your app.
+            window.plugins.OneSignal.enableInAppAlertNotification(true);
+
+        }, false);
+
         // global variables
 
         $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
         $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
         $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
         $rootScope.isTipShown = $localStorage.isTipShown;
+        $rootScope.isAnswerCorrect = false;
         $rootScope.correctAnswers = 0;
         $rootScope.incorrectAnswers = 0;
         $rootScope.allPoints = 0;
         $rootScope.userData = {
+            "userid" : $localStorage.userid,
             "firstname" : $localStorage.firstname,
             "lastname" : $localStorage.lastname,
             "password" : $localStorage.password,
             "email" : $localStorage.email,
             "gender" : $localStorage.gender,
             "soldier" : $localStorage.soldier,
-            "userid" : $localStorage.userid,
             "conscription_date" : $localStorage.conscription_date,
             "release_date" : $localStorage.release_date
         };
@@ -281,6 +284,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                         $localStorage.email = "";
                         $localStorage.password = "";
                         $localStorage.userid = "";
+                        $localStorage.soldier = "";
+                        $localStorage.gender = "";
                         $state.go('app.login');
 
                     } else {
@@ -436,7 +441,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         // banners
 
-        $rootScope.banners = ["img/mainbanner.png", "http://placehold.it/600x150", "http://lorempixel.com/600/150/", "http://p-hold.com/600/150"];
+        $rootScope.banners = ["img/mainbanner.png", "http://placehold.it/600x150", "http://placekitten.com/600/150", "http://p-hold.com/600/150"];
 
         var shuffle = function (array) {
 

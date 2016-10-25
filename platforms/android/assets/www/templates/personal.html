@@ -1,9 +1,13 @@
 <ion-view view-title="" hide-nav-bar="true">
     <ion-content class="pointsContent">
 		<div class="pointsHeader">
-            <div class="sideMenuIcon">
+            <div class="sideMenuIcon" ng-show="image && image != ''">
                 <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
-                Out
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <div class="sideMenuIcon" ng-show="!image">
+                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
                 <img src="img/homeicon.png" style="width:100%" />
@@ -59,15 +63,15 @@
 
                     <div class="personalUserpicDiv">
 
-                        <div class="personalUserpic">
-                            <img src="img/take_picture.png" style="width:100%" ng-click="getPhoto()"/>
+                        <div class="personalUserpicButton">
+                            <img src="img/take_picture.png" style="width:100%;" ng-click="getPhoto()"/>
                         </div>
 
-                        <div class="personalUserpic" ng-show="userpic != ''">
+                        <div class="personalUserpicImage" ng-show="userpic != ''">
                             <img ng-src={{userpic}} width="70">
                         </div>
 
-                        <div class="personalUserpic" ng-show="image != '' && userpic == ''">
+                        <div class="personalUserpicImage" ng-show="image != '' && userpic == ''">
                             <img ng-src={{image}} width="70">
                         </div>
 
@@ -79,7 +83,7 @@
 					
                     <div class="personalUserpicDiv" style="margin-top:10px; margin-bottom:20px;" ng-click="saveChanges()">
 
-                        <div class="personalUserpic">
+                        <div class="personalUserpicButton">
                             <img src="img/browse_icon.png" style="width:100%" />
                         </div>
 						<div class="personalUserSaveChange">
@@ -96,6 +100,7 @@
             </div>
 
             <div ng-switch-when="personal">
+
 					<div class="pointTitle">
                     	<div class="pointTitleHeader">צברתי מתחילת החודש 0 נקודות</div>
                     	<div> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
@@ -130,41 +135,31 @@
                     	<img src="img/personal_tip.png" style="width:100%" />
                     </div>
 
-                    <ion-scroll direction="y" start-y="100" style="width: 100%; height: 250px; background-color: white; border-radius: 15px; padding: 10px;">
-                        <div ng-repeat="message in messages | orderBy:'date'">
+                    <ion-scroll direction="y" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
+                        <div ng-repeat="element in messages | orderBy:'date'">
 
-                            <div class="personalQuestion" ng-show="message.type == 'question'">אני</div>
-                            <div class="personalQuestion" ng-show="message.type == 'question'">{{message.date | date: "MMM dd yyyy"}}</div>
-                            <div class="personalQuestion" ng-show="message.type == 'question'">{{message.message}}</div>
+                            <div class="personalQuestionTitle" ng-show="element.type == 'question'">אני:</div>
+                            <div class="personalQuestion" ng-show="element.type == 'question'">{{element.message}}</div>
 
-                            <div class="personalAnswer" ng-show="message.type == 'answer'">מומחה</div>
-                            <div class="personalAnswer" ng-show="message.type == 'answer'">{{message.date | date: "MMM dd yyyy"}}</div>
-                            <div class="personalAnswer" ng-show="message.type == 'answer'">{{message.message}}</div>
+                            <div class="personalAnswerTitle" ng-show="element.type == 'answer'">מומחה:</div>
+                            <div class="personalAnswer" ng-show="element.type == 'answer'">{{element.message}}</div>
 
                         </div>
                     </ion-scroll>
 
-
                     <div class="personalMessageDiv">
-                        <div class="personalMessageDivLeft">
-                            <button class="button button-small button-positive" ng-click="sendMessage()">Send</button>
+                    	 <div class="personalMessageDivLeft" align="center">
+                            <div style="width:80%; margin-top:10px;" ng-click="sendMessage()">
+                                <img src="img/ask_icon.png" style="width:100%" />
+                            </div>
                         </div>
+                
+                    
                         <div class="personalMessageDivRight">
                             <textarea placeholder="הקלד ושלח - פנייתך תעבור למומחה, תשובה ב ימים הקרובים"
-                                      ng-model="message.subject" class="personalTextarea"required></textarea>
+                                      ng-model="message.subject" class="personalTextarea" required></textarea>
                         </div>
                     </div>
-
-                    <!--<div>-->
-                        <!--<textarea placeholder="הכנס טקסט"-->
-                                  <!--ng-model="message.subject" rows="10" class="personalTextarea"required></textarea>-->
-                    <!--</div>-->
-					<!---->
-                    <!--<div class="personalTipTitle" ng-click="sendMessage()">-->
-                    	<!--<img src="img/personal_tip_button.png" style="width:100%" />-->
-                    <!--</div>-->
-                    
-                   
 
                 </div>
 

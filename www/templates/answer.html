@@ -1,29 +1,40 @@
-<ion-view view-title="Answer">
+<ion-view hide-nav-bar="true">
     <ion-content>
+        <div style="background-color:#94CC37">
+            <img src="img/header.png" style="width:100%" />
+        </div>
 
-        <div class="div80 rtl textCenter">
+        <div class="answerHeader">שאלה יומית מתאריך {{today}}</div>
 
-            <div class="header">התשובה היומית מתאריך {{today}}</div>
+        <div class="answerBackground">
 
-            <div>{{question.question}}</div>
+            <div class="answerTitle">{{question.question}}</div>
 
-            <div ng-show="question.explain_image != ''">
-                <img ng-src={{question.explain_image}} style="width: 100%;">
+            <div class="answerMainDiv rtl textCenter">
+
+                <div ng-show="question.explain_image != ''">
+                    <img ng-src={{question.explain_image}} style="width: 100%;">
+                </div>
+
+                <div ng-show="question.explain_youtube != ''">
+                    <youtube-video video-url="question.explain_youtube" player-width="'100%'"></youtube-video>
+                </div>
+
+                <div class="answerText">{{rightAnswer}}</div>
+
             </div>
 
-            <div ng-show="question.explain_youtube != ''">
-                <youtube-video video-url="question.explain_youtube" player-width="'100%'"></youtube-video>
+                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == true">התשובה הנכונה</div>
+
+                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == false">התשובה לא נכונה</div>
+
+            <div class="answerMainDiv rtl textCenter">
+
+                <div class="answerText">{{question.explaination}}</div>
+
+                <button class="button button-positive button-block" ui-sref="app.discount">להטבה</button>
+
             </div>
-
-            <div>{{rightAnswer}}</div>
-
-            <div ng-show="isAnswerCorrect == true">התשובה הנכונה</div>
-
-            <div ng-show="isAnswerCorrect == false">התשובה לא נכונה</div>
-
-            <div>{{question.explaination}}</div>
-
-            <button class="button button-positive button-block" ui-sref="app.discount">להטבה</button>
 
         </div>
 

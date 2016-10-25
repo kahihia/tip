@@ -23,7 +23,6 @@ angular.module('starter.controllers', [])
                 });
 
                 $state.go('app.home');
-
             } else {
 
                 $ionicHistory.nextViewOptions({
@@ -263,7 +262,26 @@ angular.module('starter.controllers', [])
 
                             $localStorage.userid = data.data.response.userid;
                             $localStorage.email = $scope.register.email;
-                            $rootScope.userData.email =  $localStorage.email;
+                            $localStorage.password = $scope.register.password;
+                            $localStorage.firstname = $scope.register.firstname;
+                            $localStorage.lastname = $scope.register.lastname;
+                            $localStorage.gender = $scope.register.gender;
+                            $localStorage.birthday = $scope.register.birthday;
+                            $localStorage.soldier = $scope.register.soldier;
+                            $localStorage.conscription_date = $scope.register.conscription_date;
+                            $localStorage.release_date = $scope.register.release_date;
+
+                            $rootScope.userData.userid = $localStorage.userid;
+                            $rootScope.userData.email = $localStorage.email;
+                            $rootScope.userData.password = $localStorage.password;
+                            $rootScope.userData.firstname = $localStorage.firstname;
+                            $rootScope.userData.lastname = $localStorage.lastname;
+                            $rootScope.userData.gender = $localStorage.gender;
+                            $rootScope.userData.birthday = $localStorage.birthday;
+                            $rootScope.userData.soldier = $localStorage.soldier;
+                            $rootScope.userData.conscription_date = $localStorage.conscription_date;
+                            $rootScope.userData.release_date = $localStorage.release_date;
+
                             $state.go('app.home');
 
                         } else {
@@ -310,107 +328,118 @@ angular.module('starter.controllers', [])
 
         $ionicSideMenuDelegate.canDragContent(false);
 
-        $scope.login = {
+        $scope.$on('$ionicView.enter', function(e) {
 
-            'email' : $localStorage.email,
-            'password' : '',
-            'push_id' : $rootScope.pushId
+            $scope.login = {
 
-        };
+                'email' : $localStorage.email,
+                'password' : ''
 
-        // login
+            };
 
-        $scope.makeLogin = function(){
+            // login
 
-            var emailRegex = /\S+@\S+\.\S+/;
+            $scope.makeLogin = function(){
 
-            if($scope.login.email == '' || $scope.login.password == '') {
+                var emailRegex = /\S+@\S+\.\S+/;
 
-                $ionicPopup.alert({
-                    title: "נא למלא את כל השדות",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
-                });
+                if($scope.login.email == '' || $scope.login.password == '') {
 
-            } else {
+                    $ionicPopup.alert({
+                        title: "נא למלא את כל השדות",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
 
-                console.log($scope.login);
+                } else {
 
-                $http.post($rootScope.host + 'LoginUser', $scope.login, {
+                    var send_data = {
 
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                        'email' : $scope.login.email,
+                        'password' : $scope.login.password,
+                        'push_id' : $rootScope.pushId
 
-                }).then(
+                    };
 
-                    function(data){
+                    // alert(JSON.stringify(send_data));
 
-                        console.log(data);
+                    $http.post($rootScope.host + 'LoginUser', send_data, {
 
-                        if (data.data.response.status == "0"){
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                    }).then(
+
+                        function(data){
+
+                            console.log(data);
+
+                            if (data.data.response.status == "0"){
+
+                                $ionicPopup.alert({
+                                    title: "Login data is not valid! Please use forgot password button if necessary!",
+                                    buttons: [{
+                                        text: 'OK',
+                                        type: 'button-positive'
+                                    }]
+                                })
+
+                            } else {
+
+                                $localStorage.firstname = data.data.response.firstname;
+                                $localStorage.lastname = data.data.response.lastname;
+                                $localStorage.email = $scope.login.email;
+                                $localStorage.password = $scope.login.password;
+                                $localStorage.birthday = data.data.response.birthday;
+                                $localStorage.userid = data.data.response.userid;
+                                $localStorage.soldier = data.data.response.soldier;
+                                $localStorage.gender = data.data.response.gender;
+                                $localStorage.image = data.data.response.image;
+
+                                if(data.data.response.soldier == '1'){
+
+                                    $localStorage.conscription_date = data.data.response.conscription_date;
+                                    $localStorage.release_date = data.data.response.release_date;
+
+                                }
+
+                                $rootScope.userData = data.data.response;
+                                $rootScope.userData.password = $scope.login.password;
+                                $rootScope.image = $localStorage.image;
+
+                                $state.go('app.home');
+
+                                $scope.login = {
+
+                                    'email' : $localStorage.email,
+                                    'password' : '',
+                                    'push_id' : $rootScope.pushId
+
+                                };
+
+                            }
+
+                        },
+
+                        function(error){
 
                             $ionicPopup.alert({
-                                title: "Login data is not valid! Please use forgot password button if necessary!",
+                                title: "No network connection!",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
                                 }]
                             })
 
-                        } else {
-
-                            $localStorage.firstname = data.data.response.firstname;
-                            $localStorage.lastname = data.data.response.lastname;
-                            $localStorage.email = data.data.response.email;
-                            $localStorage.password = data.data.response.password;
-                            $localStorage.birthday = data.data.response.birthday;
-                            $localStorage.userid = data.data.response.userid;
-                            $localStorage.soldier = data.data.response.soldier;
-                            $localStorage.gender = data.data.response.gender;
-                            $localStorage.image = data.data.response.image;
-
-                            if(data.data.response.soldier == '1'){
-
-                                $localStorage.conscription_date = data.data.response.conscription_date;
-                                $localStorage.release_date = data.data.response.release_date;
-
-                            }
-
-                            $rootScope.userData = data.data.response;
-                            $rootScope.image = $localStorage.image;
-
-                            $state.go('app.home');
-
-                            $scope.login = {
-
-                                'email' : $localStorage.email,
-                                'password' : '',
-                                'push_id' : $rootScope.pushId
-
-                            };
-
                         }
+                    );
 
-                    },
+                }
 
-                    function(error){
+            };
 
-                        $ionicPopup.alert({
-                            title: "No network connection!",
-                            buttons: [{
-                                text: 'OK',
-                                type: 'button-positive'
-                            }]
-                        })
-
-                    }
-                );
-
-            }
-
-        };
-
+        });
         // forgot password
 
         $scope.openForgotPasswordModal = function () {
@@ -494,6 +523,14 @@ angular.module('starter.controllers', [])
     .controller('HomeCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
 
         $ionicSideMenuDelegate.canDragContent(false);
+
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
         // for discount and question link
 
@@ -592,11 +629,11 @@ angular.module('starter.controllers', [])
                 $scope.question = data.data[0];
 
                 if ($scope.question.question_image != ''){
-                    $scope.question.question_image = $rootScope.phpHost + $scope.question.question_image;
+                    $scope.question.question_image = $rootScope.phpHost + "uploads/" + $scope.question.question_image;
                 }
 
                 if($scope.question.explain_image != ''){
-                    $scope.question.explain_image = $rootScope.phpHost + $scope.question.explain_image;
+                    $scope.question.explain_image = $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
                 }
 
                 if ($scope.question.correct_answer == "1"){
@@ -680,10 +717,12 @@ angular.module('starter.controllers', [])
 
             if ($scope.userAnswer.selected == $scope.question.correct_answer) {
 
+                $rootScope.isAnswerCorrect = true;
                 return true;
 
             } else {
 
+                $rootScope.isAnswerCorrect = false;
                 return false;
 
             }
@@ -694,58 +733,84 @@ angular.module('starter.controllers', [])
 
         $scope.sendAnswer = function(){
 
-            var checkedAnswer = $scope.checkAnswer();
+            if ($scope.userAnswer.selected == ""){
 
-            var send_question = {
+                $ionicPopup.alert({
+                    title: "Please select one of answers!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
 
-                "user" : $localStorage.userid,
-                "quantity" : "",
-                "correct" : ""
+            } else {
 
-            };
+                var checkedAnswer = $scope.checkAnswer();
 
-            if (checkedAnswer == true){
+                var send_question = {
 
-                send_question.quantity = "10";
-                send_question.correct = "1"
+                    "user" : $localStorage.userid,
+                    "quantity" : "",
+                    "correct" : ""
 
-            } else if (checkedAnswer == false){
+                };
 
-                send_question.quantity = "2";
-                send_question.correct = "0"
+                if (checkedAnswer == true){
+
+                    send_question.quantity = "10";
+                    send_question.correct = "1"
+
+                } else if (checkedAnswer == false){
+
+                    send_question.quantity = "2";
+                    send_question.correct = "0"
+
+                }
+
+                $http.post($rootScope.host + 'answerQuestion', send_question, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        console.log(data);
+
+                        // update local variables
+
+                        $localStorage.isQuestionAnswered = true;
+                        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+
+                        if (checkedAnswer == true){
+
+                            $rootScope.allPoints += 10;
+                            $rootScope.correctAnswers += 1;
+
+                        } else if (checkedAnswer == false){
+
+                            $rootScope.allPoints += 2;
+                            $rootScope.incorrectAnswers += 1;
+
+                        }
+
+                        $state.go('app.answer');
+
+                    },
+
+                    function(error){
+
+                        $ionicPopup.alert({
+                            title: "No network connection!",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    })
 
             }
-
-            $http.post($rootScope.host + 'answerQuestion', send_question, {
-
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-            }).then(
-
-                function(data){
-
-                    console.log(data);
-
-                    // update local variables
-
-                    $localStorage.isQuestionAnswered = true;
-                    $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
-
-                    $state.go('app.answer');
-
-                },
-
-                function(error){
-
-                    $ionicPopup.alert({
-                        title: "No network connection!",
-                        buttons: [{
-                            text: 'OK',
-                            type: 'button-positive'
-                        }]
-                    });
-
-                })
 
         };
 
@@ -753,6 +818,14 @@ angular.module('starter.controllers', [])
     })
 
     .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
+
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
         var send_data = {
 
@@ -826,10 +899,10 @@ angular.module('starter.controllers', [])
 
             var options = {
 
-                quality: 75,
-                destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-                allowEdit: false,
+                quality : 75,
+                destinationType : Camera.DestinationType.FILE_URI,  //Camera.DestinationType.DATA_URL,
+                sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit : true,
                 encodingType: Camera.EncodingType.JPEG,
                 targetWidth: 600,
                 targetHeight: 600,
@@ -1143,6 +1216,8 @@ angular.module('starter.controllers', [])
 
                 });
 
+        // send message
+
         $scope.message = {
 
             "subject" : ""
@@ -1189,6 +1264,16 @@ angular.module('starter.controllers', [])
                                     type: 'button-positive'
                                 }]
                             });
+
+                            var new_message = {
+                                "date" : new Date(),
+                                "index" : "",
+                                "message" : $scope.message.subject,
+                                "type" : "question",
+                                "userid" : $localStorage.userid
+                            };
+
+                            $scope.messages.push(new_message);
 
                             $scope.message = {
 
@@ -1519,6 +1604,14 @@ angular.module('starter.controllers', [])
     .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate) {
 
         $ionicSideMenuDelegate.canDragContent(false);
+
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
     })
 

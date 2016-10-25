@@ -1,21 +1,42 @@
 <ion-view hide-nav-bar="true">
-    <ion-content class="rtl textCenter" scroll="false">
+    <ion-content class="rtl textCenter pointsContent" scroll="false"  >
+		<div class="pointsHeader">
+            <img src="img/header.png" style="width:100%" />
+        </div>
 
-        <div>ברוכים הבאים</div>
 
-        <ion-slides options="options" slider="data.slider" style="height: 400px; width: 100%;">
-            <ion-slide-page>
-                <div><img src="http://placekitten.com/320/400"></div>
-            </ion-slide-page>
-            <ion-slide-page>
-                <div><img src="http://placekitten.com/g/320/400"></div>
-            </ion-slide-page>
-            <ion-slide-page>
-                <div><img src="http://placekitten.com/320/400"></div>
-            </ion-slide-page>
-        </ion-slides>
-
-        <button class="button button-positive button-block" ui-sref="app.register">להרשמה</button>
+        <div style="background-color:white">ברוכים הבאים</div>
+        
+         <div class="EnterLeftArrow">
+          	<img src="img/enter/left_arrow.png" style="width:100%" />
+         </div>
+         
+         <div class="EnterRightArrow">
+          	<img src="img/enter/right_arrow.png" style="width:100%" />
+         </div>
+		 
+            <ion-slides options="options" slider="data.slider" style="height: 300px; width: 100%; z-index:1">
+                <ion-slide-page>
+                    <div><img src="img/enter/e1.png" style="width:100%"></div>
+                </ion-slide-page>
+                <ion-slide-page>
+                    <div><img src="img/enter/e2.png" style="width:100%"></div>
+                </ion-slide-page>
+                <ion-slide-page>
+                    <div><img src="img/enter/e3.png" style="width:100%"></div>
+                </ion-slide-page>
+                <ion-slide-page>
+                    <div><img src="img/enter/e4.png" style="width:100%"></div>
+                </ion-slide-page>
+            </ion-slides>
+		 
+       
+         <div style="width:100%; margin-top:25px;" align="center" ui-sref="app.register">
+         	<div style="width:80%">
+            	<img src="img/enter/register.png" style="width:100%" />
+            </div>
+         </div>
+       
 
     </ion-content>
 </ion-view>

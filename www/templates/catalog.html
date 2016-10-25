@@ -4,11 +4,11 @@
 		<div class="pointsHeader">
             <div class="sideMenuIcon" ng-show="image && image != ''">
                 <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
-                Out
+                <div class="sideMenuIconText">התנתק</div>
             </div>
             <div class="sideMenuIcon" ng-show="!image">
                 <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
-                Out
+                <div class="sideMenuIconText">התנתק</div>
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
                 <img src="img/homeicon.png" style="width:100%" />
