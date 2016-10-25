@@ -655,7 +655,38 @@
     font-size: 20px;
     text-align: center;
     border-radius: 50px;
+	font-weight:bold;
 }
+
+
+.answerQuestion
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.answerQuestionLeft
+{
+	width:120px;
+	float:left;
+}
+
+.answerQuestionLeft div
+{
+	width:80%;
+}
+
+.answerQuestionRight
+{
+	width:30%;
+	float:right;
+}
+
+.answerQuestionRight div
+{
+	width:70%
+}
+
 
 /* LogIn page* */
 
