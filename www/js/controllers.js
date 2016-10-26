@@ -23,6 +23,7 @@ angular.module('starter.controllers', [])
                 });
 
                 $state.go('app.home');
+
             } else {
 
                 $ionicHistory.nextViewOptions({
@@ -697,12 +698,12 @@ angular.module('starter.controllers', [])
 
                 if (gotAnswer == true){
 
-                    var audio = new Audio('sounds/yes-sound.mp3');
+                    var audio = new Audio('sounds/yes-sound.wav');
                     audio.play();
 
                 } else {
 
-                    var audio = new Audio('sounds/no-sound.mp3');
+                    var audio = new Audio('sounds/no-sound.wav');
                     audio.play();
 
                 }

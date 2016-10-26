@@ -25,62 +25,62 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             // tip after 1 minute
 
-            var send_data = {
-
-                'date' : $rootScope.today
-
-            };
-
-            $http.post($rootScope.host + 'GetTipByDate', send_data, {
-
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-                }).then(
-
-                    function(data){
-
-                        console.log(data);
-                        $localStorage.isTipShown = false;
-
-                        $timeout(function () {
-
-                            $rootScope.$watch('currState.current.name', function() {
-
-                                if ($rootScope.currState.current.name != 'app.register' &&
-                                    $rootScope.currState.current.name != 'app.teaser' &&
-                                    $rootScope.currState.current.name != 'app.question' &&
-                                    $rootScope.currState.current.name != 'app.answer' &&
-                                    $rootScope.currState.current.name != 'app.discount' &&
-                                    $localStorage.isTipShown == false) {
-
-                                    $rootScope.dailyTipText = data.data[0].title;
-
-                                    var dailyTipPopup = $ionicPopup.show({
-                                        templateUrl: 'templates/popup_daily_tip.html',
-                                        scope: $rootScope,
-                                        cssClass: 'dailyTipPopup'
-                                    });
-
-                                    $rootScope.hideDailyTip = function () {
-
-                                        dailyTipPopup.close();
-
-                                    };
-
-                                    $localStorage.isTipShown = true;
-                                }
-
-                             })
-
-                        }, 60000)
-
-                    },
-
-                    function(err){
-
-                        console.log(err);
-
-                    });
+            // var send_data = {
+            //
+            //     'date' : $rootScope.today
+            //
+            // };
+            //
+            // $http.post($rootScope.host + 'GetTipByDate', send_data, {
+            //
+            //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+            //
+            //     }).then(
+            //
+            //         function(data){
+            //
+            //             console.log("Daily tip", data);
+            //             $localStorage.isTipShown = false;
+            //
+            //             $timeout(function () {
+            //
+            //                 $rootScope.$watch('currState.current.name', function() {
+            //
+            //                     if ($rootScope.currState.current.name != 'app.register' &&
+            //                         $rootScope.currState.current.name != 'app.teaser' &&
+            //                         $rootScope.currState.current.name != 'app.question' &&
+            //                         $rootScope.currState.current.name != 'app.answer' &&
+            //                         $rootScope.currState.current.name != 'app.discount' &&
+            //                         $localStorage.isTipShown == false) {
+            //
+            //                         $rootScope.dailyTipText = data.data[0].title;
+            //
+            //                         var dailyTipPopup = $ionicPopup.show({
+            //                             templateUrl: 'templates/popup_daily_tip.html',
+            //                             scope: $rootScope,
+            //                             cssClass: 'dailyTipPopup'
+            //                         });
+            //
+            //                         $rootScope.hideDailyTip = function () {
+            //
+            //                             dailyTipPopup.close();
+            //
+            //                         };
+            //
+            //                         $localStorage.isTipShown = true;
+            //                     }
+            //
+            //                  })
+            //
+            //             }, 1)
+            //
+            //         },
+            //
+            //         function(err){
+            //
+            //             console.log(err);
+            //
+            //         });
 
             // get catalog categories
 
@@ -427,13 +427,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             if (fromState.name == 'app.home' && toState.name == 'app.teaser'){
 
-                $ionicPopup.alert({
-                    title: "מצב הנקודות שלי: " + $rootScope.allPoints,
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
+                $rootScope.leftPoints = 150 - Number($rootScope.allPoints);
+
+                var pointsPopup = $ionicPopup.show({
+                    templateUrl: 'templates/popup_points.html',
+                    scope: $rootScope,
+                    cssClass: 'pointsPopup'
                 });
+
+                $rootScope.hidePointsPopup = function () {
+
+                    pointsPopup.close();
+
+                };
 
             }
 

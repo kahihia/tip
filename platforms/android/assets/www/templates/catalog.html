@@ -1,13 +1,11 @@
 <ion-view view-title="Catalog" hide-nav-bar="true">
 
-     <ion-content class="pointsContent" style="background-color:#6d548d" >
-		<div class="pointsHeader">
-            <div class="sideMenuIcon" ng-show="image && image != ''">
-                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
-                <div class="sideMenuIconText">התנתק</div>
-            </div>
-            <div class="sideMenuIcon" ng-show="!image">
-                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
+     <ion-content class="pointsContent" style="background-color:#ffd200" >
+		<div class="pointsHeader" style="padding-bottom: 10px;">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
                 <div class="sideMenuIconText">התנתק</div>
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
@@ -24,7 +22,7 @@
                 </div>
             </div>
             <div class="catalogTitle">
-            	<div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">Choose category</div>
+            	<div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">בחר קטגוריה</div>
         		<div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
             </div>
         </div>
@@ -34,16 +32,16 @@
 
 
         <div class="button-bar" style="height:20px !important;">
-            <a class="button" style="background-color:#86b1c3" ng-class="{activeTab : selection == 'favorites'}" ng-click="chooseTab('favorites')">מועדפים</a>
-            <a class="button" style="background-color:#86b1c3" ng-class="{activeTab : selection == 'catalog'}" ng-click="chooseTab('catalog')">קטלוג</a>
-            <a class="button" style="background-color:#86b1c3" ng-class="{activeTab : selection == 'location'}" ng-click="chooseTab('location')">מה באזור</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'favorites'}" ng-click="chooseTab('favorites')">מועדפים</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'catalog'}" ng-click="chooseTab('catalog')">קטלוג</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'location'}" ng-click="chooseTab('location')">מה באזור</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
 
             <div ng-switch-when="location">
 
-                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">Choose category to see the deals</div>
+                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
 
                 <div ng-show="isLocationEnabled == false">
                     <button class="button button-positive" ng-click="turnOnGPS()" style="margin-top: 40px;">Turn on GPS to see the closest deals</button>
@@ -84,7 +82,7 @@
 
             <div ng-switch-when="catalog">
 
-                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">Choose category to see the deals</div>
+                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
 
                 <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">
 

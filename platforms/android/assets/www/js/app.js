@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     function(data){
 
-                        console.log(data);
+                        console.log("Daily tip", data);
                         $localStorage.isTipShown = false;
 
                         $timeout(function () {
@@ -427,13 +427,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             if (fromState.name == 'app.home' && toState.name == 'app.teaser'){
 
-                $ionicPopup.alert({
-                    title: "מצב הנקודות שלי: " + $rootScope.allPoints,
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
+                $rootScope.leftPoints = 150 - Number($rootScope.allPoints);
+
+                var pointsPopup = $ionicPopup.show({
+                    templateUrl: 'templates/popup_points.html',
+                    scope: $rootScope,
+                    cssClass: 'pointsPopup'
                 });
+
+                $rootScope.hidePointsPopup = function () {
+
+                    pointsPopup.close();
+
+                };
 
             }
 

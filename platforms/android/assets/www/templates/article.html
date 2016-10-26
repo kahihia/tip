@@ -3,12 +3,10 @@
 
 		<div class="pointsHeader">
 
-            <div class="sideMenuIcon" ng-show="image && image != ''">
-                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
-                <div class="sideMenuIconText">התנתק</div>
-            </div>
-            <div class="sideMenuIcon" ng-show="!image">
-                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
                 <div class="sideMenuIconText">התנתק</div>
             </div>
 

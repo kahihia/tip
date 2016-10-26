@@ -1,11 +1,21 @@
 <ion-view view-title="Item" hide-nav-bar="true">
-    <ion-content class="rtl">
+    <ion-content>
+
         <div class="pointsHeader">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
             <div class="homeMenuIcon" ui-sref="app.home">
                 <img src="img/homeicon.png" style="width:100%" />
             </div>
             <img src="img/header.png" style="width:100%" />
         </div>
+
+        <div class="header pointsHeaderTitle">הצופ'ר היומי</div>
+
         <div class="teaserTitle"> {{todayDeal.title}}</div>
 
         <div class="teaserInfo">
@@ -30,8 +40,18 @@
             </div>
 
             <div>
-                <img src="img/mainbanner.png" style="width:100%; margin-top:-5px;" />
+                <img src="img/mainbanner.png" style="width: 100%;">
             </div>
+
+            <!--<div style="width: 100%; height: 100px;">-->
+                <!--<ion-slides options="options" slider="data.slider" >-->
+                    <!--<ion-slide-page ng-repeat="banner in banners">-->
+                        <!--<div>-->
+                            <!--<img ng-src="{{banner}}">-->
+                        <!--</div>-->
+                    <!--</ion-slide-page>-->
+                <!--</ion-slides>-->
+            <!--</div>-->
 
             <div class="greyRow">פרטי ההטבה</div>
             <div class="mh80">{{todayDeal.desc}}</div>

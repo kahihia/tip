@@ -444,6 +444,67 @@
 
 /*End of Daily tip*/
 
+
+/*Points popup*/
+.pointsPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    direction: rtl;
+}
+
+.pointsPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.pointsPopupMainDiv {
+    background-color: white;
+    margin-top: -40px;
+    padding: 40px 10px 10px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.pointsPopupTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pointsPopupQuantity {
+    font-size: 100px;
+    line-height: 100px;
+    font-weight: bold;
+}
+
+.pointsPopupInfo {
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ffd200;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.pointsPopupButton {
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ffd200;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.pointsPopupButtonText {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+/*End of Points popup*/
+
 /* Header Page*/
 .Header {
     width: 100%;
@@ -497,10 +558,10 @@
 .teaserTitle {
     width: 100%;
     text-align: center;
-    padding: 12px;
+    padding: 5px;
     direction: rtl;
     font-size: 22px;
-    font-weight:bold;
+    background-color: #ffd200;
 }
 
 .teaserInfo {

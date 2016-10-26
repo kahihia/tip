@@ -1,12 +1,10 @@
 <ion-view view-title="" hide-nav-bar="true">
     <ion-content class="pointsContent">
 		<div class="pointsHeader">
-            <div class="sideMenuIcon" ng-show="image && image != ''">
-                <img ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
-                <div class="sideMenuIconText">התנתק</div>
-            </div>
-            <div class="sideMenuIcon" ng-show="!image">
-                <img src="img/empty_image.png" ng-click="logout()" style="width:100%"/>
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
                 <div class="sideMenuIconText">התנתק</div>
             </div>
             <div class="homeMenuIcon" ui-sref="app.home">
@@ -18,9 +16,9 @@
         <div class="header pointsHeaderTitle">אזור אישי</div>
 
         <div class="button-bar">  
-            <a class="button" style="background-color:#ffd200" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
-            <a class="button" style="background-color:#ffd200" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
-            <a class="button" style="background-color:#ffd200" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
