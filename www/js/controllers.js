@@ -331,6 +331,7 @@ angular.module('starter.controllers', [])
 
         $scope.$on('$ionicView.enter', function(e) {
 
+
             $scope.login = {
 
                 'email' : $localStorage.email,
@@ -608,9 +609,20 @@ angular.module('starter.controllers', [])
 
         var send_data = {
 
-            'date' : $rootScope.today
+            'date' : $rootScope.today,
+            'type' : ''
 
         };
+
+        if ($localStorage.soldier == "1"){
+
+            send_data.type = "1";
+
+        } else {
+
+            send_data.type = "2";
+
+        }
 
         // get question for today if time >= 13:00 and for yesterday if time < 13:00
 
@@ -625,7 +637,7 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                // console.log(data);
+                console.log(data);
 
                 $scope.question = data.data[0];
 
@@ -818,7 +830,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('DiscountCtrl', function ($scope, $rootScope, $state, $http, $ionicPopup) {
+    .controller('DiscountCtrl', function (isFavoriteFactory, makeFavoriteFactory, $sce, $localStorage, $scope, $rootScope, $state, $http, $ionicPopup) {
 
         $scope.options = {
             loop: true,
@@ -830,9 +842,29 @@ angular.module('starter.controllers', [])
 
         var send_data = {
 
-            'date' : $rootScope.today
+            'date' : $rootScope.today,
+            'type' : "",
+            'gender' : $localStorage.gender
 
         };
+
+        if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
+
+            send_data.type = "2"; // soldier female
+
+        } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
+
+            send_data.type = "1"; // soldier male
+
+        } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
+
+            send_data.type = "5"; // civil female
+
+        } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
+
+            send_data.type = "4"; // civil male
+
+        }
 
         // get deal for today
 
@@ -846,8 +878,15 @@ angular.module('starter.controllers', [])
             function (data) {
 
                 $scope.todayDeal = data.data[0];
-                $scope.todayDeal.image = $rootScope.phpHost + $scope.todayDeal.image;
-                $scope.todayDeal.image2 = $rootScope.phpHost + $scope.todayDeal.image2;
+                $scope.todayDeal.image = $rootScope.phpHost + "uploads/" + $scope.todayDeal.image;
+                $scope.todayDeal.image2 = $rootScope.phpHost + "uploads/" + $scope.todayDeal.image2;
+
+                if ($scope.todayDeal.showiframe == "1"){
+
+                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.todayDeal.codelink);
+
+                }
+
                 console.log($scope.todayDeal);
 
             },
@@ -864,9 +903,39 @@ angular.module('starter.controllers', [])
 
             });
 
+        // check if the deal is favorite
+
+        $scope.isFavorite = function (x) {
+
+            return isFavoriteFactory.isFavorite(x);
+
+        };
+
+        // make favorite
+
+        $scope.makeFavorite = function(x){
+
+            return makeFavoriteFactory.makeFavorite(x);
+
+        };
+
     })
 
     .controller('PersonalCtrl', function ($ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+
+        // $scope.$on('$ionicView.enter', function(e) {
+        //
+        //     if ($rootScope.pushNotificationType) {
+        //
+        //         if ($rootScope.pushNotificationType == "newmessage"){
+        //
+        //             alert('here');
+        //
+        //         }
+        //
+        //     }
+        //
+        // });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -1314,6 +1383,20 @@ angular.module('starter.controllers', [])
 
     })
 
+    // .filter('closeDistance', function() {
+    //
+    //     return function(x){
+    //
+    //         if (x <= 10){
+    //             return true;
+    //         } else {
+    //             return false
+    //         }
+    //
+    //     };
+    //
+    // })
+
     .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.selection = 'catalog';
@@ -1346,8 +1429,8 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $rootScope.favoriteDeals.length; j++){
 
-                    $rootScope.favoriteDeals[j].image = $rootScope.phpHost + $rootScope.favoriteDeals[j].image;
-                    $rootScope.favoriteDeals[j].image2 = $rootScope.phpHost + $rootScope.favoriteDeals[j].image2;
+                    $rootScope.favoriteDeals[j].image = $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image;
+                    $rootScope.favoriteDeals[j].image2 = $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image2;
 
                 }
 
@@ -1559,22 +1642,47 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ItemCtrl', function (isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
+    .controller('ItemCtrl', function ($sce, isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
 
-        $scope.deal = {};
+        $scope.options = {
+            loop: true,
+            effect: 'slide',
+            speed: 300,
+            autoplay: 3000,
+            pagination: false
+        };
 
-        // choosing deal
+        $scope.$on('$ionicView.enter', function(e) {
 
-        for(var i = 0; i < $rootScope.deals.length; i++){
+            $scope.deal = {};
 
-            if ($stateParams.itemId == $rootScope.deals[i].index){
+            // choosing deal
 
-                $scope.deal = $rootScope.deals[i];
-                console.log($scope.deal);
+            for(var i = 0; i < $rootScope.deals.length; i++){
+
+                if ($stateParams.itemId == $rootScope.deals[i].index){
+
+                    $scope.deal = $rootScope.deals[i];
+
+                    if ($scope.deal.showiframe == "1"){
+
+                        $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
+
+                    }
+
+                    console.log($scope.deal);
+
+                }
 
             }
 
-        }
+            $scope.goToLink = function(x){
+
+                cordova.InAppBrowser.open(x, '_system', 'location=yes');
+
+            };
+
+        });
 
         // check if the deal is favorite
 
@@ -1589,14 +1697,6 @@ angular.module('starter.controllers', [])
         $scope.makeFavorite = function(x){
 
             return makeFavoriteFactory.makeFavorite(x);
-
-        };
-
-        // delete favorite
-
-        $scope.deleteFavorite = function(x){
-
-            return deleteFavoriteFactory.deleteFavorite(x);
 
         };
 

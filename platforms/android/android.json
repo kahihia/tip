@@ -21,50 +21,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"CheckGPS\"><param name=\"android-package\" value=\"de.fastr.phonegap.plugins.CheckGPS\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<allow-navigation href=\"cdvfile:*\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -91,6 +47,50 @@
                         {
                             "xml": "<preference name=\"android-minSdkVersion\" value=\"15\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CheckGPS\"><param name=\"android-package\" value=\"de.fastr.phonegap.plugins.CheckGPS\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<allow-navigation href=\"cdvfile:*\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -111,11 +111,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"com.ionicframework.tipli739187.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.tapper.tipli.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"com.ionicframework.tipli739187.permission.RECEIVE_ADM_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.tapper.tipli.permission.RECEIVE_ADM_MESSAGE\" />",
                             "count": 1
                         }
                     ],
@@ -137,6 +137,20 @@
                             "count": 1
                         }
                     ],
+                    "application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationName\" android:value=\"@string/fb_app_name\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|screenLayout|screenSize|orientation\" android:label=\"@string/fb_app_name\" android:name=\"com.facebook.FacebookActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+                            "count": 1
+                        }
+                    ],
                     "/manifest/application": [
                         {
                             "xml": "<receiver android:name=\"cordova.plugins.Diagnostic$LocationProviderChangedReceiver\"><intent-filter><action android:name=\"android.location.PROVIDERS_CHANGED\" /></intent-filter></receiver>",
@@ -151,31 +165,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.ionicframework.tipli739187\" /></intent-filter></receiver>",
-                            "count": 1
-                        }
-                    ],
-                    "application": [
-                        {
-                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationName\" android:value=\"@string/fb_app_name\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|screenLayout|screenSize|orientation\" android:label=\"@string/fb_app_name\" android:name=\"com.facebook.FacebookActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Diagnostic\"><param name=\"android-package\" value=\"cordova.plugins.Diagnostic\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.tapper.tipli\" /></intent-filter></receiver>",
                             "count": 1
                         }
                     ]
@@ -194,62 +184,72 @@
                         }
                     ]
                 }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Diagnostic\"><param name=\"android-package\" value=\"cordova.plugins.Diagnostic\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
     "installed_plugins": {
         "cl.rmd.cordova.dialoggps": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-fastrde-checkgps": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-facebook4": {
             "APP_ID": "189474428159821",
             "APP_NAME": "TIPLI",
-            "PACKAGE_NAME": "com.ionicframework.tipli739187"
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-fastrde-checkgps": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.tapper.tipli"
         }
     },
     "dependent_plugins": {},
@@ -294,6 +294,13 @@
             "id": "cordova-plugin-device.device",
             "clobbers": [
                 "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+            "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
+            "clobbers": [
+                "facebookConnectPlugin"
             ]
         },
         {
@@ -481,6 +488,14 @@
             ]
         },
         {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
+        },
+        {
             "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
             "id": "cordova-plugin-splashscreen.SplashScreen",
             "clobbers": [
@@ -515,21 +530,6 @@
             "clobbers": [
                 "OneSignal"
             ]
-        },
-        {
-            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-            "id": "cordova-plugin-inappbrowser.inappbrowser",
-            "clobbers": [
-                "cordova.InAppBrowser.open",
-                "window.open"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
-            "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
-            "clobbers": [
-                "facebookConnectPlugin"
-            ]
         }
     ],
     "plugin_metadata": {
@@ -538,17 +538,17 @@
         "cordova-plugin-camera": "2.3.0",
         "cordova-plugin-console": "1.0.4",
         "cordova-plugin-device": "1.1.3",
+        "cordova-plugin-facebook4": "1.7.4",
         "cordova-plugin-geolocation": "2.4.0",
         "cordova-plugin-fastrde-checkgps": "0.9.9",
         "cordova-plugin-file": "4.3.0",
         "cordova-plugin-file-transfer": "1.6.0",
+        "cordova-plugin-inappbrowser": "1.5.0",
         "cordova-plugin-splashscreen": "4.0.0",
         "cordova-plugin-statusbar": "2.2.0",
         "cordova-plugin-whitelist": "1.3.0",
         "cordova.plugins.diagnostic": "3.2.2",
         "ionic-plugin-keyboard": "2.2.1",
-        "onesignal-cordova-plugin": "2.0.6",
-        "cordova-plugin-inappbrowser": "1.5.0",
-        "cordova-plugin-facebook4": "1.7.4"
+        "onesignal-cordova-plugin": "2.0.6"
     }
 }

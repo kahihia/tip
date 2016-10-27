@@ -45,8 +45,8 @@ angular.module('starter.factories', [])
                         var newFav = data.data[0];
 
                         newFav.deal.favorite_id = data.data[0].index;
-                        newFav.deal.image = $rootScope.phpHost + newFav.deal.image;
-                        newFav.deal.image2 = $rootScope.phpHost + newFav.deal.image2;
+                        newFav.deal.image = $rootScope.phpHost + "uploads/" + newFav.deal.image;
+                        newFav.deal.image2 = $rootScope.phpHost + "uploads/" + newFav.deal.image2;
 
                         var newFavoriteDeal = newFav.deal;
 

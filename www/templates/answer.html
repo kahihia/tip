@@ -1,10 +1,16 @@
 <ion-view hide-nav-bar="true">
     <ion-content>
         <div style="background-color:#94CC37">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
             <img src="img/header.png" style="width:100%" />
         </div>
 
-        <div class="answerHeader">שאלה יומית מתאריך {{today}}</div>
+        <div class="answerHeader">שאלה יומית מתאריך {{todayDate}}</div>
 
         <div class="answerBackground">
 
@@ -24,15 +30,11 @@
 
             </div>
 
-                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == true">התשובה הנכונה</div>
-
-                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == false">התשובה לא נכונה</div>
+                <div class="answerCheckAnswer">התשובה הנכונה</div>
 
             <div class="answerMainDiv rtl textCenter">
 
                 <div class="answerText">{{question.explaination}}</div>
-
-              
 
             </div>
 

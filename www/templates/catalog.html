@@ -26,9 +26,6 @@
         		<div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
             </div>
         </div>
-        
-
-
 
 
         <div class="button-bar" style="height:20px !important;">
@@ -41,27 +38,29 @@
 
             <div ng-switch-when="location">
 
-                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
-
                 <div ng-show="isLocationEnabled == false">
-                    <button class="button button-positive" ng-click="turnOnGPS()" style="margin-top: 40px;">Turn on GPS to see the closest deals</button>
+                    <button class="button button-assertive" ng-click="turnOnGPS()" style="margin-top: 40px;">נא הפעל GPS על מנת לקבל את ההטבות הקרובות</button>
                 </div>
 
-                <div ng-show="isLocationEnabled == true" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">
+                <div ng-show="isLocationEnabled == true" ng-repeat="deal in deals">
 
-                    <div class="catalogDeal" ng-show="deal.dist <= 10" ui-sref="app.item({itemId:deal.index})">
+                    <div class="catalogDeal" ng-if="deal.dist <= 10" ui-sref="app.item({itemId:deal.index})">
 
-                        <div>{{deal.title}}</div>
-						<div class="favorite" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
-                        	<img ng-src="img/fav.png" style="width: 100%;">
-                        </div>
-                        
-                        <div class="favorite" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
-                        	<img ng-src="img/fav1.png" style="width: 100%;">
+                        <div class="catalogDealTitle">
+
+                            <div class="catalogDealTitleRight">{{deal.title}}</div>
+
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
                         </div>
 
                         <img ng-src="{{deal.image}}" style="width: 100%;">
-
 
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
@@ -80,21 +79,27 @@
 
             </div>
 
+
             <div ng-switch-when="catalog">
 
-                <div ng-show="categoryNumber == 0" style="margin-top: 50px;">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
+                <div ng-show="categoryNumber == 0" class="catalogNoDeals">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
 
                 <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">
 
                     <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
 
-                        <div>{{deal.title}}</div>
-						<div class="favorite" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
-                        	<img ng-src="img/fav.png" style="width: 100%;">
-                        </div>
-                        
-                        <div class="favorite" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
-                        	<img ng-src="img/fav1.png" style="width: 100%;">
+                        <div class="catalogDealTitle">
+
+                            <div class="catalogDealTitleRight">{{deal.title}}</div>
+
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
                         </div>
 
                         <img ng-src="{{deal.image}}" style="width: 100%;">
@@ -116,6 +121,7 @@
 
            </div>
 
+
             <div ng-switch-when="favorites">
 
                 <div ng-show="favoriteDeals == ''">אין תוצאות</div>
@@ -124,14 +130,18 @@
 
                     <div class="catalogDeal" ui-sref="app.item({itemId:fav.index})">
 
-                        <div>{{fav.title}}</div>
+                        <div class="catalogDealTitle">
 
-                        <div class="favorite"  ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index); $event.stopPropagation();">
-                            <img ng-src="img/fav.png" style="width: 100%;">
-                        </div>
+                            <div class="catalogDealTitleRight">{{fav.title}}</div>
 
-                        <div class="favorite" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index); $event.stopPropagation();">
-                            <img ng-src="img/fav1.png" style="width: 100%;">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
                         </div>
 
                         <img ng-src="{{fav.image}}" style="width: 100%;">

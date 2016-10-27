@@ -19,6 +19,11 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "189474428159821",
+            "APP_NAME": "TIPLI",
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
         "cordova-plugin-fastrde-checkgps": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
@@ -26,6 +31,9 @@
             "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-splashscreen": {
@@ -44,14 +52,6 @@
             "PACKAGE_NAME": "com.tapper.tipli"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.tapper.tipli"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.tapper.tipli"
-        },
-        "cordova-plugin-facebook4": {
-            "APP_ID": "189474428159821",
-            "APP_NAME": "TIPLI",
             "PACKAGE_NAME": "com.tapper.tipli"
         }
     },
