@@ -1,31 +1,60 @@
-<ion-view view-title="Answer">
+<ion-view hide-nav-bar="true">
     <ion-content>
+        <div style="background-color:#94CC37">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
 
-        <div class="div80 rtl textCenter">
+        <div class="answerHeader">שאלה יומית מתאריך {{todayDate}}</div>
 
-            <div class="header">התשובה היומית מתאריך {{today}}</div>
+        <div class="answerBackground">
 
-            <div>{{question.question}}</div>
+            <div class="answerTitle">{{question.question}}</div>
 
-            <div ng-show="question.explain_image != ''">
-                <img ng-src={{question.explain_image}} style="width: 100%;">
+            <div class="answerMainDiv rtl textCenter">
+
+                <div ng-show="question.explain_image != ''">
+                    <img ng-src={{question.explain_image}} style="width: 100%;">
+                </div>
+
+                <div ng-show="question.explain_youtube != ''">
+                    <youtube-video video-url="question.explain_youtube" player-width="'100%'"></youtube-video>
+                </div>
+
+                <div class="answerText">{{rightAnswer}}</div>
+
             </div>
 
-            <div ng-show="question.explain_youtube != ''">
-                <youtube-video video-url="question.explain_youtube" player-width="'100%'"></youtube-video>
+                <div class="answerCheckAnswer">התשובה הנכונה</div>
+
+            <div class="answerMainDiv rtl textCenter">
+
+                <div class="answerText">{{question.explaination}}</div>
+
             </div>
-
-            <div>{{rightAnswer}}</div>
-
-            <div ng-show="isAnswerCorrect == true">התשובה הנכונה</div>
-
-            <div ng-show="isAnswerCorrect == false">התשובה לא נכונה</div>
-
-            <div>{{question.explaination}}</div>
-
-            <button class="button button-positive button-block" ui-sref="app.discount">להטבה</button>
 
         </div>
 
     </ion-content>
+    
+    <ion-footer-bar align-title="left" style="height:100px; background-color:#d5d5d5">
+		<div class="answerQuestion">
+        	<div class="answerQuestionLeft" ng-show="isAnswerCorrect == true">
+            	<div>
+            		<img src="img/answer_correct.png" style="width:100%" />
+                 </div>
+            </div>
+            <div class="answerQuestionRight" ui-sref="app.discount">
+            	<div>
+            	<img src="img/answer_go.png" style="width:100%" />
+                </div>
+            </div>
+        </div>
+	</ion-footer-bar>
+
 </ion-view>

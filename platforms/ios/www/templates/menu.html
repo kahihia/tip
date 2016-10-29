@@ -25,7 +25,7 @@
         <ion-content>
             <ion-list ng-repeat="category in categories" class="rtl">
 
-                <ion-item menu-close ng-click="setCategory(category.index, category.title)">
+                <ion-item menu-close ui-sref="app.catalog" ng-click="setCategory(category.index, category.title)">
                     {{category.title}}
                 </ion-item>
 
@@ -33,25 +33,4 @@
         </ion-content>
     </ion-side-menu>
 
-    <!--<ion-side-menu side="left">-->
-        <!--<ion-header-bar class="bar-stable">-->
-            <!--<h1 class="title">Pages</h1>-->
-        <!--</ion-header-bar>-->
-        <!--<ion-content>-->
-            <!--<ion-list>-->
-                <!--<ion-item menu-close ui-sref="app.register">-->
-                    <!--Register-->
-                <!--</ion-item>-->
-                <!--<ion-item menu-close ui-sref="app.login">-->
-                    <!--Login-->
-                <!--</ion-item>-->
-                <!--<ion-item menu-close ui-sref="app.home">-->
-                    <!--Home-->
-                <!--</ion-item>-->
-                <!--<ion-item menu-close ng-click="logout()">-->
-                    <!--Logout-->
-                <!--</ion-item>-->
-            <!--</ion-list>-->
-        <!--</ion-content>-->
-    <!--</ion-side-menu>-->
 </ion-side-menus>

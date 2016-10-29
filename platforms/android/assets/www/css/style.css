@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Alef');
+
 .div80 {
     width: 80%;
     margin: 0 auto;
@@ -29,7 +33,19 @@
     padding: 10px;
 }
 
+.body
+{
+	font-family: 'Alef', sans-serif;
+}
 
+
+.bar 
+{ 
+	background-image: none !important;
+	padding:0px !important;
+	margin:0px !important;
+}
+	
 
 .rtl {
     direction: rtl;
@@ -127,6 +143,7 @@
     color: white;
     padding: 5px;
     border-radius: 20px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .homeRight {
@@ -204,6 +221,7 @@
 .pointTitleHeader {
     font-size: 19px;
     font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .yellowRow {
@@ -514,6 +532,7 @@
 /* Header Page*/
 .Header {
     width: 100%;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .sideMenuIcon {
@@ -568,6 +587,7 @@
     direction: rtl;
     font-size: 22px;
     background-color: #ffd200;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .teaserInfo {
@@ -674,13 +694,13 @@
 
 .RadioBtDiv
 {
-	top:12px; 
+	top:8px; 
 	position:relative;
 }
 .RadioBt
 {
 	position:absolute;
-	right:8.5%;
+	right:8%;
 	margin-top:40px;
 	padding-top:10px;
 }
@@ -704,6 +724,7 @@
     width: 70%;
     text-align: right;
     margin-top: 5px;
+	direction:rtl;
 }
 
 /*Answer page*/
@@ -730,7 +751,7 @@
 .answerBackground {
     background-color: #D5D5D5;
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 .answerMainDiv {

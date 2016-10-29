@@ -500,14 +500,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             function(data){
 
-                $rootScope.banners = data.data;
+                $rootScope.bannersData = data.data;
 
-                for (var p = 0; p < $rootScope.banners.length; p++){
+                for (var p = 0; p < $rootScope.bannersData.length; p++){
 
-                    $rootScope.banners[p].image = $rootScope.phpHost + 'uploads/' + $rootScope.banners[p].image;
+                    $rootScope.bannersData[p].image = $rootScope.phpHost + 'uploads/' + $rootScope.bannersData[p].image;
+
+                    if ($rootScope.bannersData[p].gallery_id == '2'){
+
+                        $rootScope.monthBanner = $rootScope.bannersData[p];
+
+                    } else if ($rootScope.bannersData[p].gallery_id == '3'){
+
+                        $rootScope.yearBanner = $rootScope.bannersData[p];
+
+                    } else {
+
+                        $rootScope.banners.push($rootScope.bannersData[p]);
+
+                    }
 
                 }
                 console.log("Banners", $rootScope.banners);
+                console.log('Month banner', $rootScope.monthBanner);
+                console.log('Year banner', $rootScope.yearBanner);
 
             },
 
@@ -687,6 +703,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 }
             })
         ;
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/router');
+        // if none of the above states are matched, use this as the fallback router
+        $urlRouterProvider.otherwise('/app/question'); 
     });
