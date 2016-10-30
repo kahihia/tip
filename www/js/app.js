@@ -379,14 +379,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        $rootScope.deals[i].image = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
                     }
 
                     $rootScope.isLocationEnabled = false;
 
-                    console.log("Deals", $rootScope.deals);
+                    console.log("DealsWithoutLocation", $rootScope.deals);
 
                 },
 
@@ -427,14 +428,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        $rootScope.deals[i].image = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
                     }
 
                     $rootScope.isLocationEnabled = true;
 
-                    console.log("Deals", $rootScope.deals);
+                    console.log("DealsWithLocation", $rootScope.deals);
 
                 },
 

@@ -32,7 +32,8 @@
 
                 <div class="teaserInfoLeft">
 
-                    <img src="img/teaser_logo.png" style="width:100%;" />
+                    <img ng-src="{{todayDeal.supplier_logo}}" ng-show="todayDeal.supplier_logo != ''" style="width:100%;" />
+                    <img src="img/empty_logo.png" ng-show="todayDeal.supplier_logo == ''" style="width:100%;" />
 
                     <div class="teaserRegularPriceText">מחיר רגיל</div>
                     <div class="teaserRegularPriceBlock">

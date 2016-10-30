@@ -25,7 +25,7 @@ angular.module('starter.factories', [])
 
         return {
 
-            makeFavorite: function(x){
+            makeFavorite: function(x, scope){
 
                 var send_fav = {
 
@@ -45,20 +45,25 @@ angular.module('starter.factories', [])
                         var newFav = data.data[0];
 
                         newFav.deal.favorite_id = data.data[0].index;
-                        newFav.deal.image = $rootScope.phpHost + "uploads/" + newFav.deal.image;
-                        newFav.deal.image2 = $rootScope.phpHost + "uploads/" + newFav.deal.image2;
+                        newFav.deal.image = (newFav.deal.image == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image;
+                        newFav.deal.image2 = (newFav.deal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image2;
+                        newFav.deal.supplier_logo = (newFav.deal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.supplier_logo;
 
                         var newFavoriteDeal = newFav.deal;
 
                         $rootScope.favoriteDeals.push(newFavoriteDeal);
 
-                        $ionicPopup.alert({
-                            title: "Successfully added!",
-                            buttons: [{
-                                text: 'OK',
-                                type: 'button-positive'
-                            }]
+                        var addedFavPopup = $ionicPopup.show({
+                            templateUrl: 'templates/popup_added_fav.html',
+                            scope: scope,
+                            cssClass: 'addedFavPopup'
                         });
+
+                        scope.hideAddedFavPopup = function () {
+
+                            addedFavPopup.close();
+
+                        };
 
                     },
 
@@ -84,7 +89,7 @@ angular.module('starter.factories', [])
 
         return {
 
-            deleteFavorite: function(x){
+            deleteFavorite: function(x, scope){
 
                 var del_fav = {
 
@@ -122,13 +127,17 @@ angular.module('starter.factories', [])
 
                             }
 
-                            $ionicPopup.alert({
-                                title: "Successfully deleted!",
-                                buttons: [{
-                                    text: 'OK',
-                                    type: 'button-positive'
-                                }]
+                            var deletedFavPopup = $ionicPopup.show({
+                                templateUrl: 'templates/popup_deleted_fav.html',
+                                scope: scope,
+                                cssClass: 'deletedFavPopup'
                             });
+
+                            scope.hideDeletedFavPopup = function () {
+
+                                deletedFavPopup.close();
+
+                            };
 
 
                         } else {

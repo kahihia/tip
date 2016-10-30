@@ -345,16 +345,22 @@
 .articleTitleRight {
     float: right;
     width: 49%;
-    padding: 5px;
+    padding: 10px 0;
 }
 
-.articleTitleRight p {
-    width: 100%;
+.articleCategoryIcon {
+    width: 30%;
+    float: right;
+}
+
+.articleCategoryText {
+    width: 70%;
+    float: left;
     text-align: center;
     color: white;
     font-size: 17px;
-    margin-top: 11px;
     font-weight: 100;
+    margin-top: 10px;
 }
 
 .articleDescription {
@@ -489,6 +495,69 @@
     margin-top: -10px;
 }
 /*End of Forgot password popup*/
+
+/*Updated info popup*/
+.updatedInfoPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.updatedInfoPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.updatedInfoMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
+
+/*Updated info popup*/
+.addedFavPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.addedFavPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.addedFavMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
+
+/*Updated info popup*/
+.deletedFavPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.deletedFavPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.deletedFavMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
 
 /*Points popup*/
 .pointsPopup .popup {

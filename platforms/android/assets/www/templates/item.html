@@ -41,7 +41,8 @@
 
                 <div class="teaserInfoLeft">
 
-                    <img src="img/teaser_logo.png" style="width:100%;" />
+                    <img ng-src="{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                    <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
 
                     <div class="teaserRegularPriceText">מחיר רגיל</div>
                     <div class="teaserRegularPriceBlock">

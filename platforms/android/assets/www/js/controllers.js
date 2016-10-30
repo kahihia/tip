@@ -659,13 +659,8 @@ angular.module('starter.controllers', [])
 
                 $scope.question = data.data[0];
 
-                if ($scope.question.question_image != ''){
-                    $scope.question.question_image = $rootScope.phpHost + "uploads/" + $scope.question.question_image;
-                }
-
-                if($scope.question.explain_image != ''){
-                    $scope.question.explain_image = $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
-                }
+                $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
+                $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -896,8 +891,10 @@ angular.module('starter.controllers', [])
             function (data) {
 
                 $scope.todayDeal = data.data[0];
-                $scope.todayDeal.image = $rootScope.phpHost + "uploads/" + $scope.todayDeal.image;
-                $scope.todayDeal.image2 = $rootScope.phpHost + "uploads/" + $scope.todayDeal.image2;
+
+                $scope.todayDeal.image = ($scope.todayDeal.image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image;
+                $scope.todayDeal.image2 = ($scope.todayDeal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image2;
+                $scope.todayDeal.supplier_logo = ($scope.todayDeal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.supplier_logo;
 
                 if ($scope.todayDeal.showiframe == "1"){
 
@@ -933,7 +930,7 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
-            return makeFavoriteFactory.makeFavorite(x);
+            return makeFavoriteFactory.makeFavorite(x, $scope);
 
         };
 
@@ -1178,7 +1175,7 @@ angular.module('starter.controllers', [])
 
                     }
 
-                    alert(JSON.stringify(send_data));
+                    // alert(JSON.stringify(send_data));
 
                     // 3. send update info
 
@@ -1237,13 +1234,17 @@ angular.module('starter.controllers', [])
 
                                // 5. inform the user that everything is ok
 
-                               $ionicPopup.alert({
-                                   title: "The information is successfully updated!",
-                                   buttons: [{
-                                       text: 'OK',
-                                       type: 'button-positive'
-                                   }]
-                               })
+                               var updatedInfoPopup = $ionicPopup.show({
+                                   templateUrl: 'templates/popup_updated_info.html',
+                                   scope: $scope,
+                                   cssClass: 'updatedInfoPopup'
+                               });
+
+                               $rootScope.hideUpdatedInfoPopup = function () {
+
+                                   updatedInfoPopup.close();
+
+                               };
 
                            } else {
 
@@ -1463,8 +1464,9 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $rootScope.favoriteDeals.length; j++){
 
-                    $rootScope.favoriteDeals[j].image = $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image;
-                    $rootScope.favoriteDeals[j].image2 = $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image2;
+                    $rootScope.favoriteDeals[j].image = ($rootScope.favoriteDeals[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image;
+                    $rootScope.favoriteDeals[j].image2 = ($rootScope.favoriteDeals[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image2;
+                    $rootScope.favoriteDeals[j].supplier_logo = ($rootScope.favoriteDeals[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].supplier_logo;
 
                 }
 
@@ -1496,7 +1498,7 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
-            return makeFavoriteFactory.makeFavorite(x);
+            return makeFavoriteFactory.makeFavorite(x, $scope);
 
         };
 
@@ -1504,7 +1506,7 @@ angular.module('starter.controllers', [])
 
         $scope.deleteFavorite = function(x){
 
-            return deleteFavoriteFactory.deleteFavorite(x);
+            return deleteFavoriteFactory.deleteFavorite(x, $scope);
 
         };
 
@@ -1730,7 +1732,7 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
-            return makeFavoriteFactory.makeFavorite(x);
+            return makeFavoriteFactory.makeFavorite(x, $scope);
 
         };
 
@@ -1755,6 +1757,8 @@ angular.module('starter.controllers', [])
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.infoCategoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
+        $scope.infoCategoryIcon = "img/info_articles/" + $stateParams.articleId + ".png";
+
         $scope.content = {};
 
         // get article for the page
