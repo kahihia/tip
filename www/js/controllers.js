@@ -325,12 +325,11 @@ angular.module('starter.controllers', [])
     })
 
 
-    .controller('LoginCtrl', function ($ionicSideMenuDelegate, $scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
+    .controller('LoginCtrl', function ($ionicLoading, $ionicSideMenuDelegate, $scope, $ionicPopup, $ionicModal, $http, $rootScope, $localStorage, $state) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.$on('$ionicView.enter', function(e) {
-
 
             $scope.login = {
 
@@ -472,51 +471,70 @@ angular.module('starter.controllers', [])
 
         $scope.sendForgotPassword = function(){
 
-            $http.post($rootScope.host + 'ForgotPassword', $scope.forgot, {
+            $ionicLoading.show({
 
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                template: 'טעון...'
 
-            }).then(
+            }).then(function(){
 
-                function(data){
+                $http.post($rootScope.host + 'ForgotPassword', $scope.forgot, {
 
-                    console.log(data.data);
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                    if (data.data[0].status == "1"){
+                }).then(
+
+                    function(data){
+
+                        console.log(data.data);
+
+                        if (data.data[0].status == "1"){
+
+                            $ionicLoading.hide();
+
+                            var forgotPasswordPopup = $ionicPopup.show({
+                                templateUrl: 'templates/popup_forgot_password.html',
+                                scope: $scope,
+                                cssClass: 'forgotPasswordPopup'
+                            });
+
+                            $rootScope.hideForgotPasswordPopup = function () {
+
+                                forgotPasswordPopup.close();
+                                $scope.ForgotPasswordModal.hide();
+
+                            };
+
+                        } else {
+
+                            $ionicLoading.hide();
+
+                            $ionicPopup.alert({
+                                title: "The email is incorrect! Please try again",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            })
+
+                        }
+
+                    },
+
+                    function(error){
+
+                        $ionicLoading.hide();
 
                         $ionicPopup.alert({
-                            title: "The password was sent to your email!",
+                            title: "No network connection!",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
                             }]
                         })
 
-                    } else {
+                    });
 
-                        $ionicPopup.alert({
-                            title: "The email is incorrect! Please try again",
-                            buttons: [{
-                                text: 'OK',
-                                type: 'button-positive'
-                            }]
-                        })
-
-                    }
-
-                },
-
-                function(error){
-
-                    $ionicPopup.alert({
-                        title: "No network connection!",
-                        buttons: [{
-                            text: 'OK',
-                            type: 'button-positive'
-                        }]
-                    })
-
-                });
+            });
 
         };
 
@@ -921,27 +939,43 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('PersonalCtrl', function ($ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+    .controller('PersonalCtrl', function ($timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
-        // $scope.$on('$ionicView.enter', function(e) {
-        //
-        //     if ($rootScope.pushNotificationType) {
-        //
-        //         if ($rootScope.pushNotificationType == "newmessage"){
-        //
-        //             alert('here');
-        //
-        //         }
-        //
-        //     }
-        //
-        // });
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if ($rootScope.pushNotificationType) {
+
+                if ($rootScope.pushNotificationType == "newmessage"){
+
+                    $scope.setSelection('message');
+
+                }
+
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
         // select tab
 
         $scope.selection = 'personal';
+
+        $scope.setSelection = function(x){
+
+            $scope.selection = x;
+
+            if ($scope.selection == 'message') {
+
+                $timeout(function(){
+
+                    $ionicScrollDelegate.$getByHandle('smallScroll').scrollBottom(true);
+
+                }, 100)
+
+            }
+
+        };
 
         // PROFILE
 
@@ -1600,7 +1634,7 @@ angular.module('starter.controllers', [])
                             }, function(err) {
 
                                 $ionicPopup.alert({
-                                    title: "Can't get GPS data! The signal is too weak",
+                                    title: "The GPS signal is too weak!",
                                     buttons: [{
                                         text: 'OK',
                                         type: 'button-positive'

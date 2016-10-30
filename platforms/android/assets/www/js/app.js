@@ -93,38 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             //
             //         });
 
-            // get catalog categories
-
-            $http.post($rootScope.host + 'GetDealCategories', '', {
-
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-            }).then(
-
-                function(data){
-
-                    console.log("Categories", data);
-                    // $rootScope.categoryName = data.data[0].title;
-                    for (var i = 0; i < data.data.length; i++){
-
-                        $rootScope.categories.push(data.data[i]);
-
-                    }
-
-                },
-
-                function(err){
-
-                    $ionicPopup.alert({
-                        title: "No network connection!",
-                        buttons: [{
-                            text: 'OK',
-                            type: 'button-positive'
-                        }]
-                    });
-
-                });
-
             // geolocation
 
             if(window.cordova) {
@@ -181,23 +149,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             }
 
-            // $ionicPlatform.registerBackButtonAction(function (event)
-            // {
-            //     alert('here')
-            //     if($rootScope.currState == "app.login"){
-            //
-            //         alert($rootScope.currState);
-            //
-            //         event.preventDefault();
-            //
-            //     } else {
-            //         alert($rootScope.currState);
-            //         $ionicHistory.goBack();
-            //
-            //     }
-            //
-            // },100);
-
         });
 
 
@@ -209,23 +160,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             var notificationOpenedCallback = function (jsonData) {
 
-                // alert(JSON.stringify(jsonData));
-                // alert(JSON.stringify(jsonData.notification));
                 // alert(JSON.stringify(jsonData.notification.payload));
-                // alert(JSON.stringify(jsonData.notification.payload.additionalData));
-                // alert(JSON.stringify(jsonData.notification.payload.additionalData.type));
-                // alert(JSON.stringify(jsonData));
-                //
-                // if (jsonData.additionalData.type == "newmessage") {
-                //
-                //     alert("here2");
-                //
-                //     $rootScope.pushNotificationType = "newmessage";
-                //
-                //     $state.go('app.personal');
-                //     // $rootScope.$broadcast('newmessage');
-                //
-                // }
+
+                var additionalData = JSON.parse(jsonData.notification.payload.additionalData);
+
+                if (additionalData.type == "newmessage") {
+
+                    if ($localStorage.userid == ''){        // if not logged in
+
+                        $state.go('app.login');
+
+                    } else {        // if logged in
+
+                        $rootScope.pushNotificationType = "newmessage";
+
+                        $state.go('app.personal');
+
+                    }
+
+                }
 
             };
 
@@ -300,6 +253,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         };
 
+        // get catalog categories
+
+        $http.post($rootScope.host + 'GetDealCategories', '', {
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+        }).then(
+
+            function(data){
+
+                console.log("Categories", data);
+
+                for (var i = 0; i < data.data.length; i++){
+
+                    $rootScope.categories.push(data.data[i]);
+
+                }
+
+            },
+
+            function(err){
+
+                $ionicPopup.alert({
+                    title: "No network connection!",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            });
+
         // logout
 
         $rootScope.logout = function() {
@@ -329,6 +314,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                         $localStorage.gender = "";
 
                         $state.go('app.login');
+
 
 
                     } else {
@@ -539,6 +525,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             });
 
+        // $ionicPlatform.registerBackButtonAction(function (event)
+        // {
+        //     alert('here')
+        //     if($rootScope.currState == "app.login"){
+        //
+        //         alert($rootScope.currState);
+        //
+        //         event.preventDefault();
+        //
+        //     } else {
+        //         alert($rootScope.currState);
+        //         $ionicHistory.goBack();
+        //
+        //     }
+        //
+        // },100);
+
     })
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -704,5 +707,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             })
         ;
         // if none of the above states are matched, use this as the fallback router
-        $urlRouterProvider.otherwise('/app/question'); 
+        $urlRouterProvider.otherwise('/app/router');
     });
