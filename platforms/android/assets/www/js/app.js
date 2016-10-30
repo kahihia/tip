@@ -374,7 +374,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             }).then(
 
                 function(data){
-
+alert('here 3')
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
@@ -543,22 +543,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
         //     }
         //
         // },100);
-
-        $ionicPlatform.registerBackButtonAction(function (event)
-        {
-            if($rootScope.currState == 'app.login')
-            {
-                confirmbox = confirm("do you want to close the app?");
-                if (confirmbox)
-                    navigator.app.exitApp();
-                else
-                    event.preventDefault();
-            }
-            else
-            {
-                $ionicHistory.goBack();
-            }
-        },100);
 
     })
 
