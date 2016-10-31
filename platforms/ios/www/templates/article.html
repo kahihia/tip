@@ -27,7 +27,10 @@
             </div>
 
             <div class="articleTitleRight">
-                <p>{{infoCategoryName}}</p>
+                <div class="articleCategoryIcon">
+                    <img ng-src="{{infoCategoryIcon}}" style="height: 45px;">
+                </div>
+                <div class="articleCategoryText">{{infoCategoryName}}</div>
             </div>
 
         </div>
@@ -38,9 +41,15 @@
 
             <div ng-repeat="item in content">
 
-				<div><img ng-src={{item.image}} style="width: 100%;"></div>
+                <div class="articleYellowRow">{{item.title}}</div>
 
-                <div class="articleDescription">{{item.desc}}</div>
+				<div class="articleItem">
+                    <img ng-src={{item.image}} style="width: 100%;">
+
+                    <div class="articleDescription" ng-bind-html="item.desc"></div>
+                </div>
+
+
 
                 <div class="articleButtons">
                     <a href="mailto:{{item.email}}" ng-show="item.email != ''" >
@@ -56,7 +65,7 @@
                         <img src="img/info_i1.png" style="width:33px;" />
                     </a>
                 </div>
-				<div class="yellowRow"></div>
+
 
             </div>
 

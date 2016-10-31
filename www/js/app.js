@@ -5,211 +5,201 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
-    'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
+    'google.places', 'ngStorage', 'youtube-embed',
+    'ngCordova'
+])
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
-            alert('8')
-            // Default code
+                // Default code
 
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
+                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
+                if (window.cordova && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    cordova.plugins.Keyboard.disableScroll(true);
 
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleDefault();
+                }
 
-            // tip after 1 minute
+                // tip after 1 minute
 
-            // var send_data = {
-            //
-            //     'date' : $rootScope.today,
-            //     'type' : ""
-            //
-            // };
-            //
-            // if ($localStorage.soldier == "1"){
-            //
-            //     send_data.type = "1";
-            //
-            // } else {
-            //
-            //     send_data.type = "2";
-            //
-            // }
-            //
-            // $http.post($rootScope.host + 'GetTipByDate', send_data, {
-            //
-            //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-            //
-            //     }).then(
-            //
-            //         function(data){
-            //
-            //             console.log("Daily tip", data);
-            //             $localStorage.isTipShown = false;
-            //
-            //             $timeout(function () {
-            //
-            //                 $rootScope.$watch('currState.current.name', function() {
-            //
-            //                     if ($rootScope.currState.current.name != 'app.register' &&
-            //                         $rootScope.currState.current.name != 'app.teaser' &&
-            //                         $rootScope.currState.current.name != 'app.question' &&
-            //                         $rootScope.currState.current.name != 'app.answer' &&
-            //                         $rootScope.currState.current.name != 'app.discount' &&
-            //                         $localStorage.isTipShown == false) {
-            //
-            //                         $rootScope.dailyTipText = data.data[0].title;
-            //
-            //                         var dailyTipPopup = $ionicPopup.show({
-            //                             templateUrl: 'templates/popup_daily_tip.html',
-            //                             scope: $rootScope,
-            //                             cssClass: 'dailyTipPopup'
-            //                         });
-            //
-            //                         $rootScope.hideDailyTip = function () {
-            //
-            //                             dailyTipPopup.close();
-            //
-            //                         };
-            //
-            //                         $localStorage.isTipShown = true;
-            //                     }
-            //
-            //                  })
-            //
-            //             }, 60000)
-            //
-            //         },
-            //
-            //         function(err){
-            //
-            //             console.log(err);
-            //
-            //         });
+                // var send_data = {
+                //
+                //     'date' : $rootScope.today,
+                //     'type' : ""
+                //
+                // };
+                //
+                // if ($localStorage.soldier == "1"){
+                //
+                //     send_data.type = "1";
+                //
+                // } else {
+                //
+                //     send_data.type = "2";
+                //
+                // }
+                //
+                // $http.post($rootScope.host + 'GetTipByDate', send_data, {
+                //
+                //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                //
+                //     }).then(
+                //
+                //         function(data){
+                //
+                //             console.log("Daily tip", data);
+                //             $localStorage.isTipShown = false;
+                //
+                //             $timeout(function () {
+                //
+                //                 $rootScope.$watch('currState.current.name', function() {
+                //
+                //                     if ($rootScope.currState.current.name != 'app.register' &&
+                //                         $rootScope.currState.current.name != 'app.teaser' &&
+                //                         $rootScope.currState.current.name != 'app.question' &&
+                //                         $rootScope.currState.current.name != 'app.answer' &&
+                //                         $rootScope.currState.current.name != 'app.discount' &&
+                //                         $localStorage.isTipShown == false) {
+                //
+                //                         $rootScope.dailyTipText = data.data[0].title;
+                //
+                //                         var dailyTipPopup = $ionicPopup.show({
+                //                             templateUrl: 'templates/popup_daily_tip.html',
+                //                             scope: $rootScope,
+                //                             cssClass: 'dailyTipPopup'
+                //                         });
+                //
+                //                         $rootScope.hideDailyTip = function () {
+                //
+                //                             dailyTipPopup.close();
+                //
+                //                         };
+                //
+                //                         $localStorage.isTipShown = true;
+                //                     }
+                //
+                //                  })
+                //
+                //             }, 60000)
+                //
+                //         },
+                //
+                //         function(err){
+                //
+                //             console.log(err);
+                //
+                //         });
 
-            // geolocation
+                // geolocation
 
-            if(window.cordova) {
 
-                alert('6')
+                if (window.cordova) {
 
-                $ionicPlatform.ready(function () {
+                    $ionicPlatform.ready(function () {
 
-                    alert('7')
+                        CheckGPS.check(function win() {
 
-                    CheckGPS.check(function win() {
+                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                        alert('4')
+                                $cordovaGeolocation
+                                    .getCurrentPosition(posOptions)
+                                    .then(function (position) {
 
-                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                                        $rootScope.lat = position.coords.latitude;
+                                        $rootScope.lng = position.coords.longitude;
+                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                            $cordovaGeolocation
-                                .getCurrentPosition(posOptions)
-                                .then(function (position) {
+                                    }, function (err) {
 
-                                    alert('44')
+                                        $rootScope.getDealsWithoutLocation();
 
-                                    $rootScope.lat = position.coords.latitude;
-                                    $rootScope.lng = position.coords.longitude;
-                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                                    });
 
-                                }, function (err) {
+                            },
 
-                                    alert('5')
+                            function fail() {
 
-                                    $rootScope.getDealsWithoutLocation();
+                                $rootScope.getDealsWithoutLocation();
 
-                                });
-
-                        },
-
-                        function fail() {
-
-                            alert('3')
-
-                            $rootScope.getDealsWithoutLocation();
-
-                        });
-
-                });
-
-            } else {
-
-                var posOptions = {enableHighAccuracy: false};
-
-                $cordovaGeolocation
-                    .getCurrentPosition(posOptions)
-                    .then(function (position) {
-
-                        $rootScope.lat = position.coords.latitude;
-                        $rootScope.lng = position.coords.longitude;
-
-                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                    }, function(err) {
-
-                        $rootScope.getDealsWithoutLocation();
-                        console.log('err1', err);
+                            });
 
                     });
 
-            }
+                } else {
 
-        });
+                    var posOptions = {enableHighAccuracy: false};
+
+                    $cordovaGeolocation
+                        .getCurrentPosition(posOptions)
+                        .then(function (position) {
+
+                            $rootScope.lat = position.coords.latitude;
+                            $rootScope.lng = position.coords.longitude;
+
+                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                        }, function (err) {
+
+                            $rootScope.getDealsWithoutLocation();
+                            console.log('err1', err);
+
+                        });
+
+                }
+
+            });
 
 
         // Notifications
 
-        document.addEventListener('deviceready', function () {
-
-            // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-
-            var notificationOpenedCallback = function (jsonData) {
-
-                // alert(JSON.stringify(jsonData.notification.payload));
-
-                var additionalData = JSON.parse(jsonData.notification.payload.additionalData);
-
-                if (additionalData.type == "newmessage") {
-
-                    if ($localStorage.userid == ''){        // if not logged in
-
-                        $state.go('app.login');
-
-                    } else {        // if logged in
-
-                        $rootScope.pushNotificationType = "newmessage";
-
-                        $state.go('app.personal');
-
-                    }
-
-                }
-
-            };
-
-            window.plugins.OneSignal
-                .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
-                .handleNotificationOpened(notificationOpenedCallback)
-                .endInit();
-
-            window.plugins.OneSignal.getIds(function (ids) {
-
-                $rootScope.pushId = ids.userId;
-                // alert($rootScope.pushId);
-
-            });
-            // Show an alert box if a notification comes in when the user is in your app.
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
-
-        }, false);
+        // document.addEventListener('deviceready', function () {
+        //
+        //     // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+        //
+        //     var notificationOpenedCallback = function (jsonData) {
+        //
+        //         // alert(JSON.stringify(jsonData.notification.payload));
+        //
+        //         var additionalData = JSON.parse(jsonData.notification.payload.additionalData);
+        //
+        //         if (additionalData.type == "newmessage") {
+        //
+        //             if ($localStorage.userid == ''){        // if not logged in
+        //
+        //                 $state.go('app.login');
+        //
+        //             } else {        // if logged in
+        //
+        //                 $rootScope.pushNotificationType = "newmessage";
+        //
+        //                 $state.go('app.personal');
+        //
+        //             }
+        //
+        //         }
+        //
+        //     };
+        //
+        //     window.plugins.OneSignal
+        //         .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
+        //         .handleNotificationOpened(notificationOpenedCallback)
+        //         .endInit();
+        //
+        //     window.plugins.OneSignal.getIds(function (ids) {
+        //
+        //         $rootScope.pushId = ids.userId;
+        //         // alert($rootScope.pushId);
+        //
+        //     });
+        //     // Show an alert box if a notification comes in when the user is in your app.
+        //     window.plugins.OneSignal.enableInAppAlertNotification(true);
+        //
+        // }, false);
 
         // global variables
 
@@ -254,6 +244,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
         $rootScope.setCategory = function(x, y){
 
             $rootScope.categoryNumber = x;
+            console.log($rootScope.categoryNumber);
             $rootScope.categoryName = y;
 
         };
@@ -380,8 +371,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         $rootScope.getDealsWithoutLocation = function(){
 
-            alert('1');
-
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -389,8 +378,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             }).then(
 
                 function(data){
-
-                    alert('2');
 
                     $rootScope.deals = data.data;
 

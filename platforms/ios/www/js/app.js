@@ -5,200 +5,167 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
-    'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'])
+    'google.places', 'ngStorage', 'youtube-embed',
+    'ngCordova'
+])
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
-            // Default code
+                alert('8')
+                // Default code
 
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                cordova.plugins.Keyboard.disableScroll(true);
+                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
+                if (window.cordova && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    cordova.plugins.Keyboard.disableScroll(true);
 
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
+                }
+                if (window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleDefault();
+                }
 
-            // tip after 1 minute
+                // tip after 1 minute
 
-            // var send_data = {
-            //
-            //     'date' : $rootScope.today,
-            //     'type' : ""
-            //
-            // };
-            //
-            // if ($localStorage.soldier == "1"){
-            //
-            //     send_data.type = "1";
-            //
-            // } else {
-            //
-            //     send_data.type = "2";
-            //
-            // }
-            //
-            // $http.post($rootScope.host + 'GetTipByDate', send_data, {
-            //
-            //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-            //
-            //     }).then(
-            //
-            //         function(data){
-            //
-            //             console.log("Daily tip", data);
-            //             $localStorage.isTipShown = false;
-            //
-            //             $timeout(function () {
-            //
-            //                 $rootScope.$watch('currState.current.name', function() {
-            //
-            //                     if ($rootScope.currState.current.name != 'app.register' &&
-            //                         $rootScope.currState.current.name != 'app.teaser' &&
-            //                         $rootScope.currState.current.name != 'app.question' &&
-            //                         $rootScope.currState.current.name != 'app.answer' &&
-            //                         $rootScope.currState.current.name != 'app.discount' &&
-            //                         $localStorage.isTipShown == false) {
-            //
-            //                         $rootScope.dailyTipText = data.data[0].title;
-            //
-            //                         var dailyTipPopup = $ionicPopup.show({
-            //                             templateUrl: 'templates/popup_daily_tip.html',
-            //                             scope: $rootScope,
-            //                             cssClass: 'dailyTipPopup'
-            //                         });
-            //
-            //                         $rootScope.hideDailyTip = function () {
-            //
-            //                             dailyTipPopup.close();
-            //
-            //                         };
-            //
-            //                         $localStorage.isTipShown = true;
-            //                     }
-            //
-            //                  })
-            //
-            //             }, 60000)
-            //
-            //         },
-            //
-            //         function(err){
-            //
-            //             console.log(err);
-            //
-            //         });
+                // var send_data = {
+                //
+                //     'date' : $rootScope.today,
+                //     'type' : ""
+                //
+                // };
+                //
+                // if ($localStorage.soldier == "1"){
+                //
+                //     send_data.type = "1";
+                //
+                // } else {
+                //
+                //     send_data.type = "2";
+                //
+                // }
+                //
+                // $http.post($rootScope.host + 'GetTipByDate', send_data, {
+                //
+                //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                //
+                //     }).then(
+                //
+                //         function(data){
+                //
+                //             console.log("Daily tip", data);
+                //             $localStorage.isTipShown = false;
+                //
+                //             $timeout(function () {
+                //
+                //                 $rootScope.$watch('currState.current.name', function() {
+                //
+                //                     if ($rootScope.currState.current.name != 'app.register' &&
+                //                         $rootScope.currState.current.name != 'app.teaser' &&
+                //                         $rootScope.currState.current.name != 'app.question' &&
+                //                         $rootScope.currState.current.name != 'app.answer' &&
+                //                         $rootScope.currState.current.name != 'app.discount' &&
+                //                         $localStorage.isTipShown == false) {
+                //
+                //                         $rootScope.dailyTipText = data.data[0].title;
+                //
+                //                         var dailyTipPopup = $ionicPopup.show({
+                //                             templateUrl: 'templates/popup_daily_tip.html',
+                //                             scope: $rootScope,
+                //                             cssClass: 'dailyTipPopup'
+                //                         });
+                //
+                //                         $rootScope.hideDailyTip = function () {
+                //
+                //                             dailyTipPopup.close();
+                //
+                //                         };
+                //
+                //                         $localStorage.isTipShown = true;
+                //                     }
+                //
+                //                  })
+                //
+                //             }, 60000)
+                //
+                //         },
+                //
+                //         function(err){
+                //
+                //             console.log(err);
+                //
+                //         });
 
-            // get catalog categories
+                // geolocation
 
-            $http.post($rootScope.host + 'GetDealCategories', '', {
 
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                if (window.cordova) {
 
-            }).then(
+                    alert('6')
 
-                function(data){
+                    $ionicPlatform.ready(function () {
 
-                    console.log("Categories", data);
-                    // $rootScope.categoryName = data.data[0].title;
-                    for (var i = 0; i < data.data.length; i++){
+                        alert('7')
 
-                        $rootScope.categories.push(data.data[i]);
+                        CheckGPS.check(function win() {
 
-                    }
+                                alert('4')
 
-                },
+                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                function(err){
+                                $cordovaGeolocation
+                                    .getCurrentPosition(posOptions)
+                                    .then(function (position) {
 
-                    $ionicPopup.alert({
-                        title: "No network connection!",
-                        buttons: [{
-                            text: 'OK',
-                            type: 'button-positive'
-                        }]
+                                        alert('44')
+
+                                        $rootScope.lat = position.coords.latitude;
+                                        $rootScope.lng = position.coords.longitude;
+                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                    }, function (err) {
+
+                                        alert('5')
+
+                                        $rootScope.getDealsWithoutLocation();
+
+                                    });
+
+                            },
+
+                            function fail() {
+
+                                alert('3')
+
+                                $rootScope.getDealsWithoutLocation();
+
+                            });
+
                     });
 
-                });
+                } else {
 
-            // geolocation
+                    var posOptions = {enableHighAccuracy: false};
 
-            if(window.cordova) {
+                    $cordovaGeolocation
+                        .getCurrentPosition(posOptions)
+                        .then(function (position) {
 
-                $ionicPlatform.ready(function () {
+                            $rootScope.lat = position.coords.latitude;
+                            $rootScope.lng = position.coords.longitude;
 
-                    CheckGPS.check(function win() {
+                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                            $cordovaGeolocation
-                                .getCurrentPosition(posOptions)
-                                .then(function (position) {
-
-                                    $rootScope.lat = position.coords.latitude;
-                                    $rootScope.lng = position.coords.longitude;
-                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                }, function (err) {
-
-                                    $rootScope.getDealsWithoutLocation();
-
-                                });
-
-                        },
-
-                        function fail() {
+                        }, function (err) {
 
                             $rootScope.getDealsWithoutLocation();
+                            console.log('err1', err);
 
                         });
 
-                });
+                }
 
-            } else {
-
-                var posOptions = {enableHighAccuracy: false};
-
-                $cordovaGeolocation
-                    .getCurrentPosition(posOptions)
-                    .then(function (position) {
-
-                        $rootScope.lat = position.coords.latitude;
-                        $rootScope.lng = position.coords.longitude;
-
-                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                    }, function(err) {
-
-                        $rootScope.getDealsWithoutLocation();
-                        console.log('err1', err);
-
-                    });
-
-            }
-
-            // $ionicPlatform.registerBackButtonAction(function (event)
-            // {
-            //     alert('here')
-            //     if($rootScope.currState == "app.login"){
-            //
-            //         alert($rootScope.currState);
-            //
-            //         event.preventDefault();
-            //
-            //     } else {
-            //         alert($rootScope.currState);
-            //         $ionicHistory.goBack();
-            //
-            //     }
-            //
-            // },100);
-
-        });
+            });
 
 
         // Notifications
@@ -209,23 +176,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             var notificationOpenedCallback = function (jsonData) {
 
-                // alert(JSON.stringify(jsonData));
-                // alert(JSON.stringify(jsonData.notification));
                 // alert(JSON.stringify(jsonData.notification.payload));
-                // alert(JSON.stringify(jsonData.notification.payload.additionalData));
-                // alert(JSON.stringify(jsonData.notification.payload.additionalData.type));
-                // alert(JSON.stringify(jsonData));
-                //
-                // if (jsonData.additionalData.type == "newmessage") {
-                //
-                //     alert("here2");
-                //
-                //     $rootScope.pushNotificationType = "newmessage";
-                //
-                //     $state.go('app.personal');
-                //     // $rootScope.$broadcast('newmessage');
-                //
-                // }
+
+                var additionalData = JSON.parse(jsonData.notification.payload.additionalData);
+
+                if (additionalData.type == "newmessage") {
+
+                    if ($localStorage.userid == ''){        // if not logged in
+
+                        $state.go('app.login');
+
+                    } else {        // if logged in
+
+                        $rootScope.pushNotificationType = "newmessage";
+
+                        $state.go('app.personal');
+
+                    }
+
+                }
 
             };
 
@@ -300,6 +269,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         };
 
+        // get catalog categories
+
+        $http.post($rootScope.host + 'GetDealCategories', '', {
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+        }).then(
+
+            function(data){
+
+                console.log("Categories", data);
+
+                for (var i = 0; i < data.data.length; i++){
+
+                    $rootScope.categories.push(data.data[i]);
+
+                }
+
+            },
+
+            function(err){
+
+                $ionicPopup.alert({
+                    title: "אין חיבור לרשת",
+                    buttons: [{
+                        text: 'OK',
+                        type: 'button-positive'
+                    }]
+                });
+
+            });
+
         // logout
 
         $rootScope.logout = function() {
@@ -331,10 +332,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                         $state.go('app.login');
 
 
+
                     } else {
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -348,7 +350,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -381,6 +383,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         $rootScope.getDealsWithoutLocation = function(){
 
+            alert('1');
+
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -389,25 +393,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 function(data){
 
+                    alert('2');
+
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        $rootScope.deals[i].image = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
                     }
 
                     $rootScope.isLocationEnabled = false;
 
-                    console.log("Deals", $rootScope.deals);
+                    console.log("DealsWithoutLocation", $rootScope.deals);
 
                 },
 
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -437,25 +444,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 function(data){
 
+                    console.log(data.data);
+
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        $rootScope.deals[i].image = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
                     }
 
                     $rootScope.isLocationEnabled = true;
 
-                    console.log("Deals", $rootScope.deals);
+                    console.log("DealsWithLocation", $rootScope.deals);
 
                 },
 
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -468,27 +478,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         // show popup with quantity of points collected by user
 
-        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
-
-            if (fromState.name == 'app.home' && toState.name == 'app.teaser'){
-
-                $rootScope.leftQuestions = 15 - Number($rootScope.correctAnswers) - Number($rootScope.incorrectAnswers);
-
-                var pointsPopup = $ionicPopup.show({
-                    templateUrl: 'templates/popup_points.html',
-                    scope: $rootScope,
-                    cssClass: 'pointsPopup'
-                });
-
-                $rootScope.hidePointsPopup = function () {
-
-                    pointsPopup.close();
-
-                };
-
-            }
-
-        });
+        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
+        //
+        //     if (fromState.name == 'app.answer' && toState.name == 'app.discount'){
+        //
+        //         $rootScope.leftQuestions = 15 - Number($rootScope.correctAnswers) - Number($rootScope.incorrectAnswers);
+        //
+        //         $timeout(function(){
+        //
+        //             var pointsPopup = $ionicPopup.show({
+        //                 templateUrl: 'templates/popup_points.html',
+        //                 scope: $rootScope,
+        //                 cssClass: 'pointsPopup'
+        //             });
+        //
+        //             $rootScope.hidePointsPopup = function () {
+        //
+        //                 pointsPopup.close();
+        //
+        //             };
+        //
+        //         }, 10000);
+        //
+        //     }
+        //
+        // });
 
         // banners
 
@@ -530,7 +544,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -703,6 +717,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 }
             })
         ;
-        // if none of the above states are matched, use this as the fallback
+        // if none of the above states are matched, use this as the fallback router
         $urlRouterProvider.otherwise('/app/router');
     });

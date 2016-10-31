@@ -30,7 +30,7 @@
             </div>
 
             <div class="inputDiv">
-                <select class="input textCenter ltr" ng-model="register.gender">
+                <select class="input ltr" ng-model="register.gender">
                     <option value="" selected>בחר מין</option>
                     <option value="0">זכר</option>
                     <option value="1">נקבה</option>
@@ -59,9 +59,13 @@
 
             </div>
 
+            <div class="textCenter" style="font-size: 15px;"  ng-show="register.soldier == '1'">הזן תאריך גיוס</div>
+
             <div class="inputDiv" ng-show="register.soldier == '1'">
                 <input type="date" class="input textCenter ltr" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">
             </div>
+
+            <div class="textCenter" style="font-size: 15px;" ng-show="register.soldier == '1'">הזן תאריך שחרור משוער</div>
 
             <div class="inputDiv" ng-show="register.soldier == '1'">
                 <input type="date" class="input textCenter ltr" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">

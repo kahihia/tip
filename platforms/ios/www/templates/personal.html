@@ -16,9 +16,9 @@
         <div class="header pointsHeaderTitle">אזור אישי</div>
 
         <div class="button-bar">  
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'message'}" ng-click="selection='message'">פניה למומחה</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'personal'}" ng-click="selection='personal'">האזור האישי</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'profile'}" ng-click="selection='profile'">פרופיל</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
@@ -133,7 +133,7 @@
                     	<img src="img/personal_tip.png" style="width:100%" />
                     </div>
 
-                    <ion-scroll direction="y" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
+                    <ion-scroll direction="y" delegate-handle="smallScroll" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
                         <div ng-repeat="element in messages | orderBy:'date'">
 
                             <div class="personalQuestionTitle" ng-show="element.type == 'question'">אני:</div>

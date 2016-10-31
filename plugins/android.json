@@ -16,9 +16,6 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.tapper.tipli"
-        },
         "cordova-plugin-facebook4": {
             "APP_ID": "189474428159821",
             "APP_NAME": "TIPLI",
@@ -52,6 +49,9 @@
             "PACKAGE_NAME": "com.tapper.tipli"
         },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.tapper.tipli"
         }
     },

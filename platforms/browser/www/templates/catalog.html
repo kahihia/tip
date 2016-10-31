@@ -82,7 +82,7 @@
 
             <div ng-switch-when="catalog">
 
-                <div ng-show="categoryNumber == 0" class="catalogNoDeals">לצפיה בצ'ופרים לחץ על תפריט הקטגוריות</div>
+                <div ng-show="categoryNumber == 0" class="catalogNoDeals">לצפיה בצ'ופרים<br> לחץ על תפריט הקטגוריות</div>
 
                 <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">
 
@@ -111,7 +111,7 @@
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
-                            	<img ng-src="img/teaser_logo.png" style="width: 100%;">
+                            	<img ng-src="{{deal.supplier_logo}}" style="width: 100%;">
                             </div>
                         </div>
 
