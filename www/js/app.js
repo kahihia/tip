@@ -276,7 +276,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -320,7 +320,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     } else {
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -334,7 +334,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -394,7 +394,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -443,7 +443,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -518,7 +518,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
