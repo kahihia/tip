@@ -940,13 +940,28 @@ angular.module('starter.controllers', [])
 
         $scope.$on('$ionicView.enter', function(e) {
 
+            // for push notifications from specialist answers
+
             if ($rootScope.pushNotificationType) {
 
                 if ($rootScope.pushNotificationType == "newmessage"){
 
                     $scope.setSelection('message');
+                    $rootScope.pushNotificationType = "";
 
                 }
+
+            }
+
+            // for scroll at app.question_to_specialist
+
+            if ($state.current.name == "app.question_to_specialist") {
+
+                $timeout(function(){
+
+                    $ionicScrollDelegate.$getByHandle('smallScroll').scrollBottom(true);
+
+                }, 100)
 
             }
 
@@ -1418,20 +1433,6 @@ angular.module('starter.controllers', [])
 
     })
 
-    // .filter('closeDistance', function() {
-    //
-    //     return function(x){
-    //
-    //         if (x <= 10){
-    //             return true;
-    //         } else {
-    //             return false
-    //         }
-    //
-    //     };
-    //
-    // })
-
     .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.selection = 'catalog';
@@ -1782,7 +1783,7 @@ angular.module('starter.controllers', [])
 
                 for (var i = 0; i < $scope.content.length; i++){
 
-                    $scope.content[i].image = $rootScope.phpHost + $scope.content[i].image;
+                    $scope.content[i].image = $rootScope.phpHost + "uploads/" + $scope.content[i].image;
 
                 }
 

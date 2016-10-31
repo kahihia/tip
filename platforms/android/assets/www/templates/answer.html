@@ -41,9 +41,12 @@
         </div>
 
         <div class="answerQuestion">
-            <div class="answerQuestionLeft" ng-show="isAnswerCorrect == true">
-                <div>
+            <div class="answerQuestionLeft" >
+                <div ng-show="isAnswerCorrect == true">
                     <img src="img/answer_correct.png" style="width:100%" />
+                </div>
+                <div ng-show="isAnswerCorrect == false">
+                    <img src="img/answer_incorrect.png" style="width:100%" />
                 </div>
             </div>
             <div class="answerQuestionRight" ui-sref="app.discount">

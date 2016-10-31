@@ -21,7 +21,7 @@
                 <img src="img/personal_tip.png" style="width:100%" />
             </div>
 
-            <ion-scroll direction="y" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
+            <ion-scroll delegate-handle="smallScroll" direction="y" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
                 <div ng-repeat="element in messages | orderBy:'date'">
 
                     <div class="personalQuestionTitle" ng-show="element.type == 'question'">אני:</div>

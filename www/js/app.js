@@ -527,23 +527,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             });
 
-        // $ionicPlatform.registerBackButtonAction(function (event)
-        // {
-        //     alert('here')
-        //     if($rootScope.currState == "app.login"){
-        //
-        //         alert($rootScope.currState);
-        //
-        //         event.preventDefault();
-        //
-        //     } else {
-        //         alert($rootScope.currState);
-        //         $ionicHistory.goBack();
-        //
-        //     }
-        //
-        // },100);
-
     })
 
     .config(function ($stateProvider, $urlRouterProvider) {

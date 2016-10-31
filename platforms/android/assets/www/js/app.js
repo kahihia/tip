@@ -374,7 +374,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             }).then(
 
                 function(data){
-alert('here 3')
+
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
@@ -526,23 +526,6 @@ alert('here 3')
                 });
 
             });
-
-        // $ionicPlatform.registerBackButtonAction(function (event)
-        // {
-        //     alert('here')
-        //     if($rootScope.currState == "app.login"){
-        //
-        //         alert($rootScope.currState);
-        //
-        //         event.preventDefault();
-        //
-        //     } else {
-        //         alert($rootScope.currState);
-        //         $ionicHistory.goBack();
-        //
-        //     }
-        //
-        // },100);
 
     })
 

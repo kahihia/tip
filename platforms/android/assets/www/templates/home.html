@@ -1,6 +1,94 @@
+<!--<ion-view hide-nav-bar="true">-->
+    <!--<ion-content >-->
+		<!--<div>-->
+            <!--<div class="sideMenuIcon">-->
+                <!--<img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>-->
+                <!--<img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>-->
+                <!--<img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>-->
+                <!--<div class="sideMenuIconText">התנתק</div>-->
+            <!--</div>-->
+            <!--<img src="img/header.png" style="width:100%" />-->
+        <!--</div>-->
+
+        <!--<div class="header" >עמוד הבית</div>-->
+
+        <!--<div class="div100">-->
+
+            <!--<div class="div80" align="center">-->
+
+                <!--<div class="homeIcons">-->
+
+                        <!--<div class="homeRow">-->
+
+                            <!--<div class="homeRight" ng-click="checkState()">-->
+
+                                <!--<img src="img/menu_icon_2.png" style="width:100%" />-->
+
+                                <!--<div ng-show="isQuestionAnswered == false || !isQuestionAnswered" class="homeIconBlackDiscription">-->
+                                	<!--טרם מומש-->
+                                <!--</div>-->
+                                <!--<div ng-show="isQuestionAnswered == true" class="homeIconBlackDiscription">-->
+                                	<!--מומש-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+                            <!--<div class="homeLeft" ui-sref="app.catalog">-->
+
+                                <!--<img src="img/menu_icon_1.png" style="width:100%" />-->
+
+                                 <!--<div class="homeIconBlackDiscription">-->
+                                	<!--הטבות השבוע-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                        <!--<div class="homeRow">-->
+
+                            <!--<div class="homeRight" ui-sref="app.personal">-->
+
+                                <!--<img src="img/menu_icon_3.png" style="width:100%" />-->
+
+                                <!--<div class="homeIconBlackDiscription">-->
+                                	<!--צברת {{allPoints}} נק-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+                            <!--<div class="homeLeft" ui-sref="app.information">-->
+
+                                <!--<img src="img/menu_icon_4.png" style="width:100%" />-->
+
+                                 <!--<div class="homeIconBlackDiscription">-->
+                                	<!--פניה למומחה-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                  <!--</div>-->
+
+            <!--</div>-->
+            <!--<div>-->
+                <!--<ion-slides options="options" slider="data.slider" style="width: 100%; height: 100px">-->
+                    <!--<ion-slide-page ng-repeat="banner in banners">-->
+                        <!--<div>-->
+                            <!--<img ng-src="{{banner.image}}">-->
+                        <!--</div>-->
+                    <!--</ion-slide-page>-->
+                <!--</ion-slides>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</ion-content>-->
+<!--</ion-view>-->
+
 <ion-view hide-nav-bar="true">
-    <ion-content >
-		<div>
+    <ion-content style="width: 100%; height: 100vh;" class="has-footer">
+        <div>
             <div class="sideMenuIcon">
                 <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
                 <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
@@ -12,76 +100,79 @@
 
         <div class="header" >עמוד הבית</div>
 
-        <div class="div100">
+        <div class="div100" style="height: 100vh;">
 
             <div class="div80" align="center">
 
                 <div class="homeIcons">
 
-                        <div class="homeRow">
+                    <div class="homeRow">
 
-                            <div class="homeRight" ng-click="checkState()">
+                        <div class="homeRight" ng-click="checkState()">
 
-                                <img src="img/menu_icon_2.png" style="width:100%" />
+                            <img src="img/menu_icon_2.png" style="width:100%" />
 
-                                <div ng-show="isQuestionAnswered == false || !isQuestionAnswered" class="homeIconBlackDiscription">
-                                	טרם מומש
-                                </div>
-                                <div ng-show="isQuestionAnswered == true" class="homeIconBlackDiscription">
-                                	מומש
-                                </div>
-
+                            <div ng-show="isQuestionAnswered == false || !isQuestionAnswered" class="homeIconBlackDiscription">
+                                טרם מומש
                             </div>
-
-                            <div class="homeLeft" ui-sref="app.catalog">
-
-                                <img src="img/menu_icon_1.png" style="width:100%" />
-
-                                 <div class="homeIconBlackDiscription">
-                                	הטבות השבוע
-                                </div>
-
+                            <div ng-show="isQuestionAnswered == true" class="homeIconBlackDiscription">
+                                מומש
                             </div>
 
                         </div>
 
-                        <div class="homeRow">
+                        <div class="homeLeft" ui-sref="app.catalog">
 
-                            <div class="homeRight" ui-sref="app.personal">
+                            <img src="img/menu_icon_1.png" style="width:100%" />
 
-                                <img src="img/menu_icon_3.png" style="width:100%" />
-
-                                <div class="homeIconBlackDiscription">
-                                	צברת {{allPoints}} נק
-                                </div>
-
-                            </div>
-
-                            <div class="homeLeft" ui-sref="app.information">
-
-                                <img src="img/menu_icon_4.png" style="width:100%" />
-
-                                 <div class="homeIconBlackDiscription">
-                                	פניה למומחה
-                                </div>
-
+                            <div class="homeIconBlackDiscription">
+                                הטבות השבוע
                             </div>
 
                         </div>
 
-                  </div>
+                    </div>
 
-            </div>
-            <div>
-                <ion-slides options="options" slider="data.slider" style="width: 100%; height: 100px">
-                    <ion-slide-page ng-repeat="banner in banners">
-                        <div>
-                            <img ng-src="{{banner.image}}">
+                    <div class="homeRow">
+
+                        <div class="homeRight" ui-sref="app.personal">
+
+                            <img src="img/menu_icon_3.png" style="width:100%" />
+
+                            <div class="homeIconBlackDiscription">
+                                צברת {{allPoints}} נק
+                            </div>
+
                         </div>
-                    </ion-slide-page>
-                </ion-slides>
+
+                        <div class="homeLeft" ui-sref="app.information">
+
+                            <img src="img/menu_icon_4.png" style="width:100%" />
+
+                            <div class="homeIconBlackDiscription">
+                                פניה למומחה
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
     </ion-content>
+    <ion-footer-bar style="height: 100px; margin: 0; padding: 0;">
+        <div style="width: 100%; height: 100px">
+            <ion-slides options="options" slider="data.slider" style="width: 100%; height: 100px">
+                <ion-slide-page ng-repeat="banner in banners">
+                    <div>
+                        <img ng-src="{{banner.image}}">
+                    </div>
+                </ion-slide-page>
+            </ion-slides>
+        </div>
+    </ion-footer-bar>
 </ion-view>
+
