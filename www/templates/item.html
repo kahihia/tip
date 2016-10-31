@@ -88,6 +88,12 @@
                 <div ng-show="deal.youtube != ''">
                     <youtube-video video-url="deal.youtube" player-width="'100%'" style="height:200px !important" ></youtube-video>
                 </div>
+                <div class="greyRow" ng-show="deal.brances.length > 0">כתובות הסניפים</div>
+                <div class="mh80" ng-show="deal.brances.length > 0">
+                    <div ng-repeat="branch in deal.brances">
+                        <p>{{branch.address}}</p>
+                    </div>
+                </div>
 
             </div>
 

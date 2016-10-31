@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
+            alert('8')
             // Default code
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -97,9 +98,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
             if(window.cordova) {
 
+                alert('6')
+
                 $ionicPlatform.ready(function () {
 
+                    alert('7')
+
                     CheckGPS.check(function win() {
+
+                        alert('4')
 
                             var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
@@ -107,11 +114,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                                 .getCurrentPosition(posOptions)
                                 .then(function (position) {
 
+                                    alert('44')
+
                                     $rootScope.lat = position.coords.latitude;
                                     $rootScope.lng = position.coords.longitude;
                                     $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
                                 }, function (err) {
+
+                                    alert('5')
 
                                     $rootScope.getDealsWithoutLocation();
 
@@ -120,6 +131,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                         },
 
                         function fail() {
+
+                            alert('3')
 
                             $rootScope.getDealsWithoutLocation();
 
@@ -276,7 +289,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -320,7 +333,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                     } else {
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -334,7 +347,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -367,6 +380,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         $rootScope.getDealsWithoutLocation = function(){
 
+            alert('1');
+
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -374,6 +389,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             }).then(
 
                 function(data){
+
+                    alert('2');
 
                     $rootScope.deals = data.data;
 
@@ -394,7 +411,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -424,6 +441,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
                 function(data){
 
+                    console.log(data.data);
+
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
@@ -443,7 +462,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No network connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -458,21 +477,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
 
-            if (fromState.name == 'app.home' && toState.name == 'app.teaser'){
+            if (fromState.name == 'app.answer' && toState.name == 'app.discount'){
 
                 $rootScope.leftQuestions = 15 - Number($rootScope.correctAnswers) - Number($rootScope.incorrectAnswers);
 
-                var pointsPopup = $ionicPopup.show({
-                    templateUrl: 'templates/popup_points.html',
-                    scope: $rootScope,
-                    cssClass: 'pointsPopup'
-                });
+                $timeout(function(){
 
-                $rootScope.hidePointsPopup = function () {
+                    var pointsPopup = $ionicPopup.show({
+                        templateUrl: 'templates/popup_points.html',
+                        scope: $rootScope,
+                        cssClass: 'pointsPopup'
+                    });
 
-                    pointsPopup.close();
+                    $rootScope.hidePointsPopup = function () {
 
-                };
+                        pointsPopup.close();
+
+                    };
+
+                }, 10000);
 
             }
 
@@ -518,7 +541,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories',
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'

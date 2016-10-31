@@ -199,7 +199,7 @@ angular.module('starter.controllers', [])
             } else if ($scope.register.password.length < 3){
 
                 $ionicPopup.alert({
-                    title: "Password length must be more than three chars!",
+                    title: "דרוש יותר משלושה תווים לסיסמא",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -209,7 +209,7 @@ angular.module('starter.controllers', [])
             } else if (!emailRegex.test($scope.register.email)){
 
                 $ionicPopup.alert({
-                    title: "Please enter valid email!",
+                    title: "נא להכניס כתובת מייל תקינה",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -288,7 +288,7 @@ angular.module('starter.controllers', [])
                         } else {
 
                             $ionicPopup.alert({
-                                title: "The user already exists!",
+                                title: "המשתמש כבר רשום במערכת",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
@@ -306,7 +306,7 @@ angular.module('starter.controllers', [])
                     function(error){
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -379,7 +379,7 @@ angular.module('starter.controllers', [])
                             if (data.data.response.status == "0"){
 
                                 $ionicPopup.alert({
-                                    title: "Login data is not valid! Please use forgot password button if necessary!",
+                                    title: 'טעות במייל או בסיסמא. נא ללחוץ על הכתפור "שכחתי סיסמא" במידת הצורך',
                                     buttons: [{
                                         text: 'OK',
                                         type: 'button-positive'
@@ -426,7 +426,7 @@ angular.module('starter.controllers', [])
                         function(error){
 
                             $ionicPopup.alert({
-                                title: "No network connection!",
+                                title: "אין חיבור לרשת",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
@@ -509,7 +509,7 @@ angular.module('starter.controllers', [])
                             $ionicLoading.hide();
 
                             $ionicPopup.alert({
-                                title: "The email is incorrect! Please try again",
+                                title: "טעות בכתובת המייל - נא לנסות שנית",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
@@ -525,7 +525,7 @@ angular.module('starter.controllers', [])
                         $ionicLoading.hide();
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -608,7 +608,7 @@ angular.module('starter.controllers', [])
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -688,7 +688,7 @@ angular.module('starter.controllers', [])
             function(error){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -762,7 +762,7 @@ angular.module('starter.controllers', [])
             if ($scope.userAnswer.selected == ""){
 
                 $ionicPopup.alert({
-                    title: "Please select one of answers!",
+                    title: "נא לבחור באחת התשובות",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -827,7 +827,7 @@ angular.module('starter.controllers', [])
                     function(error){
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -909,7 +909,7 @@ angular.module('starter.controllers', [])
             function (err) {
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1057,7 +1057,7 @@ angular.module('starter.controllers', [])
                     }, function(err){
 
                         $ionicPopup.alert({
-                            title: "The photo was not loaded!",
+                            title: "התמונה לא נטענה",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -1071,7 +1071,7 @@ angular.module('starter.controllers', [])
                 function(err) {
 
                     $ionicPopup.alert({
-                        title: "The photo was not loaded!",
+                        title: "התמונה לא נטענה",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -1118,7 +1118,7 @@ angular.module('starter.controllers', [])
             } else if (!emailRegex.test($scope.personalInformation.email)){
 
                 $ionicPopup.alert({
-                    title: "Please enter valid email!",
+                    title: "נא להכניס כתובת מייל תקינה",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1128,7 +1128,7 @@ angular.module('starter.controllers', [])
             } else if ($scope.personalInformation.old_password != "" && $scope.personalInformation.old_password != $localStorage.password) {
 
                 $ionicPopup.alert({
-                    title: "Please enter valid current password!",
+                    title: "נא להזין סיסמא נוכחית",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1138,7 +1138,7 @@ angular.module('starter.controllers', [])
             } else if ($scope.personalInformation.old_password != "" && $scope.personalInformation.new_password == ""){
 
                 $ionicPopup.alert({
-                    title: "Please enter new password!",
+                    title: "נא להזין סיסמא חדשה",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1148,7 +1148,7 @@ angular.module('starter.controllers', [])
             } else if ($scope.personalInformation.new_password != "" && $scope.personalInformation.new_password.length < 3){
 
                 $ionicPopup.alert({
-                    title: "Password length must be more than three chars!",
+                    title: "דרוש יותר משלושה תווים לסיסמא",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1264,7 +1264,7 @@ angular.module('starter.controllers', [])
                            } else {
 
                                $ionicPopup.alert({
-                                   title: "The data was not updated!",
+                                   title: "המידע לא עודכן",
                                    buttons: [{
                                        text: 'OK',
                                        type: 'button-positive'
@@ -1278,7 +1278,7 @@ angular.module('starter.controllers', [])
                         function(error){
 
                             $ionicPopup.alert({
-                                title: "No network connection!",
+                                title: "אין חיבור לרשת",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
@@ -1327,7 +1327,7 @@ angular.module('starter.controllers', [])
                 function(err){
 
                     $ionicPopup.alert({
-                        title: "No connection!",
+                        title: "אין חיבור לרשת",
                         buttons: [{
                             text: 'OK',
                             type: 'button-positive'
@@ -1349,7 +1349,7 @@ angular.module('starter.controllers', [])
             if ($scope.message.subject == ""){
 
                 $ionicPopup.alert({
-                    title: "Please write your message!",
+                    title: "נא לכתוב את שאלתך למומחה",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1404,7 +1404,7 @@ angular.module('starter.controllers', [])
                         } else {
 
                             $ionicPopup.alert({
-                                title: "No network connection!",
+                                title: "אין חיבור לרשת",
                                 buttons: [{
                                     text: 'OK',
                                     type: 'button-positive'
@@ -1418,7 +1418,7 @@ angular.module('starter.controllers', [])
                     function(err){
 
                         $ionicPopup.alert({
-                            title: "No network connection!",
+                            title: "אין חיבור לרשת",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -1478,7 +1478,7 @@ angular.module('starter.controllers', [])
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
@@ -1528,7 +1528,7 @@ angular.module('starter.controllers', [])
                                 case 0:     // no
 
                                     $ionicPopup.alert({
-                                        title: "You didn't turn on GPS!",
+                                        title: "לא הפעלת את הGPS",
                                         buttons: [{
                                             text: 'OK',
                                             type: 'button-positive'
@@ -1540,7 +1540,7 @@ angular.module('starter.controllers', [])
                                 case 1:     // neutral
 
                                     $ionicPopup.alert({
-                                        title: "You didn't turn on GPS!",
+                                        title: "לא הפעלת את הGPS",
                                         buttons: [{
                                             text: 'OK',
                                             type: 'button-positive'
@@ -1569,7 +1569,7 @@ angular.module('starter.controllers', [])
                                         }, function (err) {
 
                                             $ionicPopup.alert({
-                                                title: "The GPS signal is too weak!",
+                                                title: "קליטת רשת GPS חלשה מדי",
                                                 buttons: [{
                                                     text: 'OK',
                                                     type: 'button-positive'
@@ -1637,7 +1637,7 @@ angular.module('starter.controllers', [])
                             }, function(err) {
 
                                 $ionicPopup.alert({
-                                    title: "The GPS signal is too weak!",
+                                    title: "קליטת רשת GPS חלשה מדי",
                                     buttons: [{
                                         text: 'OK',
                                         type: 'button-positive'
@@ -1660,7 +1660,7 @@ angular.module('starter.controllers', [])
                     setTimeout(function() {
 
                         $ionicPopup.alert({
-                            title: "You haven't turn on GPS! Please try again",
+                            title: "לא הפעלת את הGPS - נא לנסות שנית",
                             buttons: [{
                                 text: 'OK',
                                 type: 'button-positive'
@@ -1794,7 +1794,7 @@ angular.module('starter.controllers', [])
             function(err){
 
                 $ionicPopup.alert({
-                    title: "No network connection!",
+                    title: "אין חיבור לרשת",
                     buttons: [{
                         text: 'OK',
                         type: 'button-positive'
