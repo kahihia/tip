@@ -16,9 +16,9 @@
         <div class="header pointsHeaderTitle">אזור אישי</div>
 
         <div class="button-bar">  
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
@@ -101,7 +101,7 @@
 
 					<div class="pointTitle">
                     	<div class="pointTitleHeader">צברתי מתחילת החודש 0 נקודות</div>
-                    	<div> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
+                    	<div style="font-size:13px;"> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
                     </div>
                     
                     <div class="personalTableRow">
@@ -121,7 +121,8 @@
                     <div class="yellowRow"></div>
                
 
-                <div class="pointDescription">עונים נכונה על לפחות 15 שאלות ונכנסים להגרלה החודשית!</div>
+                <div class="pointDescription">עונים נכונה על לפחות 15 שאלות </div>
+                <div class="pointDescription" style="margin-top:-38px;">ונכנסים להגרלה החודשית!</div>
 
             </div>
 

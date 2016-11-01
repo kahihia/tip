@@ -46,14 +46,14 @@
 
                 </div>
 
-                <div class="TeaserInfoRight">
+                <div class="TeaserInfoRight" style="background-color:white">
                     <img ng-src="{{todayDeal.image}}" style="width:100%;" />
                 </div>
 
             </div>
 
-            <div class="teaserInfo rtl" >
-                <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'">קוד הטבה</div>
+            <div class="teaserInfo rtl" style="background-color: #99D539; margin-top:30px;" >
+                <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'" style="margin-top:5px;">קוד הטבה</div>
                 <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '0'">{{todayDeal.codelink}}</div>
                 <div class="teaserCodeLeft" ng-click="makeFavorite(todayDeal.index)" ng-show="!isFavorite(todayDeal.index)">שמור במועדפים בקטלוג</div>
                 <div class="teaserCodeLeftClicked" ng-show="isFavorite(todayDeal.index)">נשמר במועדפים בקטלוג</div>

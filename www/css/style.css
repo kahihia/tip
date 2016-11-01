@@ -2,6 +2,12 @@
 /*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
 /*@import url('https://fonts.googleapis.com/css?family=Alef');*/
 
+@font-face {
+    font-family: "OPENSANS";
+    src: url(../fonts/OpenSansHebrew-Regular.ttf) format("truetype");
+}
+ 
+
 .div80 {
     width: 80%;
     margin: 0 auto;
@@ -198,7 +204,7 @@
     background-color: white;
     color: black;
     padding: 15px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .personalTableLeft {
@@ -235,7 +241,7 @@
     width: 100%;
     padding: 20px;
     direction: rtl;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     font-weight: bold;
     background-color: black;
@@ -704,6 +710,7 @@
 .TeaserInfoRight {
     width: 70%;
     float: right;
+	background-color: #99D539;
 }
 
 .teaserInfoLeft {
