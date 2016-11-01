@@ -48,10 +48,10 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
-        "onesignal-cordova-plugin": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
-        "cordova-plugin-device": {
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.tapper.tipli"
         }
     },

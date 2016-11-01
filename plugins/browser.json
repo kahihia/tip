@@ -40,9 +40,6 @@
         "cordova.plugins.diagnostic": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.tapper.tipli"
-        },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.tapper.tipli"
         },
@@ -52,6 +49,9 @@
             "PACKAGE_NAME": "com.tapper.tipli"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.tapper.tipli"
         }
     },

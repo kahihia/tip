@@ -319,14 +319,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-        "id": "onesignal-cordova-plugin.OneSignal",
-        "pluginId": "onesignal-cordova-plugin",
-        "clobbers": [
-            "OneSignal"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "pluginId": "cordova-plugin-inappbrowser",
@@ -350,6 +342,14 @@ module.exports = [
         "clobbers": [
             "device"
         ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -368,10 +368,10 @@ module.exports.metadata =
     "cordova-plugin-fastrde-checkgps": "0.9.9",
     "cl.rmd.cordova.dialoggps": "0.0.2",
     "cordova.plugins.diagnostic": "3.2.2",
-    "onesignal-cordova-plugin": "2.0.6",
     "cordova-plugin-inappbrowser": "1.5.0",
     "cordova-plugin-facebook4": "1.7.4",
-    "cordova-plugin-device": "1.1.3"
+    "cordova-plugin-device": "1.1.3",
+    "onesignal-cordova-plugin": "1.13.0"
 }
 // BOTTOM OF METADATA
 });

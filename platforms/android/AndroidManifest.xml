@@ -32,7 +32,4 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
-    <permission android:name="com.tapper.tipli.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.tapper.tipli.permission.RECEIVE_ADM_MESSAGE" />
 </manifest>

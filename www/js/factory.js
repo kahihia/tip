@@ -42,6 +42,8 @@ angular.module('starter.factories', [])
 
                     function(data){
 
+                        console.log(data);
+
                         var newFav = data.data[0];
 
                         newFav.deal.favorite_id = data.data[0].index;
@@ -50,6 +52,8 @@ angular.module('starter.factories', [])
                         newFav.deal.supplier_logo = (newFav.deal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.supplier_logo;
 
                         var newFavoriteDeal = newFav.deal;
+
+                        console.log(newFavoriteDeal);
 
                         $rootScope.favoriteDeals.push(newFavoriteDeal);
 

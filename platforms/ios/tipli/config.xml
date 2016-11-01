@@ -62,9 +62,6 @@
     <feature name="Diagnostic">
         <param name="ios-package" value="Diagnostic" />
     </feature>
-    <feature name="OneSignalPush">
-        <param name="ios-package" value="OneSignalPush" />
-    </feature>
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
@@ -80,6 +77,9 @@
     <access origin="https://*.akamaihd.net" />
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="OneSignalPush">
+        <param name="ios-package" value="OneSignalPush" />
     </feature>
     <name>tipli</name>
     <description>

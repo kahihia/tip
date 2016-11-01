@@ -930,6 +930,8 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
+            console.log(x);
+
             return makeFavoriteFactory.makeFavorite(x, $scope);
 
         };
@@ -1461,13 +1463,15 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                $rootScope.favoriteDeals = data.data;
+                $scope.favorites = data.data;
 
-                for(var j = 0; j < $rootScope.favoriteDeals.length; j++){
+                for(var j = 0; j < $scope.favorites.length; j++){
 
-                    $rootScope.favoriteDeals[j].image = ($rootScope.favoriteDeals[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image;
-                    $rootScope.favoriteDeals[j].image2 = ($rootScope.favoriteDeals[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].image2;
-                    $rootScope.favoriteDeals[j].supplier_logo = ($rootScope.favoriteDeals[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.favoriteDeals[j].supplier_logo;
+                    $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
+                    $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
+                    $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
+
+                    $rootScope.favoriteDeals.push($scope.favorites[j]);
 
                 }
 

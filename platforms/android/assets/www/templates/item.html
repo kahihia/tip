@@ -81,7 +81,7 @@
                 <div class="greyRow" ng-show="deal.brances.length > 0">כתובות הסניפים</div>
                 <div class="mh80" ng-show="deal.brances.length > 0">
                     <div ng-repeat="branch in deal.brances">
-                        <p>{{branch.address}}</p>
+                        <p>{{branch[0].address}}</p>
                     </div>
                 </div>
 

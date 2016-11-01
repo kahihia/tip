@@ -16,11 +16,11 @@
 
 		<div class="div80 rtl" style="background-color:white;">
 
-            <div class="mt10" ng-show="question.question_image != ''">
+            <div ng-show="question.question_image != ''">
                 <img ng-src={{question.question_image}} style="width: 100%;">
             </div>
             
-            <div class="mt10" ng-show="question.question_youtube != ''">
+            <div ng-show="question.question_youtube != ''">
                 <youtube-video video-url="question.question_youtube" player-width="'100%'" style="height:260px !important;"></youtube-video>
             </div>
 		</div>

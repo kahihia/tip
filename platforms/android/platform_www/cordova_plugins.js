@@ -264,17 +264,17 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-        "id": "onesignal-cordova-plugin.OneSignal",
-        "clobbers": [
-            "OneSignal"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "clobbers": [
             "device"
+        ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "clobbers": [
+            "OneSignal"
         ]
     }
 ];
@@ -296,8 +296,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.0",
     "cordova.plugins.diagnostic": "3.2.2",
     "ionic-plugin-keyboard": "2.2.1",
-    "onesignal-cordova-plugin": "2.0.6",
-    "cordova-plugin-device": "1.1.3"
+    "cordova-plugin-device": "1.1.3",
+    "onesignal-cordova-plugin": "1.13.0"
 };
 // BOTTOM OF METADATA
 });

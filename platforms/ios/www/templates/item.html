@@ -62,20 +62,10 @@
             </div>
 
             <div class="teaserInfo rtl" >
-                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'"><a href="" ng-click="goToLink(deal.codelink)">Link</a></div>
+                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'">קוד הטבה</div>
                 <div class="teaserCodeRight" ng-show="deal.dealgivenby == '0'">{{deal.codelink}}</div>
-                <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index)" ng-show="!isFavorite(deal.index)">שמור<br> במועדפים</div>
-                <div class="teaserCodeLeftClicked" ng-show="isFavorite(deal.index)">נשמר<br> במועדפים</div>
-            </div>
-
-            <div style="width: 100%; height: 100px; margin: 5px 0;">
-                <ion-slides options="options" slider="data.slider" >
-                    <ion-slide-page ng-repeat="banner in banners">
-                        <div>
-                            <img ng-src="{{banner.image}}">
-                        </div>
-                    </ion-slide-page>
-                </ion-slides>
+                <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index)" ng-show="!isFavorite(deal.index)">שמור במועדפים בקטלוג</div>
+                <div class="teaserCodeLeftClicked" ng-show="isFavorite(deal.index)">נשמר במועדפים בקטלוג</div>
             </div>
 
             <div class="teaserInfo rtl">
@@ -91,7 +81,7 @@
                 <div class="greyRow" ng-show="deal.brances.length > 0">כתובות הסניפים</div>
                 <div class="mh80" ng-show="deal.brances.length > 0">
                     <div ng-repeat="branch in deal.brances">
-                        <p>{{branch.address}}</p>
+                        <p>{{branch[0].address}}</p>
                     </div>
                 </div>
 

@@ -215,10 +215,6 @@
     <string>This app requires contacts access to function properly.</string>
     <key>NSRemindersUsageDescription</key>
     <string>This app requires reminders access to function properly.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-      <string>remote-notification</string>
-    </array>
     <key>FacebookAppID</key>
     <string>189474428159821</string>
     <key>FacebookDisplayName</key>
@@ -252,6 +248,10 @@
     <array>
       <string>UIInterfaceOrientationPortrait</string>
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
+    </array>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>remote-notification</string>
     </array>
   </dict>
 </plist>

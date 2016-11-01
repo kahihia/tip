@@ -58,6 +58,7 @@
     border-radius: 30px;
     padding-top: 10px !important;
     height: 45px !important;
+    text-align: center;
 
     -webkit-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
     -moz-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
@@ -121,9 +122,9 @@
 /*Home*/
 .homeIcons {
     background-color: #ffd200;
-    padding: 10px;
-    padding-bottom: 50px;
-    padding-top: 20px;
+    /*padding: 10px;*/
+    /*padding-bottom: 50px;*/
+    /*padding-top: 20px;*/
 }
 
 .homeRow {
@@ -267,7 +268,7 @@
     clear: left;
     text-align: right;
     color: #0930a0;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .personalQuestion {
@@ -690,7 +691,7 @@
     text-align: center;
     padding: 5px;
     direction: rtl;
-    font-size: 22px;
+    font-size: 18px;
     background-color: #ffd200;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -726,6 +727,7 @@
     padding: 10px;
     font-size: 15px;
     text-align: center;
+    color: white;
 }
 
 
@@ -793,13 +795,11 @@
     font-size: 18px;
     font-weight: bold;
     direction: rtl;
-	border-radius:50px;
-	margin-top:5px;
 }
 
 .RadioBtDiv
 {
-	top:8px; 
+	top:5px;
 	position:relative;
 }
 .RadioBt
@@ -821,7 +821,7 @@
 }
 
 .questionRight div {
-    width: 40%;
+    width: 35%;
 }
 
 .questionLeft {
@@ -850,13 +850,11 @@
     font-size: 18px;
     font-weight: bold;
     direction: rtl;
-    border-radius:50px;
 }
 
 .answerBackground {
     background-color: #D5D5D5;
     width: 100%;
-    /*height: 100vh;*/
 }
 
 .answerMainDiv {
@@ -865,7 +863,7 @@
 }
 
 .answerText {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .answerCheckAnswer {
@@ -884,7 +882,7 @@
 {
 	width:100%;
 	overflow:hidden;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .answerQuestionLeft

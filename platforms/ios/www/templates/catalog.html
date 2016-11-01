@@ -84,7 +84,8 @@
 
                 <div ng-show="categoryNumber == 0" class="catalogNoDeals">לצפיה בצ'ופרים<br> לחץ על תפריט הקטגוריות</div>
 
-                <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">
+                <!--<div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">-->
+                <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | chooseCategory">
 
                     <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
 
@@ -111,7 +112,8 @@
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
-                            	<img ng-src="{{deal.supplier_logo}}" style="width: 100%;">
+                                <img ng-src="{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
                             </div>
                         </div>
 
@@ -153,7 +155,8 @@
 
                             </div>
                             <div class="ThumbDealInfoLeft">
-                                <img ng-src="img/teaser_logo.png" style="width: 100%;">
+                                <img ng-src="{{fav.supplier_logo}}" ng-show="fav.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="fav.supplier_logo == ''" style="width:100%;" />
                             </div>
                         </div>
 
