@@ -35,13 +35,13 @@
                     <img ng-src="{{todayDeal.supplier_logo}}" ng-show="todayDeal.supplier_logo != ''" style="width:100%;" />
                     <img src="img/empty_logo.png" ng-show="todayDeal.supplier_logo == ''" style="width:100%;" />
 
-                    <div class="teaserRegularPriceText">מחיר רגיל</div>
-                    <div class="teaserRegularPriceBlock">
+                    <div class="teaserRegularPriceText" ng-show="todayDeal.regular_price != ''">מחיר רגיל</div>
+                    <div class="teaserRegularPriceBlock" ng-show="todayDeal.regular_price != ''">
                         <img src="img/teaser_x.png" style="width:100%" />
                     </div>
                     <div class="teaserRegularPrice" ng-show="todayDeal.regular_price != ''">{{todayDeal.regular_price}} <span> 	&#8362;</span></div>
 
-                    <div class="teaserNewPriceText">מחיר חבר</div>
+                    <div class="teaserNewPriceText" ng-show="todayDeal.member_price != ''">מחיר חבר</div>
                     <div class="teaserRegularPrice" ng-show="todayDeal.member_price != ''">{{todayDeal.member_price}} <span> 	&#x20aa;</span></div>
 
                 </div>

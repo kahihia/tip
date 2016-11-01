@@ -40,15 +40,15 @@
                     </div>
 
                     <div class="inputDiv">
-                        <input type="date" class="input ltr" ng-model="personalInformation.birthday">
+                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.birthday">
                     </div>
 
                     <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" ng-model="personalInformation.conscription_date">
+                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.conscription_date">
                     </div>
 
                     <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" ng-model="personalInformation.release_date">
+                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.release_date">
                     </div>
 
                     <div class="inputDiv">
@@ -100,7 +100,7 @@
             <div ng-switch-when="personal">
 
 					<div class="pointTitle">
-                    	<div class="pointTitleHeader">צברתי מתחילת החודש 0 נקודות</div>
+                    	<div class="pointTitleHeader">צברתי מתחילת החודש {{monthPoints}} נקודות</div>
                     	<div style="font-size:13px;"> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
                     </div>
                     

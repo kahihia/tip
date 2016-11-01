@@ -13,46 +13,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 // Notifications
 
-                // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+                document.addEventListener("deviceready", function(){
 
-                // var notificationOpenedCallback = function (jsonData) {
-                //
-                //     alert(JSON.stringify(jsonData));
-                //
-                //     // var additionalData = JSON.parse(jsonData.notification.payload.additionalData);
-                //     //
-                //     // if (additionalData.type == "newmessage") {
-                //     //
-                //     //     if ($localStorage.userid == ''){        // if not logged in
-                //     //
-                //     //         $state.go('app.login');
-                //     //
-                //     //     } else {        // if logged in
-                //     //
-                //     //         $rootScope.pushNotificationType = "newmessage";
-                //     //
-                //     //         $state.go('app.personal');
-                //     //
-                //     //     }
-                //     //
-                //     // }
-                //
-                // };
+                    // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
-                // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                // {googleProjectNumber: "627358870772"},
-                // notificationOpenedCallback);
-                //
-                // window.plugins.OneSignal.getIds(function (ids) {
-                //
-                //     $rootScope.pushId = ids.userId;
-                //     alert($rootScope.pushId);
-                //
-                // });
-                // // Show an alert box if a notification comes in when the user is in your app.
-                // window.plugins.OneSignal.enableInAppAlertNotification(true);
+                    var notificationOpenedCallback = function (jsonData) {
 
+                        // alert(JSON.stringify(jsonData));
 
+                        if (jsonData.additionalData.type == "newmessage") {
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $rootScope.pushNotificationType = "newmessage";
+
+                                $state.go('app.personal');
+
+                            }
+
+                        }
+
+                    };
+
+                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                        {googleProjectNumber: "627358870772"},
+                        notificationOpenedCallback);
+
+                    window.plugins.OneSignal.getIds(function (ids) {
+
+                        $rootScope.pushId = ids.userId;
+
+                    });
+                    // Show an alert box if a notification comes in when the user is in your app.
+                    window.plugins.OneSignal.enableInAppAlertNotification(true);
+
+                }, false);
 
 
                 // Default code
@@ -70,76 +69,75 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 // tip after 1 minute
 
-                // var send_data = {
-                //
-                //     'date' : $rootScope.today,
-                //     'type' : ""
-                //
-                // };
-                //
-                // if ($localStorage.soldier == "1"){
-                //
-                //     send_data.type = "1";
-                //
-                // } else {
-                //
-                //     send_data.type = "2";
-                //
-                // }
-                //
-                // $http.post($rootScope.host + 'GetTipByDate', send_data, {
-                //
-                //         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-                //
-                //     }).then(
-                //
-                //         function(data){
-                //
-                //             console.log("Daily tip", data);
-                //             $localStorage.isTipShown = false;
-                //
-                //             $timeout(function () {
-                //
-                //                 $rootScope.$watch('currState.current.name', function() {
-                //
-                //                     if ($rootScope.currState.current.name != 'app.register' &&
-                //                         $rootScope.currState.current.name != 'app.teaser' &&
-                //                         $rootScope.currState.current.name != 'app.question' &&
-                //                         $rootScope.currState.current.name != 'app.answer' &&
-                //                         $rootScope.currState.current.name != 'app.discount' &&
-                //                         $localStorage.isTipShown == false) {
-                //
-                //                         $rootScope.dailyTipText = data.data[0].title;
-                //
-                //                         var dailyTipPopup = $ionicPopup.show({
-                //                             templateUrl: 'templates/popup_daily_tip.html',
-                //                             scope: $rootScope,
-                //                             cssClass: 'dailyTipPopup'
-                //                         });
-                //
-                //                         $rootScope.hideDailyTip = function () {
-                //
-                //                             dailyTipPopup.close();
-                //
-                //                         };
-                //
-                //                         $localStorage.isTipShown = true;
-                //                     }
-                //
-                //                  })
-                //
-                //             }, 60000)
-                //
-                //         },
-                //
-                //         function(err){
-                //
-                //             console.log(err);
-                //
-                //         });
+                var send_data = {
+
+                    'date' : $rootScope.today,
+                    'type' : ""
+
+                };
+
+                if ($localStorage.soldier == "1"){
+
+                    send_data.type = "1";
+
+                } else {
+
+                    send_data.type = "2";
+
+                }
+
+                $http.post($rootScope.host + 'GetTipByDate', send_data, {
+
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                    }).then(
+
+                        function(data){
+
+                            console.log("Daily tip", data);
+                            $localStorage.isTipShown = false;
+
+                            $timeout(function () {
+
+                                $rootScope.$watch('currState.current.name', function() {
+
+                                    if ($rootScope.currState.current.name != 'app.register' &&
+                                        $rootScope.currState.current.name != 'app.teaser' &&
+                                        $rootScope.currState.current.name != 'app.question' &&
+                                        $rootScope.currState.current.name != 'app.answer' &&
+                                        $rootScope.currState.current.name != 'app.discount' &&
+                                        $localStorage.isTipShown == false) {
+
+                                        $rootScope.dailyTipText = data.data[0].title;
+
+                                        var dailyTipPopup = $ionicPopup.show({
+                                            templateUrl: 'templates/popup_daily_tip.html',
+                                            scope: $rootScope,
+                                            cssClass: 'dailyTipPopup'
+                                        });
+
+                                        $rootScope.hideDailyTip = function () {
+
+                                            dailyTipPopup.close();
+
+                                        };
+
+                                        $localStorage.isTipShown = true;
+                                    }
+
+                                 })
+
+                            }, 60000)
+
+                        },
+
+                        function(err){
+
+                            console.log(err);
+
+                        });
 
                 // geolocation
-
 
                 if (window.cordova) {
 
@@ -207,6 +205,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.correctAnswers = 0;
         $rootScope.incorrectAnswers = 0;
         $rootScope.allPoints = 0;
+        $rootScope.monthPoints = 0;
         $rootScope.userData = {
             "userid" : $localStorage.userid,
             "firstname" : $localStorage.firstname,
@@ -223,6 +222,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.currState = $state;
         $rootScope.infoCategories = ['רשיון נהיגה', 'תקלות ברכב', 'עשה ואל תעשה', 'במקרה של תאונה', 'מה אומר החוק', 'שאל את המומחה', 'טלפונים חשובים'];
         $rootScope.deals = [];
+        $rootScope.closeDeals = [];
         $rootScope.favoriteDeals = [];
         $rootScope.lat = "";
         $rootScope.lng = "";
@@ -231,26 +231,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.monthBanner = "";
         $rootScope.yearBanner = "";
 
-
-        // menu links
-
-        $rootScope.categoryNumber = 0;
-        $rootScope.categoryName = '';
-
-        $rootScope.setCategory = function(x, y){
-
-            $rootScope.categoryNumber = x;
-            $rootScope.categoryName = y;
-
-        };
-
-        // toggle menu
-
-        $rootScope.toggleRightSideMenu = function() {
-
-            $ionicSideMenuDelegate.toggleRight();
-
-        };
 
         // get catalog categories
 
@@ -283,6 +263,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 });
 
             });
+
+
+        // menu links
+
+        $rootScope.categoryNumber = 0;
+        $rootScope.categoryName = '';
+
+        $rootScope.setCategory = function(x, y){
+
+            $rootScope.categoryNumber = x;
+            $rootScope.categoryName = y;
+
+        };
+
+        // toggle menu
+
+        $rootScope.toggleRightSideMenu = function() {
+
+            $ionicSideMenuDelegate.toggleRight();
+
+        };
 
         // logout
 
@@ -357,8 +358,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         } else {
 
-            $rootScope.today = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
-            $rootScope.todayDate = ("0" + (new Date().getDate() - 1)).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2);
+            $rootScope.temp = new Date();
+            $rootScope.temp = $rootScope.temp.setDate($rootScope.temp.getDate()-1);
+
+            $rootScope.today = ("0" + new Date($rootScope.temp).getDate()).slice(-2) + '/' + ("0" + (new Date($rootScope.temp).getMonth() + 1)).slice(-2) + '/' + new Date($rootScope.temp).getFullYear();
+            $rootScope.todayDate = ("0" + new Date($rootScope.temp).getDate()).slice(-2) + '/' + ("0" + (new Date($rootScope.temp).getMonth() + 1)).slice(-2);
 
         }
 
@@ -433,10 +437,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                         $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
                         $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
+                        for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
+
+                            if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
+
+                                $rootScope.closeDeals.push($rootScope.deals[i]);
+
+                            }
+
+                        }
+
+
                     }
 
                     $rootScope.isLocationEnabled = true;
 
+                    console.log("closeDeals", $rootScope.closeDeals);
                     console.log("DealsWithLocation", $rootScope.deals);
 
                 },

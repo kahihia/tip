@@ -42,9 +42,11 @@
                     <button class="button button-assertive" ng-click="turnOnGPS()" style="margin-top: 40px;">נא הפעל GPS על מנת לקבל את ההטבות הקרובות</button>
                 </div>
 
-                <div ng-show="isLocationEnabled == true" ng-repeat="deal in deals">
+                <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרוביך</div>
 
-                    <div class="catalogDeal" ng-if="deal.dist <= 10" ui-sref="app.item({itemId:deal.index})">
+                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals">
+
+                    <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
 
                         <div class="catalogDealTitle">
 
@@ -65,7 +67,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -108,7 +110,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -151,7 +153,7 @@
                         <div class="ThumbDealInfo">
                             <div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
 
                             </div>
                             <div class="ThumbDealInfoLeft">

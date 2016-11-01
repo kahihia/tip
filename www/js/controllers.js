@@ -576,8 +576,48 @@ angular.module('starter.controllers', [])
             "user" : $localStorage.userid
 
         };
+        //
+        // $http.post($rootScope.host + 'GetAnswers', send_user, {
+        //
+        //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+        //
+        // }).then(
+        //
+        //     function(data){
+        //
+        //         console.log(data);
+        //
+        //         for (var i = 0; i < data.data.length; i++){
+        //
+        //             if (data.data[i].correct == "0"){
+        //
+        //                 $rootScope.incorrectAnswers += 1;
+        //
+        //             } else if (data.data[i].correct == "1"){
+        //
+        //                 $rootScope.correctAnswers += 1;
+        //
+        //             }
+        //
+        //             $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
+        //
+        //         }
+        //
+        //     },
+        //
+        //     function(err){
+        //
+        //         $ionicPopup.alert({
+        //             title: "אין חיבור לרשת",
+        //             buttons: [{
+        //                 text: 'OK',
+        //                 type: 'button-positive'
+        //             }]
+        //         });
+        //
+        //     });
 
-        $http.post($rootScope.host + 'GetAnswers', send_user, {
+        $http.post($rootScope.host + 'GetPointsPerMonth', send_user, {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
@@ -585,23 +625,12 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                console.log(data);
+                console.log(data.data);
 
-                for (var i = 0; i < data.data.length; i++){
-
-                    if (data.data[i].correct == "0"){
-
-                        $rootScope.incorrectAnswers += 1;
-
-                    } else if (data.data[i].correct == "1"){
-
-                        $rootScope.correctAnswers += 1;
-
-                    }
-
-                    $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
-
-                }
+                $rootScope.correctAnswers = data.data.month_correct;
+                $rootScope.incorrectAnswers = data.data.month_wrong;
+                $rootScope.monthPoints = data.data.month_points;
+                $rootScope.allPoints = data.data.total_points;
 
             },
 
@@ -616,7 +645,6 @@ angular.module('starter.controllers', [])
                 });
 
             });
-
 
 
     })
@@ -1764,48 +1792,53 @@ angular.module('starter.controllers', [])
         $scope.infoCategoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
         $scope.infoCategoryIcon = "img/info_articles/" + $stateParams.articleId + ".png";
 
-        $scope.content = {};
+        $scope.$on('$ionicView.enter', function(e) {
 
-        // get article for the page
+            $scope.content = {};
 
-        var send_data = {
+            // get article for the page
 
-            "catid" : $stateParams.articleId,
-            "issoldier" : $localStorage.soldier
+            var send_data = {
 
-        };
+                "catid" : $stateParams.articleId,
+                "issoldier" : $localStorage.soldier
 
-        $http.post($rootScope.host + 'GetInfoArticles', send_data, {
+            };
 
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+            $http.post($rootScope.host + 'GetInfoArticles', send_data, {
 
-        }).then(
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-            function(data){
+            }).then(
 
-                $scope.content = data.data;
+                function(data){
 
-                for (var i = 0; i < $scope.content.length; i++){
+                    $scope.content = data.data;
 
-                    $scope.content[i].image = $rootScope.phpHost + "uploads/" + $scope.content[i].image;
+                    for (var i = 0; i < $scope.content.length; i++){
 
-                }
+                        $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
 
-                console.log($scope.content);
+                    }
 
-            },
+                    console.log($scope.content);
 
-            function(err){
+                },
 
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
                 });
 
-            });
+        });
+
 
         // show video if needed
 

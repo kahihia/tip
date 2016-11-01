@@ -42,21 +42,6 @@ angular.module('starter.factories', [])
 
                     function(data){
 
-                        console.log(data);
-
-                        var newFav = data.data[0];
-
-                        newFav.deal.favorite_id = data.data[0].index;
-                        newFav.deal.image = (newFav.deal.image == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image;
-                        newFav.deal.image2 = (newFav.deal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image2;
-                        newFav.deal.supplier_logo = (newFav.deal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.supplier_logo;
-
-                        var newFavoriteDeal = newFav.deal;
-
-                        console.log(newFavoriteDeal);
-
-                        $rootScope.favoriteDeals.push(newFavoriteDeal);
-
                         var addedFavPopup = $ionicPopup.show({
                             templateUrl: 'templates/popup_added_fav.html',
                             scope: scope,
@@ -68,6 +53,77 @@ angular.module('starter.factories', [])
                             addedFavPopup.close();
 
                         };
+
+                        // if ok, get all favorites again
+
+                        $rootScope.favoriteDeals = [];
+
+                        var send_data = {
+
+                            "user" : $localStorage.userid
+
+                        };
+
+                        $http.post($rootScope.host + 'GetUserFav', send_data, {
+
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                        }).then(
+
+                            function(data){
+
+                                var favorites = data.data;
+
+                                for(var j = 0; j < favorites.length; j++){
+
+                                    favorites[j].image = (favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image;
+                                    favorites[j].image2 = (favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image2;
+                                    favorites[j].supplier_logo = (favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].supplier_logo;
+
+                                    $rootScope.favoriteDeals.push(favorites[j]);
+
+                                }
+
+                                console.log("Favs", $rootScope.favoriteDeals);
+
+                            },
+
+                            function(err){
+
+                                $ionicPopup.alert({
+                                    title: "אין חיבור לרשת",
+                                    buttons: [{
+                                        text: 'OK',
+                                        type: 'button-positive'
+                                    }]
+                                });
+
+                            });
+
+                        // var newFav = data.data[0];
+                        //
+                        // newFav.deal.favorite_id = data.data[0].index;
+                        // newFav.deal.image = (newFav.deal.image == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image;
+                        // newFav.deal.image2 = (newFav.deal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.image2;
+                        // newFav.deal.supplier_logo = (newFav.deal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + newFav.deal.supplier_logo;
+                        //
+                        // var newFavoriteDeal = newFav.deal;
+                        //
+                        // console.log(newFavoriteDeal);
+                        //
+                        // $rootScope.favoriteDeals.push(newFavoriteDeal);
+                        //
+                        // var addedFavPopup = $ionicPopup.show({
+                        //     templateUrl: 'templates/popup_added_fav.html',
+                        //     scope: scope,
+                        //     cssClass: 'addedFavPopup'
+                        // });
+                        //
+                        // scope.hideAddedFavPopup = function () {
+                        //
+                        //     addedFavPopup.close();
+                        //
+                        // };
 
                     },
 
