@@ -15,11 +15,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 document.addEventListener("deviceready", function(){
 
-                    // PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
+                    //TODO: DAILY PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
 
                     var notificationOpenedCallback = function (jsonData) {
 
-                        // alert(JSON.stringify(jsonData));
+                        alert(JSON.stringify(jsonData));
+                        //
+                        // NEW MESSAGE FROM SPECIALIST
 
                         if (jsonData.additionalData.type == "newmessage") {
 
@@ -32,6 +34,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                                 $rootScope.pushNotificationType = "newmessage";
 
                                 $state.go('app.personal');
+
+                            }
+
+                        }
+
+                        // DAILY DEAL
+
+                        if (jsonData.additionalData.type == "dailydeal") {
+
+                            $localStorage.isQuestionAnswered = false;
+                            $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+
+                            // alert(JSON.stringify(jsonData.additionalData));
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $rootScope.pushNotificationType = "dailydeal";
+
+                                $state.go('app.teaser');
 
                             }
 
@@ -199,6 +224,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
         $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
+        $rootScope.imageHost = "http://tapper.co.il/tipli/php/uploads";
         $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
         $rootScope.isTipShown = $localStorage.isTipShown;
         $rootScope.isAnswerCorrect = false;
@@ -224,10 +250,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.deals = [];
         $rootScope.closeDeals = [];
         $rootScope.favoriteDeals = [];
+        $rootScope.todayDeal = {};
         $rootScope.lat = "";
         $rootScope.lng = "";
         $rootScope.isLocationEnabled = false;
-        $rootScope.banners = [];
+        $rootScope.bannersMain = [];
+        $rootScope.bannersTeaser = [];
+        $rootScope.bannersInfo = [];
         $rootScope.monthBanner = "";
         $rootScope.yearBanner = "";
 
@@ -312,6 +341,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                         $localStorage.userid = "";
                         $localStorage.soldier = "";
                         $localStorage.gender = "";
+                        $localStorage.image = "";
 
                         $state.go('app.login');
 
@@ -380,13 +410,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     $rootScope.deals = data.data;
 
-                    for(var i = 0; i < $rootScope.deals.length; i++){
-
-                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
-                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
-
-                    }
+                    // for(var i = 0; i < $rootScope.deals.length; i++){
+                    //
+                    //     $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                    //     $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                    //     $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
+                    //
+                    // }
 
                     $rootScope.isLocationEnabled = false;
 
@@ -433,9 +463,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
-                        $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
+                        // $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
+                        // $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
+                        // $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
 
                         for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
 
@@ -513,9 +543,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 for (var p = 0; p < $rootScope.bannersData.length; p++){
 
-                    $rootScope.bannersData[p].image = $rootScope.phpHost + 'uploads/' + $rootScope.bannersData[p].image;
+                    // $rootScope.bannersData[p].image = $rootScope.phpHost + 'uploads/' + $rootScope.bannersData[p].image;
 
-                    if ($rootScope.bannersData[p].gallery_id == '2'){
+                    if ($rootScope.bannersData[p].gallery_id == '1'){
+
+                        $rootScope.bannersMain.push($rootScope.bannersData[p]);
+
+                    } else if ($rootScope.bannersData[p].gallery_id == '2'){
 
                         $rootScope.monthBanner = $rootScope.bannersData[p];
 
@@ -523,9 +557,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                         $rootScope.yearBanner = $rootScope.bannersData[p];
 
-                    } else {
+                    } else if ($rootScope.bannersData[p].gallery_id == '4'){
 
-                        $rootScope.banners.push($rootScope.bannersData[p]);
+                        $rootScope.bannersTeaser.push($rootScope.bannersData[p]);
+
+                    } else if ($rootScope.bannersData[p].gallery_id == '5'){
+
+                        $rootScope.bannersInfo.push($rootScope.bannersData[p]);
 
                     }
 

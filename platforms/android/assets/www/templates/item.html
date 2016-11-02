@@ -41,7 +41,7 @@
 
                 <div class="teaserInfoLeft">
 
-                    <img ng-src="{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                    <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
                     <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
 
                     <div class="teaserRegularPriceText" ng-show="deal.regular_price != ''">מחיר רגיל</div>
@@ -56,13 +56,13 @@
                 </div>
 
                 <div class="TeaserInfoRight">
-                    <img ng-src="{{deal.image}}" style="width:100%;" />
+                    <img src="{{imageHost}}/{{deal.image}}" style="width:100%;" />
                 </div>
 
             </div>
 
             <div class="teaserInfo rtl" >
-                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'">קוד הטבה</div>
+                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'"><a href="" ng-click="goToLink(deal.codelink)">קוד הטבה</a></div>
                 <div class="teaserCodeRight" ng-show="deal.dealgivenby == '0'">{{deal.codelink}}</div>
                 <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index)" ng-show="!isFavorite(deal.index)">שמור במועדפים בקטלוג</div>
                 <div class="teaserCodeLeftClicked" ng-show="isFavorite(deal.index)">נשמר במועדפים בקטלוג</div>

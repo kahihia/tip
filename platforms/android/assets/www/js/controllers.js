@@ -625,7 +625,7 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                console.log(data.data);
+                console.log("Points", data.data);
 
                 $rootScope.correctAnswers = data.data.month_correct;
                 $rootScope.incorrectAnswers = data.data.month_wrong;
@@ -687,8 +687,8 @@ angular.module('starter.controllers', [])
 
                 $scope.question = data.data[0];
 
-                $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
-                $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
+                // $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
+                // $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -868,6 +868,21 @@ angular.module('starter.controllers', [])
 
         };
 
+        $scope.checkDiscountState = function(){
+
+            if ($rootScope.todayDeal.showiframe == "0" && $rootScope.todayDeal.dealgivenby == "1"){
+
+                $state.go('app.discount');
+                cordova.InAppBrowser.open($rootScope.todayDeal.codelink, '_blank', 'location=yes');
+
+            } else {
+
+                $state.go('app.discount');
+
+            }
+
+        }
+
 
     })
 
@@ -884,32 +899,38 @@ angular.module('starter.controllers', [])
         var send_data = {
 
             'date' : $rootScope.today,
-            'type' : "",
+            // 'type' : "",
+            // 'fromtype' : "",
+            'soldier' : $localStorage.soldier,
             'gender' : $localStorage.gender
-
         };
 
-        if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
-
-            send_data.type = "2"; // soldier female
-
-        } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
-
-            send_data.type = "1"; // soldier male
-
-        } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
-
-            send_data.type = "5"; // civil female
-
-        } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
-
-            send_data.type = "4"; // civil male
-
-        }
+        // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
+        //
+        //     send_data.type = "2"; // soldier female
+        //     send_data.fromtype = "3"; // all soldiers
+        //
+        // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
+        //
+        //     send_data.type = "1"; // soldier male
+        //     send_data.fromtype = "3"; // all soldiers
+        //
+        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
+        //
+        //     send_data.type = "5"; // civil female
+        //     send_data.fromtype = "6"; // all civils
+        //
+        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
+        //
+        //     send_data.type = "4"; // civil male
+        //     send_data.fromtype = "6"; // all civils
+        //
+        // }
 
         // get deal for today
 
-        $scope.todayDeal = {};
+
+        $scope.noTodayDeal = false;
 
         $http.post($rootScope.host + 'GetDealByDate', send_data, {
 
@@ -918,19 +939,29 @@ angular.module('starter.controllers', [])
         }).then(
             function (data) {
 
-                $scope.todayDeal = data.data[0];
+                if (data.data.length == 0){
 
-                $scope.todayDeal.image = ($scope.todayDeal.image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image;
-                $scope.todayDeal.image2 = ($scope.todayDeal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image2;
-                $scope.todayDeal.supplier_logo = ($scope.todayDeal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.supplier_logo;
+                    $scope.noTodayDeal = true;
 
-                if ($scope.todayDeal.showiframe == "1"){
+                } else {
 
-                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.todayDeal.codelink);
+                    $scope.noTodayDeal = false;
+
+                    $rootScope.todayDeal = data.data[0];
+
+                    // $rootScope.todayDeal.image = ($rootScope.todayDeal.image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.image;
+                    // $rootScope.todayDeal.image2 = ($rootScope.todayDeal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.image2;
+                    // $rootScope.todayDeal.supplier_logo = ($rootScope.todayDeal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.supplier_logo;
+
+                    if ($rootScope.todayDeal.showiframe == "1"){
+
+                        $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
+
+                    }
+
+                    console.log("Today Deal", $rootScope.todayDeal);
 
                 }
-
-                console.log($scope.todayDeal);
 
             },
 
@@ -958,9 +989,15 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
-            console.log(x);
-
             return makeFavoriteFactory.makeFavorite(x, $scope);
+
+        };
+
+        // open links
+
+        $scope.goToLink = function(x){
+
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
 
         };
 
@@ -1465,6 +1502,22 @@ angular.module('starter.controllers', [])
 
     .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
+        $scope.openItem = function(x){
+
+            if (x.showiframe == "0" && x.dealgivenby == "1"){
+
+                $state.go('app.item', {itemId:x.index});
+                cordova.InAppBrowser.open(x.codelink, '_blank', 'location=yes');
+
+            } else {
+
+                $state.go('app.item', {itemId:x.index});
+
+            }
+
+        };
+
+
         $scope.selection = 'catalog';
 
         $scope.chooseTab = function(x){
@@ -1495,9 +1548,9 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $scope.favorites.length; j++){
 
-                    $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
-                    $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
-                    $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
+                    // $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
+                    // $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
+                    // $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
 
                     $rootScope.favoriteDeals.push($scope.favorites[j]);
 
@@ -1745,13 +1798,13 @@ angular.module('starter.controllers', [])
 
             }
 
-            $scope.goToLink = function(x){
-
-                cordova.InAppBrowser.open(x, '_system', 'location=yes');
-
-            };
-
         });
+
+        $scope.goToLink = function(x){
+
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+
+        };
 
         // check if the deal is favorite
 
@@ -1817,7 +1870,7 @@ angular.module('starter.controllers', [])
 
                     for (var i = 0; i < $scope.content.length; i++){
 
-                        $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
+                        // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
 
                     }
 

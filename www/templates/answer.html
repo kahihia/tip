@@ -19,7 +19,7 @@
             <div class="answerMainDiv rtl textCenter">
 
                 <div ng-show="question.explain_image != ''">
-                    <img ng-src={{question.explain_image}} style="width: 100%;">
+                    <img src="{{imageHost}}/{{question.explain_image}}" style="width: 100%;">
                 </div>
 
                 <div ng-show="question.explain_youtube != ''">
@@ -49,7 +49,8 @@
                     <img src="img/answer_incorrect.png" style="width:100%" />
                 </div>
             </div>
-            <div class="answerQuestionRight" ui-sref="app.discount">
+            <!--<div class="answerQuestionRight" ui-sref="app.discount">-->
+            <div class="answerQuestionRight" ng-click="checkDiscountState();">
                 <div>
                     <img src="img/answer_go.png" style="width:100%" />
                 </div>

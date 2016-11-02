@@ -718,6 +718,12 @@
 
 /* Teaser */
 
+.noTodayDeal {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .teaserTitle {
     width: 100%;
     text-align: center;
@@ -736,7 +742,7 @@
 .TeaserInfoRight {
     width: 70%;
     float: right;
-	background-color: #99D539;
+	/*background-color: #99D539;*/
 }
 
 .teaserInfoLeft {
@@ -746,15 +752,17 @@
 
 .teaserCodeRight {
     width: 70%;
+    height: 80px;
     float: right;
     background-color: #99D539;
-    padding: 20px 10px;
+    padding: 30px 10px;
     font-size: 20px;
     text-align: center;
 }
 
 .teaserCodeLeft {
     width: 30%;
+    height: 80px;
     float: left;
     background-color: #EB002B;
     padding: 10px;
@@ -763,9 +771,9 @@
     color: white;
 }
 
-
 .teaserCodeLeftClicked {
     width: 30%;
+    height: 80px;
     float: left;
     background-color: #fcb6c6;
     padding: 10px;

@@ -76,9 +76,9 @@ angular.module('starter.factories', [])
 
                                 for(var j = 0; j < favorites.length; j++){
 
-                                    favorites[j].image = (favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image;
-                                    favorites[j].image2 = (favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image2;
-                                    favorites[j].supplier_logo = (favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].supplier_logo;
+                                    // favorites[j].image = (favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image;
+                                    // favorites[j].image2 = (favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image2;
+                                    // favorites[j].supplier_logo = (favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].supplier_logo;
 
                                     $rootScope.favoriteDeals.push(favorites[j]);
 
