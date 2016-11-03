@@ -42,9 +42,12 @@
                     <button class="button button-assertive" ng-click="turnOnGPS()" style="margin-top: 40px;">נא הפעל GPS על מנת לקבל את ההטבות הקרובות</button>
                 </div>
 
-                <div ng-show="isLocationEnabled == true" ng-repeat="deal in deals">
+                <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרוביך</div>
 
-                    <div class="catalogDeal" ng-if="deal.dist <= 10" ui-sref="app.item({itemId:deal.index})">
+                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals">
+
+                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
+                    <div class="catalogDeal" ng-click="openItem(deal)">
 
                         <div class="catalogDealTitle">
 
@@ -60,16 +63,17 @@
 
                         </div>
 
-                        <img ng-src="{{deal.image}}" style="width: 100%;">
+                        <img src="{{imageHost}}/{{deal.image}}" style="width: 100%;">
 
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
-                            	<img ng-src="img/teaser_logo.png" style="width: 100%;">
+                                <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
                             </div>
                         </div>
 
@@ -87,7 +91,8 @@
                 <!--<div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">-->
                 <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | chooseCategory">
 
-                    <div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">
+                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
+                    <div class="catalogDeal" ng-click="openItem(deal)">
 
                         <div class="catalogDealTitle">
 
@@ -103,16 +108,16 @@
 
                         </div>
 
-                        <img ng-src="{{deal.image}}" style="width: 100%;">
+                        <img src="{{imageHost}}/{{deal.image}}" style="width: 100%;">
 
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
-                                <img ng-src="{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                                <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
                                 <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
                             </div>
                         </div>
@@ -130,7 +135,8 @@
 
                 <div ng-repeat="fav in favoriteDeals">
 
-                    <div class="catalogDeal" ui-sref="app.item({itemId:fav.index})">
+                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:fav.index})">-->
+                    <div class="catalogDeal" ng-click="openItem(fav)">
 
                         <div class="catalogDealTitle">
 
@@ -146,16 +152,16 @@
 
                         </div>
 
-                        <img ng-src="{{fav.image}}" style="width: 100%;">
+                        <img src="{{imageHost}}/{{fav.image}}" style="width: 100%;">
 
                         <div class="ThumbDealInfo">
                             <div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPrice">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
 
                             </div>
                             <div class="ThumbDealInfoLeft">
-                                <img ng-src="{{fav.supplier_logo}}" ng-show="fav.supplier_logo != ''" style="width:100%;" />
+                                <img src="{{imageHost}}/{{fav.supplier_logo}}" ng-show="fav.supplier_logo != ''" style="width:100%;" />
                                 <img src="img/empty_logo.png" ng-show="fav.supplier_logo == ''" style="width:100%;" />
                             </div>
                         </div>

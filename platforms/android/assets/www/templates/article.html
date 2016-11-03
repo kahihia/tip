@@ -41,14 +41,14 @@
 
             <div ng-repeat="item in content">
 
-                <div class="articleYellowRow">{{item.title}}</div>
+                <div class="articleYellowRow rtl">{{item.title}}</div>
 
 				<div class="articleItem" ng-show="item.image != ''">
                     <img src="{{imageHost}}/{{item.image}}" style="width: 100%;">
 
-                    <div class="articleDescription" ng-bind-html="item.desc"></div>
+                    <div class="articleDescription rtl" ng-bind-html="item.desc"></div>
                 </div>
-                <div class="articleDescWithoutImage" ng-show="item.image == ''" ng-bind-html="item.desc"></div>
+                <div class="articleDescWithoutImage rtl" ng-show="item.image == ''" ng-bind-html="item.desc"></div>
 
                 <div class="articleButtons">
                     <a href="mailto:{{item.email}}" ng-show="item.email != ''" >

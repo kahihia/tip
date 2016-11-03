@@ -15,12 +15,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 document.addEventListener("deviceready", function(){
 
-                    //TODO: DAILY PUSH NOTIFICATIONS: CHANGE $localstorage.isQuestionAnswered TO FALSE WHEN NOTIFICATION RECEIVED
-
                     var notificationOpenedCallback = function (jsonData) {
 
-                        alert(JSON.stringify(jsonData));
-                        //
+                        // alert(JSON.stringify(jsonData));
+
                         // NEW MESSAGE FROM SPECIALIST
 
                         if (jsonData.additionalData.type == "newmessage") {
@@ -57,6 +55,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                                 $rootScope.pushNotificationType = "dailydeal";
 
                                 $state.go('app.teaser');
+
+                            }
+
+                        }
+
+                        // BIRTHDAY
+
+                        if (jsonData.additionalData.type == "birthday") {
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $state.go('app.home');
 
                             }
 
@@ -271,13 +285,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             function(data){
 
-                console.log("Categories", data);
-
                 for (var i = 0; i < data.data.length; i++){
 
                     $rootScope.categories.push(data.data[i]);
 
                 }
+
+                var sales = {};
+
+                for(var j = 0; j < $rootScope.categories.length; j++){
+
+                    if ($rootScope.categories[j].index == "10"){
+
+                        sales = $rootScope.categories[j];
+
+                        $rootScope.categories.splice(j, 1);
+                        $rootScope.categories.unshift(sales);
+
+                    }
+
+                }
+
+                console.log("Categories", $rootScope.categories);
 
             },
 
@@ -379,7 +408,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // what time is it now?
 
-        $rootScope.timeNow = new Date().getHours() + ":" + new Date().getMinutes();
+        $rootScope.timeNow = ("0" + new Date().getHours()).slice(-2) + ":" + ("0" + new Date().getMinutes()).slice(-2);
 
         if ($rootScope.timeNow > "13:00") {
 
@@ -410,13 +439,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     $rootScope.deals = data.data;
 
-                    // for(var i = 0; i < $rootScope.deals.length; i++){
-                    //
-                    //     $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                    //     $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
-                    //     $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
-                    //
-                    // }
+                    for(var i = 0; i < $rootScope.deals.length; i++){
+
+                        if ($rootScope.deals[i].linktitle == ""){
+
+                            $rootScope.deals[i].linktitle = "קוד הטבה" ;
+
+                        }
+
+                        $rootScope.deals[i].imageSlider = [];
+
+                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != ""){
+
+                            $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image);
+
+                            if ($rootScope.deals[i].image2 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image2);
+
+                            }
+
+                            if ($rootScope.deals[i].image3 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image3);
+
+                            }
+
+                            if ($rootScope.deals[i].image4 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image4);
+
+                            }
+
+                        }
+
+                    }
 
                     $rootScope.isLocationEnabled = false;
 
@@ -457,15 +514,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 function(data){
 
-                    console.log(data.data);
-
                     $rootScope.deals = data.data;
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
-                        // $rootScope.deals[i].image = ($rootScope.deals[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image;
-                        // $rootScope.deals[i].image2 = ($rootScope.deals[i].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].image2;
-                        // $rootScope.deals[i].supplier_logo = ($rootScope.deals[i].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.deals[i].supplier_logo;
+                        if ($rootScope.deals[i].linktitle == ""){
+
+                            $rootScope.deals[i].linktitle = "קוד הטבה" ;
+
+                        }
+
+                        $rootScope.deals[i].imageSlider = [];
+
+                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != ""){
+
+                            $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image);
+
+                            if ($rootScope.deals[i].image2 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image2);
+
+                            }
+
+                            if ($rootScope.deals[i].image3 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image3);
+
+                            }
+
+                            if ($rootScope.deals[i].image4 != "") {
+
+                                $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image4);
+
+                            }
+
+                        }
 
                         for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
 
@@ -476,7 +559,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                             }
 
                         }
-
 
                     }
 
@@ -527,6 +609,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             }
 
+            if ((fromState.name == 'app.catalog' && toState.name == 'app.home') || (fromState.name == 'app.item' && toState.name == 'app.home')){
+
+                $rootScope.setCategory(0, "");
+
+            }
+
         });
 
         // banners
@@ -568,7 +656,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     }
 
                 }
-                console.log("Banners", $rootScope.banners);
+                console.log("Banners", $rootScope.bannersMain, $rootScope.bannersTeaser, $rootScope.bannersInfo);
                 console.log('Month banner', $rootScope.monthBanner);
                 console.log('Year banner', $rootScope.yearBanner);
 

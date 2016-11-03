@@ -51,13 +51,25 @@
                     </div>
 
                     <div class="TeaserInfoRight" style="background-color:white">
-                        <img src="{{imageHost}}/{{todayDeal.image}}" style="width:100%;" />
+
+                        <img src="{{imageHost}}/{{todayDeal.image}}" style="width:100%;" ng-show="todayDeal.imageSlider.length == 0"/>
+
+                        <div ng-show="todayDeal.imageSlider.length != 0">
+                            <ion-slides options="options" slider="data.slider" style="width: 100%; height: 260px;">
+                                <ion-slide-page ng-repeat="pic in todayDeal.imageSlider">
+                                    <div>
+                                        <img src="{{imageHost}}/{{pic}}">
+                                    </div>
+                                </ion-slide-page>
+                            </ion-slides>
+                        </div>
+
                     </div>
 
                 </div>
 
                 <div class="teaserInfo rtl">
-                    <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'"><a href="" ng-click="goToLink(todayDeal.codelink)">קוד הטבה</a></div>
+                    <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'"><a href="" ng-click="goToLink(todayDeal.codelink)">{{todayDeal.linktitle}}</a></div>
                     <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '0'">{{todayDeal.codelink}}</div>
                     <div class="teaserCodeLeft" ng-click="makeFavorite(todayDeal.index)" ng-show="!isFavorite(todayDeal.index)">שמור במועדפים בקטלוג</div>
                     <div class="teaserCodeLeftClicked" ng-show="isFavorite(todayDeal.index)">נשמר במועדפים בקטלוג</div>

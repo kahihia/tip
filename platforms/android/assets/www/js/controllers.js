@@ -899,8 +899,6 @@ angular.module('starter.controllers', [])
         var send_data = {
 
             'date' : $rootScope.today,
-            // 'type' : "",
-            // 'fromtype' : "",
             'soldier' : $localStorage.soldier,
             'gender' : $localStorage.gender
         };
@@ -949,9 +947,37 @@ angular.module('starter.controllers', [])
 
                     $rootScope.todayDeal = data.data[0];
 
-                    // $rootScope.todayDeal.image = ($rootScope.todayDeal.image == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.image;
-                    // $rootScope.todayDeal.image2 = ($rootScope.todayDeal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.image2;
-                    // $rootScope.todayDeal.supplier_logo = ($rootScope.todayDeal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $rootScope.todayDeal.supplier_logo;
+                    if ($rootScope.todayDeal.linktitle == ""){
+
+                        $rootScope.todayDeal.linktitle = "קוד הטבה" ;
+
+                    }
+
+                    $rootScope.todayDeal.imageSlider = [];
+
+                    if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
+
+                        $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
+
+                        if ($rootScope.todayDeal.image2 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
+
+                        }
+
+                        if ($rootScope.todayDeal.image3 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
+
+                        }
+
+                        if ($rootScope.todayDeal.image4 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
+
+                        }
+
+                    }
 
                     if ($rootScope.todayDeal.showiframe == "1"){
 
@@ -1003,7 +1029,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('PersonalCtrl', function ($timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+    .controller('PersonalCtrl', function (dateFilter, $timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
         $scope.$on('$ionicView.enter', function(e) {
 
@@ -1065,13 +1091,18 @@ angular.module('starter.controllers', [])
             "firstname" : $localStorage.firstname,
             "lastname" : $localStorage.lastname,
             "email" : $localStorage.email,
-            "birthday" : new Date($localStorage.birthday),
-            "conscription_date" : new Date($localStorage.conscription_date),
-            "release_date" : new Date($localStorage.release_date),
+            // "birthday" : new Date($localStorage.birthday),
+            "birthday" : $localStorage.birthday,
+            // "conscription_date" : new Date($localStorage.conscription_date),
+            "conscription_date" : $localStorage.conscription_date,
+            // "release_date" : new Date($localStorage.release_date),
+            "release_date" : $localStorage.release_date,
             "old_password" : "",
             "new_password" : ""
 
         };
+
+        // console.log(dateFilter($localStorage.birthday, 'dd/MM/yyyy'));
 
         // working with picture
 
@@ -1232,7 +1263,8 @@ angular.module('starter.controllers', [])
                             "firstname" : $scope.personalInformation.firstname,
                             "lastname" : $scope.personalInformation.lastname,
                             "email" : $scope.personalInformation.email,
-                            "birthday" : $scope.personalInformation.birthday,
+                            "birthday" : dateFilter($scope.personalInformation.birthday, 'yyyy-MM-dd'),
+                            // "birthday" : $scope.personalInformation.birthday,
                             "image" : $localStorage.image,
                             "conscription_date" : "",
                             "release_date" : "",
@@ -1252,8 +1284,8 @@ angular.module('starter.controllers', [])
 
                     if($localStorage.soldier == "1"){
 
-                        send_data.conscription_date = $scope.personalInformation.conscription_date;
-                        send_data.release_date = $scope.personalInformation.release_date;
+                        send_data.conscription_date = dateFilter($scope.personalInformation.conscription_date, 'yyyy-MM-dd');
+                        send_data.release_date = dateFilter($scope.personalInformation.release_date, 'yyyy-MM-dd');
 
                     }
 
@@ -1294,6 +1326,7 @@ angular.module('starter.controllers', [])
                                    "lastname" : $localStorage.lastname,
                                    "password" : $localStorage.password,
                                    "email" : $localStorage.email,
+                                   "birthday" : $localStorage.birthday,
                                    "gender" : $localStorage.gender,
                                    "soldier" : $localStorage.soldier,
                                    "userid" : $localStorage.userid,
@@ -1306,9 +1339,12 @@ angular.module('starter.controllers', [])
                                    "firstname" : $localStorage.firstname,
                                    "lastname" : $localStorage.lastname,
                                    "email" : $localStorage.email,
-                                   "birthday" : new Date($localStorage.birthday),
-                                   "conscription_date" : new Date($localStorage.conscription_date),
-                                   "release_date" : new Date($localStorage.release_date),
+                                   // "birthday" : new Date($localStorage.birthday),
+                                   "birthday" : $localStorage.birthday,
+                                   // "conscription_date" : new Date($localStorage.conscription_date),
+                                   "conscription_date" : $localStorage.conscription_date,
+                                   // "release_date" : new Date($localStorage.release_date),
+                                   "release_date" : $localStorage.release_date,
                                    "old_password" : "",
                                    "new_password" : ""
 
@@ -1774,31 +1810,27 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        $scope.$on('$ionicView.enter', function(e) {
+        $scope.deal = {};
 
-            $scope.deal = {};
+        // choosing deal
 
-            // choosing deal
+        for(var i = 0; i < $rootScope.deals.length; i++){
 
-            for(var i = 0; i < $rootScope.deals.length; i++){
+            if ($stateParams.itemId == $rootScope.deals[i].index){
 
-                if ($stateParams.itemId == $rootScope.deals[i].index){
+                $scope.deal = $rootScope.deals[i];
 
-                    $scope.deal = $rootScope.deals[i];
+                if ($scope.deal.showiframe == "1"){
 
-                    if ($scope.deal.showiframe == "1"){
-
-                        $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
-
-                    }
-
-                    console.log($scope.deal);
+                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
 
                 }
 
+                console.log($scope.deal);
+
             }
 
-        });
+        }
 
         $scope.goToLink = function(x){
 

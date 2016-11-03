@@ -71,14 +71,14 @@
 		62C17C7634C845B38BD7AD3D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB27121E1E36454198DE56AC /* FBSDKLoginKit.framework */; };
 		AC476B22ED704E4F96081CD0 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6ECEB2EF024723BF3A6286 /* FBSDKShareKit.framework */; };
 		482C92A11D344338AABBE5B8 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2CF160CC594E86B7F88037 /* CDVDevice.m */; };
-		08FF795450FC477F9330378C /* OneSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D00F9058A1E4E4381E63416 /* OneSignal.m */; };
-		3CA34E548B09478795CC34E4 /* OneSignalHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C79493777A3041AB89A2AEE6 /* OneSignalHTTPClient.m */; };
-		A062CE8399B14ED6A35C07D6 /* OneSignalTrackIAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C8A0694B2B43F6A2AA8BC2 /* OneSignalTrackIAP.m */; };
-		FB0F037F63014CAFB8A00DC6 /* OneSignalJailbreakDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 093E35D77A2245B7A2104D4B /* OneSignalJailbreakDetection.m */; };
-		902F4AE67E79491E843298D1 /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A9585ED914324B8AB8686 /* OneSignalPush.m */; };
-		4FCB10E64CEF4AD5817B9987 /* OneSignalReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DBAB7419574E55BE52999E /* OneSignalReachability.m */; };
-		8723D2762AE44DD0BACC3C6B /* OneSignalMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0722F90B74454BF43576D /* OneSignalMobileProvision.m */; };
-		550BA2BFD0334AB6B584F860 /* OneSignalLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DB043FE2B2CA44E9885511DD /* OneSignalLocation.m */; };
+		1509D1A46F46493FBBC3012F /* OneSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = BC57C36FC28A4BFD9DCF61C2 /* OneSignal.m */; };
+		533AA88F9D124191B6BF58C4 /* OneSignalHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE31A35261F436D95BE3D06 /* OneSignalHTTPClient.m */; };
+		2B7819922A614DC1B2799BF9 /* OneSignalTrackIAP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B32919E8DCA4145B1EEF381 /* OneSignalTrackIAP.m */; };
+		33BD8757CA1E400D97EA2B15 /* OneSignalJailbreakDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F3FDD9C1B74C5BAAB22995 /* OneSignalJailbreakDetection.m */; };
+		4EC960D26EBD40F596E0E04E /* OneSignalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9C4AD24D64464BB8DFA54 /* OneSignalPush.m */; };
+		B9342E395CC84F06B1011CBD /* OneSignalReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AB6EFFE53A44059770C65F /* OneSignalReachability.m */; };
+		01314CDD79B44AA7A5F63907 /* OneSignalMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = C239EE5CD6C34B2BB54B9F2F /* OneSignalMobileProvision.m */; };
+		E2ED6BC7D05E4D8690D0F3A0 /* OneSignalLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8BCC416EE4F7BB6C75BEB /* OneSignalLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,22 +195,22 @@
 		0A6ECEB2EF024723BF3A6286 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "tipli/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		5A2CF160CC594E86B7F88037 /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		749B3E367DBB4D68A411B91E /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		2D00F9058A1E4E4381E63416 /* OneSignal.m */ = {isa = PBXFileReference; name = "OneSignal.m"; path = "onesignal-cordova-plugin/OneSignal.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		C79493777A3041AB89A2AEE6 /* OneSignalHTTPClient.m */ = {isa = PBXFileReference; name = "OneSignalHTTPClient.m"; path = "onesignal-cordova-plugin/OneSignalHTTPClient.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		75C8A0694B2B43F6A2AA8BC2 /* OneSignalTrackIAP.m */ = {isa = PBXFileReference; name = "OneSignalTrackIAP.m"; path = "onesignal-cordova-plugin/OneSignalTrackIAP.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		093E35D77A2245B7A2104D4B /* OneSignalJailbreakDetection.m */ = {isa = PBXFileReference; name = "OneSignalJailbreakDetection.m"; path = "onesignal-cordova-plugin/OneSignalJailbreakDetection.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		FB8A9585ED914324B8AB8686 /* OneSignalPush.m */ = {isa = PBXFileReference; name = "OneSignalPush.m"; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		18DBAB7419574E55BE52999E /* OneSignalReachability.m */ = {isa = PBXFileReference; name = "OneSignalReachability.m"; path = "onesignal-cordova-plugin/OneSignalReachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		7BC0722F90B74454BF43576D /* OneSignalMobileProvision.m */ = {isa = PBXFileReference; name = "OneSignalMobileProvision.m"; path = "onesignal-cordova-plugin/OneSignalMobileProvision.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		DB043FE2B2CA44E9885511DD /* OneSignalLocation.m */ = {isa = PBXFileReference; name = "OneSignalLocation.m"; path = "onesignal-cordova-plugin/OneSignalLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		CAFA42716FBF46948296FF81 /* OneSignal.h */ = {isa = PBXFileReference; name = "OneSignal.h"; path = "onesignal-cordova-plugin/OneSignal.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		6DA2E4A17E4E4E39B2C6F4CA /* OneSignalHTTPClient.h */ = {isa = PBXFileReference; name = "OneSignalHTTPClient.h"; path = "onesignal-cordova-plugin/OneSignalHTTPClient.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		5400D9E9CE214C389D402A66 /* OneSignalTrackIAP.h */ = {isa = PBXFileReference; name = "OneSignalTrackIAP.h"; path = "onesignal-cordova-plugin/OneSignalTrackIAP.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		E3B4D59B1CFA4B0ABF3C7C38 /* OneSignalJailbreakDetection.h */ = {isa = PBXFileReference; name = "OneSignalJailbreakDetection.h"; path = "onesignal-cordova-plugin/OneSignalJailbreakDetection.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		DD4C0E984AF9404481BF0B26 /* OneSignalPush.h */ = {isa = PBXFileReference; name = "OneSignalPush.h"; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		38BC52A3B97442DDA119A0D2 /* OneSignalReachability.h */ = {isa = PBXFileReference; name = "OneSignalReachability.h"; path = "onesignal-cordova-plugin/OneSignalReachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		77B5E24C831C4D62A8A1E589 /* OneSignalMobileProvision.h */ = {isa = PBXFileReference; name = "OneSignalMobileProvision.h"; path = "onesignal-cordova-plugin/OneSignalMobileProvision.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		B1E18294842A443AB58538DF /* OneSignalLocation.h */ = {isa = PBXFileReference; name = "OneSignalLocation.h"; path = "onesignal-cordova-plugin/OneSignalLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		BC57C36FC28A4BFD9DCF61C2 /* OneSignal.m */ = {isa = PBXFileReference; name = "OneSignal.m"; path = "onesignal-cordova-plugin/OneSignal.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5BE31A35261F436D95BE3D06 /* OneSignalHTTPClient.m */ = {isa = PBXFileReference; name = "OneSignalHTTPClient.m"; path = "onesignal-cordova-plugin/OneSignalHTTPClient.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		0B32919E8DCA4145B1EEF381 /* OneSignalTrackIAP.m */ = {isa = PBXFileReference; name = "OneSignalTrackIAP.m"; path = "onesignal-cordova-plugin/OneSignalTrackIAP.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C1F3FDD9C1B74C5BAAB22995 /* OneSignalJailbreakDetection.m */ = {isa = PBXFileReference; name = "OneSignalJailbreakDetection.m"; path = "onesignal-cordova-plugin/OneSignalJailbreakDetection.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8ED9C4AD24D64464BB8DFA54 /* OneSignalPush.m */ = {isa = PBXFileReference; name = "OneSignalPush.m"; path = "onesignal-cordova-plugin/OneSignalPush.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		08AB6EFFE53A44059770C65F /* OneSignalReachability.m */ = {isa = PBXFileReference; name = "OneSignalReachability.m"; path = "onesignal-cordova-plugin/OneSignalReachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C239EE5CD6C34B2BB54B9F2F /* OneSignalMobileProvision.m */ = {isa = PBXFileReference; name = "OneSignalMobileProvision.m"; path = "onesignal-cordova-plugin/OneSignalMobileProvision.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		B5C8BCC416EE4F7BB6C75BEB /* OneSignalLocation.m */ = {isa = PBXFileReference; name = "OneSignalLocation.m"; path = "onesignal-cordova-plugin/OneSignalLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		836B0B14DEAF4B8D8B9F9647 /* OneSignal.h */ = {isa = PBXFileReference; name = "OneSignal.h"; path = "onesignal-cordova-plugin/OneSignal.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		00A115D9A432465897767755 /* OneSignalHTTPClient.h */ = {isa = PBXFileReference; name = "OneSignalHTTPClient.h"; path = "onesignal-cordova-plugin/OneSignalHTTPClient.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		43A757E3D9934CE3A125B02C /* OneSignalTrackIAP.h */ = {isa = PBXFileReference; name = "OneSignalTrackIAP.h"; path = "onesignal-cordova-plugin/OneSignalTrackIAP.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		7103D5AF7FA54681900728DF /* OneSignalJailbreakDetection.h */ = {isa = PBXFileReference; name = "OneSignalJailbreakDetection.h"; path = "onesignal-cordova-plugin/OneSignalJailbreakDetection.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		5726D43F41D143CFA9085C47 /* OneSignalPush.h */ = {isa = PBXFileReference; name = "OneSignalPush.h"; path = "onesignal-cordova-plugin/OneSignalPush.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		7C8E1AB9DA2D49CF9B776702 /* OneSignalReachability.h */ = {isa = PBXFileReference; name = "OneSignalReachability.h"; path = "onesignal-cordova-plugin/OneSignalReachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		BBCAC1F9B1094DF59DFFBC52 /* OneSignalMobileProvision.h */ = {isa = PBXFileReference; name = "OneSignalMobileProvision.h"; path = "onesignal-cordova-plugin/OneSignalMobileProvision.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		879F33BCDD594DDCA2F91502 /* OneSignalLocation.h */ = {isa = PBXFileReference; name = "OneSignalLocation.h"; path = "onesignal-cordova-plugin/OneSignalLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,22 +374,22 @@
 				BC1965FB498A41938471D2D8 /* FacebookConnectPlugin.h */,
 				5A2CF160CC594E86B7F88037 /* CDVDevice.m */,
 				749B3E367DBB4D68A411B91E /* CDVDevice.h */,
-				2D00F9058A1E4E4381E63416 /* OneSignal.m */,
-				C79493777A3041AB89A2AEE6 /* OneSignalHTTPClient.m */,
-				75C8A0694B2B43F6A2AA8BC2 /* OneSignalTrackIAP.m */,
-				093E35D77A2245B7A2104D4B /* OneSignalJailbreakDetection.m */,
-				FB8A9585ED914324B8AB8686 /* OneSignalPush.m */,
-				18DBAB7419574E55BE52999E /* OneSignalReachability.m */,
-				7BC0722F90B74454BF43576D /* OneSignalMobileProvision.m */,
-				DB043FE2B2CA44E9885511DD /* OneSignalLocation.m */,
-				CAFA42716FBF46948296FF81 /* OneSignal.h */,
-				6DA2E4A17E4E4E39B2C6F4CA /* OneSignalHTTPClient.h */,
-				5400D9E9CE214C389D402A66 /* OneSignalTrackIAP.h */,
-				E3B4D59B1CFA4B0ABF3C7C38 /* OneSignalJailbreakDetection.h */,
-				DD4C0E984AF9404481BF0B26 /* OneSignalPush.h */,
-				38BC52A3B97442DDA119A0D2 /* OneSignalReachability.h */,
-				77B5E24C831C4D62A8A1E589 /* OneSignalMobileProvision.h */,
-				B1E18294842A443AB58538DF /* OneSignalLocation.h */,
+				BC57C36FC28A4BFD9DCF61C2 /* OneSignal.m */,
+				5BE31A35261F436D95BE3D06 /* OneSignalHTTPClient.m */,
+				0B32919E8DCA4145B1EEF381 /* OneSignalTrackIAP.m */,
+				C1F3FDD9C1B74C5BAAB22995 /* OneSignalJailbreakDetection.m */,
+				8ED9C4AD24D64464BB8DFA54 /* OneSignalPush.m */,
+				08AB6EFFE53A44059770C65F /* OneSignalReachability.m */,
+				C239EE5CD6C34B2BB54B9F2F /* OneSignalMobileProvision.m */,
+				B5C8BCC416EE4F7BB6C75BEB /* OneSignalLocation.m */,
+				836B0B14DEAF4B8D8B9F9647 /* OneSignal.h */,
+				00A115D9A432465897767755 /* OneSignalHTTPClient.h */,
+				43A757E3D9934CE3A125B02C /* OneSignalTrackIAP.h */,
+				7103D5AF7FA54681900728DF /* OneSignalJailbreakDetection.h */,
+				5726D43F41D143CFA9085C47 /* OneSignalPush.h */,
+				7C8E1AB9DA2D49CF9B776702 /* OneSignalReachability.h */,
+				BBCAC1F9B1094DF59DFFBC52 /* OneSignalMobileProvision.h */,
+				879F33BCDD594DDCA2F91502 /* OneSignalLocation.h */,
 			);
 			name = Plugins;
 			path = "tipli/Plugins";
@@ -592,14 +592,14 @@
 				3111BF14F53F4238B4EB23CD /* CDVInAppBrowser.m in Sources */,
 				139A30B7EF79494B91CD3EE2 /* FacebookConnectPlugin.m in Sources */,
 				482C92A11D344338AABBE5B8 /* CDVDevice.m in Sources */,
-				08FF795450FC477F9330378C /* OneSignal.m in Sources */,
-				3CA34E548B09478795CC34E4 /* OneSignalHTTPClient.m in Sources */,
-				A062CE8399B14ED6A35C07D6 /* OneSignalTrackIAP.m in Sources */,
-				FB0F037F63014CAFB8A00DC6 /* OneSignalJailbreakDetection.m in Sources */,
-				902F4AE67E79491E843298D1 /* OneSignalPush.m in Sources */,
-				4FCB10E64CEF4AD5817B9987 /* OneSignalReachability.m in Sources */,
-				8723D2762AE44DD0BACC3C6B /* OneSignalMobileProvision.m in Sources */,
-				550BA2BFD0334AB6B584F860 /* OneSignalLocation.m in Sources */,
+				1509D1A46F46493FBBC3012F /* OneSignal.m in Sources */,
+				533AA88F9D124191B6BF58C4 /* OneSignalHTTPClient.m in Sources */,
+				2B7819922A614DC1B2799BF9 /* OneSignalTrackIAP.m in Sources */,
+				33BD8757CA1E400D97EA2B15 /* OneSignalJailbreakDetection.m in Sources */,
+				4EC960D26EBD40F596E0E04E /* OneSignalPush.m in Sources */,
+				B9342E395CC84F06B1011CBD /* OneSignalReachability.m in Sources */,
+				01314CDD79B44AA7A5F63907 /* OneSignalMobileProvision.m in Sources */,
+				E2ED6BC7D05E4D8690D0F3A0 /* OneSignalLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@ angular.module('starter.filters', [])
 
                 if (input[i].cat_id == $rootScope.categoryNumber) {
 
-                    // console.log(input[i]);
                     out.push(input[i]);
 
                 }
@@ -20,4 +19,4 @@ angular.module('starter.filters', [])
             return out;
         }
 
-    })
+    });

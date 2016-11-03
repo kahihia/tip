@@ -39,17 +39,29 @@
                         <input type="email" class="input ltr" ng-model="personalInformation.email">
                     </div>
 
-                    <div class="inputDiv">
-                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.birthday">
-                    </div>
+                    <!--<div class="inputDiv">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.birthday">-->
+                    <!--</div>-->
 
-                    <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.conscription_date">
-                    </div>
+                    <label class="item item-input item-select itemSelected" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.birthday">
+                    </label>
 
-                    <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.release_date">
-                    </div>
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.conscription_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.conscription_date">
+                    </label>
+
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.release_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.release_date">
+                    </label>
 
                     <div class="inputDiv">
                         <input type="password" class="input ltr" placeholder="סיסמא ישנה" ng-model="personalInformation.old_password">

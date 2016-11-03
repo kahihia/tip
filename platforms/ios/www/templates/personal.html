@@ -16,9 +16,9 @@
         <div class="header pointsHeaderTitle">אזור אישי</div>
 
         <div class="button-bar">  
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
-            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
         </div>
 
         <div ng-switch="selection" class="textCenter">
@@ -39,17 +39,29 @@
                         <input type="email" class="input ltr" ng-model="personalInformation.email">
                     </div>
 
-                    <div class="inputDiv">
-                        <input type="date" class="input ltr" ng-model="personalInformation.birthday">
-                    </div>
+                    <!--<div class="inputDiv">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.birthday">-->
+                    <!--</div>-->
 
-                    <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" ng-model="personalInformation.conscription_date">
-                    </div>
+                    <label class="item item-input item-select itemSelected" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.birthday">
+                    </label>
 
-                    <div class="inputDiv" ng-show="userData.soldier == 1">
-                        <input type="date" class="input ltr" ng-model="personalInformation.release_date">
-                    </div>
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.conscription_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.conscription_date">
+                    </label>
+
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.release_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.release_date">
+                    </label>
 
                     <div class="inputDiv">
                         <input type="password" class="input ltr" placeholder="סיסמא ישנה" ng-model="personalInformation.old_password">
@@ -100,8 +112,8 @@
             <div ng-switch-when="personal">
 
 					<div class="pointTitle">
-                    	<div class="pointTitleHeader">צברתי מתחילת החודש 0 נקודות</div>
-                    	<div> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
+                    	<div class="pointTitleHeader">צברתי מתחילת החודש {{monthPoints}} נקודות</div>
+                    	<div style="font-size:13px;"> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
                     </div>
                     
                     <div class="personalTableRow">
@@ -121,7 +133,8 @@
                     <div class="yellowRow"></div>
                
 
-                <div class="pointDescription">עונים נכונה על לפחות 15 שאלות ונכנסים להגרלה החודשית!</div>
+                <div class="pointDescription">עונים נכונה על לפחות 15 שאלות </div>
+                <div class="pointDescription" style="margin-top:-38px;">ונכנסים להגרלה החודשית!</div>
 
             </div>
 

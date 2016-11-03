@@ -576,8 +576,48 @@ angular.module('starter.controllers', [])
             "user" : $localStorage.userid
 
         };
+        //
+        // $http.post($rootScope.host + 'GetAnswers', send_user, {
+        //
+        //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+        //
+        // }).then(
+        //
+        //     function(data){
+        //
+        //         console.log(data);
+        //
+        //         for (var i = 0; i < data.data.length; i++){
+        //
+        //             if (data.data[i].correct == "0"){
+        //
+        //                 $rootScope.incorrectAnswers += 1;
+        //
+        //             } else if (data.data[i].correct == "1"){
+        //
+        //                 $rootScope.correctAnswers += 1;
+        //
+        //             }
+        //
+        //             $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
+        //
+        //         }
+        //
+        //     },
+        //
+        //     function(err){
+        //
+        //         $ionicPopup.alert({
+        //             title: "אין חיבור לרשת",
+        //             buttons: [{
+        //                 text: 'OK',
+        //                 type: 'button-positive'
+        //             }]
+        //         });
+        //
+        //     });
 
-        $http.post($rootScope.host + 'GetAnswers', send_user, {
+        $http.post($rootScope.host + 'GetPointsPerMonth', send_user, {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
@@ -585,23 +625,12 @@ angular.module('starter.controllers', [])
 
             function(data){
 
-                console.log(data);
+                console.log("Points", data.data);
 
-                for (var i = 0; i < data.data.length; i++){
-
-                    if (data.data[i].correct == "0"){
-
-                        $rootScope.incorrectAnswers += 1;
-
-                    } else if (data.data[i].correct == "1"){
-
-                        $rootScope.correctAnswers += 1;
-
-                    }
-
-                    $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
-
-                }
+                $rootScope.correctAnswers = data.data.month_correct;
+                $rootScope.incorrectAnswers = data.data.month_wrong;
+                $rootScope.monthPoints = data.data.month_points;
+                $rootScope.allPoints = data.data.total_points;
 
             },
 
@@ -616,7 +645,6 @@ angular.module('starter.controllers', [])
                 });
 
             });
-
 
 
     })
@@ -659,8 +687,8 @@ angular.module('starter.controllers', [])
 
                 $scope.question = data.data[0];
 
-                $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
-                $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
+                // $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
+                // $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -840,6 +868,21 @@ angular.module('starter.controllers', [])
 
         };
 
+        $scope.checkDiscountState = function(){
+
+            if ($rootScope.todayDeal.showiframe == "0" && $rootScope.todayDeal.dealgivenby == "1"){
+
+                $state.go('app.discount');
+                cordova.InAppBrowser.open($rootScope.todayDeal.codelink, '_blank', 'location=yes');
+
+            } else {
+
+                $state.go('app.discount');
+
+            }
+
+        }
+
 
     })
 
@@ -856,32 +899,36 @@ angular.module('starter.controllers', [])
         var send_data = {
 
             'date' : $rootScope.today,
-            'type' : "",
+            'soldier' : $localStorage.soldier,
             'gender' : $localStorage.gender
-
         };
 
-        if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
-
-            send_data.type = "2"; // soldier female
-
-        } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
-
-            send_data.type = "1"; // soldier male
-
-        } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
-
-            send_data.type = "5"; // civil female
-
-        } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
-
-            send_data.type = "4"; // civil male
-
-        }
+        // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
+        //
+        //     send_data.type = "2"; // soldier female
+        //     send_data.fromtype = "3"; // all soldiers
+        //
+        // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
+        //
+        //     send_data.type = "1"; // soldier male
+        //     send_data.fromtype = "3"; // all soldiers
+        //
+        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
+        //
+        //     send_data.type = "5"; // civil female
+        //     send_data.fromtype = "6"; // all civils
+        //
+        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
+        //
+        //     send_data.type = "4"; // civil male
+        //     send_data.fromtype = "6"; // all civils
+        //
+        // }
 
         // get deal for today
 
-        $scope.todayDeal = {};
+
+        $scope.noTodayDeal = false;
 
         $http.post($rootScope.host + 'GetDealByDate', send_data, {
 
@@ -890,19 +937,57 @@ angular.module('starter.controllers', [])
         }).then(
             function (data) {
 
-                $scope.todayDeal = data.data[0];
+                if (data.data.length == 0){
 
-                $scope.todayDeal.image = ($scope.todayDeal.image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image;
-                $scope.todayDeal.image2 = ($scope.todayDeal.image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.image2;
-                $scope.todayDeal.supplier_logo = ($scope.todayDeal.supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.todayDeal.supplier_logo;
+                    $scope.noTodayDeal = true;
 
-                if ($scope.todayDeal.showiframe == "1"){
+                } else {
 
-                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.todayDeal.codelink);
+                    $scope.noTodayDeal = false;
+
+                    $rootScope.todayDeal = data.data[0];
+
+                    if ($rootScope.todayDeal.linktitle == ""){
+
+                        $rootScope.todayDeal.linktitle = "קוד הטבה" ;
+
+                    }
+
+                    $rootScope.todayDeal.imageSlider = [];
+
+                    if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
+
+                        $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
+
+                        if ($rootScope.todayDeal.image2 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
+
+                        }
+
+                        if ($rootScope.todayDeal.image3 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
+
+                        }
+
+                        if ($rootScope.todayDeal.image4 != "") {
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
+
+                        }
+
+                    }
+
+                    if ($rootScope.todayDeal.showiframe == "1"){
+
+                        $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
+
+                    }
+
+                    console.log("Today Deal", $rootScope.todayDeal);
 
                 }
-
-                console.log($scope.todayDeal);
 
             },
 
@@ -930,15 +1015,21 @@ angular.module('starter.controllers', [])
 
         $scope.makeFavorite = function(x){
 
-            console.log(x);
-
             return makeFavoriteFactory.makeFavorite(x, $scope);
+
+        };
+
+        // open links
+
+        $scope.goToLink = function(x){
+
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
 
         };
 
     })
 
-    .controller('PersonalCtrl', function ($timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
+    .controller('PersonalCtrl', function (dateFilter, $timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
         $scope.$on('$ionicView.enter', function(e) {
 
@@ -1000,13 +1091,18 @@ angular.module('starter.controllers', [])
             "firstname" : $localStorage.firstname,
             "lastname" : $localStorage.lastname,
             "email" : $localStorage.email,
-            "birthday" : new Date($localStorage.birthday),
-            "conscription_date" : new Date($localStorage.conscription_date),
-            "release_date" : new Date($localStorage.release_date),
+            // "birthday" : new Date($localStorage.birthday),
+            "birthday" : $localStorage.birthday,
+            // "conscription_date" : new Date($localStorage.conscription_date),
+            "conscription_date" : $localStorage.conscription_date,
+            // "release_date" : new Date($localStorage.release_date),
+            "release_date" : $localStorage.release_date,
             "old_password" : "",
             "new_password" : ""
 
         };
+
+        // console.log(dateFilter($localStorage.birthday, 'dd/MM/yyyy'));
 
         // working with picture
 
@@ -1167,7 +1263,8 @@ angular.module('starter.controllers', [])
                             "firstname" : $scope.personalInformation.firstname,
                             "lastname" : $scope.personalInformation.lastname,
                             "email" : $scope.personalInformation.email,
-                            "birthday" : $scope.personalInformation.birthday,
+                            "birthday" : dateFilter($scope.personalInformation.birthday, 'yyyy-MM-dd'),
+                            // "birthday" : $scope.personalInformation.birthday,
                             "image" : $localStorage.image,
                             "conscription_date" : "",
                             "release_date" : "",
@@ -1187,8 +1284,8 @@ angular.module('starter.controllers', [])
 
                     if($localStorage.soldier == "1"){
 
-                        send_data.conscription_date = $scope.personalInformation.conscription_date;
-                        send_data.release_date = $scope.personalInformation.release_date;
+                        send_data.conscription_date = dateFilter($scope.personalInformation.conscription_date, 'yyyy-MM-dd');
+                        send_data.release_date = dateFilter($scope.personalInformation.release_date, 'yyyy-MM-dd');
 
                     }
 
@@ -1229,6 +1326,7 @@ angular.module('starter.controllers', [])
                                    "lastname" : $localStorage.lastname,
                                    "password" : $localStorage.password,
                                    "email" : $localStorage.email,
+                                   "birthday" : $localStorage.birthday,
                                    "gender" : $localStorage.gender,
                                    "soldier" : $localStorage.soldier,
                                    "userid" : $localStorage.userid,
@@ -1241,9 +1339,12 @@ angular.module('starter.controllers', [])
                                    "firstname" : $localStorage.firstname,
                                    "lastname" : $localStorage.lastname,
                                    "email" : $localStorage.email,
-                                   "birthday" : new Date($localStorage.birthday),
-                                   "conscription_date" : new Date($localStorage.conscription_date),
-                                   "release_date" : new Date($localStorage.release_date),
+                                   // "birthday" : new Date($localStorage.birthday),
+                                   "birthday" : $localStorage.birthday,
+                                   // "conscription_date" : new Date($localStorage.conscription_date),
+                                   "conscription_date" : $localStorage.conscription_date,
+                                   // "release_date" : new Date($localStorage.release_date),
+                                   "release_date" : $localStorage.release_date,
                                    "old_password" : "",
                                    "new_password" : ""
 
@@ -1437,6 +1538,22 @@ angular.module('starter.controllers', [])
 
     .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
+        $scope.openItem = function(x){
+
+            if (x.showiframe == "0" && x.dealgivenby == "1"){
+
+                $state.go('app.item', {itemId:x.index});
+                cordova.InAppBrowser.open(x.codelink, '_blank', 'location=yes');
+
+            } else {
+
+                $state.go('app.item', {itemId:x.index});
+
+            }
+
+        };
+
+
         $scope.selection = 'catalog';
 
         $scope.chooseTab = function(x){
@@ -1467,9 +1584,9 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $scope.favorites.length; j++){
 
-                    $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
-                    $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
-                    $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
+                    // $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
+                    // $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
+                    // $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
 
                     $rootScope.favoriteDeals.push($scope.favorites[j]);
 
@@ -1693,37 +1810,33 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        $scope.$on('$ionicView.enter', function(e) {
+        $scope.deal = {};
 
-            $scope.deal = {};
+        // choosing deal
 
-            // choosing deal
+        for(var i = 0; i < $rootScope.deals.length; i++){
 
-            for(var i = 0; i < $rootScope.deals.length; i++){
+            if ($stateParams.itemId == $rootScope.deals[i].index){
 
-                if ($stateParams.itemId == $rootScope.deals[i].index){
+                $scope.deal = $rootScope.deals[i];
 
-                    $scope.deal = $rootScope.deals[i];
+                if ($scope.deal.showiframe == "1"){
 
-                    if ($scope.deal.showiframe == "1"){
-
-                        $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
-
-                    }
-
-                    console.log($scope.deal);
+                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
 
                 }
 
+                console.log($scope.deal);
+
             }
 
-            $scope.goToLink = function(x){
+        }
 
-                cordova.InAppBrowser.open(x, '_system', 'location=yes');
+        $scope.goToLink = function(x){
 
-            };
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
 
-        });
+        };
 
         // check if the deal is favorite
 
@@ -1764,48 +1877,53 @@ angular.module('starter.controllers', [])
         $scope.infoCategoryName = $rootScope.infoCategories[$stateParams.articleId - 1];
         $scope.infoCategoryIcon = "img/info_articles/" + $stateParams.articleId + ".png";
 
-        $scope.content = {};
+        $scope.$on('$ionicView.enter', function(e) {
 
-        // get article for the page
+            $scope.content = {};
 
-        var send_data = {
+            // get article for the page
 
-            "catid" : $stateParams.articleId,
-            "issoldier" : $localStorage.soldier
+            var send_data = {
 
-        };
+                "catid" : $stateParams.articleId,
+                "issoldier" : $localStorage.soldier
 
-        $http.post($rootScope.host + 'GetInfoArticles', send_data, {
+            };
 
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+            $http.post($rootScope.host + 'GetInfoArticles', send_data, {
 
-        }).then(
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-            function(data){
+            }).then(
 
-                $scope.content = data.data;
+                function(data){
 
-                for (var i = 0; i < $scope.content.length; i++){
+                    $scope.content = data.data;
 
-                    $scope.content[i].image = $rootScope.phpHost + "uploads/" + $scope.content[i].image;
+                    for (var i = 0; i < $scope.content.length; i++){
 
-                }
+                        // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
 
-                console.log($scope.content);
+                    }
 
-            },
+                    console.log($scope.content);
 
-            function(err){
+                },
 
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
                 });
 
-            });
+        });
+
 
         // show video if needed
 

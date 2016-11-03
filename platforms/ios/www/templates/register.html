@@ -37,9 +37,13 @@
                 </select>
             </div>
 
-            <div class="inputDiv">
-                <input type="date" class="input textCenter ltr" placeholder="תאריך לידה" ng-model="register.birthday">
-            </div>
+            <label class="item item-input item-select itemSelected">
+                <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" placeholder="תאריך לידה" class="ion-input-select--large itemSelectedBox" ng-model="register.birthday">
+            </label>
+
+            <!--<div class="inputDiv">-->
+                <!--<input type="date" class="input textCenter ltr" placeholder="תאריך לידה" ng-model="register.birthday">-->
+            <!--</div>-->
 
             <div class="inputDiv">
                 <input type="text" g-places-autocomplete options="autocompleteOptions" class="input textCenter ltr" placeholder="יישוב" ng-model="register.maps">
@@ -59,25 +63,38 @@
 
             </div>
 
-            <div class="textCenter" style="font-size: 15px;"  ng-show="register.soldier == '1'">הזן תאריך גיוס</div>
+            <label class="item item-input item-select itemSelected" ng-show="register.soldier == '1'" style="margin-bottom: 10px;">
+                <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" placeholder="תאריך גיוס" class="ion-input-select--large itemSelectedBox" ng-model="register.conscription_date">
+            </label>
 
-            <div class="inputDiv" ng-show="register.soldier == '1'">
-                <input type="date" class="input textCenter ltr" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">
-            </div>
+            <!--<div class="textCenter" style="font-size: 15px;"  ng-show="register.soldier == '1'">הזן תאריך גיוס</div>-->
 
-            <div class="textCenter" style="font-size: 15px;" ng-show="register.soldier == '1'">הזן תאריך שחרור משוער</div>
+            <!--<div class="inputDiv" ng-show="register.soldier == '1'">-->
+                <!--<input type="date" class="input textCenter ltr" placeholder="הזן תאריך גיוס" ng-model="register.conscription_date">-->
+            <!--</div>-->
 
-            <div class="inputDiv" ng-show="register.soldier == '1'">
-                <input type="date" class="input textCenter ltr" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">
-            </div>
+            <label class="item item-input item-select itemSelected" ng-show="register.soldier == '1'">
+                <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" placeholder="תאריך שחרור משואר" class="ion-input-select--large itemSelectedBox" ng-model="register.release_date">
+            </label>
+
+            <!--<div class="textCenter" style="font-size: 15px;" ng-show="register.soldier == '1'">הזן תאריך שחרור משוער</div>-->
+
+            <!--<div class="inputDiv" ng-show="register.soldier == '1'">-->
+                <!--<input type="date" class="input textCenter ltr" placeholder="הזן תאריך שחרור משואר" ng-model="register.release_date">-->
+            <!--</div>-->
 
             <div class="inputDiv">
                 <input type="text" class="input textCenter ltr" placeholder="הזן קוד במידה וקיבלת מחבר" ng-model="register.code">
             </div>
+
+            <div class="div90" style="position: relative;">
+                <img src="img/enter1.png" style="width: 100%;" ng-click="makeRegistration()">
+                <img src="img/enter2.png" style="position: absolute; top: 0; left: 0; margin-top: -3px; height: 100%;" ui-sref="app.login">
+            </div>
 			
-            <div class="div90" style="margin-top:20px;" ng-click="makeRegistration()">
-           		<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />
-           </div>
+            <!--<div class="div90" style="margin-top:20px;" ng-click="makeRegistration()">-->
+           		<!--<img src="img/teaser_next.png" style="width:100%; margin-top:-5px;" />-->
+           <!--</div>-->
            
            
 

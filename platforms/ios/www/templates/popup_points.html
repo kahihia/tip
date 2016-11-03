@@ -6,16 +6,16 @@
 
         <div class="pointsPopupTitle">הנקודות שלי החודש</div>
 
-        <div class="pointsPopupQuantity">{{allPoints}}</div>
+        <div class="pointsPopupQuantity">{{monthPoints}}</div>
 
         <div class="pointsPopupInfo">להגרלה החודשי עליך לענות על עוד {{leftQuestions}} שאלות</div>
 
         <div class="pointsPopupBanner">
-            <img ng-src="{{monthBanner.image}}" style="width: 100%; height: 60px;">
+            <img src="{{imageHost}}/{{monthBanner.image}}" style="width: 100%; height: 60px;">
         </div>
 
         <div class="pointsPopupBanner">
-            <img ng-src="{{yearBanner.image}}" style="width: 100%; height: 60px;">
+            <img src="{{imageHost}}/{{yearBanner.image}}" style="width: 100%; height: 60px;">
         </div>
 
         <div class="pointsPopupButton" ng-click="hidePointsPopup()">

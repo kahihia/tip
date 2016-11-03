@@ -1,5 +1,5 @@
 <ion-view view-title="Information" hide-nav-bar="true">
-    <ion-content class="has-footer" style="bottom: 100px;">
+    <ion-content>
 
 		<div>
             <div class="sideMenuIcon">
@@ -42,10 +42,11 @@
 
         </div>
 
-    </ion-content>
-    
-    <ion-footer-bar style="height:100px; padding:0px; margin:0px;">
-        <div style="width: 100%; height: 100%;">
+        <div ng-show="bannersInfo.length == 1" style="margin-top: -6px;">
+            <img src="{{imageHost}}/{{bannersInfo[0].image}}" style="width: 100%;">
+        </div>
+
+        <div ng-show="bannersInfo.length > 1" style="width: 100%; height: 100px; margin-top: -6px;">
             <ion-slides options="options" slider="data.slider">
                 <ion-slide-page ng-repeat="banner in bannersInfo">
                     <div>
@@ -54,6 +55,7 @@
                 </ion-slide-page>
             </ion-slides>
         </div>
-	</ion-footer-bar>
+
+    </ion-content>
 
 </ion-view>
