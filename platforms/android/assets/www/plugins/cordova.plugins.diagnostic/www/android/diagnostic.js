@@ -1,4 +1,5 @@
-cordova.define("cordova.plugins.diagnostic.Diagnostic", function(require, exports, module) { /**
+cordova.define("cordova.plugins.diagnostic.Diagnostic", function(require, exports, module) {
+/**
  *  Diagnostic plugin for Android
  *
  *  Copyright (c) 2015 Working Edge Ltd.
