@@ -10,7 +10,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-
+				
+				$ionicPlatform.registerBackButtonAction(function (event) 
+				{
+					alert($rootScope.State)
+					if($rootScope.State == 'app.main') 
+					{
+						 confirmbox = confirm("do you want to close the app?");
+						 if (confirmbox)
+							navigator.app.exitApp();
+						 else
+							event.preventDefault();
+					}
+					else
+					{
+						 $ionicHistory.goBack();
+					}
+				},100);
                 // Notifications
 
                 document.addEventListener("deviceready", function(){

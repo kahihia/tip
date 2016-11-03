@@ -10,7 +10,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-
+				
+				$ionicPlatform.registerBackButtonAction(function (event) 
+				{
+					if($state.current.name == 'app.login') 
+					{
+						
+					}
+					else
+					{
+						 $ionicHistory.goBack();
+					}
+					
+				},100);
                 // Notifications
 
                 document.addEventListener("deviceready", function(){

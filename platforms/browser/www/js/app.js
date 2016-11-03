@@ -10,82 +10,93 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-
+				
+				$ionicPlatform.registerBackButtonAction(function (event) 
+				{
+					alert($rootScope.State)
+					if($rootScope.State == 'app.main') 
+					{
+						 confirmbox = confirm("do you want to close the app?");
+						 if (confirmbox)
+							navigator.app.exitApp();
+						 else
+							event.preventDefault();
+					}
+					else
+					{
+						 $ionicHistory.goBack();
+					}
+				},100);
                 // Notifications
 
                 document.addEventListener("deviceready", function(){
 
                     var notificationOpenedCallback = function (jsonData) {
 
-                        alert(JSON.stringify(jsonData));
+                        // alert(JSON.stringify(jsonData));
 
                         // NEW MESSAGE FROM SPECIALIST
 
-                        // if (jsonData.additionalData.type == "newmessage") {
-                        //
-                        //     if ($localStorage.userid == ''){        // if not logged in
-                        //
-                        //         $state.go('app.login');
-                        //
-                        //     } else {        // if logged in
-                        //
-                        //         $rootScope.pushNotificationType = "newmessage";
-                        //
-                        //         $state.go('app.personal');
-                        //
-                        //     }
-                        //
-                        // }
-                        //
-                        // // DAILY DEAL
-                        //
-                        // if (jsonData.additionalData.type == "dailydeal") {
-                        //
-                        //     $localStorage.isQuestionAnswered = false;
-                        //     $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
-                        //
-                        //     // alert(JSON.stringify(jsonData.additionalData));
-                        //
-                        //     if ($localStorage.userid == ''){        // if not logged in
-                        //
-                        //         $state.go('app.login');
-                        //
-                        //     } else {        // if logged in
-                        //
-                        //         $rootScope.pushNotificationType = "dailydeal";
-                        //
-                        //         $state.go('app.teaser');
-                        //
-                        //     }
-                        //
-                        // }
-                        //
-                        // // BIRTHDAY
-                        //
-                        // if (jsonData.additionalData.type == "birthday") {
-                        //
-                        //     if ($localStorage.userid == ''){        // if not logged in
-                        //
-                        //         $state.go('app.login');
-                        //
-                        //     } else {        // if logged in
-                        //
-                        //         $state.go('app.home');
-                        //
-                        //     }
-                        //
-                        // }
+                        if (jsonData.additionalData.type == "newmessage") {
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $rootScope.pushNotificationType = "newmessage";
+
+                                $state.go('app.personal');
+
+                            }
+
+                        }
+
+                        // DAILY DEAL
+
+                        if (jsonData.additionalData.type == "dailydeal") {
+
+                            $localStorage.isQuestionAnswered = false;
+                            $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+
+                            // alert(JSON.stringify(jsonData.additionalData));
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $rootScope.pushNotificationType = "dailydeal";
+
+                                $state.go('app.teaser');
+
+                            }
+
+                        }
+
+                        // BIRTHDAY
+
+                        if (jsonData.additionalData.type == "birthday") {
+
+                            if ($localStorage.userid == ''){        // if not logged in
+
+                                $state.go('app.login');
+
+                            } else {        // if logged in
+
+                                $state.go('app.home');
+
+                            }
+
+                        }
 
                     };
 
-                    // window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                    //     {googleProjectNumber: "627358870772"},
-                    //     notificationOpenedCallback);
-
-                    window.plugins.OneSignal
-                        .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "627358870772")
-                        .handleNotificationOpened(notificationOpenedCallback)
-                        .endInit();
+                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                        {googleProjectNumber: "627358870772"},
+                        notificationOpenedCallback);
 
                     window.plugins.OneSignal.getIds(function (ids) {
 

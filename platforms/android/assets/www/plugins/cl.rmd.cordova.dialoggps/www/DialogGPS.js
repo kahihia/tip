@@ -1,5 +1,4 @@
-cordova.define("cl.rmd.cordova.dialoggps.DialogGPS", function(require, exports, module) {
-
+cordova.define("cl.rmd.cordova.dialoggps.DialogGPS", function(require, exports, module) { 
 
 var DialogGPS = function(message,description,callback,title,buttons){
 
