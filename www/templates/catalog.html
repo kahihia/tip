@@ -53,11 +53,11 @@
 
                             <div class="catalogDealTitleRight">{{deal.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -68,7 +68,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -98,11 +98,11 @@
 
                             <div class="catalogDealTitleRight">{{deal.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -113,7 +113,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -141,11 +141,11 @@
 
                             <div class="catalogDealTitleRight">{{fav.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index, fav.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index, fav.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -156,7 +156,7 @@
                         <div class="ThumbDealInfo">
                             <div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{fav.member_price}} <span> 	&#x20aa;</span></div>
 
                             </div>
                             <div class="ThumbDealInfoLeft">

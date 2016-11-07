@@ -10,23 +10,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
+
+                // Back button
 				
 				$ionicPlatform.registerBackButtonAction(function (event) 
 				{
-					alert($rootScope.State)
-					if($rootScope.State == 'app.main') 
-					{
-						 confirmbox = confirm("do you want to close the app?");
-						 if (confirmbox)
-							navigator.app.exitApp();
-						 else
-							event.preventDefault();
-					}
-					else
-					{
+					if($state.current.name == 'app.login' || $state.current.name == 'app.home' ||
+                        $state.current.name == 'app.question' || $state.current.name == 'app.answer') {
+
+					    // do nothing
+
+					}  else {
+
 						 $ionicHistory.goBack();
+
 					}
+					
 				},100);
+
+
                 // Notifications
 
                 document.addEventListener("deviceready", function(){
@@ -566,6 +568,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                         }
 
+                        $rootScope.closeDeals = [];
+
                         for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
 
                             if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
@@ -581,6 +585,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     $rootScope.isLocationEnabled = true;
 
                     console.log("closeDeals", $rootScope.closeDeals);
+
                     console.log("DealsWithLocation", $rootScope.deals);
 
                 },

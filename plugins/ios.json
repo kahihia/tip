@@ -100,6 +100,9 @@
         },
         "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.tapper.tipli"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.tapper.tipli"
         }
     },
     "dependent_plugins": {

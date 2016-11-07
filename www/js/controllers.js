@@ -11,18 +11,69 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('RouterCtrl', function($scope, $localStorage, $state, $ionicHistory){
+    .controller('RouterCtrl', function($scope, $ionicPopup, $http, $rootScope, $localStorage, $state, $ionicHistory){
 
         if (typeof $localStorage.enterScreenIsSeen != "undefined"){
 
             if ($localStorage.password && $localStorage.password != "") {
 
-                $ionicHistory.nextViewOptions({
-                    disableAnimate: true,
-                    expire: 300
-                });
+                var send_user = {
 
-                $state.go('app.home');
+                    "user" : $localStorage.userid
+
+                };
+
+                $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        if (data.data.response.seendeal == "0"){
+
+                            $localStorage.isDailyDealSeen = false;
+                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                            $rootScope.getUserPoints();
+
+                            $ionicHistory.nextViewOptions({
+                                disableAnimate: true,
+                                expire: 300
+                            });
+
+                            $state.go('app.teaser');
+
+                        } else {
+
+                            $localStorage.isDailyDealSeen = true;
+                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                            $rootScope.getUserPoints();
+
+                            $ionicHistory.nextViewOptions({
+                                disableAnimate: true,
+                                expire: 300
+                            });
+
+                            $state.go('app.home');
+
+                        }
+
+                    },
+
+                    function(err){
+
+                        $ionicPopup.alert({
+                            title: "אין חיבור לרשת",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    });
 
             } else {
 
@@ -50,6 +101,24 @@ angular.module('starter.controllers', [])
     })
 
     .controller('RegisterCtrl', function ($ionicSideMenuDelegate, $q, $ionicLoading, $scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
+
+        $scope.goToRegister = function(){
+
+            $state.go("app.register");
+
+            if(window.cordova) {
+                window.ga.trackEvent('מסך הסלידר נצפה', 'כן');
+            }
+
+        };
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView($state.current.name);
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -320,8 +389,6 @@ angular.module('starter.controllers', [])
 
         }
 
-
-
     })
 
 
@@ -330,6 +397,10 @@ angular.module('starter.controllers', [])
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            // if(window.cordova){
+            //     window.ga.trackView("עמוד כניסה");
+            // }
 
             $scope.login = {
 
@@ -408,6 +479,8 @@ angular.module('starter.controllers', [])
                                 $rootScope.userData = data.data.response;
                                 $rootScope.userData.password = $scope.login.password;
                                 $rootScope.image = $localStorage.image;
+
+                                $rootScope.getUserPoints();
 
                                 $state.go('app.home');
 
@@ -542,6 +615,14 @@ angular.module('starter.controllers', [])
 
     .controller('HomeCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
 
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("עמוד הבית");
+            }
+
+        });
+
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.options = {
@@ -556,7 +637,7 @@ angular.module('starter.controllers', [])
 
         $scope.checkState = function(){
 
-            if (!$localStorage.isQuestionAnswered || $localStorage.isQuestionAnswered == "" || $localStorage.isQuestionAnswered == false){
+            if (!$localStorage.isDailyDealSeen || $localStorage.isDailyDealSeen == "" || $localStorage.isDailyDealSeen == false){
 
                 $state.go('app.teaser');
 
@@ -568,88 +649,21 @@ angular.module('starter.controllers', [])
 
         };
 
-
-        // get all user points
-
-        var send_user = {
-
-            "user" : $localStorage.userid
-
-        };
-        //
-        // $http.post($rootScope.host + 'GetAnswers', send_user, {
-        //
-        //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-        //
-        // }).then(
-        //
-        //     function(data){
-        //
-        //         console.log(data);
-        //
-        //         for (var i = 0; i < data.data.length; i++){
-        //
-        //             if (data.data[i].correct == "0"){
-        //
-        //                 $rootScope.incorrectAnswers += 1;
-        //
-        //             } else if (data.data[i].correct == "1"){
-        //
-        //                 $rootScope.correctAnswers += 1;
-        //
-        //             }
-        //
-        //             $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
-        //
-        //         }
-        //
-        //     },
-        //
-        //     function(err){
-        //
-        //         $ionicPopup.alert({
-        //             title: "אין חיבור לרשת",
-        //             buttons: [{
-        //                 text: 'OK',
-        //                 type: 'button-positive'
-        //             }]
-        //         });
-        //
-        //     });
-
-        $http.post($rootScope.host + 'GetPointsPerMonth', send_user, {
-
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-        }).then(
-
-            function(data){
-
-                console.log("Points", data.data);
-
-                $rootScope.correctAnswers = data.data.month_correct;
-                $rootScope.incorrectAnswers = data.data.month_wrong;
-                $rootScope.monthPoints = data.data.month_points;
-                $rootScope.allPoints = data.data.total_points;
-
-            },
-
-            function(err){
-
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
-                });
-
-            });
-
-
     })
 
     .controller('QuestionCtrl', function ($ionicSideMenuDelegate, $scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                if ($state.current.name == "app.question"){
+                    window.ga.trackView("עמוד שאלה");
+                } else {
+                    window.ga.trackView("עמוד תשובה");
+                }
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -686,9 +700,6 @@ angular.module('starter.controllers', [])
                 console.log(data);
 
                 $scope.question = data.data[0];
-
-                // $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
-                // $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -831,10 +842,12 @@ angular.module('starter.controllers', [])
 
                         console.log(data);
 
-                        // update local variables
+                        if (window.cordova){
+                            window.ga.trackEvent('שאלה נענתה בהצלחה', $rootScope.today);
+                            window.ga.trackEvent('שאלה נענתה נכונה', checkedAnswer);
+                        }
 
-                        $localStorage.isQuestionAnswered = true;
-                        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+                        // update local variables
 
                         if (checkedAnswer == true){
 
@@ -870,14 +883,51 @@ angular.module('starter.controllers', [])
 
         $scope.checkDiscountState = function(){
 
+            var send_user = {
+
+                "user" : $localStorage.userid
+
+            };
+
+            $http.post($rootScope.host + 'UserSeenDeal', send_user, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $localStorage.isDailyDealSeen = true;
+                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
             if ($rootScope.todayDeal.showiframe == "0" && $rootScope.todayDeal.dealgivenby == "1"){
 
                 $state.go('app.discount');
                 cordova.InAppBrowser.open($rootScope.todayDeal.codelink, '_blank', 'location=yes');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבה היום שנלחצה', x.title);
+                }
 
             } else {
 
                 $state.go('app.discount');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבה היום שנלחצה', x.title);
+                }
 
             }
 
@@ -896,112 +946,125 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        var send_data = {
+        $scope.$on('$ionicView.enter', function(e) {
 
-            'date' : $rootScope.today,
-            'soldier' : $localStorage.soldier,
-            'gender' : $localStorage.gender
-        };
-
-        // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
-        //
-        //     send_data.type = "2"; // soldier female
-        //     send_data.fromtype = "3"; // all soldiers
-        //
-        // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
-        //
-        //     send_data.type = "1"; // soldier male
-        //     send_data.fromtype = "3"; // all soldiers
-        //
-        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
-        //
-        //     send_data.type = "5"; // civil female
-        //     send_data.fromtype = "6"; // all civils
-        //
-        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
-        //
-        //     send_data.type = "4"; // civil male
-        //     send_data.fromtype = "6"; // all civils
-        //
-        // }
-
-        // get deal for today
-
-
-        $scope.noTodayDeal = false;
-
-        $http.post($rootScope.host + 'GetDealByDate', send_data, {
-
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-        }).then(
-            function (data) {
-
-                if (data.data.length == 0){
-
-                    $scope.noTodayDeal = true;
-
+            if(window.cordova){
+                if ($state.current.name == "app.teaser"){
+                    window.ga.trackView("עמוד טיזר");
                 } else {
-
-                    $scope.noTodayDeal = false;
-
-                    $rootScope.todayDeal = data.data[0];
-
-                    if ($rootScope.todayDeal.linktitle == ""){
-
-                        $rootScope.todayDeal.linktitle = "קוד הטבה" ;
-
-                    }
-
-                    $rootScope.todayDeal.imageSlider = [];
-
-                    if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
-
-                        $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
-
-                        if ($rootScope.todayDeal.image2 != "") {
-
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
-
-                        }
-
-                        if ($rootScope.todayDeal.image3 != "") {
-
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
-
-                        }
-
-                        if ($rootScope.todayDeal.image4 != "") {
-
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
-
-                        }
-
-                    }
-
-                    if ($rootScope.todayDeal.showiframe == "1"){
-
-                        $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
-
-                    }
-
-                    console.log("Today Deal", $rootScope.todayDeal);
-
+                    window.ga.trackView("עמוד דיל יומי");
                 }
+            }
 
-            },
+            var send_data = {
 
-            function (err) {
+                'date' : $rootScope.today,
+                'soldier' : $localStorage.soldier,
+                'gender' : $localStorage.gender
+            };
 
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
+            console.log(send_data);
+
+            // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
+            //
+            //     send_data.type = "2"; // soldier female
+            //     send_data.fromtype = "3"; // all soldiers
+            //
+            // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
+            //
+            //     send_data.type = "1"; // soldier male
+            //     send_data.fromtype = "3"; // all soldiers
+            //
+            // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
+            //
+            //     send_data.type = "5"; // civil female
+            //     send_data.fromtype = "6"; // all civils
+            //
+            // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
+            //
+            //     send_data.type = "4"; // civil male
+            //     send_data.fromtype = "6"; // all civils
+            //
+            // }
+
+            // get deal for today
+
+            $scope.noTodayDeal = false;
+
+            $http.post($rootScope.host + 'GetDealByDate', send_data, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+                function (data) {
+
+                    if (data.data.length == 0){
+
+                        $scope.noTodayDeal = true;
+
+                    } else {
+
+                        $scope.noTodayDeal = false;
+
+                        $rootScope.todayDeal = data.data[0];
+
+                        if ($rootScope.todayDeal.linktitle == ""){
+
+                            $rootScope.todayDeal.linktitle = "קוד הטבה" ;
+
+                        }
+
+                        $rootScope.todayDeal.imageSlider = [];
+
+                        if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
+
+                            if ($rootScope.todayDeal.image2 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
+
+                            }
+
+                            if ($rootScope.todayDeal.image3 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
+
+                            }
+
+                            if ($rootScope.todayDeal.image4 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
+
+                            }
+
+                        }
+
+                        if ($rootScope.todayDeal.showiframe == "1"){
+
+                            $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
+
+                        }
+
+                        console.log("Today Deal", $rootScope.todayDeal);
+
+                    }
+
+                },
+
+                function (err) {
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
                 });
 
-            });
+        });
 
         // check if the deal is favorite
 
@@ -1013,17 +1076,20 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
         // open links
 
-        $scope.goToLink = function(x){
+        $scope.goToLink = function(x, y){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+            if(window.cordova) {
+                window.ga.trackEvent('לינק בהטבה היומית', y);
+            }
 
         };
 
@@ -1032,6 +1098,12 @@ angular.module('starter.controllers', [])
     .controller('PersonalCtrl', function (dateFilter, $timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            if ($state.current.name == "app.personal"){
+                window.ga.trackView("עמוד אזור אישי");
+            } else {
+                window.ga.trackView("עמוד פניה למומחה");
+            }
 
             // for push notifications from specialist answers
 
@@ -1538,16 +1610,30 @@ angular.module('starter.controllers', [])
 
     .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("קטלוג");
+            }
+
+        });
+
         $scope.openItem = function(x){
 
             if (x.showiframe == "0" && x.dealgivenby == "1"){
 
                 $state.go('app.item', {itemId:x.index});
                 cordova.InAppBrowser.open(x.codelink, '_blank', 'location=yes');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבות שנלחצו', x.title);
+                }
 
             } else {
 
                 $state.go('app.item', {itemId:x.index});
+                if (window.cordova){
+                    window.ga.trackEvent('הטבות שנלחצו', x.title);
+                }
 
             }
 
@@ -1584,10 +1670,6 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $scope.favorites.length; j++){
 
-                    // $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
-                    // $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
-                    // $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
-
                     $rootScope.favoriteDeals.push($scope.favorites[j]);
 
                 }
@@ -1618,17 +1700,17 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
         // delete favorite
 
-        $scope.deleteFavorite = function(x){
+        $scope.deleteFavorite = function(x, y){
 
-            return deleteFavoriteFactory.deleteFavorite(x, $scope);
+            return deleteFavoriteFactory.deleteFavorite(x, $scope, y);
 
         };
 
@@ -1682,6 +1764,8 @@ angular.module('starter.controllers', [])
                                         .getCurrentPosition(posOptions)
                                         .then(function (position) {
 
+                                            $rootScope.closeDeals = [];
+
                                             $rootScope.lat = position.coords.latitude;
                                             $rootScope.lng = position.coords.longitude;
 
@@ -1709,6 +1793,35 @@ angular.module('starter.controllers', [])
                                     $rootScope.getDealsWithoutLocation();
                                     break;
                             }
+
+                        });
+
+                } else if ($rootScope.isLocationEnabled == true){
+
+                    var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                    $cordovaGeolocation
+                        .getCurrentPosition(posOptions)
+                        .then(function (position) {
+
+                            $rootScope.closeDeals = [];
+
+                            $rootScope.lat = position.coords.latitude;
+                            $rootScope.lng = position.coords.longitude;
+
+                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                        }, function (err) {
+
+                            $ionicPopup.alert({
+                                title: "קליטת רשת GPS חלשה מדי",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            });
+
+                            $rootScope.getDealsWithoutLocation();
 
                         });
 
@@ -1745,6 +1858,8 @@ angular.module('starter.controllers', [])
                         $cordovaGeolocation
                             .getCurrentPosition(posOptions)
                             .then(function (position) {
+
+                                $rootScope.closeDeals = [];
 
                                 $rootScope.lat = position.coords.latitude;
                                 $rootScope.lng = position.coords.longitude;
@@ -1800,7 +1915,37 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ItemCtrl', function ($sce, isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
+    .controller('ItemCtrl', function ($sce, isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope, $state) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            $scope.deal = {};
+
+            // choosing deal
+
+            for(var i = 0; i < $rootScope.deals.length; i++){
+
+                if ($stateParams.itemId == $rootScope.deals[i].index){
+
+                    $scope.deal = $rootScope.deals[i];
+
+                    if ($scope.deal.showiframe == "1"){
+
+                        $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
+
+                    }
+
+                    console.log($scope.deal);
+
+                }
+
+            }
+
+            if(window.cordova){
+                window.ga.trackView("הטבה" + " - " + $scope.deal.title);
+            }
+
+        });
 
         $scope.options = {
             loop: true,
@@ -1810,31 +1955,12 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        $scope.deal = {};
-
-        // choosing deal
-
-        for(var i = 0; i < $rootScope.deals.length; i++){
-
-            if ($stateParams.itemId == $rootScope.deals[i].index){
-
-                $scope.deal = $rootScope.deals[i];
-
-                if ($scope.deal.showiframe == "1"){
-
-                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
-
-                }
-
-                console.log($scope.deal);
-
-            }
-
-        }
-
-        $scope.goToLink = function(x){
+        $scope.goToLink = function(x, y){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+            if(window.cordova) {
+                window.ga.trackEvent('לינק בהטבה', y);
+            }
 
         };
 
@@ -1848,15 +1974,23 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
     })
 
-    .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate) {
+    .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate, $state) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("מידע שימושי");
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -1878,6 +2012,12 @@ angular.module('starter.controllers', [])
         $scope.infoCategoryIcon = "img/info_articles/" + $stateParams.articleId + ".png";
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            // console.log($state);
+
+            if(window.cordova){
+                window.ga.trackView("מידע שימושי" + " - " + $scope.infoCategoryName);
+            }
 
             $scope.content = {};
 

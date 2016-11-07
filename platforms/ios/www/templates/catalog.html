@@ -68,7 +68,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -113,7 +113,7 @@
                         <div class="ThumbDealInfo">
                         	<div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{deal.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
                                
                             </div>
                             <div class="ThumbDealInfoLeft">
@@ -135,7 +135,6 @@
 
                 <div ng-repeat="fav in favoriteDeals">
 
-                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:fav.index})">-->
                     <div class="catalogDeal" ng-click="openItem(fav)">
 
                         <div class="catalogDealTitle">
@@ -157,7 +156,7 @@
                         <div class="ThumbDealInfo">
                             <div class="ThumbDealInfoRight">
                                 <div class="friendPriceText">מחיר חבר</div>
-                                <div class="teaserRegularPriceThumb">{{fav.regular_price}} <span> 	&#x20aa;</span></div>
+                                <div class="teaserRegularPriceThumb">{{fav.member_price}} <span> 	&#x20aa;</span></div>
 
                             </div>
                             <div class="ThumbDealInfoLeft">

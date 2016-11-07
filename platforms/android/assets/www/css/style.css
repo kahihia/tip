@@ -159,7 +159,7 @@
 .homeLeft {
     float: left;
     width: 40%;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .homeIconBlackDiscription {
@@ -173,7 +173,7 @@
 .homeRight {
     float: right;
     width: 40%;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 /*End of Home*/

@@ -29,9 +29,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 				},100);
 
 
-                // Notifications
+                // Notifications and GA
 
                 document.addEventListener("deviceready", function(){
+
+                    // Google Analytics
+
+                    window.ga.startTrackerWithId('UA-86948163-1');
+
+                    // Notifications
 
                     var notificationOpenedCallback = function (jsonData) {
 
@@ -59,8 +65,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                         if (jsonData.additionalData.type == "dailydeal") {
 
-                            $localStorage.isQuestionAnswered = false;
-                            $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+                            $localStorage.isDailyDealSeen = false;
+                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
                             // alert(JSON.stringify(jsonData.additionalData));
 
@@ -257,7 +263,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.host = 'http://tapper.co.il/tipli/laravel/public/';
         $rootScope.phpHost = "http://tapper.co.il/tipli/php/";
         $rootScope.imageHost = "http://tapper.co.il/tipli/php/uploads";
-        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+        $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
         $rootScope.isTipShown = $localStorage.isTipShown;
         $rootScope.isAnswerCorrect = false;
         $rootScope.correctAnswers = 0;
@@ -351,6 +357,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
             $rootScope.categoryNumber = x;
             $rootScope.categoryName = y;
 
+            if (x != 0){
+                if (window.cordova){
+                    window.ga.trackEvent('קטגוריות', y);
+                }
+            }
+
         };
 
         // toggle menu
@@ -360,6 +372,48 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
             $ionicSideMenuDelegate.toggleRight();
 
         };
+
+        // get all user points
+
+        $rootScope.getUserPoints = function(){
+
+            var send_points = {
+
+                "user" : $localStorage.userid
+
+            };
+
+            $http.post($rootScope.host + 'GetPointsPerMonth', send_points, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log("Points", data.data);
+
+                    $rootScope.correctAnswers = data.data.month_correct;
+                    $rootScope.incorrectAnswers = data.data.month_wrong;
+                    $rootScope.monthPoints = data.data.month_points;
+                    $rootScope.allPoints = data.data.total_points;
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
+        };
+
 
         // logout
 
@@ -428,7 +482,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         $rootScope.timeNow = ("0" + new Date().getHours()).slice(-2) + ":" + ("0" + new Date().getMinutes()).slice(-2);
 
-        if ($rootScope.timeNow > "13:00") {
+        if ($rootScope.timeNow > "12:59") {
 
             $rootScope.today = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2) + '/' + new Date().getFullYear();
             $rootScope.todayDate = ("0" + new Date().getDate()).slice(-2) + '/' + ("0" + (new Date().getMonth() + 1)).slice(-2);
@@ -585,7 +639,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     $rootScope.isLocationEnabled = true;
 
                     console.log("closeDeals", $rootScope.closeDeals);
-                    // alert($rootScope.closeDeals.length);
+
                     console.log("DealsWithLocation", $rootScope.deals);
 
                 },

@@ -350,6 +350,15 @@ module.exports = [
         "clobbers": [
             "OneSignal"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-google-analytics/www/analytics.js",
+        "id": "cordova-plugin-google-analytics.UniversalAnalytics",
+        "pluginId": "cordova-plugin-google-analytics",
+        "clobbers": [
+            "analytics",
+            "ga"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -371,7 +380,8 @@ module.exports.metadata =
     "cordova-plugin-inappbrowser": "1.5.0",
     "cordova-plugin-facebook4": "1.7.4",
     "cordova-plugin-device": "1.1.3",
-    "onesignal-cordova-plugin": "1.13.0"
+    "onesignal-cordova-plugin": "1.13.0",
+    "cordova-plugin-google-analytics": "1.6.0"
 }
 // BOTTOM OF METADATA
 });

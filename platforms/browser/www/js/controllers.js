@@ -896,112 +896,118 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        var send_data = {
+        $scope.$on('$ionicView.enter', function(e) {
 
-            'date' : $rootScope.today,
-            'soldier' : $localStorage.soldier,
-            'gender' : $localStorage.gender
-        };
+            var send_data = {
 
-        // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
-        //
-        //     send_data.type = "2"; // soldier female
-        //     send_data.fromtype = "3"; // all soldiers
-        //
-        // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
-        //
-        //     send_data.type = "1"; // soldier male
-        //     send_data.fromtype = "3"; // all soldiers
-        //
-        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
-        //
-        //     send_data.type = "5"; // civil female
-        //     send_data.fromtype = "6"; // all civils
-        //
-        // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
-        //
-        //     send_data.type = "4"; // civil male
-        //     send_data.fromtype = "6"; // all civils
-        //
-        // }
+                'date' : $rootScope.today,
+                'soldier' : $localStorage.soldier,
+                'gender' : $localStorage.gender
+            };
 
-        // get deal for today
+            console.log(send_data);
+
+            // if ($localStorage.soldier == "1" && $localStorage.gender == "1"){
+            //
+            //     send_data.type = "2"; // soldier female
+            //     send_data.fromtype = "3"; // all soldiers
+            //
+            // } else if ($localStorage.soldier == "1" && $localStorage.gender == "0"){
+            //
+            //     send_data.type = "1"; // soldier male
+            //     send_data.fromtype = "3"; // all soldiers
+            //
+            // } else if ($localStorage.soldier == "0" && $localStorage.gender == "1"){
+            //
+            //     send_data.type = "5"; // civil female
+            //     send_data.fromtype = "6"; // all civils
+            //
+            // } else if ($localStorage.soldier == "0" && $localStorage.gender == "0"){
+            //
+            //     send_data.type = "4"; // civil male
+            //     send_data.fromtype = "6"; // all civils
+            //
+            // }
+
+            // get deal for today
 
 
-        $scope.noTodayDeal = false;
+            $scope.noTodayDeal = false;
 
-        $http.post($rootScope.host + 'GetDealByDate', send_data, {
+            $http.post($rootScope.host + 'GetDealByDate', send_data, {
 
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-        }).then(
-            function (data) {
+            }).then(
+                function (data) {
 
-                if (data.data.length == 0){
+                    if (data.data.length == 0){
 
-                    $scope.noTodayDeal = true;
+                        $scope.noTodayDeal = true;
 
-                } else {
+                    } else {
 
-                    $scope.noTodayDeal = false;
+                        $scope.noTodayDeal = false;
 
-                    $rootScope.todayDeal = data.data[0];
+                        $rootScope.todayDeal = data.data[0];
 
-                    if ($rootScope.todayDeal.linktitle == ""){
+                        if ($rootScope.todayDeal.linktitle == ""){
 
-                        $rootScope.todayDeal.linktitle = "קוד הטבה" ;
-
-                    }
-
-                    $rootScope.todayDeal.imageSlider = [];
-
-                    if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
-
-                        $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
-
-                        if ($rootScope.todayDeal.image2 != "") {
-
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
+                            $rootScope.todayDeal.linktitle = "קוד הטבה" ;
 
                         }
 
-                        if ($rootScope.todayDeal.image3 != "") {
+                        $rootScope.todayDeal.imageSlider = [];
 
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
+                        if ($rootScope.todayDeal.image2 != "" || $rootScope.todayDeal.image3 != "" || $rootScope.todayDeal.image4 != ""){
+
+                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image);
+
+                            if ($rootScope.todayDeal.image2 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image2);
+
+                            }
+
+                            if ($rootScope.todayDeal.image3 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image3);
+
+                            }
+
+                            if ($rootScope.todayDeal.image4 != "") {
+
+                                $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
+
+                            }
 
                         }
 
-                        if ($rootScope.todayDeal.image4 != "") {
+                        if ($rootScope.todayDeal.showiframe == "1"){
 
-                            $rootScope.todayDeal.imageSlider.push($rootScope.todayDeal.image4);
+                            $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
 
                         }
 
-                    }
-
-                    if ($rootScope.todayDeal.showiframe == "1"){
-
-                        $scope.iframeLink = $sce.trustAsResourceUrl($rootScope.todayDeal.codelink);
+                        console.log("Today Deal", $rootScope.todayDeal);
 
                     }
 
-                    console.log("Today Deal", $rootScope.todayDeal);
+                },
 
-                }
+                function (err) {
 
-            },
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
 
-            function (err) {
-
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
                 });
 
-            });
+        });
 
         // check if the deal is favorite
 
@@ -1584,10 +1590,6 @@ angular.module('starter.controllers', [])
 
                 for(var j = 0; j < $scope.favorites.length; j++){
 
-                    // $scope.favorites[j].image = ($scope.favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image;
-                    // $scope.favorites[j].image2 = ($scope.favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].image2;
-                    // $scope.favorites[j].supplier_logo = ($scope.favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.favorites[j].supplier_logo;
-
                     $rootScope.favoriteDeals.push($scope.favorites[j]);
 
                 }
@@ -1682,6 +1684,8 @@ angular.module('starter.controllers', [])
                                         .getCurrentPosition(posOptions)
                                         .then(function (position) {
 
+                                            $rootScope.closeDeals = [];
+
                                             $rootScope.lat = position.coords.latitude;
                                             $rootScope.lng = position.coords.longitude;
 
@@ -1709,6 +1713,35 @@ angular.module('starter.controllers', [])
                                     $rootScope.getDealsWithoutLocation();
                                     break;
                             }
+
+                        });
+
+                } else if ($rootScope.isLocationEnabled == true){
+
+                    var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                    $cordovaGeolocation
+                        .getCurrentPosition(posOptions)
+                        .then(function (position) {
+
+                            $rootScope.closeDeals = [];
+
+                            $rootScope.lat = position.coords.latitude;
+                            $rootScope.lng = position.coords.longitude;
+
+                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                        }, function (err) {
+
+                            $ionicPopup.alert({
+                                title: "קליטת רשת GPS חלשה מדי",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
+                            });
+
+                            $rootScope.getDealsWithoutLocation();
 
                         });
 
@@ -1745,6 +1778,8 @@ angular.module('starter.controllers', [])
                         $cordovaGeolocation
                             .getCurrentPosition(posOptions)
                             .then(function (position) {
+
+                                $rootScope.closeDeals = [];
 
                                 $rootScope.lat = position.coords.latitude;
                                 $rootScope.lng = position.coords.longitude;
