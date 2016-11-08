@@ -4,17 +4,17 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 	android:hardwareAccelerated
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:125-183
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:143-201
 	package
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:98-124
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:102-142
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:70-97
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:74-101
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionCode
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:46-69
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:46-73
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 supports-screens
@@ -33,11 +33,11 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:132-159
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:4:5-67
+MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:21:5-67
 MERGED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:15:5-67
 MERGED from [com.google.android.gms:play-services-gcm:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.4.0\AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-iid:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.4.0\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:21:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:21:5-67
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:4:22-64
 application
@@ -77,6 +77,114 @@ MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\g
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
@@ -171,114 +279,6 @@ MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\g
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.google.android.gms:play-services-iid:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.4.0\AndroidManifest.xml:24:5-20
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:27:5-20
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:27:5-20
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:25:5-20
@@ -445,92 +445,92 @@ MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\De
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:14:184-243
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:14:139-183
-receiver#cordova.plugins.Diagnostic$LocationProviderChangedReceiver
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:15:9-19:20
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:15:19-92
-intent-filter#android.location.PROVIDERS_CHANGED
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:16:13-18:29
-action#android.location.PROVIDERS_CHANGED
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:17:17-77
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:17:25-74
-amazon:enable-feature
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:9-159
-	android:required
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:75-99
-	xmlns:amazon
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:100-156
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:32-74
-service#com.onesignal.ADMMessageHandler
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:9-92
-	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:18-42
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:43-89
-receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:22:9-28:20
-	android:permission
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:22:75-139
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:22:19-74
-intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.ionicframework.tipli499507
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:23:13-27:29
-action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:24:17-90
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:24:25-87
-action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:25:17-85
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:25:25-82
-category#com.ionicframework.tipli499507
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:17-61
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:27-58
 receiver#com.google.android.gms.analytics.AnalyticsReceiver
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:9-33:20
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:15:9-19:20
 	android:enabled
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:19-41
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:15:19-41
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:42-107
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:15:42-107
 intent-filter#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:30:13-32:29
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:16:13-18:29
 action#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:31:17-94
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:17:17-94
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:31:25-91
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:17:25-91
 service#com.google.android.gms.analytics.AnalyticsService
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:9-133
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:9-133
 	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:41-65
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:41-65
 	android:enabled
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:18-40
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:18-40
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:66-130
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:66-130
 receiver#com.google.android.gms.analytics.CampaignTrackingReceiver
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:35:9-39:20
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:9-25:20
 	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:35:42-65
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:42-65
 	android:enabled
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:35:19-41
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:19-41
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:35:66-138
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:66-138
 intent-filter#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:36:13-38:29
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:22:13-24:29
 action#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:37:17-79
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:23:17-79
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:37:25-76
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:23:25-76
 service#com.google.android.gms.analytics.CampaignTrackingService
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:40:9-140
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:9-140
 	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:40:41-65
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:41-65
 	android:enabled
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:40:18-40
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:18-40
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:40:66-137
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:66-137
+receiver#cordova.plugins.Diagnostic$LocationProviderChangedReceiver
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:27:9-31:20
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:27:19-92
+intent-filter#android.location.PROVIDERS_CHANGED
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:28:13-30:29
+action#android.location.PROVIDERS_CHANGED
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:25-74
+amazon:enable-feature
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:9-159
+	android:required
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:75-99
+	xmlns:amazon
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:100-156
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:32-74
+service#com.onesignal.ADMMessageHandler
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:33:9-92
+	android:exported
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:33:18-42
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:33:43-89
+receiver#com.onesignal.ADMMessageHandler$Receiver
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:9-40:20
+	android:permission
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:75-139
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:34:19-74
+intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.ionicframework.tipli499507
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:35:13-39:29
+action#com.amazon.device.messaging.intent.REGISTRATION
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:36:17-90
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:36:25-87
+action#com.amazon.device.messaging.intent.RECEIVE
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:37:17-85
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:37:25-82
+category#com.ionicframework.tipli499507
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:38:17-75
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:38:27-72
 uses-sdk
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:42:5-74
 MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\AndroidManifest.xml:24:5-26:41
@@ -568,6 +568,114 @@ MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\g
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
@@ -715,114 +823,6 @@ MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Des
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-tasks:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.google.android.gms:play-services-location:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.4.0\AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:18:5-42
@@ -902,9 +902,9 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:46:19-63
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:47:5-79
-MERGED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:22:5-79
+MERGED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:47:22-76
 activity#com.facebook.CustomTabActivity
@@ -913,6 +913,44 @@ ADDED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\Des
 		ADDED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\AndroidManifest.xml:35:13-36
 	android:name
 		ADDED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\AndroidManifest.xml:34:13-58
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:25:5-67
+MERGED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:18:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:25:22-65
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
+MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:21:19-78
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:22:19-43
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:22:13-58
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:23:13-66
 permission#${manifestApplicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:8:5-10:47
 	android:protectionLevel
@@ -929,12 +967,6 @@ MERGED from [com.google.android.gms:play-services-gcm:9.4.0] C:\Users\Owner\Desk
 MERGED from [com.google.android.gms:play-services-iid:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.4.0\AndroidManifest.xml:21:5-82
 	android:name
 		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:16:22-79
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:18:5-68
-MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:25:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:25:5-67
-	android:name
-		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:18:22-65
 uses-permission#android.permission.VIBRATE
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:23:5-66
 	android:name
@@ -1047,35 +1079,3 @@ action#android.intent.action.MY_PACKAGE_REPLACED
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:78:17-84
 	android:name
 		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:78:25-81
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:21:19-78
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:22:19-43
-	android:name
-		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:19-85
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:22:13-58
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:23:13-66

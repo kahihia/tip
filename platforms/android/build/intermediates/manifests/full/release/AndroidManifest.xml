@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ionicframework.tipli499507"
     android:hardwareAccelerated="true"
-    android:versionCode="18"
-    android:versionName="0.0.1" >
+    android:versionCode="10005"
+    android:versionName="1.0.5" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -25,15 +25,15 @@
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
+    <!-- Optional permission for Analytics to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+ <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
     <permission
         android:name="com.ionicframework.tipli499507.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.ionicframework.tipli499507.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
- <!-- Required, makes sure notifications are delivered on time. -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!--
  Required so the device vibrates on receiving a push notification.
          Vibration settings of the device still apply.
@@ -87,31 +87,6 @@
             android:label="@string/fb_app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <receiver android:name="cordova.plugins.Diagnostic$LocationProviderChangedReceiver" >
-            <intent-filter>
-                <action android:name="android.location.PROVIDERS_CHANGED" />
-            </intent-filter>
-        </receiver>
-
-        <amazon:enable-feature
-            xmlns:amazon="http://schemas.amazon.com/apk/res/android"
-            android:name="com.amazon.device.messaging"
-            android:required="false" />
-
-        <service
-            android:name="com.onesignal.ADMMessageHandler"
-            android:exported="false" />
-
-        <receiver
-            android:name="com.onesignal.ADMMessageHandler$Receiver"
-            android:permission="com.amazon.device.messaging.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-                <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-
-                <category android:name="com.ionicframework.tipli499507" />
-            </intent-filter>
-        </receiver>
         <receiver
             android:name="com.google.android.gms.analytics.AnalyticsReceiver"
             android:enabled="true" >
@@ -139,11 +114,44 @@
             android:enabled="true"
             android:exported="false" />
 
+        <receiver android:name="cordova.plugins.Diagnostic$LocationProviderChangedReceiver" >
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <amazon:enable-feature
+            xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+            android:name="com.amazon.device.messaging"
+            android:required="false" />
+
+        <service
+            android:name="com.onesignal.ADMMessageHandler"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.onesignal.ADMMessageHandler$Receiver"
+            android:permission="com.amazon.device.messaging.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
+                <category android:name="com.ionicframework.tipli499507" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true" >
         </activity>
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="onesignal_app_id"
             android:value="" />
@@ -184,15 +192,6 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
