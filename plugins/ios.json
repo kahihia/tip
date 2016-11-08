@@ -70,47 +70,47 @@
         "cordova-plugin-camera": {
             "CAMERA_USAGE_DESCRIPTION": " ",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-fastrde-checkgps": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cl.rmd.cordova.dialoggps": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-facebook4": {
             "APP_ID": "189474428159821",
             "APP_NAME": "TIPLI",
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-google-analytics": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         }
     }
 }

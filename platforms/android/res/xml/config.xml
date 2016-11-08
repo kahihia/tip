@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.tapper.tipli" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.tipli499507" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="DialogGPS">
         <param name="android-package" value="cl.rmd.cordova.dialoggps.DialogGPS" />
@@ -76,11 +76,11 @@
     <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     <name>tipli</name>
-    <description>
-        An Ionic Framework and Cordova project.
+    <description>
+        An Ionic Framework and Cordova project.
     </description>
-    <author email="you@example.com" href="http://example.com.com/">
-        Your Name Here
+    <author email="you@example.com" href="http://example.com.com/">
+        Your Name Here
     </author>
     <content src="index.html" />
     <allow-intent href="tel:*" />

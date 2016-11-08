@@ -165,7 +165,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.tapper.tipli\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.ionicframework.tipli499507\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
@@ -215,60 +215,60 @@
     },
     "installed_plugins": {
         "cl.rmd.cordova.dialoggps": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-facebook4": {
             "APP_ID": "189474428159821",
             "APP_NAME": "TIPLI",
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-fastrde-checkgps": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova.plugins.diagnostic": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-google-analytics": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         }
     },
     "dependent_plugins": {},

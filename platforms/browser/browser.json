@@ -102,13 +102,13 @@
             "PACKAGE_NAME": "com.ionicframework.tipli739187"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
         "cordova-plugin-google-analytics": {
-            "PACKAGE_NAME": "com.tapper.tipli"
+            "PACKAGE_NAME": "com.ionicframework.tipli499507"
         }
     },
     "dependent_plugins": {},

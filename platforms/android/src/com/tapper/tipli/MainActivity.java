@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.tapper.tipli;
+package com.ionicframework.tipli499507;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
