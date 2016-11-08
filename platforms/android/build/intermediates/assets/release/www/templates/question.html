@@ -1,0 +1,99 @@
+<ion-view hide-nav-bar="true">
+    <ion-content>
+		<div style="background-color:#fe99ae">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+
+        <div class="questionHeader">שאלה יומית מתאריך {{todayDate}}</div>
+
+        <div class="questionTitle">{{question.question}}</div>
+
+		<div class="div80 rtl" style="background-color:white;">
+
+            <div ng-show="question.question_image != ''">
+                <img src="{{imageHost}}/{{question.question_image}}" style="width: 100%;">
+            </div>
+            
+            <div ng-show="question.question_youtube != ''">
+                <youtube-video video-url="question.question_youtube" player-width="'100%'" style="height:260px !important;"></youtube-video>
+            </div>
+		</div>
+        
+        <div class="question mt10">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="1">
+            </div>
+            <div class="questionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('1')"/>
+                </div>
+            </div>
+            <div class="questionLeft">
+            	{{question.answer1}}
+            </div>
+        </div>
+
+        <div class="question">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="2">
+            </div>
+            <div class="questionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('2')"/>
+                </div>
+            </div>
+            <div class="questionLeft">
+            	{{question.answer2}}
+            </div>
+        </div>
+
+        <div class="question">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="3">
+            </div>
+            <div class="questionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('3')"/>
+                </div>
+            </div>
+            <div class="questionLeft">
+            	{{question.answer3}}
+            </div>
+        </div>
+
+        <div class="question">
+        	<div class="RadioBtDiv" >
+             <input class="RadioBt" type="radio" ng-model="userAnswer.selected" value="4">
+            </div>
+            <div class="questionRight" align="center">
+            	<div>
+            		<img src="img/question_button.png" style="width:100%" ng-click="selectAnswer('4')"/>
+                </div>
+            </div>
+            <div class="questionLeft">
+            	{{question.answer4}}
+            </div>
+        </div>
+
+        <div class="answerQuestion">
+            <div class="answerQuestionLeft" style="margin-left:10px; margin-top:0px;" >
+                <div>
+                    <img src="img/question_img.png" style="width:100%; margin-top:10px;" />
+                </div>
+            </div>
+            <div class="answerQuestionRight" ng-click="sendAnswer()">
+                <div>
+                    <img src="img/forgot-send.png" style="width:100%" />
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+    
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Login"  hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+                
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header pointsHeaderTitle">כניסה</div>
+
+        <div class="div90 rtl mt20">
+
+            <div class="inputDiv">
+                <input type="text" class="input textCenter ltr" placeholder="דואר אלקטרוני" ng-model="login.email">
+            </div>
+
+            <div class="inputDiv">
+                <input type="password" class="input textCenter ltr" placeholder="סיסמא" ng-model="login.password">
+            </div>
+         </div>
+
+         <div class="div80 mt20">
+
+            <img src="img/login_reg1.png" ui-sref="app.register" style="width:100%;" />
+
+            <img src="img/loginforgot1.png" ng-click="openForgotPasswordModal()" style="width:100%;" />
+
+            <div class="loginFooter">
+            	<div class="loginFooterLeft" ui-sref="app.register">
+                	<img src="img/login_reg2.png" style="width:100%;" /> 
+            	</div>
+            	<div class="loginFooterRight" ng-click="makeLogin()">
+                	<img src="img/login_enter.png" style="width:100%;" /> 
+            	</div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,175 @@
+<ion-view view-title="Catalog" hide-nav-bar="true">
+
+     <ion-content class="pointsContent" style="background-color:#ffd200" >
+		<div class="pointsHeader" style="padding-bottom: 10px;">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+		
+        
+        <div class="catalogTitleName">
+        	<div class="catalogMenuIcon" align="center" ng-click="toggleRightSideMenu()">
+            	<div>
+            		<img src="img/white_menu_icon.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="catalogTitle">
+            	<div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">בחר קטגוריה</div>
+        		<div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
+            </div>
+        </div>
+
+
+        <div class="button-bar" style="height:20px !important;">
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'favorites'}" ng-click="chooseTab('favorites')">מועדפים</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'catalog'}" ng-click="chooseTab('catalog')">קטלוג</a>
+            <a class="button" style="background-color:#FFED7F" ng-class="{activeTab : selection == 'location'}" ng-click="chooseTab('location')">מה באזור</a>
+        </div>
+
+        <div ng-switch="selection" class="textCenter">
+
+            <div ng-switch-when="location">
+
+                <div ng-show="isLocationEnabled == false">
+                    <button class="button button-assertive" ng-click="turnOnGPS()" style="margin-top: 40px;">נא הפעל GPS על מנת לקבל את ההטבות הקרובות</button>
+                </div>
+
+                <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרובים אלייך</div>
+
+                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals">
+
+                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
+                    <div class="catalogDeal" ng-click="openItem(deal)">
+
+                        <div class="catalogDealTitle">
+
+                            <div class="catalogDealTitleRight">{{deal.title}}</div>
+
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
+                        </div>
+
+                        <img src="{{imageHost}}/{{deal.image}}" style="width: 100%;">
+
+                        <div class="ThumbDealInfo">
+                        	<div class="ThumbDealInfoRight">
+                                <div class="friendPriceText">מחיר חבר</div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
+                               
+                            </div>
+                            <div class="ThumbDealInfoLeft">
+                                <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div ng-switch-when="catalog">
+
+                <div ng-show="categoryNumber == 0" class="catalogNoDeals">לצפיה בצ'ופרים<br> לחץ על תפריט הקטגוריות</div>
+
+                <!--<div ng-show="categoryNumber != 0" ng-repeat="deal in deals | filter: {cat_id : categoryNumber}">-->
+                <div ng-show="categoryNumber != 0" ng-repeat="deal in deals | chooseCategory">
+
+                    <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
+                    <div class="catalogDeal" ng-click="openItem(deal)">
+
+                        <div class="catalogDealTitle">
+
+                            <div class="catalogDealTitleRight">{{deal.title}}</div>
+
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
+                        </div>
+
+                        <img src="{{imageHost}}/{{deal.image}}" style="width: 100%;">
+
+                        <div class="ThumbDealInfo">
+                        	<div class="ThumbDealInfoRight">
+                                <div class="friendPriceText">מחיר חבר</div>
+                                <div class="teaserRegularPriceThumb">{{deal.member_price}} <span> 	&#x20aa;</span></div>
+                               
+                            </div>
+                            <div class="ThumbDealInfoLeft">
+                                <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+           </div>
+
+
+            <div ng-switch-when="favorites">
+
+                <div ng-show="favoriteDeals == ''">אין תוצאות</div>
+
+                <div ng-repeat="fav in favoriteDeals">
+
+                    <div class="catalogDeal" ng-click="openItem(fav)">
+
+                        <div class="catalogDealTitle">
+
+                            <div class="catalogDealTitleRight">{{fav.title}}</div>
+
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index, fav.title); $event.stopPropagation();">
+                                <img ng-src="img/fav.png" style="width: 100%;">
+                            </div>
+
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index, fav.title); $event.stopPropagation();">
+                                <img ng-src="img/fav1.png" style="width: 100%;">
+                            </div>
+
+                        </div>
+
+                        <img src="{{imageHost}}/{{fav.image}}" style="width: 100%;">
+
+                        <div class="ThumbDealInfo">
+                            <div class="ThumbDealInfoRight">
+                                <div class="friendPriceText">מחיר חבר</div>
+                                <div class="teaserRegularPriceThumb">{{fav.member_price}} <span> 	&#x20aa;</span></div>
+
+                            </div>
+                            <div class="ThumbDealInfoLeft">
+                                <img src="{{imageHost}}/{{fav.supplier_logo}}" ng-show="fav.supplier_logo != ''" style="width:100%;" />
+                                <img src="img/empty_logo.png" ng-show="fav.supplier_logo == ''" style="width:100%;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

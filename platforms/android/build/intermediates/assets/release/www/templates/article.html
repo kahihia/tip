@@ -1,0 +1,74 @@
+<ion-view view-title="Article" hide-nav-bar="true">
+    <ion-content class="pointsContent">
+
+		<div class="pointsHeader">
+
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header pointsHeaderTitle">מידע שימושי</div>
+
+        <div class="articleTitle">
+
+            <div ui-sref="app.information" class="articleTitleLeft" align="left">
+                <div>
+                    <img src="img/info_back_button.png" style="width:100%"/>
+                </div>
+            </div>
+
+            <div class="articleTitleRight">
+                <div class="articleCategoryIcon">
+                    <img ng-src="{{infoCategoryIcon}}" style="height: 45px;">
+                </div>
+                <div class="articleCategoryText">{{infoCategoryName}}</div>
+            </div>
+
+        </div>
+
+        <div class="yellowRow"></div>
+        
+        <div class="textRight">
+
+            <div ng-repeat="item in content">
+
+                <div class="articleYellowRow rtl">{{item.title}}</div>
+
+				<div class="articleItem" ng-show="item.image != ''">
+                    <img src="{{imageHost}}/{{item.image}}" style="width: 100%;">
+
+                    <div class="articleDescription rtl" ng-bind-html="item.desc"></div>
+                </div>
+                <div class="articleDescWithoutImage rtl" ng-show="item.image == ''" ng-bind-html="item.desc"></div>
+
+                <div class="articleButtons">
+                    <a href="mailto:{{item.email}}" ng-show="item.email != ''" >
+                        <img src="img/info_i3.png" style="width:33px;" />
+                    </a>
+                    <a href="tel:{{item.phone}}" ng-show="item.phone != ''">
+                        <img src="img/info_i2.png" style="width:33px;" />
+                    </a>
+                    <a ng-show="item.youtube != ''" ng-click="showVideo(item.youtube)" >
+                        <img src="img/info_i4.png" style="width:33px;" />
+                    </a>
+                    <a ng-show="item.landingpage != ''" ng-click="goToPage(item.landingpage)">
+                        <img src="img/info_i1.png" style="width:33px;" />
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

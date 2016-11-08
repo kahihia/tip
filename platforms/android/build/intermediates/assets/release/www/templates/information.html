@@ -1,0 +1,61 @@
+<ion-view view-title="Information" hide-nav-bar="true">
+    <ion-content>
+
+		<div>
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+
+            <img src="img/header.png" style="width:100%" />
+        </div>
+
+        <div class="header">מידע שימושי</div>
+        
+        <div class="div100" style="background-color:white;">
+
+        	<div class="informationLeft">
+
+            	<img ui-sref="app.article({articleId:2})" src="img/info/l1.png" style="width:100%"/>
+                <img ui-sref="app.article({articleId:4})" src="img/info/l2.png" style="width:100%; margin-top:-8px;"/>
+                <div class="infoLeft">
+                	<div ui-sref="app.article({articleId:7})" class="infoLeft1">
+                    	<img src="img/info/l3.png" style="width:100%;"/>
+                	</div>
+                    <div ui-sref="app.question_to_specialist" class="infoLeft1">
+                    	<img src="img/info/l4.png" style="width:100%;"/>
+                	</div>
+                </div>
+
+            </div>
+
+            <div class="informationRight">
+            	<img ui-sref="app.article({articleId:1})" src="img/info/r1.png" style="width:100%"/>
+                <img ui-sref="app.article({articleId:3})" src="img/info/r2.png" style="width:100%; margin-top:-6px;"/>
+                <img ui-sref="app.article({articleId:5})" src="img/info/r3.png" style="width:100%; margin-top:-6px;"/>
+            </div>
+
+        </div>
+
+        <div ng-show="bannersInfo.length == 1" style="margin-top: -6px;">
+            <img src="{{imageHost}}/{{bannersInfo[0].image}}" style="width: 100%;">
+        </div>
+
+        <div ng-show="bannersInfo.length > 1" style="width: 100%; height: 100px; margin-top: -6px;">
+            <ion-slides options="options" slider="data.slider">
+                <ion-slide-page ng-repeat="banner in bannersInfo">
+                    <div>
+                        <img src="{{imageHost}}/{{banner.image}}">
+                    </div>
+                </ion-slide-page>
+            </ion-slides>
+        </div>
+
+    </ion-content>
+
+</ion-view>

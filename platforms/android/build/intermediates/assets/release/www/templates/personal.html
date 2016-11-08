@@ -1,0 +1,182 @@
+<ion-view view-title="" hide-nav-bar="true">
+    <ion-content class="pointsContent">
+		<div class="pointsHeader">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            	<img src="img/header.png" style="width:100%" />
+        </div>
+        
+        <div class="header pointsHeaderTitle">אזור אישי</div>
+
+        <div class="button-bar">  
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'message'}" ng-click="setSelection('message')">פניה למומחה</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'personal'}" ng-click="setSelection('personal')">האזור האישי</a>
+            <a class="button" style="background-color:#FFED7F; font-size:14px;" ng-class="{activeTab : selection == 'profile'}" ng-click="setSelection('profile')">פרופיל</a>
+        </div>
+
+        <div ng-switch="selection" class="textCenter">
+
+            <div ng-switch-when="profile">
+
+                <div class="div90">
+
+                    <div class="inputDiv">
+                        <input type="text" class="input ltr" ng-model="personalInformation.firstname">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="text" class="input ltr" ng-model="personalInformation.lastname">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="email" class="input ltr" ng-model="personalInformation.email">
+                    </div>
+
+                    <!--<div class="inputDiv">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.birthday">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.birthday">
+                    </label>
+
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.conscription_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.conscription_date">
+                    </label>
+
+                    <!--<div class="inputDiv" ng-show="userData.soldier == 1">-->
+                        <!--<input type="date" class="input ltr" style="background-color: white !important;" ng-model="personalInformation.release_date">-->
+                    <!--</div>-->
+
+                    <label class="item item-input item-select itemSelected" ng-show="userData.soldier == 1" style="margin-bottom: 10px;">
+                        <input type="text" onClick="(this.type='date')" onfocus="(this.type='date')" class="ion-input-select--large itemSelectedBox" ng-model="personalInformation.release_date">
+                    </label>
+
+                    <div class="inputDiv">
+                        <input type="password" class="input ltr" placeholder="סיסמא ישנה" ng-model="personalInformation.old_password">
+                    </div>
+
+                    <div class="inputDiv">
+                        <input type="password" class="input ltr" placeholder="סיסמא חדשה" ng-model="personalInformation.new_password">
+                    </div>
+
+                    <div class="personalUserpicDiv">
+
+                        <div class="personalUserpicButton">
+                            <img src="img/take_picture.png" style="width:100%;" ng-click="getPhoto()"/>
+                        </div>
+
+                        <div class="personalUserpicImage" ng-show="userpic != ''">
+                            <img ng-src={{userpic}} width="70">
+                        </div>
+
+                        <div class="personalUserpicImage" ng-show="image != '' && userpic == ''">
+                            <img ng-src={{image}} width="70">
+                        </div>
+
+                        <div class="personalUserpicRight">
+                            הוסף תמונה מהגלריה שלך
+                        </div>
+
+                    </div>
+					
+                    <div class="personalUserpicDiv" style="margin-top:10px; margin-bottom:20px;" ng-click="saveChanges()">
+
+                        <div class="personalUserpicButton">
+                            <img src="img/browse_icon.png" style="width:100%" />
+                        </div>
+						<div class="personalUserSaveChange">
+                            שמור שינויים
+                        </div>
+                       
+                    </div>
+                    
+                   
+
+
+                </div>
+
+            </div>
+
+            <div ng-switch-when="personal">
+
+					<div class="pointTitle">
+                    	<div class="pointTitleHeader">צברתי מתחילת החודש {{monthPoints}} נקודות</div>
+                    	<div style="font-size:13px;"> תשובה נכונה = 10 נקודות , תשובה לא נכונה = 2 נקודות</div>
+                    </div>
+                    
+                    <div class="personalTableRow">
+                        <div class="personalTableLeft">{{correctAnswers}}</div>
+                        <div class="personalTableRight">תשובות נכונות החודש</div>
+                    </div>
+                    <div class="yellowRow"></div>
+                    <div class="personalTableRow">
+                        <div class="personalTableLeft">{{incorrectAnswers}}</div>
+                        <div class="personalTableRight">תשובות לא נכונות החודש</div>
+                    </div>
+                    <div class="yellowRow"></div>
+                    <div class="personalTableRow">
+                        <div class="personalTableLeft">{{allPoints}}</div>
+                        <div class="personalTableRight">נקודות שצברתי מעת ההרשמה</div>
+                    </div>
+                    <div class="yellowRow"></div>
+               
+
+                <div class="pointDescription">עונים נכונה על לפחות 15 שאלות </div>
+                <div class="pointDescription" style="margin-top:-38px;">ונכנסים להגרלה החודשית!</div>
+
+            </div>
+
+            <div ng-switch-when="message">
+
+                <div class="div90">
+
+                    <div class="personalTipTitle">
+                    	<img src="img/personal_tip.png" style="width:100%" />
+                    </div>
+
+                    <ion-scroll direction="y" delegate-handle="smallScroll" style="width: 100%; height: 250px; direction:rtl;  background-color: white; border-radius: 15px; padding: 10px;">
+                        <div ng-repeat="element in messages | orderBy:'date'">
+
+                            <div class="personalQuestionTitle" ng-show="element.type == 'question'">אני:</div>
+                            <div class="personalQuestion" ng-show="element.type == 'question'">{{element.message}}</div>
+
+                            <div class="personalAnswerTitle" ng-show="element.type == 'answer'">מומחה:</div>
+                            <div class="personalAnswer" ng-show="element.type == 'answer'">{{element.message}}</div>
+
+                        </div>
+                    </ion-scroll>
+
+                    <div class="personalMessageDiv">
+                    	 <div class="personalMessageDivLeft" align="center">
+                            <div style="width:80%; margin-top:10px;" ng-click="sendMessage()">
+                                <img src="img/ask_icon.png" style="width:100%" />
+                            </div>
+                        </div>
+                
+                    
+                        <div class="personalMessageDivRight">
+                            <textarea placeholder="הקלד ושלח - פנייתך תעבור למומחה, תשובה ב ימים הקרובים"
+                                      ng-model="message.subject" class="personalTextarea" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,104 @@
+<ion-view view-title="Item" hide-nav-bar="true">
+    <ion-content>
+		<div class="pointsHeader" style="padding-bottom: 10px;">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <div class="homeMenuIcon" ui-sref="app.home">
+                <img src="img/homeicon.png" style="width:100%" />
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+
+        <div class="catalogTitleName">
+            <div class="catalogMenuIcon" align="center" ng-click="toggleRightSideMenu()">
+                <div>
+                    <img src="img/white_menu_icon.png" style="width:100%" />
+                </div>
+            </div>
+            <div class="catalogTitle">
+                <div class="header pointsHeaderCatalog" ng-show="categoryNumber == 0">בחר קטגוריה</div>
+                <div class="header pointsHeaderCatalog" ng-show="categoryNumber != 0">{{categoryName}}</div>
+            </div>
+        </div>
+
+        <!--if iframe-->
+
+        <div ng-show="deal.showiframe == '1'" style="width: 100%; height: 100vh; position: relative">
+            <iframe ng-src="{{iframeLink}}" style="position:absolute; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
+        </div>
+
+        <!--if usual deal-->
+
+        <div ng-show="deal.showiframe == '0'">
+
+            <div class="teaserTitle"> {{deal.title}}</div>
+
+            <div class="teaserInfo">
+
+                <div class="teaserInfoLeft">
+
+                    <img src="{{imageHost}}/{{deal.supplier_logo}}" ng-show="deal.supplier_logo != ''" style="width:100%;" />
+                    <img src="img/empty_logo.png" ng-show="deal.supplier_logo == ''" style="width:100%;" />
+
+                    <div class="teaserRegularPriceText" ng-show="deal.regular_price != ''">מחיר רגיל</div>
+                    <div class="teaserRegularPriceBlock" ng-show="deal.regular_price != ''">
+                        <img src="img/teaser_x.png" style="width:100%" />
+                    </div>
+                    <div class="teaserRegularPrice" ng-show="deal.regular_price != ''">{{deal.regular_price}} <span> 	&#8362;</span></div>
+
+                    <div class="teaserNewPriceText" ng-show="deal.member_price != ''">מחיר חבר</div>
+                    <div class="teaserRegularPrice" ng-show="deal.member_price != ''">{{deal.member_price}} <span> 	&#x20aa;</span></div>
+
+                </div>
+
+                <div class="TeaserInfoRight">
+
+                    <img src="{{imageHost}}/{{deal.image}}" style="width:100%;" ng-show="deal.imageSlider.length == 0"/>
+
+                    <div ng-show="deal.imageSlider.length != 0">
+                        <ion-slides options="options" slider="data.slider" style="width: 100%; height: 260px;">
+                            <ion-slide-page ng-repeat="pic in deal.imageSlider">
+                                <div>
+                                    <img src="{{imageHost}}/{{pic}}">
+                                </div>
+                            </ion-slide-page>
+                        </ion-slides>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="teaserInfo rtl" >
+                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'"><a href="" ng-click="goToLink(deal.codelink, deal.title)">{{deal.linktitle}}</a></div>
+                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '0'">{{deal.codelink}}</div>
+                <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index, deal.title)" ng-show="!isFavorite(deal.index)">שמור במועדפים בקטלוג</div>
+                <div class="teaserCodeLeftClicked" ng-show="isFavorite(deal.index)">נשמר במועדפים בקטלוג</div>
+            </div>
+
+            <div class="teaserInfo rtl">
+
+                <div class="greyRow">פרטי ההטבה</div>
+                <div class="mh80" ng-bind-html="deal.desc"></div>
+                <div class="greyRow">תנאים כלליים</div>
+                <div class="mh80" ng-bind-html="deal.terms"></div>
+                <div class="greyRow" ng-show="deal.youtube != ''">סרטון</div>
+                <div ng-show="deal.youtube != ''">
+                    <youtube-video video-url="deal.youtube" player-width="'100%'" style="height:200px !important" ></youtube-video>
+                </div>
+                <div class="greyRow" ng-show="deal.brances.length > 0">כתובות הסניפים</div>
+                <div class="mh80" ng-show="deal.brances.length > 0">
+                    <div ng-repeat="branch in deal.brances">
+                        <p>{{branch[0].address}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

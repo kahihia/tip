@@ -1,0 +1,62 @@
+<ion-view hide-nav-bar="true">
+    <ion-content style="background-color:#D5D5D5;">
+        <div style="background-color:#94CC37;">
+            <div class="sideMenuIcon">
+                <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 0" src="img/man_icon.png" ng-click="logout()" style="width:100%"/>
+                <img ng-show="!image && userData.gender == 1" src="img/woman_icon.png" ng-click="logout()" style="width:100%"/>
+                <div class="sideMenuIconText">התנתק</div>
+            </div>
+            <img src="img/header.png" style="width:100%" />
+        </div>
+
+        <div class="answerHeader">שאלה יומית מתאריך {{todayDate}}</div>
+
+        <div class="answerBackground">
+
+            <div class="answerTitle">{{question.question}}</div>
+
+            <div class="answerMainDiv rtl textCenter">
+
+                <div ng-show="question.explain_image != ''">
+                    <img src="{{imageHost}}/{{question.explain_image}}" style="width: 100%;">
+                </div>
+
+                <div ng-show="question.explain_youtube != ''">
+                    <youtube-video video-url="question.explain_youtube" player-width="'100%'"></youtube-video>
+                </div>
+
+                <div class="answerText">{{rightAnswer}}</div>
+
+            </div>
+
+                <div class="answerCheckAnswer">התשובה הנכונה</div>
+
+            <div class="answerMainDiv rtl textCenter">
+
+                <div class="answerText">{{question.explaination}}</div>
+
+            </div>
+
+        </div>
+
+        <div class="answerQuestion">
+            <div class="answerQuestionLeft" >
+                <div ng-show="isAnswerCorrect == true">
+                    <img src="img/answer_correct.png" style="width:100%" />
+                </div>
+                <div ng-show="isAnswerCorrect == false">
+                    <img src="img/answer_incorrect.png" style="width:100%" />
+                </div>
+            </div>
+            <!--<div class="answerQuestionRight" ui-sref="app.discount">-->
+            <div class="answerQuestionRight" ng-click="checkDiscountState();">
+                <div>
+                    <img src="img/answer_go.png" style="width:100%" />
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

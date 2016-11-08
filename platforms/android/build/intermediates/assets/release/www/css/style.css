@@ -1,0 +1,1178 @@
+
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
+/*@import url('https://fonts.googleapis.com/css?family=Alef');*/
+
+@font-face {
+    font-family: "OPENSANS";
+    src: url(../fonts/OpenSansHebrew-Regular.ttf) format("truetype");
+}
+ 
+
+.div80 {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffd200;
+}
+
+.div90 {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #ffd200;
+}
+
+.div100 {
+    background-color: #ffd200;
+    overflow: hidden;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mh80
+{
+	min-height:80px;
+    padding: 10px;
+}
+
+.body
+{
+	font-family: 'Alef', sans-serif;
+}
+
+
+.bar 
+{ 
+	background-image: none !important;
+	padding:0px !important;
+	margin:0px !important;
+}
+	
+
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    padding-top: 10px !important;
+    height: 45px !important;
+    text-align: center;
+
+    -webkit-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 0.74);
+    /*Copy Text*/
+
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.inputDiv {
+    width: 100%;
+    margin: 10px 0;
+    padding-right: 5px;
+}
+
+.input {
+    width: 100%;
+    text-align: center;
+}
+
+.itemSelected
+{
+    background-color:#ffd200 !important;
+    width: 100%;
+    padding: 0 5px 0 0 !important;
+    border: 0 !important;
+}
+
+.itemSelectedBox
+{
+    border: none;
+    box-shadow: inset 0 2px 9px 0 rgba(0, 0, 0, 0.74);
+    border-radius: 30px !important;
+    height: 45px !important;
+    text-align: center;
+    background-color:white !important;
+    width: 100%;
+    padding-top: 5px;
+}
+
+.activeTab {
+    background-color: #ffffff !important;
+}
+
+/*Register*/
+
+.registerRow {
+    width: 100%;
+    text-align: center;
+    height: 25px;
+}
+
+.registerButtonLeft {
+    width: 50%;
+    float: left;
+    font-size: 20px;
+}
+
+.registerButtonRight {
+    width: 50%;
+    float: right;
+    font-size: 20px;
+}
+
+/*End of register*/
+
+/*Home*/
+.homeIcons {
+    background-color: #ffd200;
+}
+
+.homeRow {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.homeLeft {
+    float: left;
+    width: 40%;
+    padding: 15px 0;
+}
+
+.homeIconBlackDiscription {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.homeRight {
+    float: right;
+    width: 40%;
+    padding: 15px 0;
+}
+
+/*End of Home*/
+
+/*Personal*/
+.personalUserpicDiv {
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.personalUserpicButton {
+    width: 25%;
+    float: left;
+}
+
+.personalUserpicImage {
+    width: 45%;
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.personalUserSaveChange {
+    width: 70%;
+    float: left;
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.personalUserpicRight {
+    width: 30%;
+    float: right;
+    margin-top: 20px;
+    color: white;
+}
+
+.personalTableRow {
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.personalTableLeft {
+    width: 20%;
+    float: left;
+    text-align: left;
+}
+
+.personalTableRight {
+    width: 80%;
+    float: right;
+    text-align: right;
+}
+
+.pointTitle {
+    background-color: black;
+    padding: 15px;
+    color: white;
+}
+
+.pointTitleHeader {
+    font-size: 19px;
+    font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.yellowRow {
+    width: 100%;
+    height: 10px;
+    background-color: #f2d037;
+}
+
+.pointDescription {
+    width: 100%;
+    padding: 20px;
+    direction: rtl;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+}
+
+.pointsContent {
+    background-color: #ffd200;
+}
+
+.pointsHeader {
+    background-color: white;
+}
+
+.pointsHeaderTitle {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    margin: 0px 0;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.personalTipTitle {
+    margin-top: 10px;
+}
+
+.personalQuestionTitle{
+    float: right;
+    width: 70%;
+    clear: left;
+    text-align: right;
+    color: #0930a0;
+    padding: 10px;
+}
+
+.personalQuestion {
+    float: right;
+    width: 100%;
+    clear: left;
+    text-align: right;
+    padding-right: 7%;
+}
+
+.personalAnswerTitle {
+    float: left;
+    width: 70%;
+    clear: right;
+    text-align: left;
+    color: #0930a0;
+    padding: 10px 0;
+}
+
+.personalAnswer {
+    float: left;
+    width: 100%;
+    clear: right;
+    text-align: left;
+    padding-left: 15%;
+}
+
+.personalTextarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 0 10px 10px 0;
+    padding: 5px;
+}
+
+.personalMessageDiv {
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.personalMessageDivLeft {
+    width: 30%;
+    float: left;
+}
+
+.personalMessageDivRight {
+    width: 70%;
+    float: left;
+    direction: rtl;
+}
+/*End of personal*/
+
+/*Article*/
+
+.articleYellowRow {
+    width: 100%;
+    background-color: #f2d037;
+    font-size: 18px;
+    padding: 3px 20px 3px 0;
+}
+
+.articleTitle {
+    width: 100%;
+    overflow: hidden;
+    background-color: #c6a502;
+}
+
+.articleTitleLeft {
+    width: 50%;
+    padding: 5px;
+    float: left;
+    border-right: 1px solid white;
+}
+
+.articleTitleLeft div {
+    width: 40%;
+    margin-left: 10px;
+}
+
+.articleTitleRight {
+    float: right;
+    width: 49%;
+    padding: 10px 0;
+}
+
+.articleCategoryIcon {
+    width: 30%;
+    float: right;
+}
+
+.articleCategoryText {
+    width: 70%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: 100;
+    margin-top: 10px;
+}
+
+.articleItem {
+    width: 100%;
+    position: relative;
+}
+
+.articleDescription {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 20px 5px 5px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.articleDescWithoutImage {
+    padding: 5px 20px 5px 5px;
+    font-size: 14px;
+    font-weight: 100;
+    background-color: white;
+}
+
+.articleHeaderRow {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 10px;
+}
+
+.articleHeaderRight {
+    width: 80%;
+    float: right;
+    text-align: right;
+}
+
+.articleHeaderLeft {
+    width: 20%;
+    float: left;
+    text-align: left;
+}
+
+.articleButtons {
+    width: 100%;
+    background-color: #d9ce98;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+/*End of article*/
+
+/*Video popup*/
+.popupVideo .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 350px;
+    height: 400px;
+}
+
+.popupVideo .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.videoCloseButton {
+    left: 0;
+    top: -5px;
+    position: absolute;
+}
+
+.videoDiv {
+    padding-top: 10px
+}
+
+/*End of video popup*/
+
+/*Daily tip popup*/
+.dailyTipPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    direction: rtl;
+    margin-top: 100px;
+}
+
+.dailyTipPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.dailyTipMainDiv {
+    background-color: white;
+    margin-top: -40px;
+    padding: 40px 10px 10px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.dailyTipTitle {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.dailyTipText {
+    padding: 40px 10px;
+}
+
+.dailyTipButton {
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ffd200;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.dailyTipButtonText {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*End of Daily tip*/
+
+
+/*Forgot password popup*/
+.forgotPasswordPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.forgotPasswordPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.forgotPasswordMainDiv {
+    margin-top: -10px;
+}
+/*End of Forgot password popup*/
+
+/*Updated info popup*/
+.updatedInfoPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.updatedInfoPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.updatedInfoMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
+
+/*Updated info popup*/
+.addedFavPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.addedFavPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.addedFavMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
+
+/*Updated info popup*/
+.deletedFavPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.deletedFavPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.deletedFavMainDiv {
+    margin-top: -10px;
+}
+/*End of Updated info popup*/
+
+/*Points popup*/
+.pointsPopup .popup {
+    background-color: transparent;
+    padding-top: 30px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    direction: rtl;
+}
+
+.pointsPopup .popup-head {
+    width: 0 !important;
+    height: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.pointsPopupMainDiv {
+    background-color: white;
+    margin-top: -40px;
+    padding: 40px 10px 10px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.pointsPopupTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pointsPopupQuantity {
+    font-size: 100px;
+    line-height: 100px;
+    font-weight: bold;
+}
+
+.pointsPopupInfo {
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ffd200;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.pointsPopupBanner {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.pointsPopupButton {
+    width: 90%;
+    margin: 10px auto;
+    background-color: #ffd200;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.pointsPopupButtonText {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*End of Points popup*/
+
+/* Header Page*/
+.Header {
+    width: 100%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.sideMenuIcon {
+    width: 40px;
+    left: 10px;
+    top: 15px;
+    position: absolute;
+	font-size:10px;
+	text-align:center
+}
+
+.sideMenuIconText{
+    margin-top: -10px;
+}
+
+.homeMenuIcon {
+    width: 30px;
+    right: 10px;
+    top: 25px;
+    position: absolute;
+}
+
+/* Information Page*/
+
+.informationRight {
+    float: right;
+    width: 50%;
+}
+
+.informationLeft {
+    float: left;
+    width: 50%;
+}
+
+.infoLeft {
+    width: 100%;
+    overflow: hidden;
+    margin-top: -8px;
+}
+
+.infoLeft1 {
+    width: 50%;
+    float: left;
+}
+
+/* Teaser */
+
+.noTodayDeal {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.teaserTitle {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    direction: rtl;
+    font-size: 18px;
+    background-color: #ffd200;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.teaserInfo {
+    width: 100%;
+    overflow: hidden;
+}
+
+.TeaserInfoRight {
+    width: 70%;
+    float: right;
+	/*background-color: #99D539;*/
+}
+
+.teaserInfoLeft {
+    width: 30%;
+    float: left;
+}
+
+.teaserCodeRight {
+    width: 70%;
+    height: 80px;
+    float: right;
+    background-color: #99D539;
+    padding: 30px 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.teaserCodeLeft {
+    width: 30%;
+    height: 80px;
+    float: left;
+    background-color: #EB002B;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+}
+
+.teaserCodeLeftClicked {
+    width: 30%;
+    height: 80px;
+    float: left;
+    background-color: #fcb6c6;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+.teaserRegularPriceText {
+    padding: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: -5px;
+    background-color: white;
+    direction: rtl;
+}
+
+.teaserNewPriceText {
+    padding: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 100;
+    background-color: black;
+    margin-top: -2px;
+    color: #ffd200;
+}
+
+.teaserRegularPrice {
+    padding: 8px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    direction: rtl;
+}
+
+
+.teaserRegularPriceThumb {
+    padding: 12px 8px 8px 8px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    direction: rtl;
+}
+
+.teaserRegularPriceBlock {
+    position: absolute;
+    width: 32px;
+    margin-left: 14%;
+    margin-top: 5px;
+}
+
+/* Question Page*/
+
+.questionHeader {
+    font-size: 18px;
+    font-weight: 200;
+    text-align: center;
+    padding: 4px;
+	background-color:#fe99ae;
+    /*font-family: 'Arimo', sans-serif !important;*/
+}
+
+.questionTitle {
+    width: 100%;
+    background-color: #f4d239;
+    padding: 5px 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    direction: rtl;
+}
+
+.RadioBtDiv
+{
+	top:5px;
+	position:relative;
+}
+.RadioBt
+{
+	position:absolute;
+	right:8%;
+	margin-top:40px;
+	padding-top:10px;
+}
+
+.question {
+    width: 100%;
+    overflow: hidden;
+}
+
+.questionRight {
+    float: right;
+    width: 20%;
+}
+
+.questionRight div {
+    width: 35%;
+}
+
+.questionLeft {
+    float: right;
+    width: 70%;
+    text-align: right;
+    margin-top: 5px;
+	direction:rtl;
+}
+
+/*Answer page*/
+
+.answerHeader {
+    font-size: 18px;
+    font-weight: 200;
+    text-align: center;
+    padding: 4px;
+    background-color:#94CC37;
+}
+
+.answerTitle {
+    width: 100%;
+    background-color: #f4d239;
+    padding: 5px 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    direction: rtl;
+}
+
+.answerBackground {
+    background-color: #D5D5D5;
+    width: 100%;
+}
+
+.answerMainDiv {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.answerText {
+    font-size: 15px;
+}
+
+.answerCheckAnswer {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin: 5px 10px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50px;
+	font-weight:bold;
+}
+
+
+.answerQuestion
+{
+	width:100%;
+	overflow:hidden;
+    margin-top: 5px;
+}
+
+.answerQuestionLeft
+{
+	width:120px;
+	float:left;
+}
+
+.answerQuestionLeft div
+{
+	width:80%;
+}
+
+.answerQuestionRight
+{
+	width:30%;
+	float:right;
+}
+
+.answerQuestionRight div
+{
+	width:70%
+}
+
+
+/* LogIn page* */
+
+.loginFooter {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.loginFooterLeft {
+    width: 30%;
+    float: left;
+}
+
+.loginFooterRight {
+    width: 30%;
+    float: right;
+}
+
+/* Register Page*/
+.registerFacebook {
+    margin-top: 10px;
+}
+
+/*Catalog*/
+
+.catalogNoDeals {
+    margin-top: 50px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.catalogDeal {
+    width: 47%;
+    float: right;
+    padding: 5px;
+	background-color:white;
+	margin:5px 4px 5px 2px;
+	border-radius:10px;
+	top:40px;
+	position:relative;
+}
+
+.catalogDealTitle {
+    width: 100%;
+    overflow: hidden;
+    height: 65px;
+}
+
+.catalogDealTitleLeft{
+    width: 20%;
+    float: left;
+}
+
+.catalogDealTitleRight {
+    width: 80%;
+    float: right;
+    padding: 0 2px;
+}
+
+.catalogDeals
+{
+	overflow:hidden;
+	width:100%;
+}
+
+
+.pointsHeaderCatalog
+{
+	background-color:black;
+	color:white;
+	width: 100%;
+    text-align: center;
+    margin: 0px 0;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.favorite
+{
+	position:absolute;
+	width:30px;
+	left:10px;
+	top:30px;
+}
+
+.ThumbDealInfo
+{
+	width:100%;
+	overflow:hidden;
+}
+
+.ThumbDealInfoRight
+{
+	width:60%;
+	float:right;
+}
+
+.ThumbDealInfoLeft
+{
+	width:35%;
+	float:left;
+}
+
+.friendPriceText
+{
+	background-color:#93cc36;
+	border-radius:3px;
+}
+
+.friendPrice
+{
+	
+}
+
+
+.catalogTitleName
+{
+	width:100%;
+	overflow:hidden;
+	background-color:black;
+}
+
+.catalogMenuIcon
+{
+	float:right;
+	width:15%;
+}
+
+.catalogMenuIcon div
+{
+	width:60%;
+	margin-top:5px;
+}
+
+
+
+.catalogTitle
+{
+	width:85%;
+	float:left;
+	text-align:center;
+	padding-left:10%;
+}
+/* item page */
+
+
+
+.greyRow
+{
+	background-color:#d9d9d9;
+	color:black;
+	text-align:center;
+	width:100%;
+	padding:5px;
+	margin:0px;
+	margin-top:-5px;
+	font-weight:bold;
+	font-size:18px;
+}
+
+
+
+/* Enter Page */
+
+.EnterLeftArrow
+{
+	width:15px;
+	position:absolute;
+	left:10px;
+	top:180px;
+	z-index:100;
+}
+
+.EnterRightArrow
+{
+	width:15px;
+	position:absolute;
+	right:10px;
+	top:180px;
+	z-index:100;
+}
+
+/* forgot password */
+
+.forgotIcon
+{
+	width:25%;
+	margin-top:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

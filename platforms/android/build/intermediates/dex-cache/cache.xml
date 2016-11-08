@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-basement-9.4.0_98b0b727b0558b5cc0675d154aec2d569ad0b977.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.0\support-annotations-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\support-annotations-24.2.0_ec73793dbe4b796a933914c4d9b85c05931816fc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-core-ui-24.2.0_458ac1cb465a69869ac8e64027ce4bb683d3c4e3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0b060160e7daee343f5315b3da91b0ff2d7eed89">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-location-9.4.0_0e086ca0c238746dc70b3ea2ce53a4b5570248a5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\bolts-applinks-1.4.0_ac6bba3b5f9d0ad12cfd0715d9ae0f52b02650e7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-media-compat-24.2.0_925a0ae030f68048ba4d67c5b0c5678a65458fc2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\internal_impl-24.2.0_9c688dda8c091ad9240e1ae51f69eb9f90c38b32.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ba47b210d36301e237ccfea860eaada04590f12a">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-analytics-9.4.0_bc3ac05d59bbdfa50d3598b8f043ac80f3342327.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\customtabs\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-customtabs-23.4.0_d5aae0966e025e7919a6c0dbc9cdfdc898b2f209.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-core-utils-24.2.0_ba80f746ff7410263e48bab08a2b10f9f08e6b43.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\internal_impl-24.2.0_290c2d7c05b61206288e3dc873f7b12010888566.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\internal_impl-24.2.0_df4c694160c5f3ae5c697121fb428a54984de319.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-compat-24.2.0_fb1ee5ce12b619662d80d1eb8895b7a19206c36c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-cardview-v7-23.4.0_19dcfaa0e9039f34130142a29c3c455c961b843f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\internal_impl-24.2.0_22b8dc88523a936cfddaaf955ea7c6eb5ac062c0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-v4-24.2.0_e9dfe81dd4413b05630030d55604f9aec03bdf9f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ece40b09e9d4d488bc270cf6af5a9af73bc1cfa3">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-gcm-9.4.0_8fe19100db8b69f50345815f6d03a93e59784abc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-tasks-9.4.0_58fce9ef4d2def04e44615a4e1cb415e1c665809.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\bolts-tasks-1.4.0_6d7f4d80019997b07af9b7c2ec466c48990bbd55.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-fragment-24.2.0_9e720629fa36a9991717aa277aeab1c99245a290.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="59a16a4a42d25b2c243dd1e8aea87d06895b4a06">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-iid-9.4.0_9b79932e09f239170799d6c307ec67d12312af2d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\internal_impl-24.2.0_1756dab6971f6e8644175f1e66666ec60f94ac4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0ad33eb600f3d80bdff5ce355c90d5533ade652a">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-analytics-impl-9.4.0_c5c3b5e64ec14e2a13fdf8304406095dcc882d2b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\release\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b5c0ae7989d8245c5a0b684be5b47bef0e0922db">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\CordovaLib-unspecified-release_a688e45a9c31927b0d8f23a8767cdc9c8a7a9df2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-base-9.4.0_cff0c9e5261ae68bf3a95c4f7f8ae662ec026a2f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3fb94e7dbe82fa6a7b3d522a34e444f1bd67b853">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.onesignal-OneSignal-2.6.0_11a76553fe66ba06f725a8ebada05f00df8e2d6e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.facebook.android-facebook-android-sdk-4.14.1_99802c25d018447b8fcf776fe19baad99e59d0ce.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-24.2.0_005acbb25599332d4923274f6078f3df4878e192.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-24.2.0_ac469fd6c544b1ea656adc2e7d64cfb3b52cd1dc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-24.2.0_a2d29cfecd69446637fab2feb9b21145d95e9d88.jar" />
+    </item>
+
+</items>
