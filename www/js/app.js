@@ -587,6 +587,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 function(data){
 
                     $rootScope.deals = data.data;
+                    $rootScope.closeDeals = [];
 
                     for(var i = 0; i < $rootScope.deals.length; i++){
 
@@ -622,11 +623,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                         }
 
-                        $rootScope.closeDeals = [];
-
                         for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
 
                             if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
+
+                                // var closestBranches = [];
+                                // closestBranches.push($rootScope.deals[i].brances[j]);
+                                // console.log(closestBranches);
+                                //
+                                // $rootScope.deals[i].brances = [];
+                                //
+                                // for (var k = 0; k < closestBranches.length; k++){
+                                //
+                                //     $rootScope.deals[i].brances.push(closestBranches[k]);
+                                //
+                                // }
 
                                 $rootScope.closeDeals.push($rootScope.deals[i]);
 

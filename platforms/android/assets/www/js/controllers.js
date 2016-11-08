@@ -107,7 +107,7 @@ angular.module('starter.controllers', [])
             $state.go("app.register");
 
             if(window.cordova) {
-                window.ga.trackEvent('enterScreenIsSeen', 'enterScreenIsSeen');
+                window.ga.trackEvent('מסך הסלידר נצפה', 'כן');
             }
 
         };
@@ -843,8 +843,8 @@ angular.module('starter.controllers', [])
                         console.log(data);
 
                         if (window.cordova){
-                            window.ga.trackEvent('question is answered successfully', $rootScope.today);
-                            window.ga.trackEvent('question is answered', checkedAnswer);
+                            window.ga.trackEvent('שאלה נענתה בהצלחה', $rootScope.today);
+                            window.ga.trackEvent('שאלה נענתה נכונה', checkedAnswer);
                         }
 
                         // update local variables
@@ -1099,10 +1099,14 @@ angular.module('starter.controllers', [])
 
         $scope.$on('$ionicView.enter', function(e) {
 
-            if ($state.current.name == "app.personal"){
-                window.ga.trackView("עמוד אזור אישי");
-            } else {
-                window.ga.trackView("עמוד פניה למומחה");
+            $rootScope.getUserPoints();
+
+            if(window.cordova){
+                if ($state.current.name == "app.personal"){
+                    window.ga.trackView("עמוד אזור אישי");
+                } else {
+                    window.ga.trackView("עמוד פניה למומחה");
+                }
             }
 
             // for push notifications from specialist answers
@@ -1764,8 +1768,6 @@ angular.module('starter.controllers', [])
                                         .getCurrentPosition(posOptions)
                                         .then(function (position) {
 
-                                            $rootScope.closeDeals = [];
-
                                             $rootScope.lat = position.coords.latitude;
                                             $rootScope.lng = position.coords.longitude;
 
@@ -1803,8 +1805,6 @@ angular.module('starter.controllers', [])
                     $cordovaGeolocation
                         .getCurrentPosition(posOptions)
                         .then(function (position) {
-
-                            $rootScope.closeDeals = [];
 
                             $rootScope.lat = position.coords.latitude;
                             $rootScope.lng = position.coords.longitude;
@@ -1858,8 +1858,6 @@ angular.module('starter.controllers', [])
                         $cordovaGeolocation
                             .getCurrentPosition(posOptions)
                             .then(function (position) {
-
-                                $rootScope.closeDeals = [];
 
                                 $rootScope.lat = position.coords.latitude;
                                 $rootScope.lng = position.coords.longitude;
