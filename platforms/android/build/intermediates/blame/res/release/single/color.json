@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
         "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\common_plus_signin_btn_text_light.xml",
@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\com_facebook_button_text_color.xml",
-        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.14.1\\res\\color\\com_facebook_button_text_color.xml"
-    },
-    {
         "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
         "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\com_facebook_button_text_color.xml",
+        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.14.1\\res\\color\\com_facebook_button_text_color.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_track.xml",
@@ -80,15 +80,15 @@
         "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.facebook.android\\facebook-android-sdk\\4.14.1\\res\\color\\com_facebook_send_button_text_color.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_tint_btn_checkable.xml"
+        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\common_google_signin_btn_text_light.xml",
         "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.4.0\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\Owner\\Desktop\\github\\tip\\platforms\\android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.0\\res\\color\\abc_tint_btn_checkable.xml"
     }
 ]

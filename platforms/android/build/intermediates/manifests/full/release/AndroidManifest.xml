@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ionicframework.tipli499507"
     android:hardwareAccelerated="true"
-    android:versionCode="10005"
-    android:versionName="1.0.5" >
+    android:versionCode="100046"
+    android:versionName="1.0.6" >
 
     <uses-sdk
         android:minSdkVersion="16"

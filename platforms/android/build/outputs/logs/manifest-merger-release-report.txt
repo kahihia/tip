@@ -4,17 +4,17 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 	android:hardwareAccelerated
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:143-201
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:144-202
 	package
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:102-142
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:103-143
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:74-101
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:75-102
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionCode
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:46-73
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:46-74
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 supports-screens
