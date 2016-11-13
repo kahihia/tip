@@ -852,11 +852,13 @@ angular.module('starter.controllers', [])
                         if (checkedAnswer == true){
 
                             $rootScope.allPoints += 10;
+                            $rootScope.monthPoints += 10;
                             $rootScope.correctAnswers += 1;
 
                         } else if (checkedAnswer == false){
 
                             $rootScope.allPoints += 2;
+                            $rootScope.monthPoints += 2;
                             $rootScope.incorrectAnswers += 1;
 
                         }
