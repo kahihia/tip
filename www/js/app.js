@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
+			
 
                 // Back button
 				
@@ -158,10 +159,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                         }
 
                     };
-
-                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+				
+				  var isIOS = ionic.Platform.isIOS();
+				  var isAndroid = ionic.Platform.isAndroid();
+				
+					if (isAndroid)
+					{
+						window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
                         {googleProjectNumber: "627358870772"},
-                        notificationOpenedCallback);
+                        notificationOpenedCallback);						
+					}
+					if (isIOS)
+					{
+					  window.plugins.OneSignal
+					  .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
+					  .handleNotificationOpened(notificationOpenedCallback)
+					  .endInit();						
+					}
+  
+
 
                     window.plugins.OneSignal.getIds(function (ids) {
 
