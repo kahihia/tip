@@ -700,6 +700,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                             if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
 
+                                // console.log($rootScope.deals[i].brances[j][0]);
                                 // var closestBranches = [];
                                 // closestBranches.push($rootScope.deals[i].brances[j]);
                                 // console.log(closestBranches);
@@ -741,6 +742,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 });
 
         };
+
 
         // show popup with quantity of points collected by user
 

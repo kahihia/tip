@@ -2089,7 +2089,7 @@ angular.module('starter.controllers', [])
 
         $scope.goToPage = function(x){
 
-            cordova.InAppBrowser.open(x, '_system', 'location=yes');
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
 
         };
 

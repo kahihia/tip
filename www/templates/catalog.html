@@ -44,7 +44,7 @@
 
                 <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרובים אלייך</div>
 
-                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals">
+                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals track by $index">
 
                     <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
                     <div class="catalogDeal" ng-click="openItem(deal)">
