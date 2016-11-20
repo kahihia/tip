@@ -1617,7 +1617,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+    .controller('CatalogCtrl', function ($ionicScrollDelegate, $ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.$on('$ionicView.enter', function(e) {
 
@@ -1626,6 +1626,16 @@ angular.module('starter.controllers', [])
             }
 
         });
+
+        // scroll to top
+
+        $scope.scrollTop = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
+
+        };
+
+        // open page at catalog
 
         $scope.openItem = function(x){
 

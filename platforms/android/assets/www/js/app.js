@@ -158,10 +158,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                         }
 
                     };
-
-                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+				
+				  var isIOS = ionic.Platform.isIOS();
+				  var isAndroid = ionic.Platform.isAndroid();
+				
+					if (isAndroid)
+					{
+						window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
                         {googleProjectNumber: "627358870772"},
-                        notificationOpenedCallback);
+                        notificationOpenedCallback);						
+					}
+					if (isIOS)
+					{
+					  window.plugins.OneSignal
+					  .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
+					  .handleNotificationOpened(notificationOpenedCallback)
+					  .endInit();						
+					}
+  
+
 
                     window.plugins.OneSignal.getIds(function (ids) {
 
@@ -187,75 +202,98 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     StatusBar.styleDefault();
                 }
 
-                // tip after 1 minute
+                // check if user has already seen a daily tip today
 
-                var send_data = {
+                var user_tip = {
 
-                    'date' : $rootScope.today,
-                    'type' : ""
+                    'user' : $localStorage.userid
 
                 };
 
-                if ($localStorage.soldier == "1"){
+                $http.post($rootScope.host + 'CheckUserSeenTip', user_tip, {
 
-                    send_data.type = "1";
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                } else {
+                }).then(
 
-                    send_data.type = "2";
+                    function(data){
 
-                }
+                        console.log("seentip", data.data.response);
+                        if (data.data.response.seentip == 0){
 
-                $http.post($rootScope.host + 'GetTipByDate', send_data, {
-
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-                    }).then(
-
-                        function(data){
-
-                            console.log("Daily tip", data);
                             $localStorage.isTipShown = false;
 
-                            $timeout(function () {
+                            var send_data = {
 
-                                $rootScope.$watch('currState.current.name', function() {
+                                'date' : $rootScope.today,
+                                'type' : ""
 
-                                    if ($rootScope.currState.current.name != 'app.register' &&
-                                        $rootScope.currState.current.name != 'app.teaser' &&
-                                        $rootScope.currState.current.name != 'app.question' &&
-                                        $rootScope.currState.current.name != 'app.answer' &&
-                                        $rootScope.currState.current.name != 'app.discount' &&
-                                        $localStorage.isTipShown == false) {
+                            };
 
-                                        $rootScope.dailyTipText = data.data[0].title;
+                            if ($localStorage.soldier == "1"){
 
-                                        var dailyTipPopup = $ionicPopup.show({
-                                            templateUrl: 'templates/popup_daily_tip.html',
-                                            scope: $rootScope,
-                                            cssClass: 'dailyTipPopup'
-                                        });
+                                send_data.type = "1";
 
-                                        $rootScope.hideDailyTip = function () {
+                            } else {
 
-                                            dailyTipPopup.close();
+                                send_data.type = "2";
 
-                                        };
+                            }
 
-                                        $localStorage.isTipShown = true;
-                                    }
+                            $http.post($rootScope.host + 'GetTipByDate', send_data, {
 
-                                 })
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                            }, 60000)
+                            }).then(
 
-                        },
+                                function(data){
 
-                        function(err){
+                                    console.log("Daily tip", data);
 
-                            console.log(err);
+                                    $timeout(function () {
 
-                        });
+                                        $rootScope.$watch('currState.current.name', function() {
+
+                                            if ($rootScope.currState.current.name != 'app.register' &&
+                                                $rootScope.currState.current.name != 'app.teaser' &&
+                                                $rootScope.currState.current.name != 'app.question' &&
+                                                $rootScope.currState.current.name != 'app.answer' &&
+                                                $rootScope.currState.current.name != 'app.discount' &&
+                                                $localStorage.isTipShown == false) {
+
+                                                $rootScope.dailyTipText = data.data[0].title;
+
+                                                $rootScope.dailyTipPopup = $ionicPopup.show({
+                                                    templateUrl: 'templates/popup_daily_tip.html',
+                                                    scope: $rootScope,
+                                                    cssClass: 'dailyTipPopup'
+                                                });
+
+                                                $localStorage.isTipShown = true;
+
+                                            }
+
+                                        })
+
+                                    }, 60000)
+
+                                },
+
+                                function(err){
+
+                                    console.log(err);
+
+                                });
+
+                        }
+
+                    },
+
+                    function(err){
+
+                        console.log(err);
+
+                    });
 
                 // geolocation
 
@@ -314,6 +352,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 }
 
             });
+
+        $rootScope.updateDailyTipSeen = function(){
+
+            var user_tip_seen = {
+
+                'user' : $localStorage.userid
+
+            };
+
+            $http.post($rootScope.host + 'UserSeenTip', user_tip_seen, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data.data);
+                    $rootScope.dailyTipPopup.close();
+
+                },
+
+                function(err){
+
+                    console.log(err);
+                    $rootScope.dailyTipPopup.close();
+
+                });
+
+        };
 
         // global variables
 
@@ -684,6 +752,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                             if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
 
+                                // console.log($rootScope.deals[i].brances[j][0]);
                                 // var closestBranches = [];
                                 // closestBranches.push($rootScope.deals[i].brances[j]);
                                 // console.log(closestBranches);
@@ -725,6 +794,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 });
 
         };
+
 
         // show popup with quantity of points collected by user
 

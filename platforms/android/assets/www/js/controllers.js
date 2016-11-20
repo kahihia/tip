@@ -812,11 +812,14 @@ angular.module('starter.controllers', [])
 
                 var checkedAnswer = $scope.checkAnswer();
 
+
                 var send_question = {
 
                     "user" : $localStorage.userid,
                     "quantity" : "",
-                    "correct" : ""
+                    "correct" : "",
+                    "question_index" : $scope.question.index,
+                    "answer_index" : $scope.userAnswer.selected
 
                 };
 
@@ -1614,7 +1617,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+    .controller('CatalogCtrl', function ($ionicScrollDelegate, $ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.$on('$ionicView.enter', function(e) {
 
@@ -1623,6 +1626,16 @@ angular.module('starter.controllers', [])
             }
 
         });
+
+        // scroll to top
+
+        $scope.scrollTop = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
+
+        };
+
+        // open page at catalog
 
         $scope.openItem = function(x){
 
@@ -1801,7 +1814,7 @@ angular.module('starter.controllers', [])
                         });
 
                 } else if ($rootScope.isLocationEnabled == true){
-
+                    console.log("here2");
                     var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                     $cordovaGeolocation
