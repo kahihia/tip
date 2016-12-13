@@ -30,7 +30,8 @@
 
             </div>
 
-                <div class="answerCheckAnswer">התשובה הנכונה</div>
+                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == true">התשובה הנכונה</div>
+                <div class="answerCheckAnswer" ng-show="isAnswerCorrect == false">התשובה לא הנכונה</div>
 
             <div class="answerMainDiv rtl textCenter">
 
@@ -49,7 +50,6 @@
                     <img src="img/answer_incorrect.png" style="width:100%" />
                 </div>
             </div>
-            <!--<div class="answerQuestionRight" ui-sref="app.discount">-->
             <div class="answerQuestionRight" ng-click="checkDiscountState();">
                 <div>
                     <img src="img/answer_go.png" style="width:100%" />

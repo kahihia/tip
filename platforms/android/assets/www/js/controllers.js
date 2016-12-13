@@ -2124,7 +2124,7 @@ angular.module('starter.controllers', [])
 
                         // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
                         // console.log($scope.content[i].desc.length);
-                        $scope.content[i].opened = 0;
+                        // $scope.content[i].opened = 0;
                     }
 
                     console.log("Articles", $scope.content);
