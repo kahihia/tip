@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
                                 expire: 300
                             });
 
-                            $state.go('app.teaser');
+                            $state.go('app.question');
 
                         } else {
 
@@ -639,7 +639,7 @@ angular.module('starter.controllers', [])
 
             if (!$localStorage.isDailyDealSeen || $localStorage.isDailyDealSeen == "" || $localStorage.isDailyDealSeen == false){
 
-                $state.go('app.teaser');
+                $state.go('app.question');
 
             } else {
 
@@ -1052,6 +1052,41 @@ angular.module('starter.controllers', [])
                         }
 
                         console.log("Today Deal", $rootScope.todayDeal);
+
+                        if ($state.current.name == "app.discount"){
+
+                            var data_send = {
+
+                                "user" : $localStorage.userid,
+                                "deal_id" : $rootScope.todayDeal.index,
+                                "supplier_id" : $rootScope.todayDeal.supplier_id
+
+                            };
+
+                            $http.post($rootScope.host + 'CountDealView', data_send, {
+
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                            }).then(
+
+                                function(data){
+
+                                    console.log(data);
+                                },
+
+                                function(err){
+
+                                    $ionicPopup.alert({
+                                        title: "אין חיבור לרשת",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                });
+
+                        }
 
                     }
 
@@ -1639,6 +1674,38 @@ angular.module('starter.controllers', [])
 
         $scope.openItem = function(x){
 
+            var data_send = {
+
+                "user" : $localStorage.userid,
+                "deal_id" : x.index,
+                "supplier_id" : x.supplier_id
+
+            };
+            // console.log("data_send", data_send);
+
+            $http.post($rootScope.host + 'CountDealView', data_send, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data);
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
             if (x.showiframe == "0" && x.dealgivenby == "1"){
 
                 $state.go('app.item', {itemId:x.index});
@@ -2017,7 +2084,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ArticleCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+    .controller('ArticleCtrl', function ($ionicScrollDelegate, $ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -2056,10 +2123,11 @@ angular.module('starter.controllers', [])
                     for (var i = 0; i < $scope.content.length; i++){
 
                         // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
-
+                        // console.log($scope.content[i].desc.length);
+                        $scope.content[i].opened = 0;
                     }
 
-                    console.log($scope.content);
+                    console.log("Articles", $scope.content);
 
                 },
 
@@ -2076,7 +2144,6 @@ angular.module('starter.controllers', [])
                 });
 
         });
-
 
         // show video if needed
 
@@ -2103,6 +2170,14 @@ angular.module('starter.controllers', [])
         $scope.goToPage = function(x){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+
+        };
+
+        // scroll to top
+
+        $scope.scrollTopArticle = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
 
         };
 

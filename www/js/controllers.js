@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
                                 expire: 300
                             });
 
-                            $state.go('app.teaser');
+                            $state.go('app.question');
 
                         } else {
 
@@ -639,7 +639,7 @@ angular.module('starter.controllers', [])
 
             if (!$localStorage.isDailyDealSeen || $localStorage.isDailyDealSeen == "" || $localStorage.isDailyDealSeen == false){
 
-                $state.go('app.teaser');
+                $state.go('app.question');
 
             } else {
 
@@ -2084,7 +2084,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ArticleCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+    .controller('ArticleCtrl', function ($ionicScrollDelegate, $ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -2123,10 +2123,11 @@ angular.module('starter.controllers', [])
                     for (var i = 0; i < $scope.content.length; i++){
 
                         // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
-
+                        // console.log($scope.content[i].desc.length);
+                        // $scope.content[i].opened = 0;
                     }
 
-                    console.log($scope.content);
+                    console.log("Articles", $scope.content);
 
                 },
 
@@ -2143,7 +2144,6 @@ angular.module('starter.controllers', [])
                 });
 
         });
-
 
         // show video if needed
 
@@ -2170,6 +2170,14 @@ angular.module('starter.controllers', [])
         $scope.goToPage = function(x){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+
+        };
+
+        // scroll to top
+
+        $scope.scrollTopArticle = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
 
         };
 

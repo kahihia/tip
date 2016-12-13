@@ -78,8 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                                 $rootScope.pushNotificationType = "dailydeal";
 
-                                // $state.go('app.teaser');
-
                                 var send_user = {
 
                                     "user": $localStorage.userid
@@ -98,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                                             $localStorage.isDailyDealSeen = false;
                                             $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
-                                            $state.go('app.teaser');
+                                            $state.go('app.question');
 
                                             $rootScope.getUserPoints();
 
@@ -255,7 +253,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                                         $rootScope.$watch('currState.current.name', function() {
 
                                             if ($rootScope.currState.current.name != 'app.register' &&
-                                                $rootScope.currState.current.name != 'app.teaser' &&
                                                 $rootScope.currState.current.name != 'app.question' &&
                                                 $rootScope.currState.current.name != 'app.answer' &&
                                                 $rootScope.currState.current.name != 'app.discount' &&
