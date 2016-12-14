@@ -741,7 +741,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         // get all deals without location
 
         $rootScope.getDealsWithoutLocation = function () {
-            alert("getDealsWithoutLocation");
+
+            // alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -810,7 +811,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         // get all deals with location
 
         $rootScope.getDealsWithLocation = function () {
-            alert("getDealsWithLocation");
+
+            // alert("getDealsWithLocation");
             var send_coord = {
 
                 'lat': $rootScope.lat,

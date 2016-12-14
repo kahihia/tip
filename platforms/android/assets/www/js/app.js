@@ -49,6 +49,96 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 }
 
+                // check if user has already seen a daily tip today for ios
+
+                var user_tip1 = {
+
+                    'user': $localStorage.userid
+
+                };
+
+                $http.post($rootScope.host + 'CheckUserSeenTip', user_tip1, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+                    function (data) {
+
+                        console.log("seentip", data.data.response);
+                        if (data.data.response.seentip == 0) {
+
+                            $localStorage.isTipShown = false;
+
+                            var send_data = {
+
+                                'date': $rootScope.today,
+                                'type': ""
+
+                            };
+
+                            if ($localStorage.soldier == "1") {
+
+                                send_data.type = "1";
+
+                            } else {
+
+                                send_data.type = "2";
+
+                            }
+
+                            $http.post($rootScope.host + 'GetTipByDate', send_data, {
+
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                            }).then(
+                                function (data) {
+
+                                    console.log("Daily tip", data);
+
+                                    $timeout(function () {
+
+                                        $rootScope.$watch('currState.current.name', function () {
+
+                                            if ($rootScope.currState.current.name != 'app.register' &&
+                                                $rootScope.currState.current.name != 'app.question' &&
+                                                $rootScope.currState.current.name != 'app.answer' &&
+                                                $rootScope.currState.current.name != 'app.discount' &&
+                                                $localStorage.isTipShown == false) {
+
+                                                $rootScope.dailyTipText = data.data[0].title;
+
+                                                $rootScope.dailyTipPopup = $ionicPopup.show({
+                                                    templateUrl: 'templates/popup_daily_tip.html',
+                                                    scope: $rootScope,
+                                                    cssClass: 'dailyTipPopup'
+                                                });
+
+                                                $localStorage.isTipShown = true;
+
+                                            }
+
+                                        })
+
+                                    }, 60000)
+
+                                },
+
+                                function (err) {
+
+                                    console.log(err);
+
+                                });
+
+                        }
+
+                    },
+
+                    function (err) {
+
+                        console.log(err);
+
+                    });
+
             }
 
             // Back button
@@ -236,8 +326,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         }
 
 
-        // check if user has already seen a daily tip today
-alert('1');
+        // check if user has already seen a daily tip today for Android
+
         var user_tip = {
 
             'user': $localStorage.userid
@@ -250,7 +340,7 @@ alert('1');
 
         }).then(
             function (data) {
-                alert('2');
+
                 console.log("seentip", data.data.response);
                 if (data.data.response.seentip == 0) {
 
@@ -279,7 +369,7 @@ alert('1');
 
                     }).then(
                         function (data) {
-                            alert('3');
+
                             console.log("Daily tip", data);
 
                             $timeout(function () {
@@ -384,6 +474,7 @@ alert('1');
 
         });
 
+        // update table users for DailyTipSeen
 
         $rootScope.updateDailyTipSeen = function () {
 
@@ -453,7 +544,6 @@ alert('1');
         $rootScope.bannersInfo = [];
         $rootScope.monthBanner = "";
         $rootScope.yearBanner = "";
-
 
         // get catalog categories
 
@@ -651,7 +741,8 @@ alert('1');
         // get all deals without location
 
         $rootScope.getDealsWithoutLocation = function () {
-            alert("getDealsWithoutLocation");
+
+            // alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -720,7 +811,8 @@ alert('1');
         // get all deals with location
 
         $rootScope.getDealsWithLocation = function () {
-            alert("getDealsWithLocation");
+
+            // alert("getDealsWithLocation");
             var send_coord = {
 
                 'lat': $rootScope.lat,

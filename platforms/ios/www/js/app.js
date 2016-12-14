@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 }
 
-                // check if user has already seen a daily tip today
+                // check if user has already seen a daily tip today for ios
 
                 var user_tip1 = {
 
@@ -63,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 }).then(
                     function (data) {
-                        alert('2');
+
                         console.log("seentip", data.data.response);
                         if (data.data.response.seentip == 0) {
 
@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                             }).then(
                                 function (data) {
-                                    alert('3');
+
                                     console.log("Daily tip", data);
 
                                     $timeout(function () {
@@ -326,7 +326,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         }
 
 
-        // check if user has already seen a daily tip today
+        // check if user has already seen a daily tip today for Android
 
         var user_tip = {
 
@@ -340,7 +340,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         }).then(
             function (data) {
-                alert('2');
+
                 console.log("seentip", data.data.response);
                 if (data.data.response.seentip == 0) {
 
@@ -369,7 +369,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     }).then(
                         function (data) {
-                            alert('3');
+
                             console.log("Daily tip", data);
 
                             $timeout(function () {

@@ -1809,7 +1809,7 @@ angular.module('starter.controllers', [])
                 if ($rootScope.isLocationEnabled == false) {
 
                     $ionicPlatform.ready(function () {
-                        
+
                         document.addEventListener("deviceready", function () {
 
                             cordova.dialogGPS("Your GPS is Disabled.",
