@@ -42,9 +42,9 @@
                     <button class="button button-assertive" ng-click="turnOnGPS()" style="margin-top: 40px;">נא הפעל GPS על מנת לקבל את ההטבות הקרובות</button>
                 </div>
 
-                <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרוביך</div>
+                <div ng-show="isLocationEnabled == true && closeDeals.length == 0" style="margin-top: 40px; font-size: 20px;">אין דילים קרובים אלייך</div>
 
-                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals">
+                <div ng-show="isLocationEnabled == true && closeDeals.length != 0" ng-repeat="deal in closeDeals track by $index">
 
                     <!--<div class="catalogDeal" ui-sref="app.item({itemId:deal.index})">-->
                     <div class="catalogDeal" ng-click="openItem(deal)">
@@ -53,11 +53,11 @@
 
                             <div class="catalogDealTitleRight">{{deal.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -98,11 +98,11 @@
 
                             <div class="catalogDealTitleRight">{{deal.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(deal.index)" ng-click="makeFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(deal.index)" ng-click="deleteFavorite(deal.index, deal.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -141,11 +141,11 @@
 
                             <div class="catalogDealTitleRight">{{fav.title}}</div>
 
-                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="!isFavorite(fav.index)" ng-click="makeFavorite(fav.index, fav.title); $event.stopPropagation();">
                                 <img ng-src="img/fav.png" style="width: 100%;">
                             </div>
 
-                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index); $event.stopPropagation();">
+                            <div class="catalogDealTitleLeft" ng-show="isFavorite(fav.index)" ng-click="deleteFavorite(fav.index, fav.title); $event.stopPropagation();">
                                 <img ng-src="img/fav1.png" style="width: 100%;">
                             </div>
 
@@ -172,4 +172,11 @@
             </div>
         </div>
     </ion-content>
+
+    <!--Scroll to top button-->
+
+    <div style="position: absolute; bottom: 0px; right:10px; width: 15%; margin-right:10px; margin-bottom:10px;"
+         ng-click="scrollTop()" align="right" ng-hide="selection == 'catalog' && categoryNumber == 0">
+        <img src="img/scroll_to_top.png"  style="width:100%" >
+    </div>
 </ion-view>

@@ -1,13 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.tipli499507" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="100048" id="com.ionicframework.tipli499507" version="1.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
-    </feature>
-    <feature name="Device">
-        <param name="ios-package" value="CDVDevice" />
     </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen" />
@@ -19,12 +16,6 @@
     </feature>
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
-    </feature>
-    <description>
-        An Ionic Framework and Cordova project.
-    </description>
-    <feature name="UniversalAnalytics">
-        <param name="ios-package" value="UniversalAnalyticsPlugin" />
     </feature>
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
@@ -58,8 +49,14 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
     <feature name="OneSignalPush">
         <param name="ios-package" value="OneSignalPush" />
+    </feature>
+    <feature name="UniversalAnalytics">
+        <param name="ios-package" value="UniversalAnalyticsPlugin" />
     </feature>
     <name>tipli</name>
     <description>

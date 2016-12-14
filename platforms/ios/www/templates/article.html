@@ -48,6 +48,10 @@
 
                     <div class="articleDescription rtl" ng-bind-html="item.desc"></div>
                 </div>
+
+                <!--<div class="articleDescWithoutImage rtl" ng-show="item.image == '' && item.opened == 0" ng-click="item.opened = 1" ng-bind-html="item.desc | limitHtml: 200"></div>-->
+                <!--<div class="articleDescWithoutImage rtl" ng-show="item.image == '' && item.opened == 1" ng-click="item.opened = 0" ng-bind-html="item.desc"></div>-->
+
                 <div class="articleDescWithoutImage rtl" ng-show="item.image == ''" ng-bind-html="item.desc"></div>
 
                 <div class="articleButtons">
@@ -71,4 +75,9 @@
         </div>
 
     </ion-content>
+
+    <div style="position: absolute; bottom: 0px; right:10px; width: 15%; margin-right:10px; margin-bottom:10px;"
+         ng-click="scrollTopArticle()" align="right">
+        <img src="img/scroll_to_top.png"  style="width:100%" >
+    </div>
 </ion-view>

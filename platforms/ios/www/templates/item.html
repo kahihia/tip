@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="TeaserInfoRight">
-                    <!--<img src="{{imageHost}}/{{deal.image}}" style="width:100%;" />-->
+
                     <img src="{{imageHost}}/{{deal.image}}" style="width:100%;" ng-show="deal.imageSlider.length == 0"/>
 
                     <div ng-show="deal.imageSlider.length != 0">
@@ -73,9 +73,9 @@
             </div>
 
             <div class="teaserInfo rtl" >
-                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'"><a href="" ng-click="goToLink(deal.codelink)">{{deal.linktitle}}</a></div>
+                <div class="teaserCodeRight" ng-show="deal.dealgivenby == '1'"><a href="" ng-click="goToLink(deal.codelink, deal.title)">{{deal.linktitle}}</a></div>
                 <div class="teaserCodeRight" ng-show="deal.dealgivenby == '0'">{{deal.codelink}}</div>
-                <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index)" ng-show="!isFavorite(deal.index)">שמור במועדפים בקטלוג</div>
+                <div class="teaserCodeLeft" ng-click="makeFavorite(deal.index, deal.title)" ng-show="!isFavorite(deal.index)">שמור במועדפים בקטלוג</div>
                 <div class="teaserCodeLeftClicked" ng-show="isFavorite(deal.index)">נשמר במועדפים בקטלוג</div>
             </div>
 

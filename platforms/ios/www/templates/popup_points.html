@@ -8,7 +8,7 @@
 
         <div class="pointsPopupQuantity">{{monthPoints}}</div>
 
-        <div class="pointsPopupInfo">להגרלה החודשי עליך לענות על עוד {{leftQuestions}} שאלות</div>
+        <div class="pointsPopupInfo" ng-show="leftQuestions > 0">להגרלה החודשי עליך לענות על עוד {{leftQuestions}} שאלות</div>
 
         <div class="pointsPopupBanner">
             <img src="{{imageHost}}/{{monthBanner.image}}" style="width: 100%; height: 60px;">

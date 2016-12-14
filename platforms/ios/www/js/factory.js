@@ -25,7 +25,7 @@ angular.module('starter.factories', [])
 
         return {
 
-            makeFavorite: function(x, scope){
+            makeFavorite: function(x, scope, y){
 
                 var send_fav = {
 
@@ -54,6 +54,10 @@ angular.module('starter.factories', [])
 
                         };
 
+                        if (window.cordova){
+                            window.ga.trackEvent('נוספו למועדפים', y);
+                        }
+
                         // if ok, get all favorites again
 
                         $rootScope.favoriteDeals = [];
@@ -75,10 +79,6 @@ angular.module('starter.factories', [])
                                 var favorites = data.data;
 
                                 for(var j = 0; j < favorites.length; j++){
-
-                                    // favorites[j].image = (favorites[j].image == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image;
-                                    // favorites[j].image2 = (favorites[j].image2 == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].image2;
-                                    // favorites[j].supplier_logo = (favorites[j].supplier_logo == "") ? "" : $rootScope.phpHost + "uploads/" + favorites[j].supplier_logo;
 
                                     $rootScope.favoriteDeals.push(favorites[j]);
 
@@ -149,7 +149,7 @@ angular.module('starter.factories', [])
 
         return {
 
-            deleteFavorite: function(x, scope){
+            deleteFavorite: function(x, scope, y){
 
                 var del_fav = {
 
@@ -185,6 +185,10 @@ angular.module('starter.factories', [])
 
                                 }
 
+                            }
+
+                            if (window.cordova){
+                                window.ga.trackEvent('נמחקו מהמועדפים', y);
                             }
 
                             var deletedFavPopup = $ionicPopup.show({

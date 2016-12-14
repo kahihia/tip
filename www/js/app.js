@@ -11,288 +11,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
-                // Back button
-				
-				$ionicPlatform.registerBackButtonAction(function (event) 
-				{
-					if($state.current.name == 'app.login' || $state.current.name == 'app.home' ||
-                        $state.current.name == 'app.question' || $state.current.name == 'app.answer') {
+            // geolocation for ios
 
-					    // do nothing
-
-					}  else {
-
-						 $ionicHistory.goBack();
-
-					}
-					
-				},100);
-
-
-                // Notifications and GA
-
-                document.addEventListener("deviceready", function(){
-
-                    // Google Analytics
-
-                    window.ga.startTrackerWithId('UA-86948163-1');
-
-                    // Notifications
-
-                    var notificationOpenedCallback = function (jsonData) {
-
-                        // alert(JSON.stringify(jsonData));
-
-                        // NEW MESSAGE FROM SPECIALIST
-
-                        if (jsonData.additionalData.type == "newmessage") {
-
-                            if ($localStorage.userid == ''){        // if not logged in
-
-                                $state.go('app.login');
-
-                            } else {        // if logged in
-
-                                $rootScope.pushNotificationType = "newmessage";
-
-                                $state.go('app.personal');
-
-                            }
-
-                        }
-
-                        // DAILY DEAL
-
-                        if (jsonData.additionalData.type == "dailydeal") {
-
-                            // $localStorage.isDailyDealSeen = false;
-                            // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
-
-                            // alert(JSON.stringify(jsonData.additionalData));
-
-                            if ($localStorage.userid == '') {        // if not logged in
-
-                                $state.go('app.login');
-
-                            } else {        // if logged in
-
-                                $rootScope.pushNotificationType = "dailydeal";
-
-                                var send_user = {
-
-                                    "user": $localStorage.userid
-
-                                };
-
-                                $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
-
-                                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-                                }).then(
-                                    function (data) {
-
-                                        if (data.data.response.seendeal == "0") {
-
-                                            $localStorage.isDailyDealSeen = false;
-                                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
-
-                                            $state.go('app.question');
-
-                                            $rootScope.getUserPoints();
-
-                                            $ionicHistory.nextViewOptions({
-                                                disableAnimate: true,
-                                                expire: 300
-                                            });
-
-                                        } else {
-
-                                            $state.go('app.home');
-
-                                            $localStorage.isDailyDealSeen = true;
-                                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
-
-                                            $rootScope.getUserPoints();
-
-                                            $ionicHistory.nextViewOptions({
-                                                disableAnimate: true,
-                                                expire: 300
-                                            });
-
-
-                                        }
-
-                                    },
-
-                                    function (err) {
-
-                                        $ionicPopup.alert({
-                                            title: "אין חיבור לרשת",
-                                            buttons: [{
-                                                text: 'OK',
-                                                type: 'button-positive'
-                                            }]
-                                        });
-
-                                    });
-
-                            }
-
-                        }
-                        // BIRTHDAY
-
-                        if (jsonData.additionalData.type == "birthday") {
-
-                            if ($localStorage.userid == ''){        // if not logged in
-
-                                $state.go('app.login');
-
-                            } else {        // if logged in
-
-                                $state.go('app.home');
-
-                            }
-
-                        }
-
-                    };
-				
-				  var isIOS = ionic.Platform.isIOS();
-				  var isAndroid = ionic.Platform.isAndroid();
-				
-					if (isAndroid)
-					{
-						window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                        {googleProjectNumber: "627358870772"},
-                        notificationOpenedCallback);						
-					}
-					if (isIOS)
-					{
-					  window.plugins.OneSignal
-					  .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
-					  .handleNotificationOpened(notificationOpenedCallback)
-					  .endInit();						
-					}
-  
-
-
-                    window.plugins.OneSignal.getIds(function (ids) {
-
-                        $rootScope.pushId = ids.userId;
-
-                    });
-                    // Show an alert box if a notification comes in when the user is in your app.
-                    window.plugins.OneSignal.enableInAppAlertNotification(true);
-
-                }, false);
-
-
-                // Default code
-
-                // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-                if (window.cordova && window.cordova.plugins.Keyboard) {
-                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                    cordova.plugins.Keyboard.disableScroll(true);
-
-                }
-                if (window.StatusBar) {
-                    // org.apache.cordova.statusbar required
-                    StatusBar.styleDefault();
-                }
-
-                // check if user has already seen a daily tip today
-
-                var user_tip = {
-
-                    'user' : $localStorage.userid
-
-                };
-
-                $http.post($rootScope.host + 'CheckUserSeenTip', user_tip, {
-
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-                }).then(
-
-                    function(data){
-
-                        console.log("seentip", data.data.response);
-                        if (data.data.response.seentip == 0){
-
-                            $localStorage.isTipShown = false;
-
-                            var send_data = {
-
-                                'date' : $rootScope.today,
-                                'type' : ""
-
-                            };
-
-                            if ($localStorage.soldier == "1"){
-
-                                send_data.type = "1";
-
-                            } else {
-
-                                send_data.type = "2";
-
-                            }
-
-                            $http.post($rootScope.host + 'GetTipByDate', send_data, {
-
-                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-                            }).then(
-
-                                function(data){
-
-                                    console.log("Daily tip", data);
-
-                                    $timeout(function () {
-
-                                        $rootScope.$watch('currState.current.name', function() {
-
-                                            if ($rootScope.currState.current.name != 'app.register' &&
-                                                $rootScope.currState.current.name != 'app.question' &&
-                                                $rootScope.currState.current.name != 'app.answer' &&
-                                                $rootScope.currState.current.name != 'app.discount' &&
-                                                $localStorage.isTipShown == false) {
-
-                                                $rootScope.dailyTipText = data.data[0].title;
-
-                                                $rootScope.dailyTipPopup = $ionicPopup.show({
-                                                    templateUrl: 'templates/popup_daily_tip.html',
-                                                    scope: $rootScope,
-                                                    cssClass: 'dailyTipPopup'
-                                                });
-
-                                                $localStorage.isTipShown = true;
-
-                                            }
-
-                                        })
-
-                                    }, 60000)
-
-                                },
-
-                                function(err){
-
-                                    console.log(err);
-
-                                });
-
-                        }
-
-                    },
-
-                    function(err){
-
-                        console.log(err);
-
-                    });
-
-                // geolocation
+            if (ionic.Platform.isIOS() == true){
 
                 if (window.cordova) {
 
@@ -326,35 +47,349 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     });
 
+                }
+
+            }
+
+            // Back button
+
+            $ionicPlatform.registerBackButtonAction(function (event) {
+                if ($state.current.name == 'app.login' || $state.current.name == 'app.home' ||
+                    $state.current.name == 'app.question' || $state.current.name == 'app.answer') {
+
+                    // do nothing
+
                 } else {
 
-                    var posOptions = {enableHighAccuracy: false};
+                    $ionicHistory.goBack();
 
-                    $cordovaGeolocation
-                        .getCurrentPosition(posOptions)
-                        .then(function (position) {
+                }
 
-                            $rootScope.lat = position.coords.latitude;
-                            $rootScope.lng = position.coords.longitude;
+            }, 100);
 
-                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                        }, function (err) {
+            // Notifications and GA
 
-                            $rootScope.getDealsWithoutLocation();
-                            console.log('err1', err);
+            document.addEventListener("deviceready", function () {
+
+            // Google Analytics
+
+            window.ga.startTrackerWithId('UA-86948163-1');
+
+            // Notifications
+
+            var notificationOpenedCallback = function (jsonData) {
+
+                // alert(JSON.stringify(jsonData));
+
+                // NEW MESSAGE FROM SPECIALIST
+
+                if (jsonData.additionalData.type == "newmessage") {
+
+                    if ($localStorage.userid == '') {        // if not logged in
+
+                        $state.go('app.login');
+
+                    } else {        // if logged in
+
+                        $rootScope.pushNotificationType = "newmessage";
+
+                        $state.go('app.personal');
+
+                    }
+
+                }
+
+                // DAILY DEAL
+
+                if (jsonData.additionalData.type == "dailydeal") {
+
+                    // $localStorage.isDailyDealSeen = false;
+                    // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                    // alert(JSON.stringify(jsonData.additionalData));
+
+                    if ($localStorage.userid == '') {        // if not logged in
+
+                        $state.go('app.login');
+
+                    } else {        // if logged in
+
+                        $rootScope.pushNotificationType = "dailydeal";
+
+                        var send_user = {
+
+                            "user": $localStorage.userid
+
+                        };
+
+                        $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
+
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                        }).then(
+                            function (data) {
+
+                                if (data.data.response.seendeal == "0") {
+
+                                    $localStorage.isDailyDealSeen = false;
+                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                                    $state.go('app.question');
+
+                                    $rootScope.getUserPoints();
+
+                                    $ionicHistory.nextViewOptions({
+                                        disableAnimate: true,
+                                        expire: 300
+                                    });
+
+                                } else {
+
+                                    $state.go('app.home');
+
+                                    $localStorage.isDailyDealSeen = true;
+                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                                    $rootScope.getUserPoints();
+
+                                    $ionicHistory.nextViewOptions({
+                                        disableAnimate: true,
+                                        expire: 300
+                                    });
+
+
+                                }
+
+                            },
+
+                            function (err) {
+
+                                $ionicPopup.alert({
+                                    title: "אין חיבור לרשת",
+                                    buttons: [{
+                                        text: 'OK',
+                                        type: 'button-positive'
+                                    }]
+                                });
+
+                            });
+
+                    }
+
+                }
+                // BIRTHDAY
+
+                if (jsonData.additionalData.type == "birthday") {
+
+                    if ($localStorage.userid == '') {        // if not logged in
+
+                        $state.go('app.login');
+
+                    } else {        // if logged in
+
+                        $state.go('app.home');
+
+                    }
+
+                }
+
+            };
+
+            var isIOS = ionic.Platform.isIOS();
+            var isAndroid = ionic.Platform.isAndroid();
+
+            if (isAndroid) {
+                window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                    {googleProjectNumber: "627358870772"},
+                    notificationOpenedCallback);
+            }
+            if (isIOS) {
+                window.plugins.OneSignal
+                    .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
+                    .handleNotificationOpened(notificationOpenedCallback)
+                    .endInit();
+            }
+
+
+            window.plugins.OneSignal.getIds(function (ids) {
+
+                $rootScope.pushId = ids.userId;
+
+            });
+            // Show an alert box if a notification comes in when the user is in your app.
+            window.plugins.OneSignal.enableInAppAlertNotification(true);
+
+        }, false);
+
+        // Default code
+
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+
+
+        // check if user has already seen a daily tip today
+
+        var user_tip = {
+
+            'user': $localStorage.userid
+
+        };
+
+        $http.post($rootScope.host + 'CheckUserSeenTip', user_tip, {
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+        }).then(
+            function (data) {
+
+                console.log("seentip", data.data.response);
+                if (data.data.response.seentip == 0) {
+
+                    $localStorage.isTipShown = false;
+
+                    var send_data = {
+
+                        'date': $rootScope.today,
+                        'type': ""
+
+                    };
+
+                    if ($localStorage.soldier == "1") {
+
+                        send_data.type = "1";
+
+                    } else {
+
+                        send_data.type = "2";
+
+                    }
+
+                    $http.post($rootScope.host + 'GetTipByDate', send_data, {
+
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                    }).then(
+                        function (data) {
+
+                            console.log("Daily tip", data);
+
+                            $timeout(function () {
+
+                                $rootScope.$watch('currState.current.name', function () {
+
+                                    if ($rootScope.currState.current.name != 'app.register' &&
+                                        $rootScope.currState.current.name != 'app.question' &&
+                                        $rootScope.currState.current.name != 'app.answer' &&
+                                        $rootScope.currState.current.name != 'app.discount' &&
+                                        $localStorage.isTipShown == false) {
+
+                                        $rootScope.dailyTipText = data.data[0].title;
+
+                                        $rootScope.dailyTipPopup = $ionicPopup.show({
+                                            templateUrl: 'templates/popup_daily_tip.html',
+                                            scope: $rootScope,
+                                            cssClass: 'dailyTipPopup'
+                                        });
+
+                                        $localStorage.isTipShown = true;
+
+                                    }
+
+                                })
+
+                            }, 60000)
+
+                        },
+
+                        function (err) {
+
+                            console.log(err);
 
                         });
 
                 }
 
+            },
+
+            function (err) {
+
+                console.log(err);
+
             });
 
-        $rootScope.updateDailyTipSeen = function(){
+            // geolocation for Android
+
+            if (window.cordova) {
+
+                $ionicPlatform.ready(function () {
+
+                    CheckGPS.check(function win() {
+
+                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                            $cordovaGeolocation
+                                .getCurrentPosition(posOptions)
+                                .then(function (position) {
+
+                                    $rootScope.lat = position.coords.latitude;
+                                    $rootScope.lng = position.coords.longitude;
+                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                }, function (err) {
+
+                                    $rootScope.getDealsWithoutLocation();
+
+                                });
+
+                        },
+
+                        function fail() {
+
+                            $rootScope.getDealsWithoutLocation();
+
+                        });
+
+                });
+
+            } else {
+
+                var posOptions = {enableHighAccuracy: false};
+
+                $cordovaGeolocation
+                    .getCurrentPosition(posOptions)
+                    .then(function (position) {
+
+                        $rootScope.lat = position.coords.latitude;
+                        $rootScope.lng = position.coords.longitude;
+
+                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                    }, function (err) {
+
+                        $rootScope.getDealsWithoutLocation();
+                        console.log('err1', err);
+
+                    });
+
+            }
+
+        });
+
+
+        $rootScope.updateDailyTipSeen = function () {
 
             var user_tip_seen = {
 
-                'user' : $localStorage.userid
+                'user': $localStorage.userid
 
             };
 
@@ -363,15 +398,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
             }).then(
-
-                function(data){
+                function (data) {
 
                     console.log(data.data);
                     $rootScope.dailyTipPopup.close();
 
                 },
 
-                function(err){
+                function (err) {
 
                     console.log(err);
                     $rootScope.dailyTipPopup.close();
@@ -393,15 +427,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.allPoints = 0;
         $rootScope.monthPoints = 0;
         $rootScope.userData = {
-            "userid" : $localStorage.userid,
-            "firstname" : $localStorage.firstname,
-            "lastname" : $localStorage.lastname,
-            "password" : $localStorage.password,
-            "email" : $localStorage.email,
-            "gender" : $localStorage.gender,
-            "soldier" : $localStorage.soldier,
-            "conscription_date" : $localStorage.conscription_date,
-            "release_date" : $localStorage.release_date
+            "userid": $localStorage.userid,
+            "firstname": $localStorage.firstname,
+            "lastname": $localStorage.lastname,
+            "password": $localStorage.password,
+            "email": $localStorage.email,
+            "gender": $localStorage.gender,
+            "soldier": $localStorage.soldier,
+            "conscription_date": $localStorage.conscription_date,
+            "release_date": $localStorage.release_date
         };
         $rootScope.image = $localStorage.image;
         $rootScope.categories = [];
@@ -428,10 +462,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
         }).then(
+            function (data) {
 
-            function(data){
-
-                for (var i = 0; i < data.data.length; i++){
+                for (var i = 0; i < data.data.length; i++) {
 
                     $rootScope.categories.push(data.data[i]);
 
@@ -439,9 +472,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 var sales = {};
 
-                for(var j = 0; j < $rootScope.categories.length; j++){
+                for (var j = 0; j < $rootScope.categories.length; j++) {
 
-                    if ($rootScope.categories[j].index == "10"){
+                    if ($rootScope.categories[j].index == "10") {
 
                         sales = $rootScope.categories[j];
 
@@ -456,7 +489,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             },
 
-            function(err){
+            function (err) {
 
                 $ionicPopup.alert({
                     title: "אין חיבור לרשת",
@@ -474,13 +507,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.categoryNumber = 0;
         $rootScope.categoryName = '';
 
-        $rootScope.setCategory = function(x, y){
+        $rootScope.setCategory = function (x, y) {
 
             $rootScope.categoryNumber = x;
             $rootScope.categoryName = y;
 
-            if (x != 0){
-                if (window.cordova){
+            if (x != 0) {
+                if (window.cordova) {
                     window.ga.trackEvent('קטגוריות', y);
                 }
             }
@@ -489,7 +522,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // toggle menu
 
-        $rootScope.toggleRightSideMenu = function() {
+        $rootScope.toggleRightSideMenu = function () {
 
             $ionicSideMenuDelegate.toggleRight();
 
@@ -497,11 +530,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // get all user points
 
-        $rootScope.getUserPoints = function(){
+        $rootScope.getUserPoints = function () {
 
             var send_points = {
 
-                "user" : $localStorage.userid
+                "user": $localStorage.userid
 
             };
 
@@ -510,8 +543,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
             }).then(
-
-                function(data){
+                function (data) {
 
                     console.log("Points", data.data);
 
@@ -522,7 +554,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 },
 
-                function(err){
+                function (err) {
 
                     $ionicPopup.alert({
                         title: "אין חיבור לרשת",
@@ -539,11 +571,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // logout
 
-        $rootScope.logout = function() {
+        $rootScope.logout = function () {
 
             var send_user = {
 
-                'user' : $localStorage.userid
+                'user': $localStorage.userid
 
             };
 
@@ -552,12 +584,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
             }).then(
-
-                function(data){
+                function (data) {
 
                     console.log(data);
 
-                    if(data.data[0].status == '1'){
+                    if (data.data[0].status == '1') {
 
                         $localStorage.email = "";
                         $localStorage.password = "";
@@ -567,7 +598,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                         $localStorage.image = "";
 
                         $state.go('app.login');
-
 
 
                     } else {
@@ -584,7 +614,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 },
 
-                function(err){
+                function (err) {
 
                     $ionicPopup.alert({
                         title: "אין חיבור לרשת",
@@ -595,7 +625,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     });
 
                 });
-
 
 
         };
@@ -612,7 +641,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         } else {
 
             $rootScope.temp = new Date();
-            $rootScope.temp = $rootScope.temp.setDate($rootScope.temp.getDate()-1);
+            $rootScope.temp = $rootScope.temp.setDate($rootScope.temp.getDate() - 1);
 
             $rootScope.today = ("0" + new Date($rootScope.temp).getDate()).slice(-2) + '/' + ("0" + (new Date($rootScope.temp).getMonth() + 1)).slice(-2) + '/' + new Date($rootScope.temp).getFullYear();
             $rootScope.todayDate = ("0" + new Date($rootScope.temp).getDate()).slice(-2) + '/' + ("0" + (new Date($rootScope.temp).getMonth() + 1)).slice(-2);
@@ -621,29 +650,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // get all deals without location
 
-        $rootScope.getDealsWithoutLocation = function(){
-
+        $rootScope.getDealsWithoutLocation = function () {
+            alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
             }).then(
-
-                function(data){
+                function (data) {
 
                     $rootScope.deals = data.data;
 
-                    for(var i = 0; i < $rootScope.deals.length; i++){
+                    for (var i = 0; i < $rootScope.deals.length; i++) {
 
-                        if ($rootScope.deals[i].linktitle == ""){
+                        if ($rootScope.deals[i].linktitle == "") {
 
-                            $rootScope.deals[i].linktitle = "קוד הטבה" ;
+                            $rootScope.deals[i].linktitle = "קוד הטבה";
 
                         }
 
                         $rootScope.deals[i].imageSlider = [];
 
-                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != ""){
+                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != "") {
 
                             $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image);
 
@@ -675,7 +703,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 },
 
-                function(err){
+                function (err) {
 
                     $ionicPopup.alert({
                         title: "אין חיבור לרשת",
@@ -691,12 +719,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         // get all deals with location
 
-        $rootScope.getDealsWithLocation = function(){
-
+        $rootScope.getDealsWithLocation = function () {
+            alert("getDealsWithLocation");
             var send_coord = {
 
-                'lat' : $rootScope.lat,
-                'lng' : $rootScope.lng
+                'lat': $rootScope.lat,
+                'lng': $rootScope.lng
 
             };
 
@@ -705,23 +733,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
             }).then(
-
-                function(data){
+                function (data) {
 
                     $rootScope.deals = data.data;
                     $rootScope.closeDeals = [];
 
-                    for(var i = 0; i < $rootScope.deals.length; i++){
+                    for (var i = 0; i < $rootScope.deals.length; i++) {
 
-                        if ($rootScope.deals[i].linktitle == ""){
+                        if ($rootScope.deals[i].linktitle == "") {
 
-                            $rootScope.deals[i].linktitle = "קוד הטבה" ;
+                            $rootScope.deals[i].linktitle = "קוד הטבה";
 
                         }
 
                         $rootScope.deals[i].imageSlider = [];
 
-                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != ""){
+                        if ($rootScope.deals[i].image2 != "" || $rootScope.deals[i].image3 != "" || $rootScope.deals[i].image4 != "") {
 
                             $rootScope.deals[i].imageSlider.push($rootScope.deals[i].image);
 
@@ -745,9 +772,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                         }
 
-                        for (var j = 0; j < $rootScope.deals[i].brances.length; j++){
+                        for (var j = 0; j < $rootScope.deals[i].brances.length; j++) {
 
-                            if (Number($rootScope.deals[i].brances[j][0].dist) <= 10){
+                            if (Number($rootScope.deals[i].brances[j][0].dist) <= 10) {
 
                                 // console.log($rootScope.deals[i].brances[j][0]);
                                 // var closestBranches = [];
@@ -778,7 +805,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 },
 
-                function(err){
+                function (err) {
 
                     $ionicPopup.alert({
                         title: "אין חיבור לרשת",
@@ -797,11 +824,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, options) {
 
-            if (fromState.name == 'app.answer' && toState.name == 'app.discount'){
+            if (fromState.name == 'app.answer' && toState.name == 'app.discount') {
 
                 $rootScope.leftQuestions = 15 - Number($rootScope.correctAnswers) - Number($rootScope.incorrectAnswers);
 
-                $timeout(function(){
+                $timeout(function () {
 
                     var pointsPopup = $ionicPopup.show({
                         templateUrl: 'templates/popup_points.html',
@@ -819,7 +846,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             }
 
-            if ((fromState.name == 'app.catalog' && toState.name == 'app.home') || (fromState.name == 'app.item' && toState.name == 'app.home')){
+            if ((fromState.name == 'app.catalog' && toState.name == 'app.home') || (fromState.name == 'app.item' && toState.name == 'app.home')) {
 
                 $rootScope.setCategory(0, "");
 
@@ -834,32 +861,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
         }).then(
-
-            function(data){
+            function (data) {
 
                 $rootScope.bannersData = data.data;
 
-                for (var p = 0; p < $rootScope.bannersData.length; p++){
+                for (var p = 0; p < $rootScope.bannersData.length; p++) {
 
                     // $rootScope.bannersData[p].image = $rootScope.phpHost + 'uploads/' + $rootScope.bannersData[p].image;
 
-                    if ($rootScope.bannersData[p].gallery_id == '1'){
+                    if ($rootScope.bannersData[p].gallery_id == '1') {
 
                         $rootScope.bannersMain.push($rootScope.bannersData[p]);
 
-                    } else if ($rootScope.bannersData[p].gallery_id == '2'){
+                    } else if ($rootScope.bannersData[p].gallery_id == '2') {
 
                         $rootScope.monthBanner = $rootScope.bannersData[p];
 
-                    } else if ($rootScope.bannersData[p].gallery_id == '3'){
+                    } else if ($rootScope.bannersData[p].gallery_id == '3') {
 
                         $rootScope.yearBanner = $rootScope.bannersData[p];
 
-                    } else if ($rootScope.bannersData[p].gallery_id == '4'){
+                    } else if ($rootScope.bannersData[p].gallery_id == '4') {
 
                         $rootScope.bannersTeaser.push($rootScope.bannersData[p]);
 
-                    } else if ($rootScope.bannersData[p].gallery_id == '5'){
+                    } else if ($rootScope.bannersData[p].gallery_id == '5') {
 
                         $rootScope.bannersInfo.push($rootScope.bannersData[p]);
 
@@ -872,7 +898,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             },
 
-            function(err){
+            function (err) {
 
                 $ionicPopup.alert({
                     title: "אין חיבור לרשת",
