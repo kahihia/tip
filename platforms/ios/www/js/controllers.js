@@ -1805,10 +1805,12 @@ angular.module('starter.controllers', [])
         $scope.$watch('selection', function(){
 
             if ($scope.selection == 'location'){
-                $ionicPlatform.ready(function () {
-                    document.addEventListener("deviceready", function () {
+
                 if ($rootScope.isLocationEnabled == false) {
-alert('12345');
+
+                    $ionicPlatform.ready(function () {
+                    document.addEventListener("deviceready", function () {
+
                     cordova.dialogGPS("Your GPS is Disabled.",
                         'Please enable location for proper work of the application',
 
@@ -1881,8 +1883,11 @@ alert('12345');
 
                         });
 
+                    })
+                    }, false)
+
                 } else if ($rootScope.isLocationEnabled == true){
-                    console.log("here2");
+
                     var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                     $cordovaGeolocation
@@ -1910,8 +1915,6 @@ alert('12345');
 
                 }
 
-            })
-            }, false)
             }
         });
 

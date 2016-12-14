@@ -49,6 +49,96 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 }
 
+                // check if user has already seen a daily tip today for ios
+
+                var user_tip1 = {
+
+                    'user': $localStorage.userid
+
+                };
+
+                $http.post($rootScope.host + 'CheckUserSeenTip', user_tip1, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+                    function (data) {
+
+                        console.log("seentip", data.data.response);
+                        if (data.data.response.seentip == 0) {
+
+                            $localStorage.isTipShown = false;
+
+                            var send_data = {
+
+                                'date': $rootScope.today,
+                                'type': ""
+
+                            };
+
+                            if ($localStorage.soldier == "1") {
+
+                                send_data.type = "1";
+
+                            } else {
+
+                                send_data.type = "2";
+
+                            }
+
+                            $http.post($rootScope.host + 'GetTipByDate', send_data, {
+
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                            }).then(
+                                function (data) {
+
+                                    console.log("Daily tip", data);
+
+                                    $timeout(function () {
+
+                                        $rootScope.$watch('currState.current.name', function () {
+
+                                            if ($rootScope.currState.current.name != 'app.register' &&
+                                                $rootScope.currState.current.name != 'app.question' &&
+                                                $rootScope.currState.current.name != 'app.answer' &&
+                                                $rootScope.currState.current.name != 'app.discount' &&
+                                                $localStorage.isTipShown == false) {
+
+                                                $rootScope.dailyTipText = data.data[0].title;
+
+                                                $rootScope.dailyTipPopup = $ionicPopup.show({
+                                                    templateUrl: 'templates/popup_daily_tip.html',
+                                                    scope: $rootScope,
+                                                    cssClass: 'dailyTipPopup'
+                                                });
+
+                                                $localStorage.isTipShown = true;
+
+                                            }
+
+                                        })
+
+                                    }, 60000)
+
+                                },
+
+                                function (err) {
+
+                                    console.log(err);
+
+                                });
+
+                        }
+
+                    },
+
+                    function (err) {
+
+                        console.log(err);
+
+                    });
+
             }
 
             // Back button
@@ -72,153 +162,153 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             document.addEventListener("deviceready", function () {
 
-            // Google Analytics
+                // Google Analytics
 
-            window.ga.startTrackerWithId('UA-86948163-1');
+                window.ga.startTrackerWithId('UA-86948163-1');
 
-            // Notifications
+                // Notifications
 
-            var notificationOpenedCallback = function (jsonData) {
+                var notificationOpenedCallback = function (jsonData) {
 
-                // alert(JSON.stringify(jsonData));
+                    // alert(JSON.stringify(jsonData));
 
-                // NEW MESSAGE FROM SPECIALIST
+                    // NEW MESSAGE FROM SPECIALIST
 
-                if (jsonData.additionalData.type == "newmessage") {
+                    if (jsonData.additionalData.type == "newmessage") {
 
-                    if ($localStorage.userid == '') {        // if not logged in
+                        if ($localStorage.userid == '') {        // if not logged in
 
-                        $state.go('app.login');
+                            $state.go('app.login');
 
-                    } else {        // if logged in
+                        } else {        // if logged in
 
-                        $rootScope.pushNotificationType = "newmessage";
+                            $rootScope.pushNotificationType = "newmessage";
 
-                        $state.go('app.personal');
+                            $state.go('app.personal');
+
+                        }
 
                     }
 
-                }
+                    // DAILY DEAL
 
-                // DAILY DEAL
+                    if (jsonData.additionalData.type == "dailydeal") {
 
-                if (jsonData.additionalData.type == "dailydeal") {
+                        // $localStorage.isDailyDealSeen = false;
+                        // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
-                    // $localStorage.isDailyDealSeen = false;
-                    // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+                        // alert(JSON.stringify(jsonData.additionalData));
 
-                    // alert(JSON.stringify(jsonData.additionalData));
+                        if ($localStorage.userid == '') {        // if not logged in
 
-                    if ($localStorage.userid == '') {        // if not logged in
+                            $state.go('app.login');
 
-                        $state.go('app.login');
+                        } else {        // if logged in
 
-                    } else {        // if logged in
+                            $rootScope.pushNotificationType = "dailydeal";
 
-                        $rootScope.pushNotificationType = "dailydeal";
+                            var send_user = {
 
-                        var send_user = {
+                                "user": $localStorage.userid
 
-                            "user": $localStorage.userid
+                            };
 
-                        };
+                            $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
 
-                        $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                            }).then(
+                                function (data) {
 
-                        }).then(
-                            function (data) {
+                                    if (data.data.response.seendeal == "0") {
 
-                                if (data.data.response.seendeal == "0") {
+                                        $localStorage.isDailyDealSeen = false;
+                                        $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
-                                    $localStorage.isDailyDealSeen = false;
-                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+                                        $state.go('app.question');
 
-                                    $state.go('app.question');
+                                        $rootScope.getUserPoints();
 
-                                    $rootScope.getUserPoints();
+                                        $ionicHistory.nextViewOptions({
+                                            disableAnimate: true,
+                                            expire: 300
+                                        });
 
-                                    $ionicHistory.nextViewOptions({
-                                        disableAnimate: true,
-                                        expire: 300
+                                    } else {
+
+                                        $state.go('app.home');
+
+                                        $localStorage.isDailyDealSeen = true;
+                                        $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                                        $rootScope.getUserPoints();
+
+                                        $ionicHistory.nextViewOptions({
+                                            disableAnimate: true,
+                                            expire: 300
+                                        });
+
+
+                                    }
+
+                                },
+
+                                function (err) {
+
+                                    $ionicPopup.alert({
+                                        title: "אין חיבור לרשת",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
                                     });
 
-                                } else {
-
-                                    $state.go('app.home');
-
-                                    $localStorage.isDailyDealSeen = true;
-                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
-
-                                    $rootScope.getUserPoints();
-
-                                    $ionicHistory.nextViewOptions({
-                                        disableAnimate: true,
-                                        expire: 300
-                                    });
-
-
-                                }
-
-                            },
-
-                            function (err) {
-
-                                $ionicPopup.alert({
-                                    title: "אין חיבור לרשת",
-                                    buttons: [{
-                                        text: 'OK',
-                                        type: 'button-positive'
-                                    }]
                                 });
 
-                            });
+                        }
+
+                    }
+                    // BIRTHDAY
+
+                    if (jsonData.additionalData.type == "birthday") {
+
+                        if ($localStorage.userid == '') {        // if not logged in
+
+                            $state.go('app.login');
+
+                        } else {        // if logged in
+
+                            $state.go('app.home');
+
+                        }
 
                     }
 
+                };
+
+                var isIOS = ionic.Platform.isIOS();
+                var isAndroid = ionic.Platform.isAndroid();
+
+                if (isAndroid) {
+                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                        {googleProjectNumber: "627358870772"},
+                        notificationOpenedCallback);
                 }
-                // BIRTHDAY
-
-                if (jsonData.additionalData.type == "birthday") {
-
-                    if ($localStorage.userid == '') {        // if not logged in
-
-                        $state.go('app.login');
-
-                    } else {        // if logged in
-
-                        $state.go('app.home');
-
-                    }
-
+                if (isIOS) {
+                    window.plugins.OneSignal
+                        .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
+                        .handleNotificationOpened(notificationOpenedCallback)
+                        .endInit();
                 }
 
-            };
 
-            var isIOS = ionic.Platform.isIOS();
-            var isAndroid = ionic.Platform.isAndroid();
+                window.plugins.OneSignal.getIds(function (ids) {
 
-            if (isAndroid) {
-                window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                    {googleProjectNumber: "627358870772"},
-                    notificationOpenedCallback);
-            }
-            if (isIOS) {
-                window.plugins.OneSignal
-                    .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
-                    .handleNotificationOpened(notificationOpenedCallback)
-                    .endInit();
-            }
+                    $rootScope.pushId = ids.userId;
 
-
-            window.plugins.OneSignal.getIds(function (ids) {
-
-                $rootScope.pushId = ids.userId;
-
-            });
-            // Show an alert box if a notification comes in when the user is in your app.
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
+                });
+                // Show an alert box if a notification comes in when the user is in your app.
+                window.plugins.OneSignal.enableInAppAlertNotification(true);
 
         }, false);
 
@@ -236,7 +326,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         }
 
 
-        // check if user has already seen a daily tip today
+        // check if user has already seen a daily tip today for Android
 
         var user_tip = {
 
@@ -384,6 +474,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         });
 
+        // update table users for DailyTipSeen
 
         $rootScope.updateDailyTipSeen = function () {
 
@@ -453,7 +544,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $rootScope.bannersInfo = [];
         $rootScope.monthBanner = "";
         $rootScope.yearBanner = "";
-
 
         // get catalog categories
 

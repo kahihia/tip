@@ -11,6 +11,46 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
 
+            // geolocation for ios
+
+            if (ionic.Platform.isIOS() == true){
+
+                if (window.cordova) {
+
+                    $ionicPlatform.ready(function () {
+
+                        CheckGPS.check(function win() {
+
+                                var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                $cordovaGeolocation
+                                    .getCurrentPosition(posOptions)
+                                    .then(function (position) {
+
+                                        $rootScope.lat = position.coords.latitude;
+                                        $rootScope.lng = position.coords.longitude;
+                                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                    }, function (err) {
+
+                                        $rootScope.getDealsWithoutLocation();
+
+                                    });
+
+                            },
+
+                            function fail() {
+
+                                $rootScope.getDealsWithoutLocation();
+
+                            });
+
+                    });
+
+                }
+
+            }
+
             // Back button
 
             $ionicPlatform.registerBackButtonAction(function (event) {
@@ -32,158 +72,153 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
             document.addEventListener("deviceready", function () {
 
+                // Google Analytics
 
+                window.ga.startTrackerWithId('UA-86948163-1');
 
+                // Notifications
 
+                var notificationOpenedCallback = function (jsonData) {
 
+                    // alert(JSON.stringify(jsonData));
 
-            // Google Analytics
+                    // NEW MESSAGE FROM SPECIALIST
 
-            window.ga.startTrackerWithId('UA-86948163-1');
+                    if (jsonData.additionalData.type == "newmessage") {
 
-            // Notifications
+                        if ($localStorage.userid == '') {        // if not logged in
 
-            var notificationOpenedCallback = function (jsonData) {
+                            $state.go('app.login');
 
-                // alert(JSON.stringify(jsonData));
+                        } else {        // if logged in
 
-                // NEW MESSAGE FROM SPECIALIST
+                            $rootScope.pushNotificationType = "newmessage";
 
-                if (jsonData.additionalData.type == "newmessage") {
+                            $state.go('app.personal');
 
-                    if ($localStorage.userid == '') {        // if not logged in
-
-                        $state.go('app.login');
-
-                    } else {        // if logged in
-
-                        $rootScope.pushNotificationType = "newmessage";
-
-                        $state.go('app.personal');
+                        }
 
                     }
 
-                }
+                    // DAILY DEAL
 
-                // DAILY DEAL
+                    if (jsonData.additionalData.type == "dailydeal") {
 
-                if (jsonData.additionalData.type == "dailydeal") {
+                        // $localStorage.isDailyDealSeen = false;
+                        // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
-                    // $localStorage.isDailyDealSeen = false;
-                    // $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+                        // alert(JSON.stringify(jsonData.additionalData));
 
-                    // alert(JSON.stringify(jsonData.additionalData));
+                        if ($localStorage.userid == '') {        // if not logged in
 
-                    if ($localStorage.userid == '') {        // if not logged in
+                            $state.go('app.login');
 
-                        $state.go('app.login');
+                        } else {        // if logged in
 
-                    } else {        // if logged in
+                            $rootScope.pushNotificationType = "dailydeal";
 
-                        $rootScope.pushNotificationType = "dailydeal";
+                            var send_user = {
 
-                        var send_user = {
+                                "user": $localStorage.userid
 
-                            "user": $localStorage.userid
+                            };
 
-                        };
+                            $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
 
-                        $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
-                            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+                            }).then(
+                                function (data) {
 
-                        }).then(
-                            function (data) {
+                                    if (data.data.response.seendeal == "0") {
 
-                                if (data.data.response.seendeal == "0") {
+                                        $localStorage.isDailyDealSeen = false;
+                                        $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
 
-                                    $localStorage.isDailyDealSeen = false;
-                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+                                        $state.go('app.question');
 
-                                    $state.go('app.question');
+                                        $rootScope.getUserPoints();
 
-                                    $rootScope.getUserPoints();
+                                        $ionicHistory.nextViewOptions({
+                                            disableAnimate: true,
+                                            expire: 300
+                                        });
 
-                                    $ionicHistory.nextViewOptions({
-                                        disableAnimate: true,
-                                        expire: 300
+                                    } else {
+
+                                        $state.go('app.home');
+
+                                        $localStorage.isDailyDealSeen = true;
+                                        $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                                        $rootScope.getUserPoints();
+
+                                        $ionicHistory.nextViewOptions({
+                                            disableAnimate: true,
+                                            expire: 300
+                                        });
+
+
+                                    }
+
+                                },
+
+                                function (err) {
+
+                                    $ionicPopup.alert({
+                                        title: "אין חיבור לרשת",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
                                     });
 
-                                } else {
-
-                                    $state.go('app.home');
-
-                                    $localStorage.isDailyDealSeen = true;
-                                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
-
-                                    $rootScope.getUserPoints();
-
-                                    $ionicHistory.nextViewOptions({
-                                        disableAnimate: true,
-                                        expire: 300
-                                    });
-
-
-                                }
-
-                            },
-
-                            function (err) {
-
-                                $ionicPopup.alert({
-                                    title: "אין חיבור לרשת",
-                                    buttons: [{
-                                        text: 'OK',
-                                        type: 'button-positive'
-                                    }]
                                 });
 
-                            });
+                        }
+
+                    }
+                    // BIRTHDAY
+
+                    if (jsonData.additionalData.type == "birthday") {
+
+                        if ($localStorage.userid == '') {        // if not logged in
+
+                            $state.go('app.login');
+
+                        } else {        // if logged in
+
+                            $state.go('app.home');
+
+                        }
 
                     }
 
+                };
+
+                var isIOS = ionic.Platform.isIOS();
+                var isAndroid = ionic.Platform.isAndroid();
+
+                if (isAndroid) {
+                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                        {googleProjectNumber: "627358870772"},
+                        notificationOpenedCallback);
                 }
-                // BIRTHDAY
-
-                if (jsonData.additionalData.type == "birthday") {
-
-                    if ($localStorage.userid == '') {        // if not logged in
-
-                        $state.go('app.login');
-
-                    } else {        // if logged in
-
-                        $state.go('app.home');
-
-                    }
-
+                if (isIOS) {
+                    window.plugins.OneSignal
+                        .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
+                        .handleNotificationOpened(notificationOpenedCallback)
+                        .endInit();
                 }
 
-            };
 
-            var isIOS = ionic.Platform.isIOS();
-            var isAndroid = ionic.Platform.isAndroid();
+                window.plugins.OneSignal.getIds(function (ids) {
 
-            if (isAndroid) {
-                window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                    {googleProjectNumber: "627358870772"},
-                    notificationOpenedCallback);
-            }
-            if (isIOS) {
-                window.plugins.OneSignal
-                    .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
-                    .handleNotificationOpened(notificationOpenedCallback)
-                    .endInit();
-            }
+                    $rootScope.pushId = ids.userId;
 
-
-            window.plugins.OneSignal.getIds(function (ids) {
-
-                $rootScope.pushId = ids.userId;
-
-            });
-            // Show an alert box if a notification comes in when the user is in your app.
-            window.plugins.OneSignal.enableInAppAlertNotification(true);
+                });
+                // Show an alert box if a notification comes in when the user is in your app.
+                window.plugins.OneSignal.enableInAppAlertNotification(true);
 
         }, false);
 
@@ -291,11 +326,7 @@ alert('1');
 
             });
 
-
-        // HERE WAS THE CODE
-
-
-            // geolocation
+            // geolocation for Android
 
             if (window.cordova) {
 
@@ -353,8 +384,6 @@ alert('1');
 
         });
 
-
-        
 
         $rootScope.updateDailyTipSeen = function () {
 

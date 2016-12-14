@@ -1800,13 +1800,16 @@ angular.module('starter.controllers', [])
 
         };
 
-        // is GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
+        // if GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
 
         $scope.$watch('selection', function(){
 
             if ($scope.selection == 'location'){
 
                 if ($rootScope.isLocationEnabled == false) {
+
+                    $ionicPlatform.ready(function () {
+                    document.addEventListener("deviceready", function () {
 
                     cordova.dialogGPS("Your GPS is Disabled.",
                         'Please enable location for proper work of the application',
@@ -1880,8 +1883,11 @@ angular.module('starter.controllers', [])
 
                         });
 
+                    })
+                    }, false)
+
                 } else if ($rootScope.isLocationEnabled == true){
-                    console.log("here2");
+
                     var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                     $cordovaGeolocation
@@ -1910,7 +1916,6 @@ angular.module('starter.controllers', [])
                 }
 
             }
-
         });
 
         // clicking on button Turn on GPS
