@@ -1652,7 +1652,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CatalogCtrl', function ($ionicScrollDelegate, $ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+    .controller('CatalogCtrl', function ($ionicPlatform, $ionicScrollDelegate, $ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
 
         $scope.$on('$ionicView.enter', function(e) {
 
@@ -1800,6 +1800,34 @@ angular.module('starter.controllers', [])
 
         };
 
+        $scope.checkGPSandGetData = function(){
+
+            CheckGPS.check(function win() {
+
+                var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                $cordovaGeolocation
+                    .getCurrentPosition(posOptions)
+                    .then(function (position) {
+
+                        $rootScope.lat = position.coords.latitude;
+                        $rootScope.lng = position.coords.longitude;
+                        $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                    }, function (err) {
+
+                        $rootScope.getDealsWithoutLocation();
+
+                    });
+
+            }, function fail() {
+
+                $rootScope.getDealsWithoutLocation();
+
+            })
+
+        };
+
         // if GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
 
         $scope.$watch('selection', function(){
@@ -1812,77 +1840,51 @@ angular.module('starter.controllers', [])
 
                         document.addEventListener("deviceready", function () {
 
-                            cordova.dialogGPS("Your GPS is Disabled.",
-                                'Please enable location for proper work of the application',
+                            $ionicPopup.show({
+                                template: '<div style="text-align: center">Please turn on GPS to get the closest deals</div>',
+                                scope: $scope,
+                                buttons: [
+                                    { text: 'Cancel' },
+                                    {
+                                        text: '<b>OK</b>',
+                                        type: 'button-positive',
+                                        onTap: function(e) {
 
-                                function (buttonIndex) {
+                                            if (ionic.Platform.isIOS() == true){
 
-                                    switch (buttonIndex) {
-                                        case 0:     // no
+                                                cordova.plugins.diagnostic.switchToSettings(
 
-                                            $ionicPopup.alert({
-                                                title: "לא הפעלת את הGPS",
-                                                buttons: [{
-                                                    text: 'OK',
-                                                    type: 'button-positive'
-                                                }]
-                                            });
+                                                    function(){     // success callback
 
-                                            break;
+                                                        $scope.checkGPSandGetData();
 
-                                        case 1:     // neutral
+                                                    }, function(){      // error callback
 
-                                            $ionicPopup.alert({
-                                                title: "לא הפעלת את הGPS",
-                                                buttons: [{
-                                                    text: 'OK',
-                                                    type: 'button-positive'
-                                                }]
-                                            });
+                                                        $rootScope.getDealsWithoutLocation();
 
-                                            break;
-
-                                        case 2:     // yes, go to settings
-
-                                            document.addEventListener("resume", onResume, false);
-
-                                        function onResume() {
-
-                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                                            $cordovaGeolocation
-                                                .getCurrentPosition(posOptions)
-                                                .then(function (position) {
-
-                                                    $rootScope.lat = position.coords.latitude;
-                                                    $rootScope.lng = position.coords.longitude;
-
-                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                                }, function (err) {
-
-                                                    $ionicPopup.alert({
-                                                        title: "קליטת רשת GPS חלשה מדי",
-                                                        buttons: [{
-                                                            text: 'OK',
-                                                            type: 'button-positive'
-                                                        }]
                                                     });
 
-                                                    $rootScope.getDealsWithoutLocation();
+                                            } else {
+                                                alert('0');
+                                                cordova.plugins.diagnostic.switchToLocationSettings(
 
-                                                });
+                                                    function(){     // success callback
+                                                        alert('3');
+                                                        $scope.checkGPSandGetData();
+
+                                                    }, function(){      // error callback
+                                                        alert('4');
+                                                        $rootScope.getDealsWithoutLocation();
+
+                                                    });
+
+                                            }
+
+
                                         }
-
-                                            break;
-
-                                        default:
-
-                                            $rootScope.getDealsWithoutLocation();
-                                            break;
                                     }
-
-                                });
+                                ]
+                            });
 
                         })
 
@@ -1916,7 +1918,6 @@ angular.module('starter.controllers', [])
                         });
 
                 }
-
             }
         });
 
@@ -1926,7 +1927,15 @@ angular.module('starter.controllers', [])
 
             // move user to settings
 
-            cordova.plugins.diagnostic.switchToLocationSettings();
+            if (ionic.Platform.isIOS() == true){
+
+                cordova.plugins.diagnostic.switchToSettings();
+
+            } else {
+
+                cordova.plugins.diagnostic.switchToLocationSettings();
+
+            }
 
             // listen to his return
 

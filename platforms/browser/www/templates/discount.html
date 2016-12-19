@@ -69,9 +69,9 @@
                 </div>
 
                 <div class="teaserInfo rtl">
-                    <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'"><a href="" ng-click="goToLink(todayDeal.codelink)">{{todayDeal.linktitle}}</a></div>
+                    <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '1'"><a href="" ng-click="goToLink(todayDeal.codelink, todayDeal.title)">{{todayDeal.linktitle}}</a></div>
                     <div class="teaserCodeRight" ng-show="todayDeal.dealgivenby == '0'">{{todayDeal.codelink}}</div>
-                    <div class="teaserCodeLeft" ng-click="makeFavorite(todayDeal.index)" ng-show="!isFavorite(todayDeal.index)">שמור במועדפים בקטלוג</div>
+                    <div class="teaserCodeLeft" ng-click="makeFavorite(todayDeal.index, todayDeal.title)" ng-show="!isFavorite(todayDeal.index)">שמור במועדפים בקטלוג</div>
                     <div class="teaserCodeLeftClicked" ng-show="isFavorite(todayDeal.index)">נשמר במועדפים בקטלוג</div>
                 </div>
 

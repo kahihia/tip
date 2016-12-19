@@ -11,18 +11,69 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('RouterCtrl', function($scope, $localStorage, $state, $ionicHistory){
+    .controller('RouterCtrl', function($scope, $ionicPopup, $http, $rootScope, $localStorage, $state, $ionicHistory){
 
         if (typeof $localStorage.enterScreenIsSeen != "undefined"){
 
             if ($localStorage.password && $localStorage.password != "") {
 
-                $ionicHistory.nextViewOptions({
-                    disableAnimate: true,
-                    expire: 300
-                });
+                var send_user = {
 
-                $state.go('app.home');
+                    "user" : $localStorage.userid
+
+                };
+
+                $http.post($rootScope.host + 'CheckUserSeenDeal', send_user, {
+
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                }).then(
+
+                    function(data){
+
+                        if (data.data.response.seendeal == "0"){
+
+                            $localStorage.isDailyDealSeen = false;
+                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                            $rootScope.getUserPoints();
+
+                            $ionicHistory.nextViewOptions({
+                                disableAnimate: true,
+                                expire: 300
+                            });
+
+                            $state.go('app.question');
+
+                        } else {
+
+                            $localStorage.isDailyDealSeen = true;
+                            $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                            $rootScope.getUserPoints();
+
+                            $ionicHistory.nextViewOptions({
+                                disableAnimate: true,
+                                expire: 300
+                            });
+
+                            $state.go('app.home');
+
+                        }
+
+                    },
+
+                    function(err){
+
+                        $ionicPopup.alert({
+                            title: "אין חיבור לרשת",
+                            buttons: [{
+                                text: 'OK',
+                                type: 'button-positive'
+                            }]
+                        });
+
+                    });
 
             } else {
 
@@ -50,6 +101,24 @@ angular.module('starter.controllers', [])
     })
 
     .controller('RegisterCtrl', function ($ionicSideMenuDelegate, $q, $ionicLoading, $scope, $ionicPopup, $http, $rootScope, $localStorage, $state) {
+
+        $scope.goToRegister = function(){
+
+            $state.go("app.register");
+
+            if(window.cordova) {
+                window.ga.trackEvent('מסך הסלידר נצפה', 'כן');
+            }
+
+        };
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView($state.current.name);
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -320,8 +389,6 @@ angular.module('starter.controllers', [])
 
         }
 
-
-
     })
 
 
@@ -330,6 +397,10 @@ angular.module('starter.controllers', [])
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            // if(window.cordova){
+            //     window.ga.trackView("עמוד כניסה");
+            // }
 
             $scope.login = {
 
@@ -408,6 +479,8 @@ angular.module('starter.controllers', [])
                                 $rootScope.userData = data.data.response;
                                 $rootScope.userData.password = $scope.login.password;
                                 $rootScope.image = $localStorage.image;
+
+                                $rootScope.getUserPoints();
 
                                 $state.go('app.home');
 
@@ -542,6 +615,14 @@ angular.module('starter.controllers', [])
 
     .controller('HomeCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $localStorage, $state, $http, $ionicPopup) {
 
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("עמוד הבית");
+            }
+
+        });
+
         $ionicSideMenuDelegate.canDragContent(false);
 
         $scope.options = {
@@ -556,9 +637,9 @@ angular.module('starter.controllers', [])
 
         $scope.checkState = function(){
 
-            if (!$localStorage.isQuestionAnswered || $localStorage.isQuestionAnswered == "" || $localStorage.isQuestionAnswered == false){
+            if (!$localStorage.isDailyDealSeen || $localStorage.isDailyDealSeen == "" || $localStorage.isDailyDealSeen == false){
 
-                $state.go('app.teaser');
+                $state.go('app.question');
 
             } else {
 
@@ -568,88 +649,21 @@ angular.module('starter.controllers', [])
 
         };
 
-
-        // get all user points
-
-        var send_user = {
-
-            "user" : $localStorage.userid
-
-        };
-        //
-        // $http.post($rootScope.host + 'GetAnswers', send_user, {
-        //
-        //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-        //
-        // }).then(
-        //
-        //     function(data){
-        //
-        //         console.log(data);
-        //
-        //         for (var i = 0; i < data.data.length; i++){
-        //
-        //             if (data.data[i].correct == "0"){
-        //
-        //                 $rootScope.incorrectAnswers += 1;
-        //
-        //             } else if (data.data[i].correct == "1"){
-        //
-        //                 $rootScope.correctAnswers += 1;
-        //
-        //             }
-        //
-        //             $rootScope.allPoints = $rootScope.allPoints + Number(data.data[i].quantity);
-        //
-        //         }
-        //
-        //     },
-        //
-        //     function(err){
-        //
-        //         $ionicPopup.alert({
-        //             title: "אין חיבור לרשת",
-        //             buttons: [{
-        //                 text: 'OK',
-        //                 type: 'button-positive'
-        //             }]
-        //         });
-        //
-        //     });
-
-        $http.post($rootScope.host + 'GetPointsPerMonth', send_user, {
-
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
-
-        }).then(
-
-            function(data){
-
-                console.log("Points", data.data);
-
-                $rootScope.correctAnswers = data.data.month_correct;
-                $rootScope.incorrectAnswers = data.data.month_wrong;
-                $rootScope.monthPoints = data.data.month_points;
-                $rootScope.allPoints = data.data.total_points;
-
-            },
-
-            function(err){
-
-                $ionicPopup.alert({
-                    title: "אין חיבור לרשת",
-                    buttons: [{
-                        text: 'OK',
-                        type: 'button-positive'
-                    }]
-                });
-
-            });
-
-
     })
 
     .controller('QuestionCtrl', function ($ionicSideMenuDelegate, $scope, $http, $rootScope, $ionicPopup, $state, $localStorage) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                if ($state.current.name == "app.question"){
+                    window.ga.trackView("עמוד שאלה");
+                } else {
+                    window.ga.trackView("עמוד תשובה");
+                }
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -686,9 +700,6 @@ angular.module('starter.controllers', [])
                 console.log(data);
 
                 $scope.question = data.data[0];
-
-                // $scope.question.question_image = ($scope.question.question_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.question_image;
-                // $scope.question.explain_image = ($scope.question.explain_image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.question.explain_image;
 
                 if ($scope.question.correct_answer == "1"){
 
@@ -801,11 +812,14 @@ angular.module('starter.controllers', [])
 
                 var checkedAnswer = $scope.checkAnswer();
 
+
                 var send_question = {
 
                     "user" : $localStorage.userid,
                     "quantity" : "",
-                    "correct" : ""
+                    "correct" : "",
+                    "question_index" : $scope.question.index,
+                    "answer_index" : $scope.userAnswer.selected
 
                 };
 
@@ -831,19 +845,23 @@ angular.module('starter.controllers', [])
 
                         console.log(data);
 
-                        // update local variables
+                        if (window.cordova){
+                            window.ga.trackEvent('שאלה נענתה בהצלחה', $rootScope.today);
+                            window.ga.trackEvent('שאלה נענתה נכונה', checkedAnswer);
+                        }
 
-                        $localStorage.isQuestionAnswered = true;
-                        $rootScope.isQuestionAnswered = $localStorage.isQuestionAnswered;
+                        // update local variables
 
                         if (checkedAnswer == true){
 
                             $rootScope.allPoints += 10;
+                            $rootScope.monthPoints += 10;
                             $rootScope.correctAnswers += 1;
 
                         } else if (checkedAnswer == false){
 
                             $rootScope.allPoints += 2;
+                            $rootScope.monthPoints += 2;
                             $rootScope.incorrectAnswers += 1;
 
                         }
@@ -870,14 +888,51 @@ angular.module('starter.controllers', [])
 
         $scope.checkDiscountState = function(){
 
+            var send_user = {
+
+                "user" : $localStorage.userid
+
+            };
+
+            $http.post($rootScope.host + 'UserSeenDeal', send_user, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    $localStorage.isDailyDealSeen = true;
+                    $rootScope.isDailyDealSeen = $localStorage.isDailyDealSeen;
+
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
+
             if ($rootScope.todayDeal.showiframe == "0" && $rootScope.todayDeal.dealgivenby == "1"){
 
                 $state.go('app.discount');
                 cordova.InAppBrowser.open($rootScope.todayDeal.codelink, '_blank', 'location=yes');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבה היום שנלחצה', x.title);
+                }
 
             } else {
 
                 $state.go('app.discount');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבה היום שנלחצה', x.title);
+                }
 
             }
 
@@ -897,6 +952,14 @@ angular.module('starter.controllers', [])
         };
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                if ($state.current.name == "app.teaser"){
+                    window.ga.trackView("עמוד טיזר");
+                } else {
+                    window.ga.trackView("עמוד דיל יומי");
+                }
+            }
 
             var send_data = {
 
@@ -930,7 +993,6 @@ angular.module('starter.controllers', [])
             // }
 
             // get deal for today
-
 
             $scope.noTodayDeal = false;
 
@@ -991,6 +1053,41 @@ angular.module('starter.controllers', [])
 
                         console.log("Today Deal", $rootScope.todayDeal);
 
+                        if ($state.current.name == "app.discount"){
+
+                            var data_send = {
+
+                                "user" : $localStorage.userid,
+                                "deal_id" : $rootScope.todayDeal.index,
+                                "supplier_id" : $rootScope.todayDeal.supplier_id
+
+                            };
+
+                            $http.post($rootScope.host + 'CountDealView', data_send, {
+
+                                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+                            }).then(
+
+                                function(data){
+
+                                    console.log(data);
+                                },
+
+                                function(err){
+
+                                    $ionicPopup.alert({
+                                        title: "אין חיבור לרשת",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                });
+
+                        }
+
                     }
 
                 },
@@ -1019,17 +1116,20 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
         // open links
 
-        $scope.goToLink = function(x){
+        $scope.goToLink = function(x, y){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+            if(window.cordova) {
+                window.ga.trackEvent('לינק בהטבה היומית', y);
+            }
 
         };
 
@@ -1038,6 +1138,16 @@ angular.module('starter.controllers', [])
     .controller('PersonalCtrl', function (dateFilter, $timeout, $ionicScrollDelegate, $ionicSideMenuDelegate, $http, $scope, $rootScope, $ionicPopup, $localStorage, $cordovaCamera, $state) {
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            $rootScope.getUserPoints();
+
+            if(window.cordova){
+                if ($state.current.name == "app.personal"){
+                    window.ga.trackView("עמוד אזור אישי");
+                } else {
+                    window.ga.trackView("עמוד פניה למומחה");
+                }
+            }
 
             // for push notifications from specialist answers
 
@@ -1542,18 +1652,74 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CatalogCtrl', function ($ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+    .controller('CatalogCtrl', function ($ionicPlatform, $ionicScrollDelegate, $ionicLoading, $cordovaGeolocation, isFavoriteFactory, deleteFavoriteFactory, makeFavoriteFactory, $scope, $rootScope, $http, $ionicPopup, $state, $localStorage) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("קטלוג");
+            }
+
+        });
+
+        // scroll to top
+
+        $scope.scrollTop = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
+
+        };
+
+        // open page at catalog
 
         $scope.openItem = function(x){
+
+            var data_send = {
+
+                "user" : $localStorage.userid,
+                "deal_id" : x.index,
+                "supplier_id" : x.supplier_id
+
+            };
+            // console.log("data_send", data_send);
+
+            $http.post($rootScope.host + 'CountDealView', data_send, {
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+            }).then(
+
+                function(data){
+
+                    console.log(data);
+                },
+
+                function(err){
+
+                    $ionicPopup.alert({
+                        title: "אין חיבור לרשת",
+                        buttons: [{
+                            text: 'OK',
+                            type: 'button-positive'
+                        }]
+                    });
+
+                });
 
             if (x.showiframe == "0" && x.dealgivenby == "1"){
 
                 $state.go('app.item', {itemId:x.index});
                 cordova.InAppBrowser.open(x.codelink, '_blank', 'location=yes');
+                if (window.cordova){
+                    window.ga.trackEvent('הטבות שנלחצו', x.title);
+                }
 
             } else {
 
                 $state.go('app.item', {itemId:x.index});
+                if (window.cordova){
+                    window.ga.trackEvent('הטבות שנלחצו', x.title);
+                }
 
             }
 
@@ -1620,111 +1786,65 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
         // delete favorite
 
-        $scope.deleteFavorite = function(x){
+        $scope.deleteFavorite = function(x, y){
 
-            return deleteFavoriteFactory.deleteFavorite(x, $scope);
+            return deleteFavoriteFactory.deleteFavorite(x, $scope, y);
 
         };
 
-        // is GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
+        // if GPS is off and user wants to see the closest deals (turn on GPS and load deals with location);
 
         $scope.$watch('selection', function(){
 
-            if ($scope.selection == 'location'){
+            if ($scope.selection == 'location') {
 
                 if ($rootScope.isLocationEnabled == false) {
 
-                    cordova.dialogGPS("Your GPS is Disabled.",
-                        'Please enable location for proper work of the application',
+                    $ionicPlatform.ready(function () {
 
-                        function (buttonIndex) {
+                        document.addEventListener("deviceready", function () {
 
-                            switch (buttonIndex) {
-                                case 0:     // no
+                            $ionicPopup.show({
+                                template: '<input type="password" ng-model="data.wifi">',
+                                title: 'Enter Wi-Fi Password',
+                                subTitle: 'Please use normal things',
+                                scope: $scope,
+                                buttons: [
+                                    { text: 'Cancel' },
+                                    {
+                                        text: '<b>Save</b>',
+                                        type: 'button-positive',
+                                        onTap: function(e) {
+                                            if (!$scope.data.wifi) {
+                                                //don't allow the user to close unless he enters wifi password
+                                                e.preventDefault();
+                                            } else {
+                                                return $scope.data.wifi;
+                                            }
+                                        }
+                                    }
+                                ]
+                            });
 
-                                    $ionicPopup.alert({
-                                        title: "לא הפעלת את הGPS",
-                                        buttons: [{
-                                            text: 'OK',
-                                            type: 'button-positive'
-                                        }]
-                                    });
+                        })
 
-                                    break;
+                    }, false)
 
-                                case 1:     // neutral
-
-                                    $ionicPopup.alert({
-                                        title: "לא הפעלת את הGPS",
-                                        buttons: [{
-                                            text: 'OK',
-                                            type: 'button-positive'
-                                        }]
-                                    });
-
-                                    break;
-
-                                case 2:     // yes, go to settings
-
-                                    document.addEventListener("resume", onResume, false);
-
-                                function onResume() {
-
-                                    var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                                    $cordovaGeolocation
-                                        .getCurrentPosition(posOptions)
-                                        .then(function (position) {
-
-                                            $rootScope.closeDeals = [];
-
-                                            $rootScope.lat = position.coords.latitude;
-                                            $rootScope.lng = position.coords.longitude;
-
-                                            $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                        }, function (err) {
-
-                                            $ionicPopup.alert({
-                                                title: "קליטת רשת GPS חלשה מדי",
-                                                buttons: [{
-                                                    text: 'OK',
-                                                    type: 'button-positive'
-                                                }]
-                                            });
-
-                                            $rootScope.getDealsWithoutLocation();
-
-                                        });
-                                }
-
-                                    break;
-
-                                default:
-
-                                    $rootScope.getDealsWithoutLocation();
-                                    break;
-                            }
-
-                        });
-
-                } else if ($rootScope.isLocationEnabled == true){
+                } else if ($rootScope.isLocationEnabled == true) {
 
                     var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                     $cordovaGeolocation
                         .getCurrentPosition(posOptions)
                         .then(function (position) {
-
-                            $rootScope.closeDeals = [];
 
                             $rootScope.lat = position.coords.latitude;
                             $rootScope.lng = position.coords.longitude;
@@ -1746,9 +1866,114 @@ angular.module('starter.controllers', [])
                         });
 
                 }
+                //         document.addEventListener("deviceready", function () {
+                //
+                //             cordova.dialogGPS("Your GPS is Disabled.",
+                //                 'Please enable location for proper work of the application',
+                //
+                //                 function (buttonIndex) {
+                //
+                //                     switch (buttonIndex) {
+                //                         case 0:     // no
+                //
+                //                             $ionicPopup.alert({
+                //                                 title: "לא הפעלת את הGPS",
+                //                                 buttons: [{
+                //                                     text: 'OK',
+                //                                     type: 'button-positive'
+                //                                 }]
+                //                             });
+                //
+                //                             break;
+                //
+                //                         case 1:     // neutral
+                //
+                //                             $ionicPopup.alert({
+                //                                 title: "לא הפעלת את הGPS",
+                //                                 buttons: [{
+                //                                     text: 'OK',
+                //                                     type: 'button-positive'
+                //                                 }]
+                //                             });
+                //
+                //                             break;
+                //
+                //                         case 2:     // yes, go to settings
+                //
+                //                             document.addEventListener("resume", onResume, false);
+                //
+                //                         function onResume() {
+                //
+                //                             var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                //
+                //                             $cordovaGeolocation
+                //                                 .getCurrentPosition(posOptions)
+                //                                 .then(function (position) {
+                //
+                //                                     $rootScope.lat = position.coords.latitude;
+                //                                     $rootScope.lng = position.coords.longitude;
+                //
+                //                                     $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                //
+                //                                 }, function (err) {
+                //
+                //                                     $ionicPopup.alert({
+                //                                         title: "קליטת רשת GPS חלשה מדי",
+                //                                         buttons: [{
+                //                                             text: 'OK',
+                //                                             type: 'button-positive'
+                //                                         }]
+                //                                     });
+                //
+                //                                     $rootScope.getDealsWithoutLocation();
+                //
+                //                                 });
+                //                         }
+                //
+                //                             break;
+                //
+                //                         default:
+                //
+                //                             $rootScope.getDealsWithoutLocation();
+                //                             break;
+                //                     }
+                //
+                //                 });
+                //
+                //         })
+                //
+                //     }, false)
+                //
+                // } else if ($rootScope.isLocationEnabled == true) {
+                //
+                //     var posOptions = {timeout: 3000, enableHighAccuracy: true};
+                //
+                //     $cordovaGeolocation
+                //         .getCurrentPosition(posOptions)
+                //         .then(function (position) {
+                //
+                //             $rootScope.lat = position.coords.latitude;
+                //             $rootScope.lng = position.coords.longitude;
+                //
+                //             $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+                //
+                //         }, function (err) {
+                //
+                //             $ionicPopup.alert({
+                //                 title: "קליטת רשת GPS חלשה מדי",
+                //                 buttons: [{
+                //                     text: 'OK',
+                //                     type: 'button-positive'
+                //                 }]
+                //             });
+                //
+                //             $rootScope.getDealsWithoutLocation();
+                //
+                //         });
+                //
+                // }
 
             }
-
         });
 
         // clicking on button Turn on GPS
@@ -1778,8 +2003,6 @@ angular.module('starter.controllers', [])
                         $cordovaGeolocation
                             .getCurrentPosition(posOptions)
                             .then(function (position) {
-
-                                $rootScope.closeDeals = [];
 
                                 $rootScope.lat = position.coords.latitude;
                                 $rootScope.lng = position.coords.longitude;
@@ -1835,7 +2058,37 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ItemCtrl', function ($sce, isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope) {
+    .controller('ItemCtrl', function ($sce, isFavoriteFactory, makeFavoriteFactory, deleteFavoriteFactory, $scope, $stateParams, $rootScope, $state) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            $scope.deal = {};
+
+            // choosing deal
+
+            for(var i = 0; i < $rootScope.deals.length; i++){
+
+                if ($stateParams.itemId == $rootScope.deals[i].index){
+
+                    $scope.deal = $rootScope.deals[i];
+
+                    if ($scope.deal.showiframe == "1"){
+
+                        $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
+
+                    }
+
+                    console.log($scope.deal);
+
+                }
+
+            }
+
+            if(window.cordova){
+                window.ga.trackView("הטבה" + " - " + $scope.deal.title);
+            }
+
+        });
 
         $scope.options = {
             loop: true,
@@ -1845,31 +2098,12 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
-        $scope.deal = {};
-
-        // choosing deal
-
-        for(var i = 0; i < $rootScope.deals.length; i++){
-
-            if ($stateParams.itemId == $rootScope.deals[i].index){
-
-                $scope.deal = $rootScope.deals[i];
-
-                if ($scope.deal.showiframe == "1"){
-
-                    $scope.iframeLink = $sce.trustAsResourceUrl($scope.deal.codelink);
-
-                }
-
-                console.log($scope.deal);
-
-            }
-
-        }
-
-        $scope.goToLink = function(x){
+        $scope.goToLink = function(x, y){
 
             cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+            if(window.cordova) {
+                window.ga.trackEvent('לינק בהטבה', y);
+            }
 
         };
 
@@ -1883,15 +2117,23 @@ angular.module('starter.controllers', [])
 
         // make favorite
 
-        $scope.makeFavorite = function(x){
+        $scope.makeFavorite = function(x, y){
 
-            return makeFavoriteFactory.makeFavorite(x, $scope);
+            return makeFavoriteFactory.makeFavorite(x, $scope, y);
 
         };
 
     })
 
-    .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate) {
+    .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate, $state) {
+
+        $scope.$on('$ionicView.enter', function(e) {
+
+            if(window.cordova){
+                window.ga.trackView("מידע שימושי");
+            }
+
+        });
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -1905,7 +2147,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ArticleCtrl', function ($ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
+    .controller('ArticleCtrl', function ($ionicScrollDelegate, $ionicSideMenuDelegate, $scope, $rootScope, $state, $stateParams, $http, $localStorage, $ionicPopup) {
 
         $ionicSideMenuDelegate.canDragContent(false);
 
@@ -1913,6 +2155,12 @@ angular.module('starter.controllers', [])
         $scope.infoCategoryIcon = "img/info_articles/" + $stateParams.articleId + ".png";
 
         $scope.$on('$ionicView.enter', function(e) {
+
+            // console.log($state);
+
+            if(window.cordova){
+                window.ga.trackView("מידע שימושי" + " - " + $scope.infoCategoryName);
+            }
 
             $scope.content = {};
 
@@ -1938,10 +2186,11 @@ angular.module('starter.controllers', [])
                     for (var i = 0; i < $scope.content.length; i++){
 
                         // $scope.content[i].image = ($scope.content[i].image == "") ? "" : $rootScope.phpHost + "uploads/" + $scope.content[i].image;
-
+                        // console.log($scope.content[i].desc.length);
+                        // $scope.content[i].opened = 0;
                     }
 
-                    console.log($scope.content);
+                    console.log("Articles", $scope.content);
 
                 },
 
@@ -1958,7 +2207,6 @@ angular.module('starter.controllers', [])
                 });
 
         });
-
 
         // show video if needed
 
@@ -1984,7 +2232,15 @@ angular.module('starter.controllers', [])
 
         $scope.goToPage = function(x){
 
-            cordova.InAppBrowser.open(x, '_system', 'location=yes');
+            cordova.InAppBrowser.open(x, '_blank', 'location=yes');
+
+        };
+
+        // scroll to top
+
+        $scope.scrollTopArticle = function () {
+
+            $ionicScrollDelegate.scrollTop('shouldAnimate');
 
         };
 

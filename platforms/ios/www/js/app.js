@@ -17,7 +17,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 if (window.cordova) {
 
-                    $ionicPlatform.ready(function () {
+                    document.addEventListener("deviceready", function () {
 
                         CheckGPS.check(function win() {
 
@@ -741,6 +741,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         // get all deals without location
 
         $rootScope.getDealsWithoutLocation = function () {
+
             alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
@@ -810,6 +811,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         // get all deals with location
 
         $rootScope.getDealsWithLocation = function () {
+
             alert("getDealsWithLocation");
             var send_coord = {
 
