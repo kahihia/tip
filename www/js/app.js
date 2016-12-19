@@ -10,17 +10,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-alert('app1');
+
             // geolocation for ios
 
             if (ionic.Platform.isIOS() == true){
-                alert('app2');
+
                 if (window.cordova) {
-                    alert('app3');
+
                     document.addEventListener("deviceready", function () {
 
                         CheckGPS.check(function win() {
-                                alert('app4');
+
                                 var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                                 $cordovaGeolocation
@@ -286,21 +286,9 @@ alert('app1');
 
                 };
 
-                var isIOS = ionic.Platform.isIOS();
-                var isAndroid = ionic.Platform.isAndroid();
-
-                if (isAndroid) {
-                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                        {googleProjectNumber: "627358870772"},
-                        notificationOpenedCallback);
-                }
-                if (isIOS) {
-                    window.plugins.OneSignal
-                        .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
-                        .handleNotificationOpened(notificationOpenedCallback)
-                        .endInit();
-                }
-
+                window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                    {googleProjectNumber: "627358870772"},
+                    notificationOpenedCallback);
 
                 window.plugins.OneSignal.getIds(function (ids) {
 
@@ -742,7 +730,7 @@ alert('app1');
 
         $rootScope.getDealsWithoutLocation = function () {
 
-            alert("getDealsWithoutLocation");
+            // alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -812,7 +800,7 @@ alert('app1');
 
         $rootScope.getDealsWithLocation = function () {
 
-            alert("getDealsWithLocation");
+            // alert("getDealsWithLocation");
             var send_coord = {
 
                 'lat': $rootScope.lat,
