@@ -10,17 +10,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
         $ionicPlatform.ready(function () {
-
+alert('app1');
             // geolocation for ios
 
             if (ionic.Platform.isIOS() == true){
-
+                alert('app2');
                 if (window.cordova) {
-
+                    alert('app3');
                     document.addEventListener("deviceready", function () {
 
                         CheckGPS.check(function win() {
-
+                                alert('app4');
                                 var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                                 $cordovaGeolocation

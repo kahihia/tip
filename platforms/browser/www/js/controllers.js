@@ -1813,22 +1813,96 @@ angular.module('starter.controllers', [])
                         document.addEventListener("deviceready", function () {
 
                             $ionicPopup.show({
-                                template: '<input type="password" ng-model="data.wifi">',
-                                title: 'Enter Wi-Fi Password',
-                                subTitle: 'Please use normal things',
+                                template: '<div style="text-align: center">Please turn on GPS to get the closest deals</div>',
                                 scope: $scope,
                                 buttons: [
                                     { text: 'Cancel' },
                                     {
-                                        text: '<b>Save</b>',
+                                        text: '<b>OK</b>',
                                         type: 'button-positive',
                                         onTap: function(e) {
-                                            if (!$scope.data.wifi) {
-                                                //don't allow the user to close unless he enters wifi password
-                                                e.preventDefault();
+
+                                            if (ionic.Platform.isIOS() == true){
+
+                                                cordova.plugins.diagnostic.switchToSettings(
+
+                                                    function(){     // success callback
+alert('1');
+                                                        CheckGPS.check(function win() {
+
+                                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                                            $cordovaGeolocation
+                                                                .getCurrentPosition(posOptions)
+                                                                .then(function (position) {
+
+                                                                    $rootScope.lat = position.coords.latitude;
+                                                                    $rootScope.lng = position.coords.longitude;
+                                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                                                }, function (err) {
+
+                                                                    $rootScope.getDealsWithoutLocation();
+
+                                                                });
+
+                                                        }, function fail() {
+alert('2');
+                                                            $rootScope.getDealsWithoutLocation();
+
+                                                        })
+
+                                                    }, function(){      // error callback
+alert('3');
+                                                        $rootScope.getDealsWithoutLocation();
+
+                                                    });
+
                                             } else {
-                                                return $scope.data.wifi;
+
+                                                cordova.plugins.diagnostic.switchToLocationSettings();
+
+                                                document.addEventListener("resume", onResume, false);
+
+                                                function onResume() {
+
+                                                    CheckGPS.check(function win() {
+
+                                                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                                        $cordovaGeolocation
+                                                            .getCurrentPosition(posOptions)
+                                                            .then(function (position) {
+
+                                                                $rootScope.lat = position.coords.latitude;
+                                                                $rootScope.lng = position.coords.longitude;
+                                                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                                                document.removeEventListener("resume", onResume);
+
+                                                            }, function (err) {
+
+                                                                $rootScope.getDealsWithoutLocation();
+
+                                                                document.removeEventListener("resume", onResume);
+
+                                                            });
+
+                                                        }, function fail() {
+
+                                                            $rootScope.getDealsWithoutLocation();
+
+                                                            document.removeEventListener("resume", onResume);
+
+                                                        })
+
+                                                }
+
+
+
                                             }
+
+
                                         }
                                     }
                                 ]
@@ -1866,113 +1940,6 @@ angular.module('starter.controllers', [])
                         });
 
                 }
-                //         document.addEventListener("deviceready", function () {
-                //
-                //             cordova.dialogGPS("Your GPS is Disabled.",
-                //                 'Please enable location for proper work of the application',
-                //
-                //                 function (buttonIndex) {
-                //
-                //                     switch (buttonIndex) {
-                //                         case 0:     // no
-                //
-                //                             $ionicPopup.alert({
-                //                                 title: "לא הפעלת את הGPS",
-                //                                 buttons: [{
-                //                                     text: 'OK',
-                //                                     type: 'button-positive'
-                //                                 }]
-                //                             });
-                //
-                //                             break;
-                //
-                //                         case 1:     // neutral
-                //
-                //                             $ionicPopup.alert({
-                //                                 title: "לא הפעלת את הGPS",
-                //                                 buttons: [{
-                //                                     text: 'OK',
-                //                                     type: 'button-positive'
-                //                                 }]
-                //                             });
-                //
-                //                             break;
-                //
-                //                         case 2:     // yes, go to settings
-                //
-                //                             document.addEventListener("resume", onResume, false);
-                //
-                //                         function onResume() {
-                //
-                //                             var posOptions = {timeout: 3000, enableHighAccuracy: true};
-                //
-                //                             $cordovaGeolocation
-                //                                 .getCurrentPosition(posOptions)
-                //                                 .then(function (position) {
-                //
-                //                                     $rootScope.lat = position.coords.latitude;
-                //                                     $rootScope.lng = position.coords.longitude;
-                //
-                //                                     $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-                //
-                //                                 }, function (err) {
-                //
-                //                                     $ionicPopup.alert({
-                //                                         title: "קליטת רשת GPS חלשה מדי",
-                //                                         buttons: [{
-                //                                             text: 'OK',
-                //                                             type: 'button-positive'
-                //                                         }]
-                //                                     });
-                //
-                //                                     $rootScope.getDealsWithoutLocation();
-                //
-                //                                 });
-                //                         }
-                //
-                //                             break;
-                //
-                //                         default:
-                //
-                //                             $rootScope.getDealsWithoutLocation();
-                //                             break;
-                //                     }
-                //
-                //                 });
-                //
-                //         })
-                //
-                //     }, false)
-                //
-                // } else if ($rootScope.isLocationEnabled == true) {
-                //
-                //     var posOptions = {timeout: 3000, enableHighAccuracy: true};
-                //
-                //     $cordovaGeolocation
-                //         .getCurrentPosition(posOptions)
-                //         .then(function (position) {
-                //
-                //             $rootScope.lat = position.coords.latitude;
-                //             $rootScope.lng = position.coords.longitude;
-                //
-                //             $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-                //
-                //         }, function (err) {
-                //
-                //             $ionicPopup.alert({
-                //                 title: "קליטת רשת GPS חלשה מדי",
-                //                 buttons: [{
-                //                     text: 'OK',
-                //                     type: 'button-positive'
-                //                 }]
-                //             });
-                //
-                //             $rootScope.getDealsWithoutLocation();
-                //
-                //         });
-                //
-                // }
-
             }
         });
 
@@ -1982,75 +1949,115 @@ angular.module('starter.controllers', [])
 
             // move user to settings
 
-            cordova.plugins.diagnostic.switchToLocationSettings();
+            if (ionic.Platform.isIOS() == true){
+alert('11');
+                cordova.plugins.diagnostic.switchToSettings(
 
-            // listen to his return
+                    function(){     // success callback
+alert('22');
+                        CheckGPS.check(function win() {
+alert('33');
+                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-            document.addEventListener("resume", onResume, false);
+                            $cordovaGeolocation
+                                .getCurrentPosition(posOptions)
+                                .then(function (position) {
 
-            function onResume() {
+                                    $rootScope.lat = position.coords.latitude;
+                                    $rootScope.lng = position.coords.longitude;
+                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
 
-                CheckGPS.check(function win() {     // if he turned on GPS
+                                }, function (err) {
 
-                    $ionicLoading.show({
+                                    $rootScope.getDealsWithoutLocation();
 
-                        template: 'טעון...'
-
-                    }).then(function(){
-
-                        var posOptions = {enableHighAccuracy: false};
-
-                        $cordovaGeolocation
-                            .getCurrentPosition(posOptions)
-                            .then(function (position) {
-
-                                $rootScope.lat = position.coords.latitude;
-                                $rootScope.lng = position.coords.longitude;
-
-                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                $ionicLoading.hide();
-
-                                document.removeEventListener("resume", onResume);
-
-                            }, function(err) {
-
-                                $ionicPopup.alert({
-                                    title: "קליטת רשת GPS חלשה מדי",
-                                    buttons: [{
-                                        text: 'OK',
-                                        type: 'button-positive'
-                                    }]
                                 });
 
-                                $rootScope.getDealsWithoutLocation();
-                                console.log('err1', err);
+                        }, function fail() {
+alert('44');
+                            $rootScope.getDealsWithoutLocation();
 
-                                $ionicLoading.hide();
+                        })
 
-                                document.removeEventListener("resume", onResume);
+                    }, function(){      // error callback
+alert('55');
+                        $rootScope.getDealsWithoutLocation();
 
+                    });
+
+            } else {
+
+                cordova.plugins.diagnostic.switchToLocationSettings();
+
+                // listen to his return
+
+                document.addEventListener("resume", onResume, false);
+
+                function onResume() {
+
+                    CheckGPS.check(function win() {     // if he turned on GPS
+
+                        $ionicLoading.show({
+
+                            template: 'טעון...'
+
+                        }).then(function(){
+
+                            var posOptions = {enableHighAccuracy: false};
+
+                            $cordovaGeolocation
+                                .getCurrentPosition(posOptions)
+                                .then(function (position) {
+
+                                    $rootScope.lat = position.coords.latitude;
+                                    $rootScope.lng = position.coords.longitude;
+
+                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                    $ionicLoading.hide();
+
+                                    document.removeEventListener("resume", onResume);
+
+                                }, function(err) {
+
+                                    $ionicPopup.alert({
+                                        title: "קליטת רשת GPS חלשה מדי",
+                                        buttons: [{
+                                            text: 'OK',
+                                            type: 'button-positive'
+                                        }]
+                                    });
+
+                                    $rootScope.getDealsWithoutLocation();
+                                    console.log('err1', err);
+
+                                    $ionicLoading.hide();
+
+                                    document.removeEventListener("resume", onResume);
+
+                                });
+
+                        })
+
+                    }, function fail(){     // if he didn't turn on GPS
+
+                        setTimeout(function() {
+
+                            $ionicPopup.alert({
+                                title: "לא הפעלת את הGPS - נא לנסות שנית",
+                                buttons: [{
+                                    text: 'OK',
+                                    type: 'button-positive'
+                                }]
                             });
 
-                    })
+                        }, 0);
 
-                }, function fail(){     // if he didn't turn on GPS
+                        document.removeEventListener("resume", onResume);
 
-                    setTimeout(function() {
+                    });
 
-                        $ionicPopup.alert({
-                            title: "לא הפעלת את הGPS - נא לנסות שנית",
-                            buttons: [{
-                                text: 'OK',
-                                type: 'button-positive'
-                            }]
-                        });
-
-                    }, 0);
-
-                    document.removeEventListener("resume", onResume);
-
-                });
+                }
 
             }
 

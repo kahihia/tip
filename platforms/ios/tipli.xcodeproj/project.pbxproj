@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		01314CDD79B44AA7A5F63907 /* OneSignalMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = C239EE5CD6C34B2BB54B9F2F /* OneSignalMobileProvision.m */; };
 		06C5A97DB738444DBC897B71 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C99204130FD4C9286E96813 /* CDVLocalFilesystem.m */; };

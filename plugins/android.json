@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cl.rmd.cordova.dialoggps": {
-            "PACKAGE_NAME": "com.ionicframework.tipli499507"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },

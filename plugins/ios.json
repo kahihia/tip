@@ -81,9 +81,6 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },
-        "cl.rmd.cordova.dialoggps": {
-            "PACKAGE_NAME": "com.ionicframework.tipli499507"
-        },
         "cordova.plugins.diagnostic": {
             "PACKAGE_NAME": "com.ionicframework.tipli499507"
         },

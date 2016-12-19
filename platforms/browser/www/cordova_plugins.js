@@ -279,14 +279,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cl.rmd.cordova.dialoggps/www/DialogGPS.js",
-        "id": "cl.rmd.cordova.dialoggps.DialogGPS",
-        "pluginId": "cl.rmd.cordova.dialoggps",
-        "clobbers": [
-            "cordova.dialogGPS"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "pluginId": "cordova-plugin-inappbrowser",
@@ -357,7 +349,6 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.6.0",
     "cordova-plugin-geolocation": "2.4.0",
     "cordova-plugin-fastrde-checkgps": "0.9.9",
-    "cl.rmd.cordova.dialoggps": "0.0.2",
     "cordova.plugins.diagnostic": "3.2.2",
     "cordova-plugin-inappbrowser": "1.5.0",
     "cordova-plugin-facebook4": "1.7.4",
