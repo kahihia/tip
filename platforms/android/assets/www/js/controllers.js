@@ -1813,7 +1813,8 @@ angular.module('starter.controllers', [])
                         document.addEventListener("deviceready", function () {
 
                             $ionicPopup.show({
-                                template: '<div style="text-align: center">Please turn on GPS to get the closest deals</div>',
+                                template: '<div style="text-align: center">על מנת לקבל את הדילים הקרובים אלייך הדלק GPS</div>',
+                                title: "",
                                 scope: $scope,
                                 buttons: [
                                     { text: 'Cancel' },
@@ -1827,7 +1828,7 @@ angular.module('starter.controllers', [])
                                                 cordova.plugins.diagnostic.switchToSettings(
 
                                                     function(){     // success callback
-alert('1');
+
                                                         CheckGPS.check(function win() {
 
                                                             var posOptions = {timeout: 3000, enableHighAccuracy: true};
@@ -1847,13 +1848,13 @@ alert('1');
                                                                 });
 
                                                         }, function fail() {
-alert('2');
+
                                                             $rootScope.getDealsWithoutLocation();
 
                                                         })
 
                                                     }, function(){      // error callback
-alert('3');
+
                                                         $rootScope.getDealsWithoutLocation();
 
                                                     });
@@ -1950,13 +1951,13 @@ alert('3');
             // move user to settings
 
             if (ionic.Platform.isIOS() == true){
-alert('11');
+
                 cordova.plugins.diagnostic.switchToSettings(
 
                     function(){     // success callback
-alert('22');
+
                         CheckGPS.check(function win() {
-alert('33');
+
                             var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
                             $cordovaGeolocation
@@ -1974,13 +1975,13 @@ alert('33');
                                 });
 
                         }, function fail() {
-alert('44');
+
                             $rootScope.getDealsWithoutLocation();
 
                         })
 
                     }, function(){      // error callback
-alert('55');
+
                         $rootScope.getDealsWithoutLocation();
 
                     });

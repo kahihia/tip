@@ -1813,7 +1813,8 @@ angular.module('starter.controllers', [])
                         document.addEventListener("deviceready", function () {
 
                             $ionicPopup.show({
-                                template: '<div style="text-align: center">Please turn on GPS to get the closest deals</div>',
+                                template: '<div style="text-align: center">על מנת לקבל את הדילים הקרובים אלייך הדלק GPS</div>',
+                                title: "",
                                 scope: $scope,
                                 buttons: [
                                     { text: 'Cancel' },
