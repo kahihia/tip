@@ -25,8 +25,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+            <state relative-caret-position="255">
+              <caret line="172" column="28" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -35,10 +35,10 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="1975" column="0" selection-start-line="1975" selection-start-column="0" selection-end-line="1975" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="1831" column="69" selection-start-line="1831" selection-start-column="65" selection-end-line="1831" selection-end-column="69" />
               <folding>
-                <marker date="1482417010000" expanded="true" signature="56748:56766" ph="..." />
+                <marker date="1482420231000" expanded="true" signature="56748:56766" ph="..." />
               </folding>
             </state>
           </provider>
@@ -469,12 +469,12 @@
       <workItem from="1482150985129" duration="7634000" />
       <workItem from="1482238586281" duration="2288000" />
       <workItem from="1482390667664" duration="216000" />
-      <workItem from="1482409826277" duration="1281000" />
+      <workItem from="1482409826277" duration="2087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335547000" />
+    <option name="totallyTimeSpent" value="336353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="23" width="1394" height="877" extended-state="6" />
@@ -764,14 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -833,12 +825,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="172" column="28" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="1975" column="0" selection-start-line="1975" selection-start-column="0" selection-end-line="1975" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="1831" column="69" selection-start-line="1831" selection-start-column="65" selection-end-line="1831" selection-end-column="69" />
           <folding>
-            <marker date="1482417010000" expanded="true" signature="56748:56766" ph="..." />
+            <marker date="1482420231000" expanded="true" signature="56748:56766" ph="..." />
           </folding>
         </state>
       </provider>

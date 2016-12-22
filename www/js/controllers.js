@@ -1829,7 +1829,7 @@ angular.module('starter.controllers', [])
 
                                                     function(){     // success callback
 
-                                                        alert('win');
+                                                        // alert('win');
 
                                                     }, function(){      // error callback
 
@@ -1970,7 +1970,7 @@ angular.module('starter.controllers', [])
 
                     function(){     // success callback
 
-                        alert('win2');
+                        // alert('win2');
 
                     }, function(){      // error callback
 
