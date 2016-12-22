@@ -14,70 +14,81 @@
 
         <div class="div100">
 
-            <div class="div80" align="center">
-
                 <div class="homeIcons">
 
                         <div class="homeRow">
 
-                            <div class="homeRight" ng-click="checkState()">
+                            <div class="homeSide">
 
-                                <img src="img/menu_icon_2.png" style="width:100%" />
+                                <div class="homeTop" ng-click="checkState()">
 
-                                <div class="homeIconsText">שאלה+צ'ופר</div>
+                                    <img src="img/menu_icon_2.png" style="width:80%" />
 
-                                <div ng-show="isDailyDealSeen == false || !isDailyDealSeen" class="homeIconBlackDiscription">
-                                	טרם מומש
+                                    <div class="homeIconsText">שאלה+צ'ופר</div>
+
+                                    <div ng-show="isDailyDealSeen == false || !isDailyDealSeen" class="homeIconBlackDiscription">
+                                        טרם מומש
+                                    </div>
+                                    <div ng-show="isDailyDealSeen == true" class="homeIconBlackDiscription">
+                                        מומש
+                                    </div>
+
                                 </div>
-                                <div ng-show="isDailyDealSeen == true" class="homeIconBlackDiscription">
-                                	מומש
+
+                                <div class="homeBottom" ui-sref="app.personal">
+
+                                    <img src="img/menu_icon_3.png" style="width:80%" />
+
+                                    <div class="homeIconsText">אזור אישי</div>
+
+                                    <div class="homeIconBlackDiscription">
+                                        צברת {{monthPoints}} נק
+                                    </div>
+
                                 </div>
 
                             </div>
 
-                            <div class="homeLeft" ui-sref="app.catalog">
+                            <div class="homeCenter">
 
-                                <img src="img/menu_icon_1.png" style="width:100%" />
+                                <img src="img/menu_icon_5.png" style="width:100%" ui-sref="app.article({articleId:7})"/>
 
-                                <div class="homeIconsText">הצ'ופרים שלי</div>
+                            </div>
 
-                                 <div class="homeIconBlackDiscription">
-                                	הטבות השבוע
+                            <div class="homeSide">
+
+                                <div class="homeRow">
+
+                                    <div class="homeTop" ui-sref="app.catalog">
+
+                                        <img src="img/menu_icon_1.png" style="width:80%" />
+
+                                        <div class="homeIconsText">הצ'ופרים שלי</div>
+
+                                        <div class="homeIconBlackDiscription">
+                                            הטבות השבוע
+                                        </div>
+
+                                    </div>
+
+                                    <div class="homeBottom" ui-sref="app.information">
+
+                                        <img src="img/menu_icon_4.png" style="width:80%" />
+
+                                        <div class="homeIconsText">מידע שימושי</div>
+
+                                        <div class="homeIconBlackDiscription">
+                                            פניה למומחה
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
                             </div>
 
                         </div>
 
-                        <div class="homeRow">
-
-                            <div class="homeRight" ui-sref="app.personal">
-
-                                <img src="img/menu_icon_3.png" style="width:100%" />
-
-                                <div class="homeIconsText">אזור אישי</div>
-
-                                <div class="homeIconBlackDiscription">
-                                	צברת {{monthPoints}} נק
-                                </div>
-
-                            </div>
-
-                            <div class="homeLeft" ui-sref="app.information">
-
-                                <img src="img/menu_icon_4.png" style="width:100%" />
-
-                                <div class="homeIconsText">מידע שימושי</div>
-
-                                 <div class="homeIconBlackDiscription">
-                                	פניה למומחה
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                  </div>
 
             </div>
 
