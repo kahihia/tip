@@ -286,21 +286,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 };
 
-                var isIOS = ionic.Platform.isIOS();
-                var isAndroid = ionic.Platform.isAndroid();
-
-                if (isAndroid) {
-                    window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
-                        {googleProjectNumber: "627358870772"},
-                        notificationOpenedCallback);
-                }
-                if (isIOS) {
-                    window.plugins.OneSignal
-                        .startInit("96b66281-ac3d-44e5-834f-e39b3cc98626", "")
-                        .handleNotificationOpened(notificationOpenedCallback)
-                        .endInit();
-                }
-
+                window.plugins.OneSignal.init("96b66281-ac3d-44e5-834f-e39b3cc98626",
+                    {googleProjectNumber: "627358870772"},
+                    notificationOpenedCallback);
 
                 window.plugins.OneSignal.getIds(function (ids) {
 
@@ -742,7 +730,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         $rootScope.getDealsWithoutLocation = function () {
 
-            alert("getDealsWithoutLocation");
+            // alert("getDealsWithoutLocation");
             $http.post($rootScope.host + 'GetDeals', '', {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
@@ -812,7 +800,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
         $rootScope.getDealsWithLocation = function () {
 
-            alert("getDealsWithLocation");
+            // alert("getDealsWithLocation");
             var send_coord = {
 
                 'lat': $rootScope.lat,

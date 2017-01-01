@@ -1829,7 +1829,7 @@ angular.module('starter.controllers', [])
 
                                                     function(){     // success callback
 
-                                                        alert('win');
+                                                        // alert('win');
 
                                                     }, function(){      // error callback
 
@@ -1970,35 +1970,49 @@ angular.module('starter.controllers', [])
 
                     function(){     // success callback
 
-                        CheckGPS.check(function win() {
-
-                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                            $cordovaGeolocation
-                                .getCurrentPosition(posOptions)
-                                .then(function (position) {
-
-                                    $rootScope.lat = position.coords.latitude;
-                                    $rootScope.lng = position.coords.longitude;
-                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                }, function (err) {
-
-                                    $rootScope.getDealsWithoutLocation();
-
-                                });
-
-                        }, function fail() {
-
-                            $rootScope.getDealsWithoutLocation();
-
-                        })
+                        // alert('win2');
 
                     }, function(){      // error callback
 
                         $rootScope.getDealsWithoutLocation();
 
                     });
+
+                document.addEventListener("resume", onResumeIOS, false);
+
+                function onResumeIOS() {
+
+                    CheckGPS.check(function win() {
+
+                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+
+                                $rootScope.lat = position.coords.latitude;
+                                $rootScope.lng = position.coords.longitude;
+                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                document.removeEventListener("resume", onResumeIOS);
+
+                            }, function (err) {
+
+                                $rootScope.getDealsWithoutLocation();
+
+                                document.removeEventListener("resume", onResumeIOS);
+
+                            });
+
+                    }, function fail() {
+
+                        $rootScope.getDealsWithoutLocation();
+
+                        document.removeEventListener("resume", onResumeIOS);
+
+                    })
+
+                }
 
             } else {
 

@@ -1813,7 +1813,8 @@ angular.module('starter.controllers', [])
                         document.addEventListener("deviceready", function () {
 
                             $ionicPopup.show({
-                                template: '<div style="text-align: center">Please turn on GPS to get the closest deals</div>',
+                                template: '<div style="text-align: center">על מנת לקבל את הדילים הקרובים אלייך הדלק GPS</div>',
+                                title: "",
                                 scope: $scope,
                                 buttons: [
                                     { text: 'Cancel' },
@@ -1827,36 +1828,50 @@ angular.module('starter.controllers', [])
                                                 cordova.plugins.diagnostic.switchToSettings(
 
                                                     function(){     // success callback
-alert('1');
-                                                        CheckGPS.check(function win() {
 
-                                                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
-
-                                                            $cordovaGeolocation
-                                                                .getCurrentPosition(posOptions)
-                                                                .then(function (position) {
-
-                                                                    $rootScope.lat = position.coords.latitude;
-                                                                    $rootScope.lng = position.coords.longitude;
-                                                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                                                }, function (err) {
-
-                                                                    $rootScope.getDealsWithoutLocation();
-
-                                                                });
-
-                                                        }, function fail() {
-alert('2');
-                                                            $rootScope.getDealsWithoutLocation();
-
-                                                        })
+                                                        // alert('win');
 
                                                     }, function(){      // error callback
-alert('3');
+
                                                         $rootScope.getDealsWithoutLocation();
 
                                                     });
+
+                                                document.addEventListener("resume", onResumeIOS, false);
+
+                                                function onResumeIOS() {
+
+                                                    CheckGPS.check(function win() {
+
+                                                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                                                        $cordovaGeolocation
+                                                            .getCurrentPosition(posOptions)
+                                                            .then(function (position) {
+
+                                                                $rootScope.lat = position.coords.latitude;
+                                                                $rootScope.lng = position.coords.longitude;
+                                                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                                                document.removeEventListener("resume", onResumeIOS);
+
+                                                            }, function (err) {
+
+                                                                $rootScope.getDealsWithoutLocation();
+
+                                                                document.removeEventListener("resume", onResumeIOS);
+
+                                                            });
+
+                                                    }, function fail() {
+
+                                                        $rootScope.getDealsWithoutLocation();
+
+                                                        document.removeEventListener("resume", onResumeIOS);
+
+                                                    })
+
+                                                }
 
                                             } else {
 
@@ -1950,40 +1965,54 @@ alert('3');
             // move user to settings
 
             if (ionic.Platform.isIOS() == true){
-alert('11');
+
                 cordova.plugins.diagnostic.switchToSettings(
 
                     function(){     // success callback
-alert('22');
-                        CheckGPS.check(function win() {
-alert('33');
-                            var posOptions = {timeout: 3000, enableHighAccuracy: true};
 
-                            $cordovaGeolocation
-                                .getCurrentPosition(posOptions)
-                                .then(function (position) {
-
-                                    $rootScope.lat = position.coords.latitude;
-                                    $rootScope.lng = position.coords.longitude;
-                                    $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
-
-                                }, function (err) {
-
-                                    $rootScope.getDealsWithoutLocation();
-
-                                });
-
-                        }, function fail() {
-alert('44');
-                            $rootScope.getDealsWithoutLocation();
-
-                        })
+                        // alert('win2');
 
                     }, function(){      // error callback
-alert('55');
+
                         $rootScope.getDealsWithoutLocation();
 
                     });
+
+                document.addEventListener("resume", onResumeIOS, false);
+
+                function onResumeIOS() {
+
+                    CheckGPS.check(function win() {
+
+                        var posOptions = {timeout: 3000, enableHighAccuracy: true};
+
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+
+                                $rootScope.lat = position.coords.latitude;
+                                $rootScope.lng = position.coords.longitude;
+                                $rootScope.getDealsWithLocation($rootScope.lat, $rootScope.lng);
+
+                                document.removeEventListener("resume", onResumeIOS);
+
+                            }, function (err) {
+
+                                $rootScope.getDealsWithoutLocation();
+
+                                document.removeEventListener("resume", onResumeIOS);
+
+                            });
+
+                    }, function fail() {
+
+                        $rootScope.getDealsWithoutLocation();
+
+                        document.removeEventListener("resume", onResumeIOS);
+
+                    })
+
+                }
 
             } else {
 
