@@ -84,8 +84,9 @@
 .header {
     width: 100%;
     text-align: center;
-    margin: 10px 0;
+    padding: 10px 0;
     font-size: 18px;
+    background-color: white;
 }
 
 .inputDiv {
@@ -182,12 +183,12 @@
     padding: 5px;
     border-radius: 20px;
 	font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 
 .homeIconsText {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -693,7 +694,7 @@
     top: 15px;
     position: absolute;
 	font-size:10px;
-	text-align:center
+	text-align:center;
 }
 
 .sideMenuIconText{
