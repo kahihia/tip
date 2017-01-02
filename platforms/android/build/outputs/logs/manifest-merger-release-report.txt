@@ -4,13 +4,13 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 	android:hardwareAccelerated
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:144-202
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:145-203
 	package
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:103-143
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:104-144
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:75-102
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:75-103
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 	android:versionCode
@@ -884,27 +884,27 @@ MERGED from [android:CordovaLib:unspecified:release] C:\Users\Owner\Desktop\gith
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:42:15-41
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:23:9-51
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:43:5-81
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:43:22-78
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:44:5-79
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:44:22-76
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:45:5-81
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:45:22-78
 uses-feature#android.hardware.location.gps
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:46:5-66
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:44:5-66
 	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:46:19-63
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:44:19-63
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:47:5-79
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:45:5-79
 MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.4.0\AndroidManifest.xml:22:5-79
 MERGED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:45:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:46:5-81
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:46:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:47:5-79
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:47:22-76
 activity#com.facebook.CustomTabActivity

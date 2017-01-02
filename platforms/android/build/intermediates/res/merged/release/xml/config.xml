@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="100048" id="com.ionicframework.tipli499507" version="1.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <feature name="DialogGPS">
-        <param name="android-package" value="cl.rmd.cordova.dialoggps.DialogGPS" />
-    </feature>
+<widget android-versionCode="100050" id="com.ionicframework.tipli499507" version="1.0.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>

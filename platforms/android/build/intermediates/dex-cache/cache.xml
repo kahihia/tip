@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/evgeniagofman/PhpstormProjects/tipli2/tip/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jar="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\release\jars\classes.jar"
         jumboMode="false"
-        revision="24.0.1"
-        sha1="40d97aa6529f53146325740e930fc3c1135266fb">
-        <dex dex="/Users/evgeniagofman/PhpstormProjects/tipli2/tip/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_87c5575bbac4d843a8542c0fb728a882289cb74d.jar" />
+        revision="23.0.1"
+        sha1="b32092cc25485d9419abc10b80699ea47337ee00">
+        <dex dex="C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\pre-dexed\release\CordovaLib-unspecified-release_a688e45a9c31927b0d8f23a8767cdc9c8a7a9df2.jar" />
     </item>
 
 </items>

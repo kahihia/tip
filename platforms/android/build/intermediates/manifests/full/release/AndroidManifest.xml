@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ionicframework.tipli499507"
     android:hardwareAccelerated="true"
-    android:versionCode="100048"
-    android:versionName="1.0.8" >
+    android:versionCode="100050"
+    android:versionName="1.0.10" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -18,13 +18,13 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Optional permission for Analytics to run. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
  <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
