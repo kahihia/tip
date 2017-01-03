@@ -972,6 +972,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                     }
 
                 }
+
                 console.log("Banners", $rootScope.bannersMain, $rootScope.bannersTeaser, $rootScope.bannersInfo);
                 console.log('Month banner', $rootScope.monthBanner);
                 console.log('Year banner', $rootScope.yearBanner);
