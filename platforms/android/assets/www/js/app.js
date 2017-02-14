@@ -973,7 +973,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                 }
 
-                $rootScope.bannersMain = [$rootScope.bannersMain[0]];
                 console.log("Banners", $rootScope.bannersMain, $rootScope.bannersTeaser, $rootScope.bannersInfo);
                 console.log('Month banner', $rootScope.monthBanner);
                 console.log('Year banner', $rootScope.yearBanner);
