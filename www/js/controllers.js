@@ -8,6 +8,8 @@ angular.module('starter.controllers', [])
         // listen for the $ionicView.enter event:
         //$scope.$on('$ionicView.enter', function(e) {
         //});
+		
+		$scope.isIOS = ionic.Platform.isIOS();
 
     })
 
@@ -625,7 +627,7 @@ angular.module('starter.controllers', [])
 
         $ionicSideMenuDelegate.canDragContent(false);
 		
-		$scope.isIOS = ionic.Platform.isIOS();
+		
 		$scope.ShowMainBanners = 0;
 
         $scope.options = {
@@ -2200,6 +2202,7 @@ angular.module('starter.controllers', [])
     })
 
     .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate, $state) {
+		
 
         $scope.$on('$ionicView.enter', function(e) {
 

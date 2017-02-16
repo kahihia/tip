@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/evgeniagofman/PhpstormProjects/tipli3/tip/platforms/android/CordovaLib/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/evgeniagofman/PhpstormProjects/tipli3/tip/platforms/android/CordovaLib/src/release/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Owner\Desktop\github\tip\platforms\android\CordovaLib\src\main\shaders"/></dataSet><dataSet config="release"><source path="C:\Users\Owner\Desktop\github\tip\platforms\android\CordovaLib\src\release\shaders"/></dataSet></merger>

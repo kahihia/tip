@@ -96,8 +96,9 @@
 
         </div>
 
+		
     </ion-content>
-    <ion-footer-bar style="height:17%; background-color: #ffd200" ng-if="ShowMainBanners == '0'">
+    <ion-footer-bar style="height:17%; background-color: #ffd200" ng-if="bannersMain[0].bannertype == '0'">
 
 
         <div ng-show="bannersMain.length == 1">
@@ -118,7 +119,7 @@
 	
     </ion-footer-bar>
 	
-    <ion-footer-bar style="height:17%; background-color: #ffd200; text-align:center !important;" ng-if="ShowMainBanners == '1'">
+    <ion-footer-bar style="height:17%; background-color: #ffd200; text-align:center !important;" ng-if="bannersMain[0].bannertype == '1'">
 
 	
 	

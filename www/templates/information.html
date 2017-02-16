@@ -41,20 +41,33 @@
             </div>
 
         </div>
+		
+		<div ng-if="bannersInfo[0].bannertype == 0">
+			<div ng-show="bannersInfo.length == 1" style="margin-top: -6px;">
+				<img src="{{imageHost}}/{{bannersInfo[0].image}}" style="width: 100%;">
+			</div>
 
-        <div ng-show="bannersInfo.length == 1" style="margin-top: -6px;">
-            <img src="{{imageHost}}/{{bannersInfo[0].image}}" style="width: 100%;">
-        </div>
+			<div ng-show="bannersInfo.length > 1" style="width: 100%; height: 100px; margin-top: -6px;">
+				<ion-slides options="options" slider="data.slider">
+					<ion-slide-page ng-repeat="banner in bannersInfo">
+						<div>
+							<img src="{{imageHost}}/{{banner.image}}">
+							
+						</div>
+					</ion-slide-page>
+				</ion-slides>
+			</div>
+		</div>
+		
+		<div ng-if="bannersInfo[0].bannertype == 1">
+		
+			<iframe style="width:100%;" ng-if="isIOS"  src="https://ad.ajillionmax.com/ad/22151/?format=html" scrolling="no"></iframe>
 
-        <div ng-show="bannersInfo.length > 1" style="width: 100%; height: 100px; margin-top: -6px;">
-            <ion-slides options="options" slider="data.slider">
-                <ion-slide-page ng-repeat="banner in bannersInfo">
-                    <div>
-                        <img src="{{imageHost}}/{{banner.image}}">
-                    </div>
-                </ion-slide-page>
-            </ion-slides>
-        </div>
+			<iframe style="width:100%;" ng-if="!isIOS" src="https://ad.ajillionmax.com/ad/22152/?format=html" scrolling="no"></iframe>
+	
+		</div>
+		
+
 
     </ion-content>
 

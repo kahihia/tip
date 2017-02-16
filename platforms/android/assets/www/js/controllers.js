@@ -8,6 +8,8 @@ angular.module('starter.controllers', [])
         // listen for the $ionicView.enter event:
         //$scope.$on('$ionicView.enter', function(e) {
         //});
+		
+		$scope.isIOS = ionic.Platform.isIOS();
 
     })
 
@@ -624,6 +626,9 @@ angular.module('starter.controllers', [])
         });
 
         $ionicSideMenuDelegate.canDragContent(false);
+		
+		
+		$scope.ShowMainBanners = 0;
 
         $scope.options = {
             loop: true,
@@ -633,6 +638,41 @@ angular.module('starter.controllers', [])
             pagination: false
         };
 
+		
+		$scope.checkBannerType = function()
+		{
+			send_data  = {};
+			$http.post($rootScope.host + 'checkBannerType', send_data, {
+
+				headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
+
+			}).then(
+
+				function(data){
+
+					$scope.ShowMainBanners = data.data[0].status;
+
+				},
+
+				function(error){
+
+					$ionicPopup.alert({
+						title: "אין חיבור לרשת",
+						buttons: [{
+							text: 'OK',
+							type: 'button-positive'
+						}]
+					});
+
+				}
+
+			);
+		}
+		
+		$scope.checkBannerType();
+
+		
+		
         // for discount and question link
 
         $scope.checkState = function(){
@@ -2162,6 +2202,7 @@ angular.module('starter.controllers', [])
     })
 
     .controller('InformationCtrl', function ($scope, $ionicSideMenuDelegate, $state) {
+		
 
         $scope.$on('$ionicView.enter', function(e) {
 
