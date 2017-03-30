@@ -17,8 +17,8 @@
   <allow-intent href="mailto:*"/>
   <allow-navigation href="*" />
   
- <allow-intent href="http:///" />
- <allow-intent href="https:///" />
+ <allow-intent href="http:*" />
+ <allow-intent href="https:*" />
  
   <access origin="*"/>
   <preference name="Orientation" value="portrait"/>
