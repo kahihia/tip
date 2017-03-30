@@ -1,10 +1,6 @@
 -- Merging decision tree log ---
 manifest
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:1-48:12
-	android:hardwareAccelerated
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:11-45
-	xmlns:android
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:145-203
 	package
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:104-144
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
@@ -13,24 +9,28 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:75-103
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
+	android:hardwareAccelerated
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:11-45
 	android:versionCode
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:46-74
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
 		INJECTED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:2:145-203
 supports-screens
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:5-191
-	android:resizeable
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:106-131
 	android:largeScreens
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:49-76
-	android:anyDensity
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:23-48
+	android:smallScreens
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:132-159
 	android:normalScreens
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:77-105
 	android:xlargeScreens
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:160-188
-	android:smallScreens
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:132-159
+	android:resizeable
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:106-131
+	android:anyDensity
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:4:5-67
 MERGED from [com.google.android.gms:play-services-analytics:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.4.0\AndroidManifest.xml:21:5-67
@@ -386,30 +386,30 @@ MERGED from [com.android.support:support-media-compat:24.2.0] C:\Users\Owner\Des
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:25:5-20
-	android:supportsRtl
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:116-142
 	android:label
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:83-115
-	android:icon
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:53-82
+	android:supportsRtl
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:116-142
 	android:hardwareAccelerated
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:18-52
+	android:icon
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:5:53-82
 activity#com.ionicframework.tipli499507.MainActivity
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:9-11:20
-	android:windowSoftInputMode
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:294-336
 	android:screenOrientation
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:194-230
 	android:label
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:97-134
+	android:launchMode
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:135-165
+	android:windowSoftInputMode
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:294-336
 	android:configChanges
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:19-96
 	android:theme
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:231-293
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:166-193
-	android:launchMode
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:6:135-165
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:7:13-10:29
 	android:label
@@ -424,16 +424,16 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:9:27-74
 meta-data#com.facebook.sdk.ApplicationId
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:12:9-102
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:12:20-65
 	android:value
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:12:66-99
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:12:20-65
 meta-data#com.facebook.sdk.ApplicationName
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:13:9-106
-	android:name
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:13:20-67
 	android:value
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:13:68-103
+	android:name
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:13:20-67
 activity#com.facebook.FacebookActivity
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:14:9-246
 MERGED from [com.facebook.android:facebook-android-sdk:4.14.1] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.14.1\AndroidManifest.xml:29:9-32:75
@@ -459,18 +459,18 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:17:25-91
 service#com.google.android.gms.analytics.AnalyticsService
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:9-133
-	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:41-65
 	android:enabled
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:18-40
+	android:exported
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:41-65
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:20:66-130
 receiver#com.google.android.gms.analytics.CampaignTrackingReceiver
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:9-25:20
-	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:42-65
 	android:enabled
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:19-41
+	android:exported
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:42-65
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:21:66-138
 intent-filter#com.android.vending.INSTALL_REFERRER
@@ -481,10 +481,10 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:23:25-76
 service#com.google.android.gms.analytics.CampaignTrackingService
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:9-140
-	android:exported
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:41-65
 	android:enabled
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:18-40
+	android:exported
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:41-65
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:26:66-137
 receiver#cordova.plugins.Diagnostic$LocationProviderChangedReceiver
@@ -499,10 +499,10 @@ ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.x
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:29:25-74
 amazon:enable-feature
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:9-159
-	android:required
-		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:75-99
 	xmlns:amazon
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:100-156
+	android:required
+		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:75-99
 	android:name
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:32:32-74
 service#com.onesignal.ADMMessageHandler
@@ -878,12 +878,12 @@ MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\g
 MERGED from [com.android.support:support-core-ui:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\AndroidManifest.xml:21:5-23:58
 MERGED from [android:CordovaLib:unspecified:release] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\release\AndroidManifest.xml:25:5-44
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:42:42-71
 	android:minSdkVersion
 		ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:42:15-41
-	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:24.2.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\AndroidManifest.xml:23:9-51
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from C:\Users\Owner\Desktop\github\tip\platforms\android\AndroidManifest.xml:43:5-81
 	android:name
@@ -925,10 +925,10 @@ MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Des
 MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
 MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
 MERGED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:9-22:45
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:21:19-78
 	android:exported
 		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:21:19-78
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\AndroidManifest.xml:20:19-85
 meta-data#com.google.android.gms.version
@@ -947,10 +947,10 @@ MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner
 MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:21:9-23:69
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:22:13-58
 	android:value
 		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:9.4.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\AndroidManifest.xml:22:13-58
 permission#${manifestApplicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:8:5-10:47
 	android:protectionLevel
@@ -1005,16 +1005,16 @@ ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\pla
 		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:38:22-80
 meta-data#onesignal_app_id
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:41:9-43:51
-	android:name
-		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:42:13-44
 	android:value
 		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:43:13-48
+	android:name
+		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:42:13-44
 meta-data#onesignal_google_project_number
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:44:9-46:70
-	android:name
-		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:45:13-59
 	android:value
 		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:46:13-67
+	android:name
+		ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:45:13-59
 receiver#com.onesignal.GcmBroadcastReceiver
 ADDED from [com.onesignal:OneSignal:2.6.0] C:\Users\Owner\Desktop\github\tip\platforms\android\build\intermediates\exploded-aar\com.onesignal\OneSignal\2.6.0\AndroidManifest.xml:48:9-56:20
 	android:permission

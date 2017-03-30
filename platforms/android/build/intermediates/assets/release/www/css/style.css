@@ -1173,32 +1173,17 @@
 }
 
 
+.Flexible-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Flexible-container iframe {
+    position: absolute;
+    top: calc((100% - 60px)/2);
+    bottom: calc((100% - 60px)/2);
+    right: calc((100% - 328px)/2);
+    left: calc((100% - 328px)/2);
+}

@@ -1,6 +1,6 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true" style="background-color: #ffd200;">
 
-<ion-content class="has-footer" style="bottom: 17%; background-color: #ffd200">
+<ion-content class="has-footer" style="bottom: 100px; background-color: #ffd200">
 		<div style="background-color: white; margin-bottom: -1px;">
             <div class="sideMenuIcon">
                 <img ng-show="image && image != ''" ng-src="{{image}}" ng-click="logout()" style="width:100%"/>
@@ -96,8 +96,9 @@
 
         </div>
 
+		
     </ion-content>
-    <ion-footer-bar style="height:17%; background-color: #ffd200" ng-if="ShowMainBanners == '0'">
+    <ion-footer-bar style="height:100px; background-color: #ffd200" ng-if="bannersMain[0].bannertype == '0'">
 
 
         <div ng-show="bannersMain.length == 1">
@@ -114,18 +115,16 @@
             </ion-slides>
         </div>
 	
-	
-	
     </ion-footer-bar>
 	
-    <ion-footer-bar style="height:17%; background-color: #ffd200; text-align:center !important;" ng-if="ShowMainBanners == '1'">
+    <ion-footer-bar style="height: 60px; background-color: black; text-align:center !important;" ng-if="bannersMain[0].bannertype == '1'">
 
-	
-	
-			<iframe style="width:100%;" ng-if="isIOS"  src="https://ad.ajillionmax.com/ad/22151/?format=html" scrolling="no"></iframe>
+        <div class="Flexible-container">
+            <iframe style="width:100%;" ng-if="isIOS"  src="https://ad.ajillionmax.com/ad/22151/?format=html" scrolling="no"></iframe>
 
-			<iframe style="width:100%;" ng-if="!isIOS" src="https://ad.ajillionmax.com/ad/22152/?format=html" scrolling="no"></iframe>
-	
+            <iframe style="width:100%;" ng-if="!isIOS" src="https://ad.ajillionmax.com/ad/22152/?format=html" scrolling="no"></iframe>
+        </div>
+
     </ion-footer-bar>	
 	
 </ion-view>

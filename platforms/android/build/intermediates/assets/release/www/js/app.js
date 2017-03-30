@@ -12,6 +12,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
         $ionicPlatform.ready(function () {
 
             // geolocation for ios
+		
+			
+			
 
             if (ionic.Platform.isIOS() == true){
 
@@ -944,6 +947,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
             function (data) {
 
                 $rootScope.bannersData = data.data;
+				console.log("Banners: " , data.data);
 
                 for (var p = 0; p < $rootScope.bannersData.length; p++) {
 
