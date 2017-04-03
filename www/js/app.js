@@ -1004,10 +1004,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 					 .defineSlot('/48282107/IOS320//50Top', [320, 50], 'monthlyIphone')
 					 .defineSlot('/48282107/Android320//50Top', [320, 50], 'monthlyAndroid')
 					 .defineSlot('/48282107/IOS320//50Lower', [320, 50], 'yearlyIphone')
-					 .defineSlot('/48282107/Android320//50Lower', [320, 50], 'yearlyAndroid')
+					 .defineSlot('/48282107/Android320//50Lower', [320, 50], 'yearlyAndroid');
 
 
-					 ;
+					 
 
 					 
         $stateProvider
