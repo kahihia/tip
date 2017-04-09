@@ -69,8 +69,8 @@
     <allow-intent href="tel:*" />
     <allow-intent href="mailto:*" />
     <allow-navigation href="*" />
-    <allow-intent href="http:///" />
-    <allow-intent href="https:///" />
+    <allow-intent href="http:*" />
+    <allow-intent href="https:*" />
     <access origin="*" />
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
