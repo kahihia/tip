@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 'starter.filters',
-    'google.places', 'ngStorage', 'youtube-embed', 'ngCordova'
+    'google.places', 'ngStorage', 'youtube-embed', 'ngCordova','ngDfp'
 ])
 
     .run(function ($ionicPlatform, $ionicHistory, $rootScope, $localStorage, $http, $timeout, $ionicPopup, $state, $cordovaGeolocation, $ionicSideMenuDelegate) {
@@ -997,7 +997,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
     })
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider,DoubleClickProvider) {
+		
+  DoubleClickProvider.defineSlot('/48282107/AndroidStickyInfoPage320//50', [320, 50], 'androidInformation')
+                     .defineSlot('/48282107/IOSStickyInfoPage320//50', [320, 50], 'iosInformation')
+					 .defineSlot('/48282107/IOS320//50Top', [320, 50], 'monthlyIphone')
+					 .defineSlot('/48282107/Android320//50Top', [320, 50], 'monthlyAndroid')
+					 .defineSlot('/48282107/IOS320//50Lower', [320, 50], 'yearlyIphone')
+					 .defineSlot('/48282107/Android320//50Lower', [320, 50], 'yearlyAndroid');
+
+
+					 
+
+					 
         $stateProvider
 
             .state('app', {

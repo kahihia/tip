@@ -2323,4 +2323,14 @@ angular.module('starter.controllers', [])
 
     })
 
-;
+
+
+
+.directive('iframe', function() {
+  return {
+    compile: function(element) {
+      element.attr('target', '_blank');
+    }
+  };
+});
+
