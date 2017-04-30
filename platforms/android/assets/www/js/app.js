@@ -810,8 +810,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
                 'lng': $rootScope.lng
 
             };
-
-            $http.post($rootScope.host + 'GetDealsWithLocation', send_coord, {
+			//GetDealsWithLocation2
+            $http.post($rootScope.host + 'GetGrouponsWithLocations', send_coord, {
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8; application/json'}
 
@@ -820,6 +820,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
                     $rootScope.deals = data.data;
                     $rootScope.closeDeals = [];
+					console.log("deals with location: " , $rootScope.deals)
 
                     for (var i = 0; i < $rootScope.deals.length; i++) {
 
